@@ -1,0 +1,19 @@
+<RCC>
+  <qresource prefix="图标">
+    <file>icons/箭头_向右.svg</file>
+    <file>icons/箭头_向左.svg</file>
+    <file>icons/chrome.svg</file>
+    <file>icons/清屏.svg</file>
+    <file>icons/1246348342.svg</file>
+    <file>icons/4534535425.svg</file>
+    <file>icons/Excel.svg</file>
+    <file>icons/菜单.svg</file>
+    <file>icons/关闭.svg</file>
+    <file>icons/警告.svg</file>
+    <file>icons/设置.svg</file>
+    <file>icons/双下拉箭头.svg</file>
+    <file>icons/最大化-还原.svg</file>
+    <file>icons/最小化.svg</file>
+    <file>icons/作者.svg</file>
+  </qresource>
+</RCC>

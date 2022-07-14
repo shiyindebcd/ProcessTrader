@@ -1,0 +1,63 @@
+<svg width="1024" height="1024" xmlns="http://www.w3.org/2000/svg" class="icon">
+ <defs>
+  <style type="text/css">@font-face { font-family: Georgia; src: local("Source Serif Pro"); }
+@font-face { font-family: Times; src: local("Source Serif Pro"); }
+@font-face { font-family: "Time New Roman"; src: local("Source Serif Pro"); }
+@font-face { font-family: Arial; }
+@font-face { font-family: Helvetica; }
+@font-face { font-family: "Helvetica Neue"; }
+@font-face { font-family: "Open Sans"; }
+@font-face { font-family: "Segoe UI"; }
+@font-face { font-family: Tahoma; }
+@font-face { font-family: Trebuchet; }
+@font-face { font-family: "Trebuchet MS"; }
+@font-face { font-family: Ubuntu; }
+@font-face { font-family: Verdana; }
+@font-face { font-family: Consolas; src: local("Source Code Pro"); }
+@font-face { font-family: Courier; src: local("Source Code Pro"); }
+@font-face { font-family: "Courier New"; src: local("Source Code Pro"); }
+@font-face { font-family: "Lucida Console"; src: local("Source Code Pro"); }
+@font-face { font-family: "Ubuntu Mono"; src: local("Source Code Pro"); }
+@font-face { font-family: SimSun; src: local("Source Han Sans SC"); }
+@font-face { font-family: SimSun-ExtB; src: local("Source Han Sans SC"); }
+@font-face { font-family: 宋体; src: local("Source Han Sans SC"); }
+@font-face { font-family: NSimSun; src: local("Source Han Sans SC"); }
+@font-face { font-family: 新宋体; src: local("Source Han Sans SC"); }
+@font-face { font-family: SimHei; src: local("Source Han Sans SC"); }
+@font-face { font-family: 黑体; src: local("Source Han Sans SC"); }
+@font-face { font-family: "Microsoft YaHei UI"; src: local("Source Han Sans SC"); }
+@font-face { font-family: "Microsoft YaHei"; src: local("Source Han Sans SC"); }
+@font-face { font-family: 微软雅黑; src: local("Source Han Sans SC"); }
+@font-face { font-family: "STHeiti SC"; src: local("Source Han Sans SC"); }
+@font-face { font-family: "PingFang SC"; src: local("Source Han Sans SC"); }
+@font-face { font-family: 苹方-简; src: local("Source Han Sans SC"); }
+@font-face { font-family: MingLiU; src: local("Source Han Sans TC"); }
+@font-face { font-family: MingLiU-ExtB; src: local("Source Han Sans TC"); }
+@font-face { font-family: PMingLiU; src: local("Source Han Sans TC"); }
+@font-face { font-family: PMingLiU-ExtB; src: local("Source Han Sans TC"); }
+@font-face { font-family: "Microsoft JhengHei UI"; src: local("Source Han Sans TC"); }
+@font-face { font-family: "Microsoft JhengHei"; src: local("Source Han Sans TC"); }
+@font-face { font-family: 微軟正黑體; src: local("Source Han Sans TC"); }
+@font-face { font-family: "STHeiti TC"; src: local("Source Han Sans TC"); }
+@font-face { font-family: "PingFang TC"; src: local("Source Han Sans TC"); }
+@font-face { font-family: 蘋方-繁; src: local("Source Han Sans TC"); }
+@font-face { font-family: MingLiU_HKSCS; src: local("Source Han Sans HC"); }
+@font-face { font-family: MingLiU_HKSCS-ExtB; src: local("Source Han Sans HC"); }
+@font-face { font-family: "PingFang HK"; src: local("Source Han Sans HC"); }
+@font-face { font-family: 蘋方-港; src: local("Source Han Sans HC"); }
+@font-face { font-family: "MS Gothic"; src: local("Source Han Sans"); }
+@font-face { font-family: "MS PGothic"; src: local("Source Han Sans"); }
+@font-face { font-family: "MS UI Gothic"; src: local("Source Han Sans"); }
+@font-face { font-family: "Yu Gothic"; src: local("Source Han Sans"); }
+@font-face { font-family: "Yu Gothic UI"; src: local("Source Han Sans"); }
+@font-face { font-family: "Malgun Gothic"; src: local("Source Han Sans K"); }</style>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="3.975309" width="3.975309" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path transform="rotate(-90.29251861572266 512,512) " id="svg_1" fill-opacity="0.9" fill="#ffffff" d="m416,370.752l0,-178.752l64,0l0,256a32,32 0 0 1 -32,32l-256,0l0,-64l178.752,0l-233.408,-233.344l45.312,-45.312l233.344,233.408zm192,282.496l0,178.752l-64,0l0,-256a32,32 0 0 1 32,-32l256,0l0,64l-178.752,0l233.408,233.344l-45.248,45.312l-233.408,-233.408z"/>
+ </g>
+</svg>
