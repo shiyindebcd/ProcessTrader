@@ -6520,6 +6520,13 @@ class Ui_MainWindow(object):
 "}")
         self.frame_74.setFrameShape(QFrame.StyledPanel)
         self.frame_74.setFrameShadow(QFrame.Raised)
+        self.label_16 = QLabel(self.frame_74)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setGeometry(QRect(300, 270, 500, 40))
+        self.label_16.setMinimumSize(QSize(500, 40))
+        self.label_16.setStyleSheet(u"font: 700 16pt \"\u7b49\u7ebf\";\n"
+"color: rgb(255, 0, 127);\n"
+"border: none;")
 
         self.verticalLayout_46.addWidget(self.frame_74)
 
@@ -6596,6 +6603,13 @@ class Ui_MainWindow(object):
 "}")
         self.frame_72.setFrameShape(QFrame.StyledPanel)
         self.frame_72.setFrameShadow(QFrame.Raised)
+        self.label_15 = QLabel(self.frame_72)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setGeometry(QRect(320, 260, 500, 40))
+        self.label_15.setMinimumSize(QSize(500, 40))
+        self.label_15.setStyleSheet(u"font: 700 16pt \"\u7b49\u7ebf\";\n"
+"color: rgb(255, 0, 127);\n"
+"border: none;")
 
         self.verticalLayout_47.addWidget(self.frame_72)
 
@@ -6671,6 +6685,13 @@ class Ui_MainWindow(object):
 "}")
         self.frame_82.setFrameShape(QFrame.StyledPanel)
         self.frame_82.setFrameShadow(QFrame.Raised)
+        self.label_14 = QLabel(self.frame_82)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setGeometry(QRect(360, 250, 500, 40))
+        self.label_14.setMinimumSize(QSize(500, 40))
+        self.label_14.setStyleSheet(u"font: 700 16pt \"\u7b49\u7ebf\";\n"
+"color: rgb(255, 0, 127);\n"
+"border: none;")
 
         self.verticalLayout_49.addWidget(self.frame_82)
 
@@ -6746,6 +6767,13 @@ class Ui_MainWindow(object):
 "}")
         self.frame_85.setFrameShape(QFrame.StyledPanel)
         self.frame_85.setFrameShadow(QFrame.Raised)
+        self.label_13 = QLabel(self.frame_85)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setGeometry(QRect(420, 200, 500, 40))
+        self.label_13.setMinimumSize(QSize(500, 40))
+        self.label_13.setStyleSheet(u"font: 700 16pt \"\u7b49\u7ebf\";\n"
+"color: rgb(255, 0, 127);\n"
+"border: none;")
 
         self.verticalLayout_50.addWidget(self.frame_85)
 
@@ -6821,6 +6849,13 @@ class Ui_MainWindow(object):
 "}")
         self.frame_88.setFrameShape(QFrame.StyledPanel)
         self.frame_88.setFrameShadow(QFrame.Raised)
+        self.label_11 = QLabel(self.frame_88)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setGeometry(QRect(280, 250, 500, 40))
+        self.label_11.setMinimumSize(QSize(500, 40))
+        self.label_11.setStyleSheet(u"font: 700 16pt \"\u7b49\u7ebf\";\n"
+"color: rgb(255, 0, 127);\n"
+"border: none;")
 
         self.verticalLayout_51.addWidget(self.frame_88)
 
@@ -8224,7 +8259,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.layout().setSpacing(6)
         self.stackedWidget.setCurrentIndex(0)
         self.tabWidget_account.setCurrentIndex(3)
-        self.tabWidget_chart.setCurrentIndex(4)
+        self.tabWidget_chart.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -8361,14 +8396,19 @@ class Ui_MainWindow(object):
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u65e5\u5fd7\u6587\u4ef6\u5217\u8868\uff1a", None))
         self.Btn_update_treeview.setText(QCoreApplication.translate("MainWindow", u"\u5237\u65b0\u6587\u4ef6\u5217\u8868", None))
         self.pushButton_account_manage_5.setText(QCoreApplication.translate("MainWindow", u"\u5404\u8fdb\u7a0b\u7b56\u7565\u76c8\u4e8f\u60c5\u51b5", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u8868\u529f\u80fd\u8fd8\u6ca1\u505a\u51fa\u6765\uff0c\u540e\u7eed\u4f1a\u66f4\u65b0", None))
         self.tabWidget_chart.setTabText(self.tabWidget_chart.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"\u67f1\u72b6\u56fe", None))
         self.pushButton_account_manage_3.setText(QCoreApplication.translate("MainWindow", u"\u76c8\u4e8f\u56fe\u8868", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u8868\u529f\u80fd\u8fd8\u6ca1\u505a\u51fa\u6765\uff0c\u540e\u7eed\u4f1a\u66f4\u65b0", None))
         self.tabWidget_chart.setTabText(self.tabWidget_chart.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"\u6298\u7ebf\u56fe", None))
         self.pushButton_account_manage_7.setText(QCoreApplication.translate("MainWindow", u"\u76c8\u4e8f\u5360\u6bd4", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u8868\u529f\u80fd\u8fd8\u6ca1\u505a\u51fa\u6765\uff0c\u540e\u7eed\u4f1a\u66f4\u65b0", None))
         self.tabWidget_chart.setTabText(self.tabWidget_chart.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"\u997c\u72b6\u56fe", None))
         self.pushButton_account_manage_8.setText(QCoreApplication.translate("MainWindow", u"\u7b56\u7565\u5b9e\u4f8b\u5f52\u5c5e\u5173\u7cfb\u56fe", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u8868\u529f\u80fd\u8fd8\u6ca1\u505a\u51fa\u6765\uff0c\u540e\u7eed\u4f1a\u66f4\u65b0", None))
         self.tabWidget_chart.setTabText(self.tabWidget_chart.indexOf(self.widget), QCoreApplication.translate("MainWindow", u"\u6851\u57fa\u56fe", None))
         self.pushButton_account_manage_9.setText(QCoreApplication.translate("MainWindow", u"\u8ba2\u9605\u7684k\u7ebf\u56fe", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u8868\u529f\u80fd\u8fd8\u6ca1\u505a\u51fa\u6765\uff0c\u540e\u7eed\u4f1a\u66f4\u65b0", None))
         self.tabWidget_chart.setTabText(self.tabWidget_chart.indexOf(self.tab_6), QCoreApplication.translate("MainWindow", u"K\u7ebf\u56fe", None))
         self.label_27.setText(QCoreApplication.translate("MainWindow", u"\u8bf7\u8f93\u5165\u56de\u6d4b\u53c2\u6570:", None))
         self.Btn_open_with_chrome.setText(QCoreApplication.translate("MainWindow", u" \u5728\u6d4f\u89c8\u5668\u4e2d\u6253\u5f00\u56de\u6d4b\u9875", None))

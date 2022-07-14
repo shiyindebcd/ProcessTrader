@@ -10985,7 +10985,7 @@ QTabBar::tab:selected {
                        <enum>QTabWidget::Rounded</enum>
                       </property>
                       <property name="currentIndex">
-                       <number>4</number>
+                       <number>0</number>
                       </property>
                       <widget class="QWidget" name="tab">
                        <attribute name="title">
@@ -11102,6 +11102,30 @@ QFrame:hover {
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
+                          <widget class="QLabel" name="label_16">
+                           <property name="geometry">
+                            <rect>
+                             <x>300</x>
+                             <y>270</y>
+                             <width>500</width>
+                             <height>40</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>500</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">font: 700 16pt &quot;等线&quot;;
+color: rgb(255, 0, 127);
+border: none;</string>
+                           </property>
+                           <property name="text">
+                            <string>图表功能还没做出来，后续会更新</string>
+                           </property>
+                          </widget>
                          </widget>
                         </item>
                         <item>
@@ -11248,6 +11272,30 @@ QFrame:hover {
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
+                          <widget class="QLabel" name="label_15">
+                           <property name="geometry">
+                            <rect>
+                             <x>320</x>
+                             <y>260</y>
+                             <width>500</width>
+                             <height>40</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>500</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">font: 700 16pt &quot;等线&quot;;
+color: rgb(255, 0, 127);
+border: none;</string>
+                           </property>
+                           <property name="text">
+                            <string>图表功能还没做出来，后续会更新</string>
+                           </property>
+                          </widget>
                          </widget>
                         </item>
                         <item>
@@ -11393,6 +11441,30 @@ QFrame:hover {
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
+                          <widget class="QLabel" name="label_14">
+                           <property name="geometry">
+                            <rect>
+                             <x>360</x>
+                             <y>250</y>
+                             <width>500</width>
+                             <height>40</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>500</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">font: 700 16pt &quot;等线&quot;;
+color: rgb(255, 0, 127);
+border: none;</string>
+                           </property>
+                           <property name="text">
+                            <string>图表功能还没做出来，后续会更新</string>
+                           </property>
+                          </widget>
                          </widget>
                         </item>
                         <item>
@@ -11538,6 +11610,30 @@ QFrame:hover {
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
+                          <widget class="QLabel" name="label_13">
+                           <property name="geometry">
+                            <rect>
+                             <x>420</x>
+                             <y>200</y>
+                             <width>500</width>
+                             <height>40</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>500</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">font: 700 16pt &quot;等线&quot;;
+color: rgb(255, 0, 127);
+border: none;</string>
+                           </property>
+                           <property name="text">
+                            <string>图表功能还没做出来，后续会更新</string>
+                           </property>
+                          </widget>
                          </widget>
                         </item>
                         <item>
@@ -11683,6 +11779,30 @@ QFrame:hover {
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
+                          <widget class="QLabel" name="label_11">
+                           <property name="geometry">
+                            <rect>
+                             <x>280</x>
+                             <y>250</y>
+                             <width>500</width>
+                             <height>40</height>
+                            </rect>
+                           </property>
+                           <property name="minimumSize">
+                            <size>
+                             <width>500</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">font: 700 16pt &quot;等线&quot;;
+color: rgb(255, 0, 127);
+border: none;</string>
+                           </property>
+                           <property name="text">
+                            <string>图表功能还没做出来，后续会更新</string>
+                           </property>
+                          </widget>
                          </widget>
                         </item>
                         <item>

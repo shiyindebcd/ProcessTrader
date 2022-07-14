@@ -311,13 +311,13 @@
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="7626"/>
-        <location filename="../../mainwindows.ui" line="12140"/>
+        <location filename="../../mainwindows.ui" line="12260"/>
         <source>选择天勤帐户</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="7670"/>
-        <location filename="../../mainwindows.ui" line="12184"/>
+        <location filename="../../mainwindows.ui" line="12304"/>
         <source>选择策略</source>
         <translation type="unfinished"></translation>
     </message>
@@ -338,13 +338,13 @@
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="7837"/>
-        <location filename="../../mainwindows.ui" line="12389"/>
+        <location filename="../../mainwindows.ui" line="12509"/>
         <source>web端口号</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="7878"/>
-        <location filename="../../mainwindows.ui" line="12225"/>
+        <location filename="../../mainwindows.ui" line="12345"/>
         <source>交易所</source>
         <translation type="unfinished"></translation>
     </message>
@@ -365,37 +365,37 @@
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="8399"/>
-        <location filename="../../mainwindows.ui" line="12853"/>
+        <location filename="../../mainwindows.ui" line="12973"/>
         <source>大商所 DCE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="8404"/>
-        <location filename="../../mainwindows.ui" line="12858"/>
+        <location filename="../../mainwindows.ui" line="12978"/>
         <source>上期所 SHFE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="8409"/>
-        <location filename="../../mainwindows.ui" line="12863"/>
+        <location filename="../../mainwindows.ui" line="12983"/>
         <source>郑商所 CZCE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="8414"/>
-        <location filename="../../mainwindows.ui" line="12868"/>
+        <location filename="../../mainwindows.ui" line="12988"/>
         <source>能源交易所 INE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="8419"/>
-        <location filename="../../mainwindows.ui" line="12873"/>
+        <location filename="../../mainwindows.ui" line="12993"/>
         <source>中金所 CFFEX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="8646"/>
-        <location filename="../../mainwindows.ui" line="12266"/>
+        <location filename="../../mainwindows.ui" line="12386"/>
         <source>合约名</source>
         <translation type="unfinished"></translation>
     </message>
@@ -406,37 +406,37 @@
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="8728"/>
-        <location filename="../../mainwindows.ui" line="12348"/>
+        <location filename="../../mainwindows.ui" line="12468"/>
         <source>策略初始资金</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="8769"/>
-        <location filename="../../mainwindows.ui" line="12430"/>
+        <location filename="../../mainwindows.ui" line="12550"/>
         <source>交易方向</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="8810"/>
-        <location filename="../../mainwindows.ui" line="12471"/>
+        <location filename="../../mainwindows.ui" line="12591"/>
         <source>合约倍数</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="8851"/>
-        <location filename="../../mainwindows.ui" line="12512"/>
+        <location filename="../../mainwindows.ui" line="12632"/>
         <source>保证金率（%）</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="8892"/>
-        <location filename="../../mainwindows.ui" line="12553"/>
+        <location filename="../../mainwindows.ui" line="12673"/>
         <source>止损位（%）</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../mainwindows.ui" line="8933"/>
-        <location filename="../../mainwindows.ui" line="12594"/>
+        <location filename="../../mainwindows.ui" line="12714"/>
         <source>止盈位（%）</source>
         <translation type="unfinished"></translation>
     </message>
@@ -486,97 +486,106 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="11137"/>
+        <location filename="../../mainwindows.ui" line="11126"/>
+        <location filename="../../mainwindows.ui" line="11296"/>
+        <location filename="../../mainwindows.ui" line="11465"/>
+        <location filename="../../mainwindows.ui" line="11634"/>
+        <location filename="../../mainwindows.ui" line="11803"/>
+        <source>图表功能还没做出来，后续会更新</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../mainwindows.ui" line="11161"/>
         <source>折线图</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="11226"/>
+        <location filename="../../mainwindows.ui" line="11250"/>
         <source>盈亏图表</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="11283"/>
+        <location filename="../../mainwindows.ui" line="11331"/>
         <source>饼状图</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="11371"/>
+        <location filename="../../mainwindows.ui" line="11419"/>
         <source>盈亏占比</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="11428"/>
+        <location filename="../../mainwindows.ui" line="11500"/>
         <source>桑基图</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="11516"/>
+        <location filename="../../mainwindows.ui" line="11588"/>
         <source>策略实例归属关系图</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="11573"/>
+        <location filename="../../mainwindows.ui" line="11669"/>
         <source>K线图</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="11661"/>
+        <location filename="../../mainwindows.ui" line="11757"/>
         <source>订阅的k线图</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="11850"/>
+        <location filename="../../mainwindows.ui" line="11970"/>
         <source>请输入回测参数:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="11936"/>
+        <location filename="../../mainwindows.ui" line="12056"/>
         <source> 在浏览器中打开回测页</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="12307"/>
+        <location filename="../../mainwindows.ui" line="12427"/>
         <source>合约周期</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="13392"/>
+        <location filename="../../mainwindows.ui" line="13512"/>
         <source>请选择回测开始日期</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="13507"/>
+        <location filename="../../mainwindows.ui" line="13627"/>
         <source>选择的开始日期</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="13619"/>
+        <location filename="../../mainwindows.ui" line="13739"/>
         <source>请选择回测结束日期</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="13733"/>
+        <location filename="../../mainwindows.ui" line="13853"/>
         <source>选择的结束日期</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="13810"/>
+        <location filename="../../mainwindows.ui" line="13930"/>
         <source>开始回测</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="13866"/>
+        <location filename="../../mainwindows.ui" line="13986"/>
         <source>清除参数</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="13961"/>
+        <location filename="../../mainwindows.ui" line="14081"/>
         <source>进程交易者--基于天勤的程序化交易框架1.00</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../mainwindows.ui" line="13994"/>
+        <location filename="../../mainwindows.ui" line="14114"/>
         <source>当前时间</source>
         <translation type="unfinished"></translation>
     </message>
