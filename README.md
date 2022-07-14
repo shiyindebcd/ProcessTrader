@@ -39,6 +39,13 @@ pip install openpyxl -i https://pypi.tuna.tsinghua.edu.cn/simple/
 运行main.py
 
 
+
 #### 使用说明
 
-参考B站的视频解说
+将  自启动脚本.bat  这个文件里的第6行  cd E:\进程交易者
+这个地址改成你自己的本软件文件夹地址
+双击 自启动脚本.bat 即可运行软件
+
+然后对这个bat文件创建个快捷方式，放到C:\Users\你的电脑用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup 文件夹下，即可实现开机自启动软件
+
+其他详细用法请参考B站的视频解说
