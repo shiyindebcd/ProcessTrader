@@ -360,6 +360,11 @@ class Main_Process_Function:    # 主进程函数类，该类由主窗口类继�
         clients_dict['clients_id'] = self.clients_id.text()
         clients_dict['clients_tel'] = self.clients_tel.text()
         clients_dict['clients_address'] = self.clients_address.text()
+
+        # 判断是否存在clients_photo文件夹，如果不存在，则创建
+        if not os.path.exists('./clients_photo'):
+            os.makedirs('./clients_photo')
+            
         # 将clients_photo_address.text()的图片复制到clients_photo文件夹中
         #打开源图片
         f_src = open(self.clients_photo_address.text(), 'rb')
