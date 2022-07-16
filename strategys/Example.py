@@ -1,20 +1,18 @@
-# -*- coding: utf-8 -*-
-
-import random
+# coding:utf-8
 import multiprocessing
 import time
-import datetime
 import sys
 import os
-from ping3 import ping
+import random
 
+from tqsdk2 import TargetPosTask, TqApi, TqSim, TqAuth
 sys.path.append("..")
 from read_write_file import Logger
 
-# 这是一个用来测试的策略，不断ping一个网址，然后不定时自己关掉进程，用来测试程序是否能够正常运行，是否能够自己不断自动重启挂掉的策略
-# 启动进程的字典中，只需要将web_port这个参数高成想要ping的ip或网址即可
+# 双均线策略示例，用来演示在本框架中如何写天勤策略
 
-class ping_test(multiprocessing.Process):
+
+class Example(multiprocessing.Process):
     def __init__(self, args):
         multiprocessing.Process.__init__(self)
 
@@ -60,51 +58,25 @@ class ping_test(multiprocessing.Process):
         self.dict['N5'] = args[1]['N5']
         self.dict['N6'] = args[1]['N6']            
         
-                  
-
-    def ping_some_ip(self, host, src_addr=None):
-        second = ping(host, src_addr=src_addr)
-        return second
 
     def run(self):
-        sys.stdout = Logger(process_name=self.dict['process_name'])    # 由 logger 类实例化的对象接管系统标准输出
-
+        sys.stdout = Logger(process_name=self.dict['process_name'])
         try:
-               
-            src_addr = None
-            i = 0
-            r = int(random.random() * 100)
-            # r = 5
             while True:
-                print('1111111111111111111111111\n')
-                print('子进程' + self.dict['process_name'] + '正在执行。。。')
-                print('当前子进程pid为' + str(os.getpid()))
-                i += 1
-                result = self.ping_some_ip(self.dict['web_port'], src_addr)
-
-                if result:
-                    print('当前index为：', self.index, '\n')
-                    print('当前进程为： ', self.dict['process_name'], ' .......循环次数为: ', i, '随机数r为: ', r, '\n')
-                    print('当前时间为: ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n')
-                    print('ping - ', self.dict['web_port'], '   成功，  耗时  ', result, '秒\n\n\n')
-
-                else:
-                    print('当前index为：', self.index, '\n')
-                    print('当前进程为： ', self.dict['process_name'], ' .......循环次数为: ', i, '随机数r为: ', r, '\n')
-                    print('当前时间为:', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n')
-                    print('ping - ', self.dict['web_port'], '  失败！\n\n\n')
-                time.sleep(r)
-
-                if i >= r:
-                    print('进程', self.dict['process_name'], ' 因为一些原因，已结束\n') 
-                    print('结束时间为： ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n\n' )
+                r = random.randint(0, 100)
+                print("当前进程为:", self.dict["process_name"])
+                print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+                print(self.dict)
+                time.sleep(r * 10)
+                if r > 95:
+                    
+                    print("进程停止")
                     # 结束进程
                     sys.exit()
 
         except Exception as ex:
-            print('捕获异常: %r' % ex)
-            sys.exit(1)     #退出程序
-
+            print("exception catched: %r" % ex)
+            sys.exit(1)
 
 
 if __name__ == '__main__':
@@ -149,6 +121,7 @@ if __name__ == '__main__':
                 "N5": 0,
                 "N6": 0,
                 }
+
 
     backtest_start_date = '2021-09-10'
     backtest_end_date = '2022-03-14'

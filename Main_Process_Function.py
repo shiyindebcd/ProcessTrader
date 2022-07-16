@@ -455,7 +455,7 @@ class Main_Process_Function:    # 主进程函数类，该类由主窗口类继�
         index = df.index[df['tq_account'] == current_tq_account]  # 获取当前所选项目对应的pd行index
         for idx, row in df.iterrows():
             if idx == index:
-                my_dict['tq_psd'] = row['tq_psd']  # 天勤密码
+                my_dict['tq_psd'] = str(row['tq_psd'])  # 天勤密码
                 my_dict['futures_company'] = row['futures_company']  # 期货公司
                 my_dict['futures_account'] = row['futures_account']  # 期货账号
                 my_dict['futures_psd'] = row['futures_psd']  # 期货密码
@@ -492,6 +492,8 @@ class Main_Process_Function:    # 主进程函数类，该类由主窗口类继�
         my_dict['N4'] = 0               # 可选参数4
         my_dict['N5'] = 0               # 可选参数5
         my_dict['N6'] = 0               # 可选参数6
+
+        print('已新添加策略，策略参数为： \n' + str(my_dict))
 
         df = pd.DataFrame(my_dict, index=[0])
 
@@ -543,7 +545,7 @@ class Main_Process_Function:    # 主进程函数类，该类由主窗口类继�
         index = df.index[df['tq_account'] == current_tq_account]  # 获取当前所选项目对应的pd行index
         for idx, row in df.iterrows():
             if idx == index:
-                my_dict['tq_psd'] = row['tq_psd']  # 天勤密码
+                my_dict['tq_psd'] = str(row['tq_psd'])  # 天勤密码
                 my_dict['futures_company'] = row['futures_company']  # 期货公司
                 my_dict['futures_account'] = row['futures_account']  # 期货账号
                 my_dict['futures_psd'] = row['futures_psd']  # 期货密码
