@@ -260,14 +260,13 @@ class Main_Process_Function:    # 主进程函数类，该类由主窗口类继�
                             for line in f.readlines():
                                 cls_match = re.match(r'class\s(.*?)[\(:]', line)        # 用正则表达式寻找class关键字之后的类名
                                 if cls_match:
-                                    cls_name = cls_match.group(1)
-                                    try:
-                                        module = imp.load_source('mycl', file)      # 加载模块
-                                        cls_a = getattr(module, cls_name)       # 获取类
-                                        if cls_a:
-                                            class_name_list.append(cls_name)
-                                    except Exception as e:
-                                        print('exception catched: %r' % e)
+                                    cls_name = cls_match.group(1)    
+
+                                    #判断cls_name是否是和文件名相同的类
+                                    if cls_name == file.split('\\')[-1].split('.')[0]:
+                                        class_name_list.append(cls_name)                                        
+                                    else:
+                                        pass                                    
         return class_name_list
 
     def add_clients_list_to_combobox(self): # 将用户列表添加到combobox中

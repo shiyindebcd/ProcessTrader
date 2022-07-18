@@ -49,3 +49,4 @@ pip install openpyxl -i https://pypi.tuna.tsinghua.edu.cn/simple/
 然后对这个bat文件创建个快捷方式，放到C:\Users\你的电脑用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup 文件夹下，即可实现开机自启动软件
 
 其他详细用法请参考B站的视频解说
+https://www.bilibili.com/video/BV1tY4y177sv?share_source=copy_web&vd_source=0f0ae5e8365c85cd112830a14d80cef6

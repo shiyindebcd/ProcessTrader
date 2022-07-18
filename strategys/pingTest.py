@@ -8,7 +8,6 @@ import sys
 import os
 from ping3 import ping
 
-sys.path.append("..")
 from read_write_file import Logger
 
 
@@ -117,7 +116,7 @@ if __name__ == '__main__':
                 "futures_psd": "zhangsan8888",
                 "symbol": "DCE.c2205",
                 "symbol_period": 15,
-                "strategy": "PUBU_five",
+                "strategy": "pingTest",
                 "whether_self_start": True,
                 "whether_live_trading": False,
                 # 'whether_backtest': True,
@@ -154,6 +153,6 @@ if __name__ == '__main__':
     # 定义一个元组，用于存储index，字典和回测日期, 这个元组会在进程类初始化的时候传入
     backtest_tuple = (index, my_dict, backtest_start_date, backtest_end_date)
 
-    t = pingItem1(args=backtest_tuple)      # 实例化进程类
+    t = pingTest(args=backtest_tuple)      # 实例化进程类
     t.name = backtest_tuple[1]['process_name']    # 设置进程名称
     t.start()                                            # 启动进程

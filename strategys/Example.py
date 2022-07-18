@@ -5,8 +5,8 @@ import sys
 import os
 import random
 
-from tqsdk2 import TargetPosTask, TqApi, TqSim, TqAuth
-sys.path.append("..")
+from tqsdk import TargetPosTask, TqApi, TqSim, TqAuth
+
 from read_write_file import Logger
 
 # 双均线策略示例，用来演示在本框架中如何写天勤策略
@@ -129,6 +129,6 @@ if __name__ == '__main__':
     # 定义一个元组，用于存储index，字典和回测日期, 这个元组会在进程类初始化的时候传入
     backtest_tuple = (index, my_dict, backtest_start_date, backtest_end_date)
 
-    t = pingItem1(args=backtest_tuple)      # 实例化进程类
+    t = pingTest(args=backtest_tuple)      # 实例化进程类
     t.name = backtest_tuple[1]['process_name']    # 设置进程名称
-    t.start()                                            # 启动进程
+    t.start()                                     # 启动进程

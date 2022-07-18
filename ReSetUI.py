@@ -81,7 +81,7 @@ class Donation(QWidget, Ui_Form):                # 捐赠窗口类
         self.label_6.setOpenExternalLinks(True)  
         self.label_6.setTextInteractionFlags(Qt.TextBrowserInteraction)
 
-        self.label_7.setText('B站软件用法详细解说地址：  https://www.bilibili.com   <a href="https://www.bilibili.com/video/BV1tY4y177sv?spm_id_from=333.999.0.0&vd_source=34936232dede7de298e73ab095bd3b0c">  点击跳转</a>')
+        self.label_7.setText('B站软件用法详细解说地址：  https://www.bilibili.com   <a href="https://www.bilibili.com/video/BV1tY4y177sv?share_source=copy_web&vd_source=0f0ae5e8365c85cd112830a14d80cef6">  点击跳转</a>')
         self.label_7.setOpenExternalLinks(True)  
         self.label_7.setTextInteractionFlags(Qt.TextBrowserInteraction)
 
