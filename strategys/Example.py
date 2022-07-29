@@ -5,11 +5,11 @@ import sys
 import os
 import random
 
-from tqsdk import TargetPosTask, TqApi, TqSim, TqAuth
+from tqsdk import TargetPosTask, TqApi, TqSim, TqAuth, TqKq, TqAccount, TqBacktest
 
 from read_write_file import Logger
 
-# 双均线策略示例，用来演示在本框架中如何写天勤策略
+# 策略示例，用来演示在本框架中如何写天勤策略
 
 
 class Example(multiprocessing.Process):
@@ -57,23 +57,32 @@ class Example(multiprocessing.Process):
         self.dict['N4'] = args[1]['N4']
         self.dict['N5'] = args[1]['N5']
         self.dict['N6'] = args[1]['N6']            
-        
+
 
     def run(self):
+
+        self.kline_period = 60 * int(self.dict['symbol_period'])    # K线周期 分钟数
+        self.port = ':' + str(self.dict['web_port'])                # 网页端口前面加 ：
+                                                    
+        self.api = TqApi(TqKq(), web_gui=str(self.port), auth=TqAuth(self.dict['tq_account'], self.dict['tq_psd']))
+
+        self.quote = self.api.get_quote(self.dict['symbol'])
+        self.klines = self.api.get_kline_serial(self.dict['symbol'], duration_seconds=self.kline_period, data_length=300)
+
+        print('当前为模拟盘模式')
+        self.target_pos = TargetPosTask(self.api, symbol=self.dict['symbol'])
+        self.account = self.api.get_account()
+        self.position = self.api.get_position(self.dict['symbol'])
+
+        print('当前账户余额：%s' % self.account.balance)
+            
         sys.stdout = Logger(process_name=self.dict['process_name'])
+        
         try:
             while True:
-                r = random.randint(0, 100)
-                print("当前进程为:", self.dict["process_name"])
-                print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-                print(self.dict)
-                time.sleep(r * 10)
-                if r > 95:
-                    
-                    print("进程停止")
-                    # 结束进程
-                    sys.exit()
-
+                self.api.wait_update()
+                if self.api.is_changing(self.klines):
+                    print('K线数据更新')
         except Exception as ex:
             print("exception catched: %r" % ex)
             sys.exit(1)
@@ -84,12 +93,12 @@ if __name__ == '__main__':
     my_dict = {
                 "process_name": "张三@zhangsan@PUBU_five@DCE.c2205@15min",
                 "client_name": "张三",
-                "tq_account": "zhangsan",
-                "tq_psd": "zhangsan5566",                
+                "tq_account": "shiyindebcd",
+                "tq_psd": "shiyinde1234TQ",                
                 "futures_company": "Y银河期货",
                 "futures_account": 4562132,
                 "futures_psd": "zhangsan8888",
-                "symbol": "DCE.c2205",
+                "symbol": "DCE.i2209",
                 "symbol_period": 15,
                 "strategy": "PUBU_five",
                 "whether_self_start": True,
@@ -97,7 +106,7 @@ if __name__ == '__main__':
                 # 'whether_backtest': True,
                 "whether_backtest": False,
                 "whether_web_services": True,
-                "web_port": "114.114.114.114",
+                "web_port": "9999",
                 "stop_trading": 0,
                 "orientation": 0,
                 "initial_capital": 100000,
@@ -129,6 +138,6 @@ if __name__ == '__main__':
     # 定义一个元组，用于存储index，字典和回测日期, 这个元组会在进程类初始化的时候传入
     backtest_tuple = (index, my_dict, backtest_start_date, backtest_end_date)
 
-    t = pingTest(args=backtest_tuple)      # 实例化进程类
+    t = Example(args=backtest_tuple)      # 实例化进程类
     t.name = backtest_tuple[1]['process_name']    # 设置进程名称
     t.start()                                     # 启动进程

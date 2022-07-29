@@ -10,6 +10,7 @@ import pandas as pd
 import importlib
 from pandas import DataFrame
 from datetime import datetime
+from multiprocessing import Process, Manager
 import PySide6
 from PySide6 import QtCore, QtGui
 from PySide6.QtCharts import QChart
@@ -368,6 +369,9 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         t.setName(tuple[1]['process_name'])  # 设置进程名称
         t.start()  # 启动进程
         
+
+
+
 
     #####################################################################
     #####################下面这个函数是进程自启的核心代码 #####################
