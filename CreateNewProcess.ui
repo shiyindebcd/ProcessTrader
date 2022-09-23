@@ -89,6 +89,12 @@
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
          <item>
           <widget class="QLabel" name="label_tital_6">
            <property name="minimumSize">
@@ -167,14 +173,14 @@ border: none;</string>
           <widget class="QPushButton" name="Btn_min_window">
            <property name="minimumSize">
             <size>
-             <width>40</width>
-             <height>40</height>
+             <width>35</width>
+             <height>35</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>40</width>
-             <height>40</height>
+             <width>35</width>
+             <height>35</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -229,14 +235,14 @@ QPushButton:pressed {
           <widget class="QPushButton" name="Btn_close_window">
            <property name="minimumSize">
             <size>
-             <width>40</width>
-             <height>40</height>
+             <width>35</width>
+             <height>35</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>40</width>
-             <height>40</height>
+             <width>35</width>
+             <height>35</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -559,7 +565,7 @@ QLabel:disabled{
 }</string>
                     </property>
                     <property name="text">
-                     <string>选择天勤帐户</string>
+                     <string>选择天勤账户</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>

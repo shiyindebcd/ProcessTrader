@@ -9,20 +9,22 @@ import PySide6
 import pandas as pd
 import importlib
 from pandas import DataFrame
-from datetime import datetime
+from datetime import datetime, date
 from multiprocessing import Process, Manager
 import PySide6
+import pyqtgraph as pg
 from PySide6 import QtCore, QtGui
 from PySide6.QtCharts import QChart
-from PySide6.QtCore import QEventLoop, QStringListModel, QTimer
+from PySide6.QtCore import QEventLoop, QStringListModel, QTimer, Signal, QThread
 from PySide6.QtGui import QCursor, QStandardItem, QStandardItemModel, Qt, QPixmap
 from PySide6.QtUiTools import loadUiType
 from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QTableWidgetItem, QWidget, QDialog)
 from PySide6.QtWidgets import QMessageBox
-
+from tqsdk import TqApi, TqAuth, TargetPosTask, TqKq, TqBacktest, ta, tafunc
 from dtview import DonutWidget
 from mainwindows import Ui_MainWindow
 from Main_Process_Function import *
+from K_Chart_Widget import KLineWidget
 from read_write_file import ReadWriteCsv
 
 
@@ -36,13 +38,20 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         self.setWindowOpacity(0.97)                                     # 设置窗口透明度
 
         self.start_time = datetime.now()                                # 记录程序开始时间
+        self.main_tq_account = ''                                       # 主账户
+        self.main_tq__pwd = ''                                          # 主账户密码
+        self.current_Kline = ''                                         # 当前显示的K线
+        self.Quote_klines_dict = {}                                   # 自选合约字典,用来存放所有的自选合约klines
 
         # 将主进程的控制台输出重定向到textBrowser中显示
         sys.stdout = EmittingStr()
         sys.stdout.textWritten.connect(self.outputWritten)
         
         self.ioModal = ReadWriteCsv()                                   # 实例化 csv 操作类
+        self.KLineWidget = KLineWidget()                                      # 实例化K线图widget部件
+        self.verticalLayout_klines.addWidget(self.KLineWidget)               # 添加K线图部件到布局中
         self.whether_the_folder_exists()                                # 判断文件夹是否存在，不存在则创建
+
         self.times = 0                                                  # 进程守护定时器计数
         self.Quantity = 0 - self.get_inactivated_process_quantity() 
         
@@ -64,7 +73,9 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         # 面板参数刷新定时器
         self.parameters_refresh = QTimer(self)
         self.parameters_refresh.timeout.connect(self.add_paramer_to_container)
+        # self.parameters_refresh.timeout.connect(self.chack_main_tq_account)
         self.parameters_refresh.start(1000)
+        self.times1 = 0                                             #用来辅助计时,程序启动20秒后才登录天勤
 
         self.Define_slot_functions()                                # 定义槽函数
         self.hide_items()                                           # 隐藏控件
@@ -78,6 +89,8 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         self.load_process_config()                                  # 加载进程配置数据
         self.draw_dount_chart()                                     # 绘制饼图
         self.start_inactivated_process()                            # 启动未激活的进程
+        # pg.setConfigOption('background', QtGui.QColor(13, 9, 27))
+
 
     def mousePressEvent(self, e):  # 鼠标点击事件
         if e.button() == Qt.LeftButton:
@@ -111,6 +124,8 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         self.ioModal.judge_config_exist(path='./data/config.csv')
         self.ioModal.judge_config_exist(path='./data/clients.csv')
         self.ioModal.judge_config_exist(path='./data/tq_account.csv')
+        self.ioModal.judge_config_exist(path='./data/main_tq_account.csv')
+        self.ioModal.judge_config_exist(path='./data/self_selection.csv')
 
 
     def hide_items(self):  # 隐藏各种滚动条虚线框及标题栏
@@ -126,35 +141,33 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         # self.tq_account_listview.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         # self.tq_account_listview2.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         # self.strategy_listview.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        # self.qoute_listview.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        # self.quote_listview.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         # self.process_listview.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
         # self.clients_listview.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         # self.tq_account_listview.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         # self.strategy_listview.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        # self.qoute_listview.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        # self.quote_listview.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         # self.process_listview.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         # self.tableview.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         # self.tableWidget_deal_detials.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
          
         # # 隐藏点击时的虚线框
-        self.clients_listview.setFocusPolicy(Qt.NoFocus)
-        self.clients_listview2.setFocusPolicy(Qt.NoFocus)
-        self.tq_account_listview.setFocusPolicy(Qt.NoFocus) 
-        self.tq_account_listview2.setFocusPolicy(Qt.NoFocus)
-        self.strategy_listview.setFocusPolicy(Qt.NoFocus)
-        self.qoute_listview.setFocusPolicy(Qt.NoFocus)
-        self.process_listview.setFocusPolicy(Qt.NoFocus)
-        
         self.tableWidget_process.setFocusPolicy(Qt.NoFocus)   # QtableWidget隐藏点击时的虚线框
         self.tableWidget_deal_detials.setFocusPolicy(Qt.NoFocus)
         self.tabWidget_chart.setFocusPolicy(Qt.NoFocus)
         self.tabWidget_account.setFocusPolicy(Qt.NoFocus)
+        
         self.clients_listview.setFocusPolicy(Qt.NoFocus)        # QListView隐藏点击时的虚线框
+        self.clients_listview2.setFocusPolicy(Qt.NoFocus)
+        self.tq_account_listview.setFocusPolicy(Qt.NoFocus) 
+        self.tq_account_listview2.setFocusPolicy(Qt.NoFocus)
+        self.clients_listview.setFocusPolicy(Qt.NoFocus)        
         self.tq_account_listview.setFocusPolicy(Qt.NoFocus)
         self.strategy_listview.setFocusPolicy(Qt.NoFocus)
-        self.qoute_listview.setFocusPolicy(Qt.NoFocus)
+        self.quote_listview.setFocusPolicy(Qt.NoFocus)
         self.process_listview.setFocusPolicy(Qt.NoFocus)
+        self.self_selection_listview.setFocusPolicy(Qt.NoFocus)
 
         self.Btn_homepage.setFocusPolicy(Qt.NoFocus)            # 隐藏所有按钮点击时的虚线框
         self.Btn_account_manage.setFocusPolicy(Qt.NoFocus)
@@ -178,11 +191,50 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         self.Btn_opne_in_excel1.setFocusPolicy(Qt.NoFocus)
         self.Btn_opne_in_excel2.setFocusPolicy(Qt.NoFocus)
         self.Btn_update_treeview.setFocusPolicy(Qt.NoFocus)
-        self.pushButton_cleartext.setFocusPolicy(Qt.NoFocus)
+        self.Btn_cleartext.setFocusPolicy(Qt.NoFocus)
         self.Btn_kill_all_process.setFocusPolicy(Qt.NoFocus)
         self.treeview_log.setFocusPolicy(Qt.NoFocus)
         self.Btn_add_new_process.setFocusPolicy(Qt.NoFocus)
         self.Btn_add_backtest_process.setFocusPolicy(Qt.NoFocus)
+
+
+    def Define_slot_functions(self):  # 定义各种槽函数
+        self.Btn_switch_left_panel.clicked.connect(lambda: self.switch_left_panel(True))
+        self.Btn_normal_max_window.clicked.connect(self.maxmize_normalmize)
+        self.Btn_homepage.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
+        self.Btn_KliensChart.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
+        self.Btn_account_manage.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
+        self.Btn_account_manage.clicked.connect(self.add_paramer_to_combobox)
+        self.Btn_trading_log.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
+        self.Btn_chart_details.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(4))
+        self.Btn_previous_page.clicked.connect(self.previous_page)
+        self.Btn_next_page.clicked.connect(self.next_page)
+        self.Btn_start_all_stoped_strategy.clicked.connect(self.start_inactivated_process)
+        self.Btn_close_window.clicked.connect(self.show_exit_dialog)
+        self.Btn_add_clients.clicked.connect(self.get_clients)
+        self.Btn_cleartext.clicked.connect(self.textBrowser_terminal.clear)
+        self.Btn_cancel_input_clients.clicked.connect(self.clients_input_clear)
+        self.Btn_add_tq_account.clicked.connect(self.get_tq_account)
+        self.Btn_cancel_input_tq_account.clicked.connect(self.tq_account_input_clear)
+        self.Btn_donation.clicked.connect(self.show_donation_window)
+        self.Btn_setting.clicked.connect(self.show_setting_dialog)
+        self.Btn_select_clients_photo_address.clicked.connect(self.choose_client_photo_File)
+        self.Btn_kill_all_process.clicked.connect(self.kill_all_process)
+        self.Btn_update_treeview.clicked.connect(self.show_file_in_treeview)
+        self.Btn_add_new_process.clicked.connect(self.show_create_new_process_window)
+        self.Btn_add_backtest_process.clicked.connect(self.show_create_backtest_window)
+        self.Btn_add_optional_contracts.clicked.connect(self.add_Tq_Quote_to_csv)
+        self.Btn_draw_line_order.clicked.connect(self.KLineWidget.draw_line_by_mouse)
+        self.Btn_draw_line_style.clicked.connect(self.KLineWidget.set_draw_line_style)
+        self.treeview_log.clicked.connect(self.on_tree_licked)
+
+        self.Btn_opne_in_excel1.clicked.connect(lambda: self.open_file_with_excel(path='./data/deal_detials.csv'))
+        self.Btn_opne_in_excel2.clicked.connect(lambda: self.open_file_with_excel(path='./data/config.csv'))
+
+        #列表框槽函数
+        self.clients_listview2.clicked.connect(self.show_clients_info)
+        self.tq_account_listview2.clicked.connect(self.show_tq_account_info)
+        self.self_selection_listview.clicked.connect(self.set_current_dissplayed_Kline)
 
 
 
@@ -218,41 +270,6 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         
 
 
-    def Define_slot_functions(self):  # 定义各种槽函数
-        self.Btn_switch_left_panel.clicked.connect(lambda: self.switch_left_panel(True))
-        self.Btn_normal_max_window.clicked.connect(self.maxmize_normalmize)
-        self.Btn_homepage.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
-        self.Btn_KliensChart.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
-        self.Btn_account_manage.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
-        self.Btn_account_manage.clicked.connect(self.add_paramer_to_combobox)
-        self.Btn_trading_log.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
-        self.Btn_chart_details.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(4))
-        self.Btn_previous_page.clicked.connect(self.previous_page)
-        self.Btn_next_page.clicked.connect(self.next_page)
-        self.Btn_start_all_stoped_strategy.clicked.connect(self.start_inactivated_process)
-        self.Btn_close_window.clicked.connect(self.show_exit_dialog)
-        self.Btn_add_clients.clicked.connect(self.get_clients)
-        self.Btn_cancel_input_clients.clicked.connect(self.clients_input_clear)
-        self.Btn_add_tq_account.clicked.connect(self.get_tq_account)
-        self.Btn_cancel_input_tq_account.clicked.connect(self.tq_account_input_clear)
-        self.Btn_donation.clicked.connect(self.show_donation_window)
-        self.Btn_setting.clicked.connect(self.show_setting_dialog)
-        self.Btn_select_clients_photo_address.clicked.connect(self.choose_client_photo_File)
-        self.Btn_kill_all_process.clicked.connect(self.kill_all_process)
-        self.Btn_update_treeview.clicked.connect(self.show_file_in_treeview)
-        self.Btn_add_new_process.clicked.connect(self.show_create_new_process_window)
-        self.Btn_add_backtest_process.clicked.connect(self.show_create_backtest_window)
-
-        self.treeview_log.clicked.connect(self.on_tree_licked)
-
-        self.Btn_opne_in_excel1.clicked.connect(lambda: self.open_file_with_excel(path='./data/deal_detials.csv'))
-        self.Btn_opne_in_excel2.clicked.connect(lambda: self.open_file_with_excel(path='./data/config.csv'))
-
-        #列表框槽函数
-        self.clients_listview2.clicked.connect(self.show_clients_info)
-        self.tq_account_listview2.clicked.connect(self.show_tq_account_info)
-
-
     def other_item_settings(self):    # 其他设置
         self.m_drag = False
         self.label_logo.setPixmap(QPixmap('./logo/logo.png'))           # 加载logo图片     
@@ -262,7 +279,7 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
 
     def show_setting_dialog(self):  # 显示设置窗口
 
-        from RewriteSetting import SettingDialog
+        from Setting_Inheritance import SettingDialog
 
         self.setting_dialog = SettingDialog()
         self.setting_dialog.show()
@@ -270,7 +287,7 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
 
     def show_exit_dialog(self):     # 退出程序
 
-        from RewriteExitDialog import Exit_Dialog
+        from ExitDialog_Inheritance import Exit_Dialog
 
         self.exit_dialog = Exit_Dialog()
         self.exit_dialog.show()
@@ -280,24 +297,77 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
 
     def show_donation_window(self):             # 弹出捐赠窗口
 
-        from RewriteDonation import Donation
+        from Donation_Inheritance import Donation
         self.donation = Donation()
         self.donation.show()                   
 
     def show_create_new_process_window(self):   # 弹出新建策略进程窗口
 
-        from RewriteCreateNewProcess import NewProcessWindow
+        from CreateNewProcess_Inheritance import NewProcessWindow
         self.create_process_strategy = NewProcessWindow()
         self.create_process_strategy.show()
 
     def show_create_backtest_window(self):      # 弹出新建策略回测进程窗口
 
-        from RewriteCreateBackTestProcess import BackTestWindow
+        from CreateBackTestProcess_Inheritance import BackTestWindow
         self.create_backtest_window = BackTestWindow()
         self.create_backtest_window.show()
 
+    def chack_main_tq_account(self):            # 检查主账号是否存在
+        if self.main_tq_account == '' or self.main_tq_pwd == '':
+            data = self.ioModal.read_csv_file(path='./data/main_tq_account.csv')
+            if data.empty:                                     # 判断self.data是否为空
+                print('\n\nmain_tq_account.csv文件里没有帐户，请先在设置里添加天勤主账号和密码')
+            else:  
+                self.main_tq_account = data.iloc[0, 0]
+                self.main_tq_pwd = data.iloc[0, 1]
+        else:
+            self.times1 += 1        
+
+            if self.times1 == 10:       #主程序运行10秒后才登录天勤帐户,以防天勤帐户登录出问题时,主程序也打不开
+                self.sign_in_tq_account()
+            
+
+    def sign_in_tq_account(self):  # 登录天勤账户并订阅k线
+        try:
+            self.api = TqApi(TqKq(),auth=TqAuth(self.main_tq_account, self.main_tq_pwd))
+        except Exception as ex:
+                        print('登录天勤帐户时发生异常: %r' % ex)
+        
+        self_selection_quote_list = self.get_self_selection_quote_list()
+        if self_selection_quote_list:
+            for kl in self_selection_quote_list:
+                if (kl + '_quote') not in self.Quote_klines_dict:           # 判断字典中有无该合约的订阅
+                    self.ceate_TQ_klines_and_quote(kl)
+                else:
+                    print('合约: ', kl,' 已订阅')
+
+            # print('\n\n\n当前字典为:',self.Quote_klines_dict, '\n\n\n\n\n')
+        
+        self.GengXin_ShuJu=UpdateTqsdkDate(self.api) #信号线程，发送数据更新
+        self.GengXin_ShuJu.start()
+        self.init_Klines_chart()
+        # self.GengXin_ShuJu.TQ_signal.connect(self.widget.update_bar) #信号绑定更新函数update_bar
+        # self.GengXin_ShuJu.TQ_signal.connect(self.updateindicator) #信号绑定更新函数updateindicator
+        # self.GengXin_ShuJu.TQ_signal.connect(self.Update_quotes) #信号绑定更新quote
+    
+
+    def ceate_TQ_klines_and_quote(self,symbol): # 根据合约创建对应的klines和quote
+        try:                        
+            self.Quote_klines_dict['%s_quote'%symbol]  = self.api.get_quote(symbol=symbol)   # 创建quote
+            self.Quote_klines_dict['%s_1_min'%symbol]  = self.api.get_kline_serial(symbol=symbol, duration_seconds=60, data_length=8000) # 订阅1分钟k线
+            self.Quote_klines_dict['%s_15_min'%symbol] = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*15, data_length=8000) # 订阅15分钟k线
+            self.Quote_klines_dict['%s_30_min'%symbol] = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*30, data_length=5000) # 订阅30分钟k线
+            self.Quote_klines_dict['%s_1_hour'%symbol] = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*60, data_length=2250) # 订阅1小时k线
+            self.Quote_klines_dict['%s_2_hour'%symbol] = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*60*2, data_length=1200) # 订阅2小时k线
+            self.Quote_klines_dict['%s_4_hour'%symbol] = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*60*4, data_length=600) # 订阅4小时k线
+            self.Quote_klines_dict['%s_1_day'%symbol]  = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*60*24, data_length=300) # 订阅日k线
+
+            print('合约', symbol, '的K线订阅成功')
 
 
+        except Exception as ex:
+                print('订阅k线 ', symbol, ' 时发生错误: %r' % ex)
 
     #####################################################################
     #####################下面这个函数是进程自启的核心代码 #####################
@@ -315,7 +385,7 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
             else:
             
                 for index, item in data.iterrows():
-                    if item['whether_self_start'] == True:
+                    if item['whether_self_start']:
 
                         if self.Process_dict[item['process_name']] in living_pid_list:
                             pass
@@ -356,3 +426,6 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         else:
             print('\n\n\n策略将在主程序启动一分钟后，按 config.csv 文件中的配置逐个启动\n\n\n')
             self.times += 1 
+
+
+

@@ -59,6 +59,7 @@ class Ui_Form(object):
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frame_2)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(-1, 5, -1, 5)
         self.label_tital_6 = QLabel(self.frame_2)
         self.label_tital_6.setObjectName(u"label_tital_6")
         self.label_tital_6.setMinimumSize(QSize(0, 50))
@@ -93,8 +94,8 @@ class Ui_Form(object):
 
         self.Btn_min_window = QPushButton(self.frame_2)
         self.Btn_min_window.setObjectName(u"Btn_min_window")
-        self.Btn_min_window.setMinimumSize(QSize(40, 40))
-        self.Btn_min_window.setMaximumSize(QSize(40, 40))
+        self.Btn_min_window.setMinimumSize(QSize(35, 35))
+        self.Btn_min_window.setMaximumSize(QSize(35, 35))
         self.Btn_min_window.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(65, 51, 156);\n"
 "	border-radius: 10px;\n"
@@ -123,8 +124,8 @@ class Ui_Form(object):
 
         self.Btn_close_window = QPushButton(self.frame_2)
         self.Btn_close_window.setObjectName(u"Btn_close_window")
-        self.Btn_close_window.setMinimumSize(QSize(40, 40))
-        self.Btn_close_window.setMaximumSize(QSize(40, 40))
+        self.Btn_close_window.setMinimumSize(QSize(35, 35))
+        self.Btn_close_window.setMaximumSize(QSize(35, 35))
         self.Btn_close_window.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(65, 51, 156);\n"
 "	border-radius: 10px;\n"
@@ -1991,7 +1992,7 @@ class Ui_Form(object):
         self.Btn_close_window.setText("")
         self.label_tital_4.setText(QCoreApplication.translate("Form", u"\u8bf7\u8f93\u5165\u7b56\u7565\u8fdb\u7a0b\u8fd0\u884c\u6240\u9700\u8981\u7684\u53c2\u6570", None))
         self.label_select_clients_name1.setText(QCoreApplication.translate("Form", u"\u9009\u62e9\u7528\u6237 ", None))
-        self.label_select_tq_account.setText(QCoreApplication.translate("Form", u"\u9009\u62e9\u5929\u52e4\u5e10\u6237", None))
+        self.label_select_tq_account.setText(QCoreApplication.translate("Form", u"\u9009\u62e9\u5929\u52e4\u8d26\u6237", None))
         self.label_select_strategy.setText(QCoreApplication.translate("Form", u"\u9009\u62e9\u7b56\u7565", None))
         self.label_whether_self_start.setText(QCoreApplication.translate("Form", u"\u662f\u5426\u4e3a\u81ea\u542f\u8fdb\u7a0b", None))
         self.label_whether_live_futures_trading.setText(QCoreApplication.translate("Form", u"\u662f\u5426\u4e3a\u5b9e\u76d8", None))

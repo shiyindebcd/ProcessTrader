@@ -114,7 +114,7 @@ color: rgb(255, 0, 0);
 border: none;</string>
            </property>
            <property name="text">
-            <string>请输入主天勤帐户及密码</string>
+            <string>请输入主天勤账户及密码</string>
            </property>
           </widget>
          </item>
@@ -122,14 +122,14 @@ border: none;</string>
           <widget class="QPushButton" name="Btn_close_window">
            <property name="minimumSize">
             <size>
-             <width>40</width>
-             <height>40</height>
+             <width>35</width>
+             <height>35</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>40</width>
-             <height>40</height>
+             <width>35</width>
+             <height>35</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -233,8 +233,8 @@ color: rgb(0, 255, 0);
 border: none;</string>
            </property>
            <property name="text">
-            <string>该天勤帐户用于在主程序中显示k线，建议单独设置一个帐户，
-不要和策略中的天勤帐户共用，以免引起一些未知的问题</string>
+            <string>该天勤账户用于在主程序中显示k线，建议单独设置一个账户，
+不要和子进程策略中的天勤账户共用，以免引起一些未知的问题</string>
            </property>
           </widget>
          </item>
@@ -258,7 +258,7 @@ color: rgb(255, 0, 0);
 border: none;</string>
            </property>
            <property name="text">
-            <string>当前主程序还未设置主天勤帐户！</string>
+            <string>当前主程序还未设置主天勤账户！</string>
            </property>
           </widget>
          </item>
@@ -347,7 +347,7 @@ QLabel:disabled{
 }</string>
               </property>
               <property name="text">
-               <string>天勤帐户</string>
+               <string>天勤账户</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import imp
+# import imp
 import os
 import re
 import sys
@@ -7,16 +7,19 @@ import time
 import psutil
 import pandas as pd
 import win32com.client as win32
+import pyqtgraph as pg
 from pathlib import Path
 from datetime import datetime
 from pandas import DataFrame
 from PySide6 import QtCore, QtGui
 from PySide6.QtCharts import QChart
-from PySide6.QtCore import QEventLoop, QStringListModel, QTimer, QDir, QPropertyAnimation
+from PySide6.QtCore import QEventLoop, QStringListModel, QTimer, QDir, QPropertyAnimation, Signal, QThread
 from PySide6.QtGui import QCursor, QStandardItem, QStandardItemModel, Qt, QPixmap, QImage, QMouseEvent
 from PySide6.QtUiTools import loadUiType
 from PySide6.QtWidgets import QApplication, QFrame, QMainWindow, QTableWidgetItem, QWidget, QFileDialog, QFileSystemModel, QTreeView
+from tqsdk import TqApi, TqAuth, TargetPosTask, TqKq, TqBacktest, ta, tafunc
 import webbrowser
+
 from dtview import DonutWidget
 from read_write_file import ReadWriteCsv
 import strategys
@@ -34,6 +37,18 @@ class EmittingStr(QtCore.QObject):      # 发射信号类
 
     def flush(self):  # 不加这个函数会报错，不要问为什么，我也不知道
         pass
+
+
+class UpdateTqsdkDate(QThread):   # 更新tqsdk数据类
+    TQ_signal = Signal()
+
+    def __init__(self,api):
+        super().__init__()        
+        self.api = api
+    def run(self):#更新发送信号
+        while True:
+            self.api.wait_update() 
+            self.TQ_signal.emit()
 
 
 class Main_Process_Function:    # 主进程函数类，该类由主进程窗口类继承并调用
@@ -68,10 +83,10 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
         self.tq_account_listview.setModel(tq_account_model)
         self.tq_account_listview2.setModel(tq_account_model)
 
-        qoute_model = QStringListModel()
-        self.qoute_list = self.get_qoute_list()
-        qoute_model.setStringList(self.qoute_list)
-        self.qoute_listview.setModel(qoute_model)
+        quote_model = QStringListModel()
+        self.quote_list = self.get_quote_list()
+        quote_model.setStringList(self.quote_list)
+        self.quote_listview.setModel(quote_model)
 
         strategy_model = QStringListModel()
         self.strategy_list = self.get_strategy_list(path='./strategys')
@@ -82,6 +97,12 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
         self.process_list = self.get_process_list()
         process_model.setStringList(self.process_list)
         self.process_listview.setModel(process_model)
+
+        self_selection_model = QStringListModel()
+        self.self_selection_list = self.get_self_selection_quote_list()
+        self_selection_model.setStringList(self.self_selection_list)
+        self.self_selection_listview.setModel(self_selection_model)
+
 
     def show_clients_info(self, qModelIndex):   # 显示客户信息
         row = qModelIndex.row()    
@@ -215,16 +236,35 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
                 process_list.append(key)
         return process_list
 
-    def get_qoute_list(self):   # 获取行情引用列表
-        qoute_list = []
+    def get_quote_list(self):   # 获取行情引用列表
+        quote_list = []
         data = self.ioModal.read_csv_file(path='./data/config.csv')
         if data.empty:
-            qoute_list = []
+            quote_list = []
         else:
             for index, item in data.iterrows():
-                qoute_list.append(str(item['symbol']) + '-->' + str(item['symbol_period']) + ' min')
+                quote_list.append(str(item['symbol']) + '-->' + str(item['symbol_period']) + ' min')
 
-        return qoute_list
+        return quote_list
+
+    def get_self_selection_quote_list(self):   # 获取自选行情列表
+        quote_list = []
+        data = self.ioModal.read_csv_file(path='./data/self_selection.csv')
+        if data.empty:
+            quote_list = []
+        else:
+            for index, item in data.iterrows():
+                quote_list.append(str(item['quote']))
+        #         self.self_selection_dict[str(item['quote'] + '_1_min')] = str(item['quote'] + '_1_min')
+        #         self.self_selection_dict[str(item['quote'] + '_15_min')] = str(item['quote'] + '_15_min')
+        #         self.self_selection_dict[str(item['quote'] + '_30_min')] = str(item['quote'] + '_30_min')
+        #         self.self_selection_dict[str(item['quote'] + '_60_min')] = str(item['quote'] + '_60_min')
+        #         self.self_selection_dict[str(item['quote'] + '_120_min')] = str(item['quote'] + '_120_min')
+        #         self.self_selection_dict[str(item['quote'] + '_240_min')] = str(item['quote'] + '_240_min')
+        #         self.self_selection_dict[str(item['quote'] + '_1440_min')] = str(item['quote'] + '_1440_min')
+
+        # print(self.self_selection_dict)
+        return quote_list    
 
     def get_strategy_list(self, path):  # 从策略文件中自动搜索并获取策略类名 列表
         class_name_list = []
@@ -529,3 +569,48 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
             path = './data/config.csv'
             self.ioModal.judge_config_exist(path)
             print('文件不存在，已创建空文件')
+
+    def add_Tq_Quote_to_csv(self): # 将天勤自选行情引用数据添加到 csv 文件中 
+        df = self.ioModal.read_csv_file(path='./data/self_selection.csv')
+        my_dict = {}
+        exchange = self.comboBox_add_quote_exchange.currentText().split()[-1]  # 获取列表框选择的字符串分割后的最后一部分
+        quote = exchange + '.' + self.add_quote_symbol.text()
+        if self.add_quote_symbol.text() == '':
+            self.label_kline_info.setText('请输入正确的合约名再点添加')
+        else:
+            my_dict['quote'] = quote
+            df = pd.DataFrame(my_dict, index=[0])
+            self.ceate_TQ_klines_and_quote(quote)
+            self.ioModal.add_dict_to_csv(df, path='./data/self_selection.csv')
+            text = '新的自选合约： ' + str(quote) + '  已添加'
+            self.label_kline_info.setText(text)
+            self.add_quote_symbol.clear()
+
+    def set_current_dissplayed_Kline(self, qModelIndex):    # 显示订阅的k线
+        row = qModelIndex.row()    
+        data = self.ioModal.read_csv_file(path='./data/self_selection.csv')
+        self.current_dissplayed_Kline = str(data.loc[row]['quote'])
+        print('当前显示的合约为:', self.current_dissplayed_Kline)
+
+
+    def init_Klines_chart(self):
+        self_selection_quote_list = self.get_self_selection_quote_list()    # 获取自选合约列表
+        if self_selection_quote_list:   # 如果列表不为空
+            for kl in self_selection_quote_list:
+                if (kl + '_quote') not in self.Quote_klines_dict:
+                    self.current_dissplayed_Kline = kl
+                    break
+                else:
+                    pass
+            klines = kl + '_15_min'
+            quote = kl + '_quote'
+            # datas=self.Quote_klines_dict['%s'%klines]
+            # quote=self.Quote_klines_dict['%s'%quote]
+            self.Set_Klines_Chart(datas=self.Quote_klines_dict['%s'%klines], quote=self.Quote_klines_dict['%s'%quote])
+            self.label_kline_info.setText(klines)
+
+    def Set_Klines_Chart(self, datas, quote):#设置K线图表         
+        
+        self.Update_quotes(quote)
+
+        # pg.setConfigOption

@@ -71,8 +71,8 @@ class Ui_Dialog(object):
 
         self.Btn_close_window = QPushButton(self.frame_2)
         self.Btn_close_window.setObjectName(u"Btn_close_window")
-        self.Btn_close_window.setMinimumSize(QSize(40, 40))
-        self.Btn_close_window.setMaximumSize(QSize(40, 40))
+        self.Btn_close_window.setMinimumSize(QSize(35, 35))
+        self.Btn_close_window.setMaximumSize(QSize(35, 35))
         self.Btn_close_window.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(65, 51, 156);\n"
 "	border-radius: 10px;\n"
@@ -405,12 +405,12 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
-        self.label_2.setText(QCoreApplication.translate("Dialog", u"\u8bf7\u8f93\u5165\u4e3b\u5929\u52e4\u5e10\u6237\u53ca\u5bc6\u7801", None))
+        self.label_2.setText(QCoreApplication.translate("Dialog", u"\u8bf7\u8f93\u5165\u4e3b\u5929\u52e4\u8d26\u6237\u53ca\u5bc6\u7801", None))
         self.Btn_close_window.setText("")
-        self.label_1.setText(QCoreApplication.translate("Dialog", u"\u8be5\u5929\u52e4\u5e10\u6237\u7528\u4e8e\u5728\u4e3b\u7a0b\u5e8f\u4e2d\u663e\u793ak\u7ebf\uff0c\u5efa\u8bae\u5355\u72ec\u8bbe\u7f6e\u4e00\u4e2a\u5e10\u6237\uff0c\n"
-"\u4e0d\u8981\u548c\u7b56\u7565\u4e2d\u7684\u5929\u52e4\u5e10\u6237\u5171\u7528\uff0c\u4ee5\u514d\u5f15\u8d77\u4e00\u4e9b\u672a\u77e5\u7684\u95ee\u9898", None))
-        self.label_Account.setText(QCoreApplication.translate("Dialog", u"\u5f53\u524d\u4e3b\u7a0b\u5e8f\u8fd8\u672a\u8bbe\u7f6e\u4e3b\u5929\u52e4\u5e10\u6237\uff01", None))
-        self.label_Main_tqaccount.setText(QCoreApplication.translate("Dialog", u"\u5929\u52e4\u5e10\u6237", None))
+        self.label_1.setText(QCoreApplication.translate("Dialog", u"\u8be5\u5929\u52e4\u8d26\u6237\u7528\u4e8e\u5728\u4e3b\u7a0b\u5e8f\u4e2d\u663e\u793ak\u7ebf\uff0c\u5efa\u8bae\u5355\u72ec\u8bbe\u7f6e\u4e00\u4e2a\u8d26\u6237\uff0c\n"
+"\u4e0d\u8981\u548c\u5b50\u8fdb\u7a0b\u7b56\u7565\u4e2d\u7684\u5929\u52e4\u8d26\u6237\u5171\u7528\uff0c\u4ee5\u514d\u5f15\u8d77\u4e00\u4e9b\u672a\u77e5\u7684\u95ee\u9898", None))
+        self.label_Account.setText(QCoreApplication.translate("Dialog", u"\u5f53\u524d\u4e3b\u7a0b\u5e8f\u8fd8\u672a\u8bbe\u7f6e\u4e3b\u5929\u52e4\u8d26\u6237\uff01", None))
+        self.label_Main_tqaccount.setText(QCoreApplication.translate("Dialog", u"\u5929\u52e4\u8d26\u6237", None))
         self.label_main_tqpsd.setText(QCoreApplication.translate("Dialog", u"\u5929\u52e4\u5bc6\u7801", None))
         self.Btn_clear_input.setText(QCoreApplication.translate("Dialog", u"\u6e05\u9664\u8f93\u5165", None))
         self.Btn_Determine_add.setText(QCoreApplication.translate("Dialog", u"\u786e\u5b9a\u6dfb\u52a0", None))

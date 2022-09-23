@@ -61,6 +61,7 @@ class Ui_Form(object):
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frame_2)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(-1, 5, -1, 5)
         self.label_tital_6 = QLabel(self.frame_2)
         self.label_tital_6.setObjectName(u"label_tital_6")
         self.label_tital_6.setMinimumSize(QSize(0, 50))
@@ -128,8 +129,8 @@ class Ui_Form(object):
 
         self.Btn_min_window = QPushButton(self.frame_2)
         self.Btn_min_window.setObjectName(u"Btn_min_window")
-        self.Btn_min_window.setMinimumSize(QSize(40, 40))
-        self.Btn_min_window.setMaximumSize(QSize(40, 40))
+        self.Btn_min_window.setMinimumSize(QSize(35, 35))
+        self.Btn_min_window.setMaximumSize(QSize(35, 35))
         self.Btn_min_window.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(65, 51, 156);\n"
 "	border-radius: 10px;\n"
@@ -158,8 +159,8 @@ class Ui_Form(object):
 
         self.Btn_close_window = QPushButton(self.frame_2)
         self.Btn_close_window.setObjectName(u"Btn_close_window")
-        self.Btn_close_window.setMinimumSize(QSize(40, 40))
-        self.Btn_close_window.setMaximumSize(QSize(40, 40))
+        self.Btn_close_window.setMinimumSize(QSize(35, 35))
+        self.Btn_close_window.setMaximumSize(QSize(35, 35))
         self.Btn_close_window.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(65, 51, 156);\n"
 "	border-radius: 10px;\n"
@@ -1850,7 +1851,7 @@ class Ui_Form(object):
         self.Btn_open_with_chrome.setText(QCoreApplication.translate("Form", u" \u5728\u6d4f\u89c8\u5668\u4e2d\u6253\u5f00\u56de\u6d4b\u9875", None))
         self.Btn_min_window.setText("")
         self.Btn_close_window.setText("")
-        self.label_backtest_select_tq_account.setText(QCoreApplication.translate("Form", u"\u9009\u62e9\u5929\u52e4\u5e10\u6237", None))
+        self.label_backtest_select_tq_account.setText(QCoreApplication.translate("Form", u"\u9009\u62e9\u5929\u52e4\u8d26\u6237", None))
         self.label_backtest_select_strategy.setText(QCoreApplication.translate("Form", u"\u9009\u62e9\u7b56\u7565", None))
         self.label_backtest_exchange.setText(QCoreApplication.translate("Form", u"\u4ea4\u6613\u6240", None))
         self.label_backtest_symbol.setText(QCoreApplication.translate("Form", u"\u5408\u7ea6\u540d", None))
