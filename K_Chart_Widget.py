@@ -93,7 +93,7 @@ class KLineWidget(KeyWraper):
         pg.setConfigOptions(leftButtonPan=True, antialias=True)  # 禁止画框放大，并启用抗锯齿
 
         # 主图
-        self.pw = pg.PlotWidget(background=QtGui.QColor(13, 9, 27))
+        self.pw = pg.PlotWidget(background=QtGui.QColor(0, 0, 0, 0))
         self.pw.setContentsMargins(0, 0, 0, 0)  # 去掉边框
 
         # 界面布局

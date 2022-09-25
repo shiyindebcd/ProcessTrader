@@ -126,7 +126,7 @@ QPushButton:pressed {
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="../ProcessTrader/resource.qrc">
+          <iconset resource="resource.qrc">
            <normaloff>:/图标/icons/菜单.svg</normaloff>:/图标/icons/菜单.svg</iconset>
          </property>
          <property name="iconSize">
@@ -519,7 +519,7 @@ QPushButton:pressed{
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <property name="spacing">
-           <number>10</number>
+           <number>0</number>
           </property>
           <property name="leftMargin">
            <number>20</number>
@@ -697,7 +697,7 @@ QPushButton:pressed {
              <string>设置</string>
             </property>
             <property name="icon">
-             <iconset resource="../ProcessTrader/resource.qrc">
+             <iconset resource="resource.qrc">
               <normaloff>:/图标/icons/设置.svg</normaloff>:/图标/icons/设置.svg</iconset>
             </property>
             <property name="iconSize">
@@ -753,64 +753,8 @@ QPushButton:pressed {
              <string>捐助作者</string>
             </property>
             <property name="icon">
-             <iconset resource="../ProcessTrader/resource.qrc">
+             <iconset resource="resource.qrc">
               <normaloff>:/图标/icons/作者.svg</normaloff>:/图标/icons/作者.svg</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>30</width>
-              <height>30</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="Btn_warning">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>80</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>等线</family>
-              <pointsize>10</pointsize>
-              <italic>false</italic>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton {
-	border: none;
-	background-color: rgba(40, 40, 70, 80);
-	color: rgb(255, 85, 0);	
-	
-	font: 700 10pt &quot;等线&quot;;
-	border-radius: 13px;
-}
-
-QPushButton:hover {
-	border-left: 3px solid rgb(255, 85, 0);
-	border-right: 3px solid rgb(255, 85, 0);
-}
-
-QPushButton:pressed {
-	background-color: rgb(25, 25, 25);
-}</string>
-            </property>
-            <property name="text">
-             <string>0</string>
-            </property>
-            <property name="icon">
-             <iconset resource="../ProcessTrader/resource.qrc">
-              <normaloff>:/图标/icons/警告.svg</normaloff>:/图标/icons/警告.svg</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -901,7 +845,7 @@ QPushButton:pressed {
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="../ProcessTrader/resource.qrc">
+                <iconset resource="resource.qrc">
                  <normaloff>:/图标/icons/最小化.svg</normaloff>:/图标/icons/最小化.svg</iconset>
                </property>
                <property name="iconSize">
@@ -947,7 +891,7 @@ QPushButton:pressed {
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="../ProcessTrader/resource.qrc">
+                <iconset resource="resource.qrc">
                  <normaloff>:/图标/icons/最大化-还原.svg</normaloff>:/图标/icons/最大化-还原.svg</iconset>
                </property>
                <property name="iconSize">
@@ -993,7 +937,7 @@ QPushButton:pressed {
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="../ProcessTrader/resource.qrc">
+                <iconset resource="resource.qrc">
                  <normaloff>:/图标/icons/关闭.svg</normaloff>:/图标/icons/关闭.svg</iconset>
                </property>
                <property name="iconSize">
@@ -1098,7 +1042,7 @@ border: none;</string>
                  <item>
                   <widget class="QFrame" name="left_panel">
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
@@ -1111,7 +1055,7 @@ border: none;</string>
                    </property>
                    <property name="maximumSize">
                     <size>
-                     <width>350</width>
+                     <width>250</width>
                      <height>16777215</height>
                     </size>
                    </property>
@@ -1226,8 +1170,8 @@ color:black;
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>83</width>
-                            <height>66</height>
+                            <width>238</width>
+                            <height>455</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1251,6 +1195,12 @@ color:black;
                            </property>
                            <item>
                             <widget class="QListView" name="clients_listview">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
                              <property name="font">
                               <font>
                                <family>等线</family>
@@ -1266,16 +1216,19 @@ color:black;
                               <string notr="true">QListView {	
 	font:  16pt &quot;等线&quot;;
 	color: rgb(170, 0, 255);
-	background-color: rgb(13, 9, 36);
+	background-color: rgb(13,9,36);
+	alternate-background-color:rgba(36, 27, 102, 120);
 	border-radius: 15px;
 	border: 1px solid rgb(65, 51, 156);
-	padding:5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 0;
+	padding-right: 0;
 }
 QListView::item {
 	min-height:35px;
      border-radius: 15px;
 	padding-left: 20px;
-	background-color: rgb(13, 9, 36);
 }
 
 QListView::item:selected {   
@@ -1379,6 +1332,12 @@ background:rgb(150, 0, 150);
                              <property name="lineWidth">
                               <number>1</number>
                              </property>
+                             <property name="editTriggers">
+                              <set>QAbstractItemView::NoEditTriggers</set>
+                             </property>
+                             <property name="alternatingRowColors">
+                              <bool>true</bool>
+                             </property>
                              <property name="batchSize">
                               <number>200</number>
                              </property>
@@ -1391,8 +1350,8 @@ background:rgb(150, 0, 150);
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>83</width>
-                            <height>66</height>
+                            <width>238</width>
+                            <height>455</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1416,20 +1375,29 @@ background:rgb(150, 0, 150);
                            </property>
                            <item>
                             <widget class="QListView" name="tq_account_listview">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
                              <property name="styleSheet">
                               <string notr="true">QListView {	
 	font:  16pt &quot;等线&quot;;
 	color: rgb(255, 85, 0);
-	background-color: rgb(13, 9, 36);
+	background-color: rgb(13,9,36);
+	alternate-background-color:rgba(36, 27, 102, 120);
 	border-radius: 15px;
 	border: 1px solid rgb(65, 51, 156);
-	padding:5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 0;
+	padding-right: 0;
 }
 QListView::item {
 	min-height:35px;
      border-radius: 15px;
 	padding-left: 20px;
-	background-color: rgb(13, 9, 36);
 }
 
 QListView::item:selected {   
@@ -1527,6 +1495,12 @@ background:rgb(150, 0, 150);
  }
 </string>
                              </property>
+                             <property name="editTriggers">
+                              <set>QAbstractItemView::NoEditTriggers</set>
+                             </property>
+                             <property name="alternatingRowColors">
+                              <bool>true</bool>
+                             </property>
                             </widget>
                            </item>
                           </layout>
@@ -1536,8 +1510,8 @@ background:rgb(150, 0, 150);
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>83</width>
-                            <height>66</height>
+                            <width>238</width>
+                            <height>455</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1561,6 +1535,12 @@ background:rgb(150, 0, 150);
                            </property>
                            <item>
                             <widget class="QListView" name="strategy_listview">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
                              <property name="font">
                               <font>
                                <family>等线</family>
@@ -1576,16 +1556,19 @@ background:rgb(150, 0, 150);
                               <string notr="true">QListView {	
 	font:  16pt &quot;等线&quot;;
 	color: rgb(255, 255, 0);
-	background-color: rgb(13, 9, 36);
+	background-color: rgb(13,9,36);
+	alternate-background-color:rgba(36, 27, 102, 120);
 	border-radius: 15px;
 	border: 1px solid rgb(65, 51, 156);
-	padding:5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 0;
+	padding-right: 0;
 }
 QListView::item {
 	min-height:35px;
      border-radius: 15px;
 	padding-left: 20px;
-	background-color: rgb(13, 9, 36);
 }
 
 QListView::item:selected {   
@@ -1686,6 +1669,12 @@ background:rgb(150, 0, 150);
                              <property name="frameShadow">
                               <enum>QFrame::Plain</enum>
                              </property>
+                             <property name="editTriggers">
+                              <set>QAbstractItemView::NoEditTriggers</set>
+                             </property>
+                             <property name="alternatingRowColors">
+                              <bool>true</bool>
+                             </property>
                              <property name="batchSize">
                               <number>200</number>
                              </property>
@@ -1698,8 +1687,8 @@ background:rgb(150, 0, 150);
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>83</width>
-                            <height>66</height>
+                            <width>238</width>
+                            <height>455</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1723,6 +1712,12 @@ background:rgb(150, 0, 150);
                            </property>
                            <item>
                             <widget class="QListView" name="quote_listview">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
                              <property name="font">
                               <font>
                                <family>等线</family>
@@ -1738,16 +1733,19 @@ background:rgb(150, 0, 150);
                               <string notr="true">QListView {	
 	font:  12pt &quot;等线&quot;;
 	color: rgb(0, 255, 0);
-	background-color: rgb(13, 9, 36);
+	background-color: rgb(13,9,36);
+	alternate-background-color:rgba(36, 27, 102, 120);
 	border-radius: 15px;
 	border: 1px solid rgb(65, 51, 156);
-	padding:5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 0;
+	padding-right: 0;
 }
 QListView::item {
 	min-height:30px;
      border-radius: 15px;
 	padding-left: 20px;
-	background-color: rgb(13, 9, 36);
 }
 
 QListView::item:selected {   
@@ -1848,6 +1846,12 @@ background:rgb(150, 0, 150);
                              <property name="frameShadow">
                               <enum>QFrame::Plain</enum>
                              </property>
+                             <property name="editTriggers">
+                              <set>QAbstractItemView::NoEditTriggers</set>
+                             </property>
+                             <property name="alternatingRowColors">
+                              <bool>true</bool>
+                             </property>
                              <property name="batchSize">
                               <number>200</number>
                              </property>
@@ -1860,7 +1864,7 @@ background:rgb(150, 0, 150);
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>282</width>
+                            <width>238</width>
                             <height>455</height>
                            </rect>
                           </property>
@@ -1888,7 +1892,7 @@ background:rgb(150, 0, 150);
                              <property name="font">
                               <font>
                                <family>等线</family>
-                               <pointsize>12</pointsize>
+                               <pointsize>10</pointsize>
                                <italic>false</italic>
                                <bold>false</bold>
                               </font>
@@ -1898,27 +1902,31 @@ background:rgb(150, 0, 150);
                              </property>
                              <property name="styleSheet">
                               <string notr="true">QListView {	
-	font:  12pt &quot;等线&quot;;
+	font:  10pt &quot;等线&quot;;	
 	color: rgb(255, 0, 127);
-	background-color: rgb(13, 9, 36);
+	background-color: rgb(13,9,36);
+	alternate-background-color:rgba(36, 27, 102, 120);
 	border-radius: 15px;
 	border: 1px solid rgb(65, 51, 156);
-	padding:5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 0;
+	padding-right: 0;
 }
 QListView::item {
-	min-height:30px;
-     border-radius: 15px;
-	padding-left: 5px;
-	background-color: rgb(13, 9, 36);
+	min-height:40px;
+     border-radius: 18px;
+	padding-left: 15px;
 }
 
-QListView::item:selected {   
+QListView::item:selected {  	 
+	color: rgb(0, 255, 0);
 	border: none;
-	background-color: rgb(170, 0, 255);
+	background-color: rgba(170, 0, 255,150);
 }
 
 QListView::item:hover { 
-	background-color: rgb(0, 70, 0);
+	background-color: rgba(0, 70, 0, 200);
 }
 QScrollBar:horizontal {
     border: none;
@@ -2009,6 +2017,12 @@ background:rgb(150, 0, 150);
                              </property>
                              <property name="frameShadow">
                               <enum>QFrame::Plain</enum>
+                             </property>
+                             <property name="editTriggers">
+                              <set>QAbstractItemView::NoEditTriggers</set>
+                             </property>
+                             <property name="alternatingRowColors">
+                              <bool>true</bool>
                              </property>
                              <property name="batchSize">
                               <number>200</number>
@@ -2459,7 +2473,7 @@ QPushButton:pressed {
                                    <string>  在Excel中打开</string>
                                   </property>
                                   <property name="icon">
-                                   <iconset resource="../ProcessTrader/resource.qrc">
+                                   <iconset resource="resource.qrc">
                                     <normaloff>:/图标/icons/Excel.svg</normaloff>:/图标/icons/Excel.svg</iconset>
                                   </property>
                                   <property name="iconSize">
@@ -2546,35 +2560,42 @@ QFrame:hover {
                                      <property name="font">
                                       <font>
                                        <family>等线</family>
-                                       <pointsize>11</pointsize>
+                                       <pointsize>10</pointsize>
                                        <italic>false</italic>
                                        <bold>false</bold>
                                       </font>
                                      </property>
+                                     <property name="cursor" stdset="0">
+                                      <cursorShape>PointingHandCursor</cursorShape>
+                                     </property>
+                                     <property name="mouseTracking">
+                                      <bool>true</bool>
+                                     </property>
                                      <property name="styleSheet">
                                       <string notr="true">QTableWidget{
-font: 11pt &quot;等线&quot;;
+font: 10pt &quot;等线&quot;;
 color:rgb(255, 255, 255);
-background-color: transparent;
-/*alternate-background-color:rgb(35, 18, 90);/*交错颜色*/
-gridline-color:transparent;
-border: none;
+background-color: rgb(13,9,27);
+alternate-background-color:rgba(13,9,36, 170);
+gridline-color:rgba(140, 140, 140, 60);
+border: 1px;
 padding: 5px 5px 5px 5px;
 }
 QTableWidget:hover{
 border: none;
 }
 QTableWidget::item {
-background-color: rgb(13, 9, 37);
-border: 1px solid rgba(140, 140, 140, 50);
-border-radius: 13px;
+text-align:left;
+background-color: transparent;
+border: none;
+border-radius: none;
 }
 /*选中item*/
 QTableWidget::item:selected{
 font: 700 12pt &quot;等线&quot;;
-color:rgb(0, 255, 0);
-background:rgb(126, 0, 95);
-border: none;
+color: rgb(0, 255, 0);
+background:rgba(65, 0, 44, 180);
+border: 1px solid rgba(140, 140, 140, 60);
 }
 /*
 悬浮item*/
@@ -2584,36 +2605,42 @@ background:rgb(100, 0, 80);
 }
 /*表头*/
 QHeaderView::section:horizontal{
-font: 700 12pt &quot;等线&quot;;
-color: rgb(255, 255, 255);
-border: none;
-background:rgb(140, 45, 0);
-border-left-width:0;
-border-top-width:0;
-border-radius: 13px;
+font: 700 10pt &quot;等线&quot;;
+color: rgb(255, 0, 127);
+text-align:center;
+border: 1px solid rgba(140, 140, 140, 60);
+background-color: rgb(26, 18, 54);
+border-radius: none;
+margin:1px;
 }
 QHeaderView::section:hover:horizontal{
-border: none;
+border: 1px solid rgba(140, 140, 140, 160);
+background-color: rgba(255, 255, 0, 150);
 }
 QHeaderView::section:vertical{
-border: none;
-text-align:center;
-background:rgb(13, 9, 37);
-color: rgb(13, 9, 37);
+font: 700 14pt &quot;等线&quot;;
+color: rgb(255, 0, 0);
+text-align: right;
+border: 1px solid rgba(140, 140, 140, 60);
+background-color: rgb(26, 18, 54);
+border-radius: none;
+margin:1px;
+}
+QHeaderView::section:hover:vertical{
+border: 1px solid rgba(140, 140, 140, 160);
+background-color: rgba(255, 255, 0, 150);
 }
 /*表头最左上角的方块*/
 QTableCornerButton:section{
-border-left-width:0;
-border-top-width:0;
-border-bottom-width:0;
-border-right-width:0;
 text-align:center;
-background:transparent;
-margin:-5px;
+border: 1px solid rgba(140, 140, 140, 60);
+background-color: rgb(26, 18, 54);
+margin:1px;
 color:rgb(255, 255, 255)
 }
 QTableCornerButton::section:hover{
-border:none;
+border: 1px solid rgba(140, 140, 140, 160);
+background-color: rgba(255, 255, 0, 50);
 }
 
 QScrollBar:horizontal {
@@ -2704,23 +2731,62 @@ background:rgb(150, 0, 150);
 
 </string>
                                      </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <property name="verticalScrollBarPolicy">
+                                      <enum>Qt::ScrollBarAlwaysOn</enum>
+                                     </property>
+                                     <property name="horizontalScrollBarPolicy">
+                                      <enum>Qt::ScrollBarAlwaysOn</enum>
+                                     </property>
                                      <property name="editTriggers">
-                                      <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+                                      <set>QAbstractItemView::NoEditTriggers</set>
+                                     </property>
+                                     <property name="showDropIndicator" stdset="0">
+                                      <bool>false</bool>
                                      </property>
                                      <property name="dragEnabled">
-                                      <bool>true</bool>
+                                      <bool>false</bool>
+                                     </property>
+                                     <property name="dragDropOverwriteMode">
+                                      <bool>false</bool>
                                      </property>
                                      <property name="dragDropMode">
-                                      <enum>QAbstractItemView::DragOnly</enum>
+                                      <enum>QAbstractItemView::NoDragDrop</enum>
                                      </property>
                                      <property name="defaultDropAction">
-                                      <enum>Qt::MoveAction</enum>
+                                      <enum>Qt::IgnoreAction</enum>
+                                     </property>
+                                     <property name="alternatingRowColors">
+                                      <bool>true</bool>
+                                     </property>
+                                     <property name="selectionMode">
+                                      <enum>QAbstractItemView::SingleSelection</enum>
+                                     </property>
+                                     <property name="verticalScrollMode">
+                                      <enum>QAbstractItemView::ScrollPerPixel</enum>
+                                     </property>
+                                     <property name="horizontalScrollMode">
+                                      <enum>QAbstractItemView::ScrollPerPixel</enum>
+                                     </property>
+                                     <property name="sortingEnabled">
+                                      <bool>false</bool>
+                                     </property>
+                                     <property name="rowCount">
+                                      <number>100</number>
+                                     </property>
+                                     <property name="columnCount">
+                                      <number>8</number>
                                      </property>
                                      <attribute name="horizontalHeaderMinimumSectionSize">
                                       <number>5</number>
                                      </attribute>
                                      <attribute name="horizontalHeaderDefaultSectionSize">
                                       <number>100</number>
+                                     </attribute>
+                                     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                                      <bool>false</bool>
                                      </attribute>
                                      <attribute name="verticalHeaderVisible">
                                       <bool>false</bool>
@@ -2734,6 +2800,114 @@ background:rgb(150, 0, 150);
                                      <attribute name="verticalHeaderShowSortIndicator" stdset="0">
                                       <bool>true</bool>
                                      </attribute>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <row/>
+                                     <column/>
+                                     <column/>
+                                     <column/>
+                                     <column/>
+                                     <column/>
+                                     <column/>
+                                     <column/>
+                                     <column/>
                                     </widget>
                                    </item>
                                   </layout>
@@ -3614,7 +3788,7 @@ QPushButton:pressed {
                                 <string> 清空显示内容</string>
                                </property>
                                <property name="icon">
-                                <iconset resource="../ProcessTrader/resource.qrc">
+                                <iconset resource="resource.qrc">
                                  <normaloff>:/图标/icons/清屏.svg</normaloff>:/图标/icons/清屏.svg</iconset>
                                </property>
                                <property name="iconSize">
@@ -4184,7 +4358,7 @@ QFrame:hover {
                                </property>
                                <property name="styleSheet">
                                 <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 27);
+	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: 1px solid rgb(65, 51, 156);
 }
@@ -4489,7 +4663,7 @@ QComboBox:disabled{
 	padding: 5px;
 	background-color: rgb(255, 255, 255);	
 	color: rgb(0, 0, 0);
-	font: 700 18pt &quot;等线&quot;;
+	font: 700 14pt &quot;等线&quot;;
 }
 QLineEdit:hover {
 	border: 3px solid rgb(255, 85, 0);
@@ -4996,7 +5170,7 @@ K
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 27);
+	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: 1px solid rgb(65, 51, 156);
 }
@@ -5105,7 +5279,7 @@ border: none;</string>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 27);
+	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: 1px solid rgb(65, 51, 156);
 }
@@ -5138,7 +5312,7 @@ border: none;</string>
                            <widget class="QFrame" name="frame_59">
                             <property name="styleSheet">
                              <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 27);
+	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: none;
 }
@@ -5225,7 +5399,7 @@ border: none;</string>
                            <widget class="QFrame" name="frame_77">
                             <property name="styleSheet">
                              <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 27);
+	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: none;
 }
@@ -5321,7 +5495,7 @@ border: none;</string>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 27);
+	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: 1px solid rgb(65, 51, 156);
 }
@@ -5354,7 +5528,7 @@ border: none;</string>
                            <widget class="QFrame" name="frame_79">
                             <property name="styleSheet">
                              <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 27);
+	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: none;
 }
@@ -5658,7 +5832,7 @@ border: none;</string>
                            <widget class="QFrame" name="frame_94">
                             <property name="styleSheet">
                              <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 27);
+	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: none;
 }
@@ -5971,7 +6145,7 @@ border: none;</string>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 27);
+	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: 1px solid rgb(65, 51, 156);
 }
@@ -6078,29 +6252,39 @@ border: none;</string>
                           </property>
                           <item>
                            <widget class="QListView" name="self_selection_listview">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
                             <property name="styleSheet">
                              <string notr="true">QListView {	
-	font:  12pt &quot;等线&quot;;
+	font:  10pt &quot;等线&quot;;	
 	color: rgb(255, 0, 127);
-	background-color: rgb(13, 9, 36);
+	background-color: rgb(13,9,36);
+	alternate-background-color:rgba(36, 27, 102, 100);
 	border-radius: 15px;
 	border: 1px solid rgb(65, 51, 156);
-	padding:5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 0;
+	padding-right: 0;
 }
 QListView::item {
 	min-height:30px;
-     border-radius: 15px;
-	padding-left: 5px;
-	background-color: rgb(13, 9, 36);
+     border-radius: 14px;
+	padding-left: 15px;
 }
 
-QListView::item:selected {   
+QListView::item:selected {  	 
+	color: rgb(0, 255, 0);
 	border: none;
-	background-color: rgb(170, 0, 255);
+	background-color: rgba(170, 0, 255,150);
 }
 
 QListView::item:hover { 
-	background-color: rgb(0, 70, 0);
+	background-color: rgba(0, 70, 0, 200);
 }
 QScrollBar:horizontal {
     border: none;
@@ -6189,6 +6373,180 @@ background:rgb(150, 0, 150);
  }
 </string>
                             </property>
+                            <property name="alternatingRowColors">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_115">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>100</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QFrame {	
+	background-color: rgb(13, 9, 36);
+	border-radius: 10px;
+	border: 1px solid rgb(65, 51, 156);
+}
+
+</string>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_68">
+                          <item>
+                           <widget class="QFrame" name="frame_116">
+                            <property name="styleSheet">
+                             <string notr="true">QFrame {	
+	background-color: rgb(13, 9, 27);
+	border-radius: 10px;
+	border: none;
+}
+
+</string>
+                            </property>
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_54">
+                             <property name="spacing">
+                              <number>0</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QPushButton" name="Btn_start_TQ_services">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>180</width>
+                                 <height>16777215</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">QPushButton{
+	color: rgb(13, 9, 36);
+	background-color:rgb(255, 0, 127);
+	font: 700 14pt &quot;等线&quot;;
+	border-radius: 15px;
+}
+QPushButton:hover{
+	border: 2px solid rgb(255, 85, 0); 
+}
+QPushButton:pressed{
+	color: green;
+	border-color: rgb(255, 0, 0);
+    background-color: rgb(255, 255, 0);
+}
+</string>
+                               </property>
+                               <property name="text">
+                                <string>开启天勤行情服务</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QFrame" name="frame_117">
+                            <property name="styleSheet">
+                             <string notr="true">QFrame {	
+	background-color: rgb(13, 9, 27);
+	border-radius: 10px;
+	border: none;
+}
+
+</string>
+                            </property>
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_55">
+                             <property name="spacing">
+                              <number>0</number>
+                             </property>
+                             <property name="leftMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="topMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="rightMargin">
+                              <number>0</number>
+                             </property>
+                             <property name="bottomMargin">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QPushButton" name="Btn_stop_TQ_services">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>180</width>
+                                 <height>16777215</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">QPushButton{
+	color: rgb(13, 9, 36);
+	background-color:rgb(0, 255, 0);
+	font: 700 14pt &quot;等线&quot;;
+	border-radius: 15px;
+}
+QPushButton:hover{
+	border: 2px solid rgb(255, 85, 0); 
+}
+QPushButton:pressed{
+	color: green;
+	border-color: rgb(255, 0, 0);
+    background-color: rgb(255, 255, 0);
+}
+</string>
+                               </property>
+                               <property name="text">
+                                <string>关闭天勤行情服务</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
                            </widget>
                           </item>
                          </layout>
@@ -6287,7 +6645,7 @@ QTabBar::tab:selected {
                     <enum>QTabWidget::Rounded</enum>
                    </property>
                    <property name="currentIndex">
-                    <number>0</number>
+                    <number>2</number>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -9604,7 +9962,7 @@ QPushButton:pressed {
                            <string>  在Excel中打开</string>
                           </property>
                           <property name="icon">
-                           <iconset resource="../ProcessTrader/resource.qrc">
+                           <iconset resource="resource.qrc">
                             <normaloff>:/图标/icons/Excel.svg</normaloff>:/图标/icons/Excel.svg</iconset>
                           </property>
                           <property name="iconSize">
@@ -9687,30 +10045,37 @@ QFrame:hover {
                            </property>
                            <item>
                             <widget class="QTableWidget" name="tableWidget_process">
+                             <property name="cursor" stdset="0">
+                              <cursorShape>PointingHandCursor</cursorShape>
+                             </property>
+                             <property name="mouseTracking">
+                              <bool>true</bool>
+                             </property>
                              <property name="styleSheet">
                               <string notr="true">QTableWidget{
-font: 11pt &quot;等线&quot;;
+font: 10pt &quot;等线&quot;;
 color:rgb(255, 255, 255);
-background-color: transparent;
-/*alternate-background-color:rgb(35, 18, 90);/*交错颜色*/
-gridline-color:transparent;
-border: none;
+background-color: rgb(13,9,27);
+alternate-background-color:rgba(13,9,36, 170);
+gridline-color:rgba(140, 140, 140, 60);
+border: 1px;
 padding: 5px 5px 5px 5px;
 }
 QTableWidget:hover{
 border: none;
 }
 QTableWidget::item {
-background-color: rgb(13, 9, 37);
-border: 1px solid rgba(140, 140, 140, 50);
-border-radius: 13px;
+text-align:left;
+background-color: transparent;
+border: none;
+border-radius: none;
 }
 /*选中item*/
 QTableWidget::item:selected{
 font: 700 12pt &quot;等线&quot;;
-color:rgb(0, 255, 0);
-background:rgb(126, 0, 95);
-border: none;
+color: rgb(0, 255, 0);
+background:rgba(65, 0, 44, 180);
+border: 1px solid rgba(140, 140, 140, 60);
 }
 /*
 悬浮item*/
@@ -9720,36 +10085,42 @@ background:rgb(100, 0, 80);
 }
 /*表头*/
 QHeaderView::section:horizontal{
-font: 700 12pt &quot;等线&quot;;
-color: rgb(255, 255, 255);
-border: none;
-background:rgb(140, 45, 0);
-border-left-width:0;
-border-top-width:0;
-border-radius: 13px;
+font: 700 10pt &quot;等线&quot;;
+color: rgb(255, 0, 127);
+text-align:center;
+border: 1px solid rgba(140, 140, 140, 60);
+background-color: rgb(26, 18, 54);
+border-radius: none;
+margin:1px;
 }
 QHeaderView::section:hover:horizontal{
-border: none;
+border: 1px solid rgba(140, 140, 140, 160);
+background-color: rgba(255, 255, 0, 150);
 }
 QHeaderView::section:vertical{
-border: none;
-text-align:center;
-background:rgb(13, 9, 37);
-color: rgb(13, 9, 37);
+font: 700 14pt &quot;等线&quot;;
+color: rgb(255, 0, 0);
+text-align: right;
+border: 1px solid rgba(140, 140, 140, 60);
+background-color: rgb(26, 18, 54);
+border-radius: none;
+margin:1px;
+}
+QHeaderView::section:hover:vertical{
+border: 1px solid rgba(140, 140, 140, 160);
+background-color: rgba(255, 255, 0, 150);
 }
 /*表头最左上角的方块*/
 QTableCornerButton:section{
-border-left-width:0;
-border-top-width:0;
-border-bottom-width:0;
-border-right-width:0;
 text-align:center;
-background:transparent;
-margin:-5px;
+border: 1px solid rgba(140, 140, 140, 60);
+background-color: rgb(26, 18, 54);
+margin:1px;
 color:rgb(255, 255, 255)
 }
 QTableCornerButton::section:hover{
-border:none;
+border: 1px solid rgba(140, 140, 140, 160);
+background-color: rgba(255, 255, 0, 50);
 }
 
 QScrollBar:horizontal {
@@ -9841,47 +10212,102 @@ background:rgb(150, 0, 150);
 </string>
                              </property>
                              <property name="editTriggers">
-                              <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+                              <set>QAbstractItemView::NoEditTriggers</set>
                              </property>
-                             <property name="horizontalScrollMode">
-                              <enum>QAbstractItemView::ScrollPerPixel</enum>
-                             </property>
-                             <property name="cornerButtonEnabled">
+                             <property name="showDropIndicator" stdset="0">
                               <bool>false</bool>
                              </property>
-                             <attribute name="horizontalHeaderMinimumSectionSize">
-                              <number>10</number>
-                             </attribute>
-                             <attribute name="horizontalHeaderDefaultSectionSize">
-                              <number>120</number>
-                             </attribute>
-                             <attribute name="horizontalHeaderHighlightSections">
+                             <property name="dragEnabled">
                               <bool>false</bool>
+                             </property>
+                             <property name="dragDropOverwriteMode">
+                              <bool>false</bool>
+                             </property>
+                             <property name="alternatingRowColors">
+                              <bool>true</bool>
+                             </property>
+                             <property name="rowCount">
+                              <number>44</number>
+                             </property>
+                             <property name="columnCount">
+                              <number>20</number>
+                             </property>
+                             <attribute name="horizontalHeaderCascadingSectionResizes">
+                              <bool>true</bool>
                              </attribute>
                              <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
                               <bool>true</bool>
                              </attribute>
-                             <attribute name="horizontalHeaderStretchLastSection">
-                              <bool>false</bool>
-                             </attribute>
-                             <attribute name="verticalHeaderVisible">
-                              <bool>false</bool>
-                             </attribute>
                              <attribute name="verticalHeaderCascadingSectionResizes">
-                              <bool>false</bool>
-                             </attribute>
-                             <attribute name="verticalHeaderMinimumSectionSize">
-                              <number>30</number>
-                             </attribute>
-                             <attribute name="verticalHeaderDefaultSectionSize">
-                              <number>30</number>
+                              <bool>true</bool>
                              </attribute>
                              <attribute name="verticalHeaderShowSortIndicator" stdset="0">
-                              <bool>false</bool>
+                              <bool>true</bool>
                              </attribute>
-                             <attribute name="verticalHeaderStretchLastSection">
-                              <bool>false</bool>
-                             </attribute>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <row/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
+                             <column/>
                             </widget>
                            </item>
                           </layout>
@@ -11986,10 +12412,9 @@ border: none;</string>
  <tabstops>
   <tabstop>Btn_setting</tabstop>
   <tabstop>Btn_donation</tabstop>
-  <tabstop>Btn_warning</tabstop>
  </tabstops>
  <resources>
-  <include location="../ProcessTrader/resource.qrc"/>
+  <include location="resource.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -11999,8 +12424,8 @@ border: none;</string>
    <slot>showMinimized()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1234</x>
-     <y>49</y>
+     <x>1256</x>
+     <y>42</y>
     </hint>
     <hint type="destinationlabel">
      <x>848</x>

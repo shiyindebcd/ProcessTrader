@@ -89,7 +89,7 @@ class NewProcessWindow(QWidget, Ui_Form):   # 添加新的策略进程窗口类
         tq_account_list = []
         data = self.ioModal.read_csv_file(path='./data/tq_account.csv')
         if data.empty:
-            clients_list = []
+            pass
         else:
             for index, item in data.iterrows():
                 tq_account_list.append(str(item['tq_account']))
@@ -138,12 +138,11 @@ class NewProcessWindow(QWidget, Ui_Form):   # 添加新的策略进程窗口类
         symbol = exchange + '.' + self.symbol.text()
         # 进程名（或策略实例名）= 客户名 + 天勤帐户 + 交易所.合约 + 合约周期,  该名称将作为策略实例的名称，不能重复
         process_name = (
-            self.comboBox_select_clients_name.currentText() + '-'
-            + self.comboBox_select_tq_account.currentText() + '-'
-            + self.comboBox_select_strategy.currentText() + '-'
-            + symbol + '-'
-            + self.symbol_period.text() + 'min'
-        )
+                        self.comboBox_select_clients_name.currentText() + '-'
+                        + self.comboBox_select_tq_account.currentText() + '-'
+                        + self.comboBox_select_strategy.currentText() + '-'
+                        + symbol + '-' + self.symbol_period.text() + 'min'
+                        )
 
         my_dict['process_name'] = process_name  # 进程名称或策略实例名称
         my_dict['client_name'] = self.comboBox_select_clients_name.currentText()  # 客户名称
@@ -184,6 +183,10 @@ class NewProcessWindow(QWidget, Ui_Form):   # 添加新的策略进程窗口类
         my_dict['short_current_position'] = 0                       # 当前空单持仓
         my_dict['first_short_price'] = 0                            # 第一次做空价格
         my_dict['first_short_deal'] = 0                             # 第一次做空成交量
+        my_dict['whether_open_line'] = 'False'                        # 是否定义了开仓直线
+        my_dict['open_line_Coordinates'] = '0,0'                  # 开仓线坐标
+        my_dict['whether_close_line'] = 'False'                       # 是否定义了平仓直线
+        my_dict['close_line_Coordinates'] = '0,0'                   # 平仓线坐标
         
         my_dict['Customized_parameters_1'] = self.Customized_parameters1.text()         # 自定义参数1
         my_dict['Customized_parameters_2'] = self.Customized_parameters2.text()         # 自定义参数2

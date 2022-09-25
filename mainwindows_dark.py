@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindows.ui'
+## Form generated from reading UI file 'mainwindows_dark.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.3.1
 ##
@@ -284,7 +284,7 @@ class Ui_MainWindow(object):
         self.Headerframe.setFrameShape(QFrame.StyledPanel)
         self.Headerframe.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.Headerframe)
-        self.horizontalLayout_7.setSpacing(10)
+        self.horizontalLayout_7.setSpacing(0)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.horizontalLayout_7.setContentsMargins(20, 0, 5, 0)
         self.horizontalSpacer_10 = QSpacerItem(30, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
@@ -392,12 +392,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addWidget(self.Btn_donation)
 
-        self.Btn_warning = QPushButton(self.Headerframe)
-        self.Btn_warning.setObjectName(u"Btn_warning")
-        self.Btn_warning.setMinimumSize(QSize(80, 30))
-        self.Btn_warning.setMaximumSize(QSize(80, 30))
-        self.Btn_warning.setFont(font)
-        self.Btn_warning.setStyleSheet(u"QPushButton {\n"
+        self.Btn_light_theme = QPushButton(self.Headerframe)
+        self.Btn_light_theme.setObjectName(u"Btn_light_theme")
+        self.Btn_light_theme.setMinimumSize(QSize(30, 30))
+        self.Btn_light_theme.setMaximumSize(QSize(30, 30))
+        self.Btn_light_theme.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
 "	background-color: rgba(40, 40, 70, 80);\n"
 "	color: rgb(255, 85, 0);	\n"
@@ -414,12 +413,32 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(25, 25, 25);\n"
 "}")
-        icon3 = QIcon()
-        icon3.addFile(u":/\u56fe\u6807/icons/\u8b66\u544a.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.Btn_warning.setIcon(icon3)
-        self.Btn_warning.setIconSize(QSize(30, 30))
 
-        self.horizontalLayout_7.addWidget(self.Btn_warning)
+        self.horizontalLayout_7.addWidget(self.Btn_light_theme)
+
+        self.Btn_dark_theme = QPushButton(self.Headerframe)
+        self.Btn_dark_theme.setObjectName(u"Btn_dark_theme")
+        self.Btn_dark_theme.setMinimumSize(QSize(30, 30))
+        self.Btn_dark_theme.setMaximumSize(QSize(30, 30))
+        self.Btn_dark_theme.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	background-color: rgba(40, 40, 70, 80);\n"
+"	color: rgb(255, 85, 0);	\n"
+"	\n"
+"	font: 700 10pt \"\u7b49\u7ebf\";\n"
+"	border-radius: 13px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	border-left: 3px solid rgb(255, 85, 0);\n"
+"	border-right: 3px solid rgb(255, 85, 0);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"	background-color: rgb(25, 25, 25);\n"
+"}")
+
+        self.horizontalLayout_7.addWidget(self.Btn_dark_theme)
 
         self.horizontalSpacer_3 = QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
 
@@ -453,9 +472,9 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(21, 21, 21)\n"
 "}")
-        icon4 = QIcon()
-        icon4.addFile(u":/\u56fe\u6807/icons/\u6700\u5c0f\u5316.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.Btn_min_window.setIcon(icon4)
+        icon3 = QIcon()
+        icon3.addFile(u":/\u56fe\u6807/icons/\u6700\u5c0f\u5316.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.Btn_min_window.setIcon(icon3)
         self.Btn_min_window.setIconSize(QSize(30, 30))
 
         self.horizontalLayout_53.addWidget(self.Btn_min_window)
@@ -479,9 +498,9 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(21, 21, 21)\n"
 "}")
-        icon5 = QIcon()
-        icon5.addFile(u":/\u56fe\u6807/icons/\u6700\u5927\u5316-\u8fd8\u539f.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.Btn_normal_max_window.setIcon(icon5)
+        icon4 = QIcon()
+        icon4.addFile(u":/\u56fe\u6807/icons/\u6700\u5927\u5316-\u8fd8\u539f.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.Btn_normal_max_window.setIcon(icon4)
         self.Btn_normal_max_window.setIconSize(QSize(30, 30))
 
         self.horizontalLayout_53.addWidget(self.Btn_normal_max_window)
@@ -505,9 +524,9 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(21, 21, 21)\n"
 "}")
-        icon6 = QIcon()
-        icon6.addFile(u":/\u56fe\u6807/icons/\u5173\u95ed.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.Btn_close_window.setIcon(icon6)
+        icon5 = QIcon()
+        icon5.addFile(u":/\u56fe\u6807/icons/\u5173\u95ed.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.Btn_close_window.setIcon(icon5)
         self.Btn_close_window.setIconSize(QSize(35, 35))
 
         self.horizontalLayout_53.addWidget(self.Btn_close_window)
@@ -555,13 +574,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.left_panel = QFrame(self.MainPage)
         self.left_panel.setObjectName(u"left_panel")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.left_panel.sizePolicy().hasHeightForWidth())
         self.left_panel.setSizePolicy(sizePolicy1)
         self.left_panel.setMinimumSize(QSize(0, 0))
-        self.left_panel.setMaximumSize(QSize(350, 16777215))
+        self.left_panel.setMaximumSize(QSize(250, 16777215))
         self.left_panel.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 20px;\n"
@@ -623,13 +642,15 @@ class Ui_MainWindow(object):
 "")
         self.clients_list_page = QWidget()
         self.clients_list_page.setObjectName(u"clients_list_page")
-        self.clients_list_page.setGeometry(QRect(0, 0, 83, 66))
+        self.clients_list_page.setGeometry(QRect(0, 0, 238, 455))
         self.verticalLayout_13 = QVBoxLayout(self.clients_list_page)
         self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
         self.clients_listview = QListView(self.clients_list_page)
         self.clients_listview.setObjectName(u"clients_listview")
+        sizePolicy1.setHeightForWidth(self.clients_listview.sizePolicy().hasHeightForWidth())
+        self.clients_listview.setSizePolicy(sizePolicy1)
         font1 = QFont()
         font1.setFamilies([u"\u7b49\u7ebf"])
         font1.setPointSize(16)
@@ -640,16 +661,19 @@ class Ui_MainWindow(object):
         self.clients_listview.setStyleSheet(u"QListView {	\n"
 "	font:  16pt \"\u7b49\u7ebf\";\n"
 "	color: rgb(170, 0, 255);\n"
-"	background-color: rgb(13, 9, 36);\n"
+"	background-color: rgb(13,9,36);\n"
+"	alternate-background-color:rgba(36, 27, 102, 120);\n"
 "	border-radius: 15px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
-"	padding:5px;\n"
+"	padding-top: 5px;\n"
+"	padding-bottom: 5px;\n"
+"	padding-left: 0;\n"
+"	padding-right: 0;\n"
 "}\n"
 "QListView::item {\n"
 "	min-height:35px;\n"
 "     border-radius: 15px;\n"
 "	padding-left: 20px;\n"
-"	background-color: rgb(13, 9, 36);\n"
 "}\n"
 "\n"
 "QListView::item:selected {   \n"
@@ -674,11 +698,11 @@ class Ui_MainWindow(object):
 "}\n"
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
-"QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
+"QScrollBar::handle:hover:horizon"
+                        "tal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
-"QScro"
-                        "llBar::add-line:horizontal {\n"
+"QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "    width: 20px;\n"
@@ -711,11 +735,11 @@ class Ui_MainWindow(object):
 "    margin: 20px 0 20px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
-" QScrollBar::handle:vertical {	\n"
+" QScrollBar::han"
+                        "dle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
-"	bor"
-                        "der-radius: 3px\n"
+"	border-radius: 3px\n"
 " }\n"
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
@@ -745,11 +769,14 @@ class Ui_MainWindow(object):
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"     background: none;\n"
+"     background"
+                        ": none;\n"
 " }\n"
 "")
         self.clients_listview.setFrameShadow(QFrame.Sunken)
         self.clients_listview.setLineWidth(1)
+        self.clients_listview.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.clients_listview.setAlternatingRowColors(True)
         self.clients_listview.setBatchSize(200)
 
         self.verticalLayout_13.addWidget(self.clients_listview)
@@ -757,26 +784,31 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.clients_list_page, u"\u7528\u6237\u5217\u8868")
         self.tq_account_list_page = QWidget()
         self.tq_account_list_page.setObjectName(u"tq_account_list_page")
-        self.tq_account_list_page.setGeometry(QRect(0, 0, 83, 66))
+        self.tq_account_list_page.setGeometry(QRect(0, 0, 238, 455))
         self.verticalLayout_37 = QVBoxLayout(self.tq_account_list_page)
         self.verticalLayout_37.setSpacing(0)
         self.verticalLayout_37.setObjectName(u"verticalLayout_37")
         self.verticalLayout_37.setContentsMargins(0, 0, 0, 0)
         self.tq_account_listview = QListView(self.tq_account_list_page)
         self.tq_account_listview.setObjectName(u"tq_account_listview")
+        sizePolicy1.setHeightForWidth(self.tq_account_listview.sizePolicy().hasHeightForWidth())
+        self.tq_account_listview.setSizePolicy(sizePolicy1)
         self.tq_account_listview.setStyleSheet(u"QListView {	\n"
 "	font:  16pt \"\u7b49\u7ebf\";\n"
 "	color: rgb(255, 85, 0);\n"
-"	background-color: rgb(13, 9, 36);\n"
+"	background-color: rgb(13,9,36);\n"
+"	alternate-background-color:rgba(36, 27, 102, 120);\n"
 "	border-radius: 15px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
-"	padding:5px;\n"
+"	padding-top: 5px;\n"
+"	padding-bottom: 5px;\n"
+"	padding-left: 0;\n"
+"	padding-right: 0;\n"
 "}\n"
 "QListView::item {\n"
 "	min-height:35px;\n"
 "     border-radius: 15px;\n"
 "	padding-left: 20px;\n"
-"	background-color: rgb(13, 9, 36);\n"
 "}\n"
 "\n"
 "QListView::item:selected {   \n"
@@ -801,11 +833,11 @@ class Ui_MainWindow(object):
 "}\n"
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
-"QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
+"QScrollBar::handle:hover:horizont"
+                        "al,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
-"QScrol"
-                        "lBar::add-line:horizontal {\n"
+"QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "    width: 20px;\n"
@@ -838,11 +870,11 @@ class Ui_MainWindow(object):
 "    margin: 20px 0 20px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
-" QScrollBar::handle:vertical {	\n"
+" QScrollBar::hand"
+                        "le:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
-"	bord"
-                        "er-radius: 3px\n"
+"	border-radius: 3px\n"
 " }\n"
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
@@ -872,37 +904,45 @@ class Ui_MainWindow(object):
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"     background: none;\n"
+"     background:"
+                        " none;\n"
 " }\n"
 "")
+        self.tq_account_listview.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tq_account_listview.setAlternatingRowColors(True)
 
         self.verticalLayout_37.addWidget(self.tq_account_listview)
 
         self.Veiw_Box.addItem(self.tq_account_list_page, u"\u5929\u52e4\u5e10\u6237\u5217\u8868")
         self.strategy_list_page = QWidget()
         self.strategy_list_page.setObjectName(u"strategy_list_page")
-        self.strategy_list_page.setGeometry(QRect(0, 0, 83, 66))
+        self.strategy_list_page.setGeometry(QRect(0, 0, 238, 455))
         self.verticalLayout_16 = QVBoxLayout(self.strategy_list_page)
         self.verticalLayout_16.setSpacing(0)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
         self.strategy_listview = QListView(self.strategy_list_page)
         self.strategy_listview.setObjectName(u"strategy_listview")
+        sizePolicy1.setHeightForWidth(self.strategy_listview.sizePolicy().hasHeightForWidth())
+        self.strategy_listview.setSizePolicy(sizePolicy1)
         self.strategy_listview.setFont(font1)
         self.strategy_listview.setAutoFillBackground(False)
         self.strategy_listview.setStyleSheet(u"QListView {	\n"
 "	font:  16pt \"\u7b49\u7ebf\";\n"
 "	color: rgb(255, 255, 0);\n"
-"	background-color: rgb(13, 9, 36);\n"
+"	background-color: rgb(13,9,36);\n"
+"	alternate-background-color:rgba(36, 27, 102, 120);\n"
 "	border-radius: 15px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
-"	padding:5px;\n"
+"	padding-top: 5px;\n"
+"	padding-bottom: 5px;\n"
+"	padding-left: 0;\n"
+"	padding-right: 0;\n"
 "}\n"
 "QListView::item {\n"
 "	min-height:35px;\n"
 "     border-radius: 15px;\n"
 "	padding-left: 20px;\n"
-"	background-color: rgb(13, 9, 36);\n"
 "}\n"
 "\n"
 "QListView::item:selected {   \n"
@@ -927,11 +967,11 @@ class Ui_MainWindow(object):
 "}\n"
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
-"QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
+"QScrollBar::handle:hover:horizon"
+                        "tal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
-"QScro"
-                        "llBar::add-line:horizontal {\n"
+"QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "    width: 20px;\n"
@@ -964,11 +1004,11 @@ class Ui_MainWindow(object):
 "    margin: 20px 0 20px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
-" QScrollBar::handle:vertical {	\n"
+" QScrollBar::han"
+                        "dle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
-"	bor"
-                        "der-radius: 3px\n"
+"	border-radius: 3px\n"
 " }\n"
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
@@ -998,10 +1038,13 @@ class Ui_MainWindow(object):
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"     background: none;\n"
+"     background"
+                        ": none;\n"
 " }\n"
 "")
         self.strategy_listview.setFrameShadow(QFrame.Plain)
+        self.strategy_listview.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.strategy_listview.setAlternatingRowColors(True)
         self.strategy_listview.setBatchSize(200)
 
         self.verticalLayout_16.addWidget(self.strategy_listview)
@@ -1009,13 +1052,15 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.strategy_list_page, u"\u6211\u7684\u53ef\u7528\u7b56\u7565\u5217\u8868")
         self.qoute_list_page = QWidget()
         self.qoute_list_page.setObjectName(u"qoute_list_page")
-        self.qoute_list_page.setGeometry(QRect(0, 0, 83, 66))
+        self.qoute_list_page.setGeometry(QRect(0, 0, 238, 455))
         self.verticalLayout_15 = QVBoxLayout(self.qoute_list_page)
         self.verticalLayout_15.setSpacing(0)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
         self.quote_listview = QListView(self.qoute_list_page)
         self.quote_listview.setObjectName(u"quote_listview")
+        sizePolicy1.setHeightForWidth(self.quote_listview.sizePolicy().hasHeightForWidth())
+        self.quote_listview.setSizePolicy(sizePolicy1)
         font2 = QFont()
         font2.setFamilies([u"\u7b49\u7ebf"])
         font2.setPointSize(12)
@@ -1026,16 +1071,19 @@ class Ui_MainWindow(object):
         self.quote_listview.setStyleSheet(u"QListView {	\n"
 "	font:  12pt \"\u7b49\u7ebf\";\n"
 "	color: rgb(0, 255, 0);\n"
-"	background-color: rgb(13, 9, 36);\n"
+"	background-color: rgb(13,9,36);\n"
+"	alternate-background-color:rgba(36, 27, 102, 120);\n"
 "	border-radius: 15px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
-"	padding:5px;\n"
+"	padding-top: 5px;\n"
+"	padding-bottom: 5px;\n"
+"	padding-left: 0;\n"
+"	padding-right: 0;\n"
 "}\n"
 "QListView::item {\n"
 "	min-height:30px;\n"
 "     border-radius: 15px;\n"
 "	padding-left: 20px;\n"
-"	background-color: rgb(13, 9, 36);\n"
 "}\n"
 "\n"
 "QListView::item:selected {   \n"
@@ -1060,11 +1108,11 @@ class Ui_MainWindow(object):
 "}\n"
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
-"QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
+"QScrollBar::handle:hover:horizonta"
+                        "l,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
-"QScroll"
-                        "Bar::add-line:horizontal {\n"
+"QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "    width: 20px;\n"
@@ -1097,11 +1145,11 @@ class Ui_MainWindow(object):
 "    margin: 20px 0 20px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
-" QScrollBar::handle:vertical {	\n"
+" QScrollBar::handl"
+                        "e:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
-"	borde"
-                        "r-radius: 3px\n"
+"	border-radius: 3px\n"
 " }\n"
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
@@ -1131,10 +1179,13 @@ class Ui_MainWindow(object):
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"     background: none;\n"
+"     background: "
+                        "none;\n"
 " }\n"
 "")
         self.quote_listview.setFrameShadow(QFrame.Plain)
+        self.quote_listview.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.quote_listview.setAlternatingRowColors(True)
         self.quote_listview.setBatchSize(200)
 
         self.verticalLayout_15.addWidget(self.quote_listview)
@@ -1142,37 +1193,46 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.qoute_list_page, u"\u7b56\u7565\u4e2d\u5f15\u7528\u7684\u884c\u60c5\u5217\u8868")
         self.process_list_page = QWidget()
         self.process_list_page.setObjectName(u"process_list_page")
-        self.process_list_page.setGeometry(QRect(0, 0, 282, 455))
+        self.process_list_page.setGeometry(QRect(0, 0, 238, 455))
         self.verticalLayout_14 = QVBoxLayout(self.process_list_page)
         self.verticalLayout_14.setSpacing(0)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
         self.process_listview = QListView(self.process_list_page)
         self.process_listview.setObjectName(u"process_listview")
-        self.process_listview.setFont(font2)
+        font3 = QFont()
+        font3.setFamilies([u"\u7b49\u7ebf"])
+        font3.setPointSize(10)
+        font3.setBold(False)
+        font3.setItalic(False)
+        self.process_listview.setFont(font3)
         self.process_listview.setAutoFillBackground(False)
         self.process_listview.setStyleSheet(u"QListView {	\n"
-"	font:  12pt \"\u7b49\u7ebf\";\n"
+"	font:  10pt \"\u7b49\u7ebf\";	\n"
 "	color: rgb(255, 0, 127);\n"
-"	background-color: rgb(13, 9, 36);\n"
+"	background-color: rgb(13,9,36);\n"
+"	alternate-background-color:rgba(36, 27, 102, 120);\n"
 "	border-radius: 15px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
-"	padding:5px;\n"
+"	padding-top: 5px;\n"
+"	padding-bottom: 5px;\n"
+"	padding-left: 0;\n"
+"	padding-right: 0;\n"
 "}\n"
 "QListView::item {\n"
-"	min-height:30px;\n"
-"     border-radius: 15px;\n"
-"	padding-left: 5px;\n"
-"	background-color: rgb(13, 9, 36);\n"
+"	min-height:40px;\n"
+"     border-radius: 18px;\n"
+"	padding-left: 15px;\n"
 "}\n"
 "\n"
-"QListView::item:selected {   \n"
+"QListView::item:selected {  	 \n"
+"	color: rgb(0, 255, 0);\n"
 "	border: none;\n"
-"	background-color: rgb(170, 0, 255);\n"
+"	background-color: rgba(170, 0, 255,150);\n"
 "}\n"
 "\n"
 "QListView::item:hover { \n"
-"	background-color: rgb(0, 70, 0);\n"
+"	background-color: rgba(0, 70, 0, 200);\n"
 "}\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
@@ -1187,12 +1247,12 @@ class Ui_MainWindow(object):
 "	border-radius: 3px\n"
 "}\n"
 "/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b"
+                        "*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
-"QScrol"
-                        "lBar::add-line:horizontal {\n"
+"QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "    width: 20px;\n"
@@ -1223,13 +1283,13 @@ class Ui_MainWindow(object):
 "    background: rgb(52, 59, 72);\n"
 "    width: 8px;\n"
 "    margin: 20px 0 20px 0;\n"
-"	border-radius: 3px;\n"
+"	border-r"
+                        "adius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
-"	bord"
-                        "er-radius: 3px\n"
+"	border-radius: 3px\n"
 " }\n"
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
@@ -1258,11 +1318,14 @@ class Ui_MainWindow(object):
 "     background: none;\n"
 " }\n"
 "\n"
-" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+" QScrollBar::add-page:vertical, QScrollBar::"
+                        "sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
 "")
         self.process_listview.setFrameShadow(QFrame.Plain)
+        self.process_listview.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.process_listview.setAlternatingRowColors(True)
         self.process_listview.setBatchSize(200)
 
         self.verticalLayout_14.addWidget(self.process_listview)
@@ -1329,12 +1392,12 @@ class Ui_MainWindow(object):
         self.Btn_start_all_stoped_strategy.setObjectName(u"Btn_start_all_stoped_strategy")
         self.Btn_start_all_stoped_strategy.setMinimumSize(QSize(220, 40))
         self.Btn_start_all_stoped_strategy.setMaximumSize(QSize(220, 40))
-        font3 = QFont()
-        font3.setFamilies([u"\u7b49\u7ebf"])
-        font3.setPointSize(16)
-        font3.setBold(True)
-        font3.setItalic(False)
-        self.Btn_start_all_stoped_strategy.setFont(font3)
+        font4 = QFont()
+        font4.setFamilies([u"\u7b49\u7ebf"])
+        font4.setPointSize(16)
+        font4.setBold(True)
+        font4.setItalic(False)
+        self.Btn_start_all_stoped_strategy.setFont(font4)
         self.Btn_start_all_stoped_strategy.setStyleSheet(u"QPushButton{\n"
 "	color: rgb(13, 9, 36);\n"
 "	background-color:rgb(0, 255, 0);\n"
@@ -1364,8 +1427,11 @@ class Ui_MainWindow(object):
 
         self.frame = QFrame(self.MainPage)
         self.frame.setObjectName(u"frame")
-        sizePolicy1.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
-        self.frame.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
+        self.frame.setSizePolicy(sizePolicy2)
         self.frame.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
 "border: none;")
         self.frame.setFrameShape(QFrame.StyledPanel)
@@ -1376,11 +1442,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.frame_3 = QFrame(self.frame)
         self.frame_3.setObjectName(u"frame_3")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
-        self.frame_3.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
+        self.frame_3.setSizePolicy(sizePolicy1)
         self.frame_3.setMinimumSize(QSize(1000, 0))
         self.frame_3.setStyleSheet(u"background-color: rgb(0, 0, 0);")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
@@ -1443,12 +1506,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setContentsMargins(20, 0, 20, 0)
         self.label_22 = QLabel(self.frame_15)
         self.label_22.setObjectName(u"label_22")
-        font4 = QFont()
-        font4.setFamilies([u"\u7b49\u7ebf"])
-        font4.setPointSize(14)
-        font4.setBold(True)
-        font4.setItalic(False)
-        self.label_22.setFont(font4)
+        font5 = QFont()
+        font5.setFamilies([u"\u7b49\u7ebf"])
+        font5.setPointSize(14)
+        font5.setBold(True)
+        font5.setItalic(False)
+        self.label_22.setFont(font5)
         self.label_22.setStyleSheet(u"QFrame {\n"
 "	background-color: rgba(30, 30, 40, 0);\n"
 "	border: none;\n"
@@ -1465,12 +1528,12 @@ class Ui_MainWindow(object):
         self.Btn_opne_in_excel1.setObjectName(u"Btn_opne_in_excel1")
         self.Btn_opne_in_excel1.setMinimumSize(QSize(180, 30))
         self.Btn_opne_in_excel1.setMaximumSize(QSize(180, 30))
-        font5 = QFont()
-        font5.setFamilies([u"\u7b49\u7ebf"])
-        font5.setPointSize(14)
-        font5.setBold(False)
-        font5.setItalic(False)
-        self.Btn_opne_in_excel1.setFont(font5)
+        font6 = QFont()
+        font6.setFamilies([u"\u7b49\u7ebf"])
+        font6.setPointSize(14)
+        font6.setBold(False)
+        font6.setItalic(False)
+        self.Btn_opne_in_excel1.setFont(font6)
         self.Btn_opne_in_excel1.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
 "	background-color: rgba(40, 40, 70, 0);\n"
@@ -1488,9 +1551,9 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(25, 25, 25);\n"
 "}")
-        icon7 = QIcon()
-        icon7.addFile(u":/\u56fe\u6807/icons/Excel.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.Btn_opne_in_excel1.setIcon(icon7)
+        icon6 = QIcon()
+        icon6.addFile(u":/\u56fe\u6807/icons/Excel.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.Btn_opne_in_excel1.setIcon(icon6)
         self.Btn_opne_in_excel1.setIconSize(QSize(20, 20))
 
         self.horizontalLayout_8.addWidget(self.Btn_opne_in_excel1, 0, Qt.AlignRight|Qt.AlignVCenter)
@@ -1531,36 +1594,38 @@ class Ui_MainWindow(object):
         self.horizontalLayout_37.setObjectName(u"horizontalLayout_37")
         self.horizontalLayout_37.setContentsMargins(0, 0, 0, 0)
         self.tableWidget_deal_detials = QTableWidget(self.frame_65)
+        if (self.tableWidget_deal_detials.columnCount() < 8):
+            self.tableWidget_deal_detials.setColumnCount(8)
+        if (self.tableWidget_deal_detials.rowCount() < 100):
+            self.tableWidget_deal_detials.setRowCount(100)
         self.tableWidget_deal_detials.setObjectName(u"tableWidget_deal_detials")
-        font6 = QFont()
-        font6.setFamilies([u"\u7b49\u7ebf"])
-        font6.setPointSize(11)
-        font6.setBold(False)
-        font6.setItalic(False)
-        self.tableWidget_deal_detials.setFont(font6)
+        self.tableWidget_deal_detials.setFont(font3)
+        self.tableWidget_deal_detials.viewport().setProperty("cursor", QCursor(Qt.PointingHandCursor))
+        self.tableWidget_deal_detials.setMouseTracking(True)
         self.tableWidget_deal_detials.setStyleSheet(u"QTableWidget{\n"
-"font: 11pt \"\u7b49\u7ebf\";\n"
+"font: 10pt \"\u7b49\u7ebf\";\n"
 "color:rgb(255, 255, 255);\n"
-"background-color: transparent;\n"
-"/*alternate-background-color:rgb(35, 18, 90);/*\u4ea4\u9519\u989c\u8272*/\n"
-"gridline-color:transparent;\n"
-"border: none;\n"
+"background-color: rgb(13,9,27);\n"
+"alternate-background-color:rgba(13,9,36, 170);\n"
+"gridline-color:rgba(140, 140, 140, 60);\n"
+"border: 1px;\n"
 "padding: 5px 5px 5px 5px;\n"
 "}\n"
 "QTableWidget:hover{\n"
 "border: none;\n"
 "}\n"
 "QTableWidget::item {\n"
-"background-color: rgb(13, 9, 37);\n"
-"border: 1px solid rgba(140, 140, 140, 50);\n"
-"border-radius: 13px;\n"
+"text-align:left;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"border-radius: none;\n"
 "}\n"
 "/*\u9009\u4e2ditem*/\n"
 "QTableWidget::item:selected{\n"
 "font: 700 12pt \"\u7b49\u7ebf\";\n"
-"color:rgb(0, 255, 0);\n"
-"background:rgb(126, 0, 95);\n"
-"border: none;\n"
+"color: rgb(0, 255, 0);\n"
+"background:rgba(65, 0, 44, 180);\n"
+"border: 1px solid rgba(140, 140, 140, 60);\n"
 "}\n"
 "/*\n"
 "\u60ac\u6d6eitem*/\n"
@@ -1570,42 +1635,49 @@ class Ui_MainWindow(object):
 "}\n"
 "/*\u8868\u5934*/\n"
 "QHeaderView::section:horizontal{\n"
-"font: 700 12pt \"\u7b49\u7ebf\";\n"
-"color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"background:rgb(140, 45, 0);\n"
-"border-left-width:0;\n"
-"border-top-width:0;\n"
-"border-radius: 13px;\n"
+"font: 700 10pt \"\u7b49\u7ebf\";\n"
+"color: rgb(255, 0, 127);\n"
+"text-align:center;\n"
+"border: 1px solid rgba(140, 140, 140, 60);\n"
+"background-color: rgb(26, 18, 54);\n"
+"border-radius"
+                        ": none;\n"
+"margin:1px;\n"
 "}\n"
-""
-                        "QHeaderView::section:hover:horizontal{\n"
-"border: none;\n"
+"QHeaderView::section:hover:horizontal{\n"
+"border: 1px solid rgba(140, 140, 140, 160);\n"
+"background-color: rgba(255, 255, 0, 150);\n"
 "}\n"
 "QHeaderView::section:vertical{\n"
-"border: none;\n"
-"text-align:center;\n"
-"background:rgb(13, 9, 37);\n"
-"color: rgb(13, 9, 37);\n"
+"font: 700 14pt \"\u7b49\u7ebf\";\n"
+"color: rgb(255, 0, 0);\n"
+"text-align: right;\n"
+"border: 1px solid rgba(140, 140, 140, 60);\n"
+"background-color: rgb(26, 18, 54);\n"
+"border-radius: none;\n"
+"margin:1px;\n"
+"}\n"
+"QHeaderView::section:hover:vertical{\n"
+"border: 1px solid rgba(140, 140, 140, 160);\n"
+"background-color: rgba(255, 255, 0, 150);\n"
 "}\n"
 "/*\u8868\u5934\u6700\u5de6\u4e0a\u89d2\u7684\u65b9\u5757*/\n"
 "QTableCornerButton:section{\n"
-"border-left-width:0;\n"
-"border-top-width:0;\n"
-"border-bottom-width:0;\n"
-"border-right-width:0;\n"
 "text-align:center;\n"
-"background:transparent;\n"
-"margin:-5px;\n"
+"border: 1px solid rgba(140, 140, 140, 60);\n"
+"background-color: rgb(26, 18, 54);\n"
+"margin:1px;\n"
 "color:rgb(255, 255, 255)\n"
 "}\n"
 "QTableCornerButton::section:hover{\n"
-"border:none;\n"
+"border: 1px solid rgba(140, 140, 140, 160);\n"
+"background-color: rgba(255, 255, 0, 50);\n"
 "}\n"
 "\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    "
+                        "background: rgb(52, 59, 72);\n"
 "    height: 8px;\n"
 "    margin: 0px 20px 0 20px;\n"
 "	border-radius: 3px;\n"
@@ -1618,8 +1690,7 @@ class Ui_MainWindow(object):
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
-"backgroun"
-                        "d:rgb(150, 0, 150);\n"
+"background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
@@ -1639,7 +1710,8 @@ class Ui_MainWindow(object):
 "    subcontrol-position: left;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
-"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:hor"
+                        "izontal\n"
 "{\n"
 "     background: none;\n"
 "}\n"
@@ -1655,8 +1727,7 @@ class Ui_MainWindow(object):
 "	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
-"	background:rgba(249, 83, 255, 170);"
-                        "\n"
+"	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
 "	border-radius: 3px\n"
 " }\n"
@@ -1678,7 +1749,8 @@ class Ui_MainWindow(object):
 "	border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "     height: 20px;\n"
-"	border-top-left-radius: 3px;\n"
+"	"
+                        "border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
 "     subcontrol-origin: margin;\n"
@@ -1692,12 +1764,24 @@ class Ui_MainWindow(object):
 " }\n"
 "\n"
 "")
-        self.tableWidget_deal_detials.setEditTriggers(QAbstractItemView.AnyKeyPressed|QAbstractItemView.DoubleClicked|QAbstractItemView.EditKeyPressed)
-        self.tableWidget_deal_detials.setDragEnabled(True)
-        self.tableWidget_deal_detials.setDragDropMode(QAbstractItemView.DragOnly)
-        self.tableWidget_deal_detials.setDefaultDropAction(Qt.MoveAction)
+        self.tableWidget_deal_detials.setFrameShadow(QFrame.Raised)
+        self.tableWidget_deal_detials.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.tableWidget_deal_detials.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.tableWidget_deal_detials.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tableWidget_deal_detials.setProperty("showDropIndicator", False)
+        self.tableWidget_deal_detials.setDragEnabled(False)
+        self.tableWidget_deal_detials.setDragDropOverwriteMode(False)
+        self.tableWidget_deal_detials.setDragDropMode(QAbstractItemView.NoDragDrop)
+        self.tableWidget_deal_detials.setDefaultDropAction(Qt.IgnoreAction)
+        self.tableWidget_deal_detials.setAlternatingRowColors(True)
+        self.tableWidget_deal_detials.setVerticalScrollMode(QAbstractItemView.ScrollPerPixel)
+        self.tableWidget_deal_detials.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
+        self.tableWidget_deal_detials.setSortingEnabled(False)
+        self.tableWidget_deal_detials.setRowCount(100)
+        self.tableWidget_deal_detials.setColumnCount(8)
         self.tableWidget_deal_detials.horizontalHeader().setMinimumSectionSize(5)
         self.tableWidget_deal_detials.horizontalHeader().setDefaultSectionSize(100)
+        self.tableWidget_deal_detials.horizontalHeader().setProperty("showSortIndicator", False)
         self.tableWidget_deal_detials.verticalHeader().setVisible(False)
         self.tableWidget_deal_detials.verticalHeader().setMinimumSectionSize(30)
         self.tableWidget_deal_detials.verticalHeader().setDefaultSectionSize(30)
@@ -1716,8 +1800,8 @@ class Ui_MainWindow(object):
 
         self.frame_4 = QFrame(self.frame_5)
         self.frame_4.setObjectName(u"frame_4")
-        sizePolicy1.setHeightForWidth(self.frame_4.sizePolicy().hasHeightForWidth())
-        self.frame_4.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.frame_4.sizePolicy().hasHeightForWidth())
+        self.frame_4.setSizePolicy(sizePolicy2)
         self.frame_4.setMinimumSize(QSize(356, 390))
         self.frame_4.setMaximumSize(QSize(356, 16777215))
         self.frame_4.setStyleSheet(u"QFrame {\n"
@@ -2055,8 +2139,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11.setContentsMargins(0, 5, 0, 0)
         self.frame_19 = QFrame(self.frame_2)
         self.frame_19.setObjectName(u"frame_19")
-        sizePolicy1.setHeightForWidth(self.frame_19.sizePolicy().hasHeightForWidth())
-        self.frame_19.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.frame_19.sizePolicy().hasHeightForWidth())
+        self.frame_19.setSizePolicy(sizePolicy2)
         self.frame_19.setMinimumSize(QSize(0, 0))
         self.frame_19.setStyleSheet(u"background-color: rgb(0, 0, 0);")
         self.frame_19.setFrameShape(QFrame.StyledPanel)
@@ -2087,7 +2171,7 @@ class Ui_MainWindow(object):
         self.label_23.setObjectName(u"label_23")
         self.label_23.setMinimumSize(QSize(0, 40))
         self.label_23.setMaximumSize(QSize(200, 16777215))
-        self.label_23.setFont(font4)
+        self.label_23.setFont(font5)
         self.label_23.setStyleSheet(u"QFrame {\n"
 "	background-color: rgba(30, 30, 40, 0);\n"
 "	border: none;\n"
@@ -2104,7 +2188,7 @@ class Ui_MainWindow(object):
         self.Btn_cleartext.setObjectName(u"Btn_cleartext")
         self.Btn_cleartext.setMinimumSize(QSize(180, 30))
         self.Btn_cleartext.setMaximumSize(QSize(180, 30))
-        self.Btn_cleartext.setFont(font5)
+        self.Btn_cleartext.setFont(font6)
         self.Btn_cleartext.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
 "	background-color: rgba(40, 40, 70, 0);\n"
@@ -2122,9 +2206,9 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(25, 25, 25);\n"
 "}")
-        icon8 = QIcon()
-        icon8.addFile(u":/\u56fe\u6807/icons/\u6e05\u5c4f.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.Btn_cleartext.setIcon(icon8)
+        icon7 = QIcon()
+        icon7.addFile(u":/\u56fe\u6807/icons/\u6e05\u5c4f.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.Btn_cleartext.setIcon(icon7)
         self.Btn_cleartext.setIconSize(QSize(30, 30))
 
         self.horizontalLayout_10.addWidget(self.Btn_cleartext)
@@ -2259,8 +2343,8 @@ class Ui_MainWindow(object):
 
         self.frame_20 = QFrame(self.frame_2)
         self.frame_20.setObjectName(u"frame_20")
-        sizePolicy2.setHeightForWidth(self.frame_20.sizePolicy().hasHeightForWidth())
-        self.frame_20.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.frame_20.sizePolicy().hasHeightForWidth())
+        self.frame_20.setSizePolicy(sizePolicy1)
         self.frame_20.setMinimumSize(QSize(350, 0))
         self.frame_20.setMaximumSize(QSize(350, 16777215))
         self.frame_20.setStyleSheet(u"background-color: rgb(0, 0, 0);")
@@ -2292,7 +2376,7 @@ class Ui_MainWindow(object):
         self.label_24.setObjectName(u"label_24")
         self.label_24.setMinimumSize(QSize(0, 40))
         self.label_24.setMaximumSize(QSize(150, 16777215))
-        self.label_24.setFont(font4)
+        self.label_24.setFont(font5)
         self.label_24.setStyleSheet(u"QFrame {\n"
 "	background-color: rgba(30, 30, 40, 0);\n"
 "	border: none;\n"
@@ -2440,7 +2524,7 @@ class Ui_MainWindow(object):
         self.frame_39.setMinimumSize(QSize(0, 30))
         self.frame_39.setMaximumSize(QSize(16777215, 35))
         self.frame_39.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 27);\n"
+"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "}\n"
@@ -2525,7 +2609,7 @@ class Ui_MainWindow(object):
         self.label_28.setObjectName(u"label_28")
         self.label_28.setMinimumSize(QSize(0, 40))
         self.label_28.setMaximumSize(QSize(150, 16777215))
-        self.label_28.setFont(font4)
+        self.label_28.setFont(font5)
         self.label_28.setStyleSheet(u"QFrame {\n"
 "	background-color: rgba(30, 30, 40, 0);\n"
 "	border: none;\n"
@@ -2611,7 +2695,7 @@ class Ui_MainWindow(object):
 "	padding: 5px;\n"
 "	background-color: rgb(255, 255, 255);	\n"
 "	color: rgb(0, 0, 0);\n"
-"	font: 700 18pt \"\u7b49\u7ebf\";\n"
+"	font: 700 14pt \"\u7b49\u7ebf\";\n"
 "}\n"
 "QLineEdit:hover {\n"
 "	border: 3px solid rgb(255, 85, 0);\n"
@@ -2900,7 +2984,7 @@ class Ui_MainWindow(object):
         self.frame_57.setMinimumSize(QSize(0, 70))
         self.frame_57.setMaximumSize(QSize(16777215, 70))
         self.frame_57.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 27);\n"
+"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "}\n"
@@ -2947,7 +3031,7 @@ class Ui_MainWindow(object):
         self.frame_58.setMinimumSize(QSize(0, 60))
         self.frame_58.setMaximumSize(QSize(16777215, 60))
         self.frame_58.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 27);\n"
+"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "}\n"
@@ -2962,7 +3046,7 @@ class Ui_MainWindow(object):
         self.frame_59 = QFrame(self.frame_58)
         self.frame_59.setObjectName(u"frame_59")
         self.frame_59.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 27);\n"
+"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
@@ -3013,7 +3097,7 @@ class Ui_MainWindow(object):
         self.frame_77 = QFrame(self.frame_58)
         self.frame_77.setObjectName(u"frame_77")
         self.frame_77.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 27);\n"
+"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
@@ -3068,7 +3152,7 @@ class Ui_MainWindow(object):
         self.frame_78.setObjectName(u"frame_78")
         self.frame_78.setMaximumSize(QSize(16777215, 200))
         self.frame_78.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 27);\n"
+"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "}\n"
@@ -3083,7 +3167,7 @@ class Ui_MainWindow(object):
         self.frame_79 = QFrame(self.frame_78)
         self.frame_79.setObjectName(u"frame_79")
         self.frame_79.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 27);\n"
+"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
@@ -3269,7 +3353,7 @@ class Ui_MainWindow(object):
         self.frame_94 = QFrame(self.frame_78)
         self.frame_94.setObjectName(u"frame_94")
         self.frame_94.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 27);\n"
+"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
@@ -3459,7 +3543,7 @@ class Ui_MainWindow(object):
         self.frame_97.setObjectName(u"frame_97")
         self.frame_97.setMaximumSize(QSize(16777215, 40))
         self.frame_97.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 27);\n"
+"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "}\n"
@@ -3475,7 +3559,7 @@ class Ui_MainWindow(object):
         self.label_37.setObjectName(u"label_37")
         self.label_37.setMinimumSize(QSize(0, 40))
         self.label_37.setMaximumSize(QSize(150, 16777215))
-        self.label_37.setFont(font4)
+        self.label_37.setFont(font5)
         self.label_37.setStyleSheet(u"QFrame {\n"
 "	background-color: rgba(30, 30, 40, 0);\n"
 "	border: none;\n"
@@ -3508,28 +3592,33 @@ class Ui_MainWindow(object):
         self.verticalLayout_56.setContentsMargins(0, 0, 0, 0)
         self.self_selection_listview = QListView(self.frame_98)
         self.self_selection_listview.setObjectName(u"self_selection_listview")
+        self.self_selection_listview.setMaximumSize(QSize(16777215, 16777215))
         self.self_selection_listview.setStyleSheet(u"QListView {	\n"
-"	font:  12pt \"\u7b49\u7ebf\";\n"
+"	font:  10pt \"\u7b49\u7ebf\";	\n"
 "	color: rgb(255, 0, 127);\n"
-"	background-color: rgb(13, 9, 36);\n"
+"	background-color: rgb(13,9,36);\n"
+"	alternate-background-color:rgba(36, 27, 102, 100);\n"
 "	border-radius: 15px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
-"	padding:5px;\n"
+"	padding-top: 5px;\n"
+"	padding-bottom: 5px;\n"
+"	padding-left: 0;\n"
+"	padding-right: 0;\n"
 "}\n"
 "QListView::item {\n"
 "	min-height:30px;\n"
-"     border-radius: 15px;\n"
-"	padding-left: 5px;\n"
-"	background-color: rgb(13, 9, 36);\n"
+"     border-radius: 14px;\n"
+"	padding-left: 15px;\n"
 "}\n"
 "\n"
-"QListView::item:selected {   \n"
+"QListView::item:selected {  	 \n"
+"	color: rgb(0, 255, 0);\n"
 "	border: none;\n"
-"	background-color: rgb(170, 0, 255);\n"
+"	background-color: rgba(170, 0, 255,150);\n"
 "}\n"
 "\n"
 "QListView::item:hover { \n"
-"	background-color: rgb(0, 70, 0);\n"
+"	background-color: rgba(0, 70, 0, 200);\n"
 "}\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
@@ -3544,12 +3633,12 @@ class Ui_MainWindow(object):
 "	border-radius: 3px\n"
 "}\n"
 "/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b"
+                        "*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
-"QScrol"
-                        "lBar::add-line:horizontal {\n"
+"QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "    width: 20px;\n"
@@ -3580,13 +3669,13 @@ class Ui_MainWindow(object):
 "    background: rgb(52, 59, 72);\n"
 "    width: 8px;\n"
 "    margin: 20px 0 20px 0;\n"
-"	border-radius: 3px;\n"
+"	border-r"
+                        "adius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
-"	bord"
-                        "er-radius: 3px\n"
+"	border-radius: 3px\n"
 " }\n"
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
@@ -3615,15 +3704,114 @@ class Ui_MainWindow(object):
 "     background: none;\n"
 " }\n"
 "\n"
-" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+" QScrollBar::add-page:vertical, QScrollBar::"
+                        "sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
 "")
+        self.self_selection_listview.setAlternatingRowColors(True)
 
         self.verticalLayout_56.addWidget(self.self_selection_listview)
 
 
         self.verticalLayout_38.addWidget(self.frame_98)
+
+        self.frame_115 = QFrame(self.frame_56)
+        self.frame_115.setObjectName(u"frame_115")
+        self.frame_115.setMinimumSize(QSize(0, 100))
+        self.frame_115.setStyleSheet(u"QFrame {	\n"
+"	background-color: rgb(13, 9, 36);\n"
+"	border-radius: 10px;\n"
+"	border: 1px solid rgb(65, 51, 156);\n"
+"}\n"
+"\n"
+"")
+        self.frame_115.setFrameShape(QFrame.StyledPanel)
+        self.frame_115.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_68 = QVBoxLayout(self.frame_115)
+        self.verticalLayout_68.setObjectName(u"verticalLayout_68")
+        self.frame_116 = QFrame(self.frame_115)
+        self.frame_116.setObjectName(u"frame_116")
+        self.frame_116.setStyleSheet(u"QFrame {	\n"
+"	background-color: rgb(13, 9, 27);\n"
+"	border-radius: 10px;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"")
+        self.frame_116.setFrameShape(QFrame.StyledPanel)
+        self.frame_116.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_54 = QHBoxLayout(self.frame_116)
+        self.horizontalLayout_54.setSpacing(0)
+        self.horizontalLayout_54.setObjectName(u"horizontalLayout_54")
+        self.horizontalLayout_54.setContentsMargins(0, 0, 0, 0)
+        self.Btn_start_TQ_services = QPushButton(self.frame_116)
+        self.Btn_start_TQ_services.setObjectName(u"Btn_start_TQ_services")
+        self.Btn_start_TQ_services.setMinimumSize(QSize(0, 30))
+        self.Btn_start_TQ_services.setMaximumSize(QSize(180, 16777215))
+        self.Btn_start_TQ_services.setStyleSheet(u"QPushButton{\n"
+"	color: rgb(13, 9, 36);\n"
+"	background-color:rgb(255, 0, 127);\n"
+"	font: 700 14pt \"\u7b49\u7ebf\";\n"
+"	border-radius: 15px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	border: 2px solid rgb(255, 85, 0); \n"
+"}\n"
+"QPushButton:pressed{\n"
+"	color: green;\n"
+"	border-color: rgb(255, 0, 0);\n"
+"    background-color: rgb(255, 255, 0);\n"
+"}\n"
+"")
+
+        self.horizontalLayout_54.addWidget(self.Btn_start_TQ_services)
+
+
+        self.verticalLayout_68.addWidget(self.frame_116)
+
+        self.frame_117 = QFrame(self.frame_115)
+        self.frame_117.setObjectName(u"frame_117")
+        self.frame_117.setStyleSheet(u"QFrame {	\n"
+"	background-color: rgb(13, 9, 27);\n"
+"	border-radius: 10px;\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"")
+        self.frame_117.setFrameShape(QFrame.StyledPanel)
+        self.frame_117.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_55 = QHBoxLayout(self.frame_117)
+        self.horizontalLayout_55.setSpacing(0)
+        self.horizontalLayout_55.setObjectName(u"horizontalLayout_55")
+        self.horizontalLayout_55.setContentsMargins(0, 0, 0, 0)
+        self.Btn_stop_TQ_services = QPushButton(self.frame_117)
+        self.Btn_stop_TQ_services.setObjectName(u"Btn_stop_TQ_services")
+        self.Btn_stop_TQ_services.setMinimumSize(QSize(0, 30))
+        self.Btn_stop_TQ_services.setMaximumSize(QSize(180, 16777215))
+        self.Btn_stop_TQ_services.setStyleSheet(u"QPushButton{\n"
+"	color: rgb(13, 9, 36);\n"
+"	background-color:rgb(0, 255, 0);\n"
+"	font: 700 14pt \"\u7b49\u7ebf\";\n"
+"	border-radius: 15px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	border: 2px solid rgb(255, 85, 0); \n"
+"}\n"
+"QPushButton:pressed{\n"
+"	color: green;\n"
+"	border-color: rgb(255, 0, 0);\n"
+"    background-color: rgb(255, 255, 0);\n"
+"}\n"
+"")
+
+        self.horizontalLayout_55.addWidget(self.Btn_stop_TQ_services)
+
+
+        self.verticalLayout_68.addWidget(self.frame_117)
+
+
+        self.verticalLayout_38.addWidget(self.frame_115)
 
 
         self.horizontalLayout_19.addWidget(self.frame_56)
@@ -3699,8 +3887,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
         self.frame_100 = QFrame(self.tab_user_manage)
         self.frame_100.setObjectName(u"frame_100")
-        sizePolicy1.setHeightForWidth(self.frame_100.sizePolicy().hasHeightForWidth())
-        self.frame_100.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.frame_100.sizePolicy().hasHeightForWidth())
+        self.frame_100.setSizePolicy(sizePolicy2)
         self.frame_100.setMinimumSize(QSize(520, 0))
         self.frame_100.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
@@ -3718,8 +3906,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_57.setContentsMargins(1, 10, 1, 1)
         self.frame_101 = QFrame(self.frame_100)
         self.frame_101.setObjectName(u"frame_101")
-        sizePolicy1.setHeightForWidth(self.frame_101.sizePolicy().hasHeightForWidth())
-        self.frame_101.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.frame_101.sizePolicy().hasHeightForWidth())
+        self.frame_101.setSizePolicy(sizePolicy2)
         self.frame_101.setMinimumSize(QSize(510, 510))
         self.frame_101.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
@@ -3733,8 +3921,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_51.setObjectName(u"horizontalLayout_51")
         self.label_client_photo_show = QLabel(self.frame_101)
         self.label_client_photo_show.setObjectName(u"label_client_photo_show")
-        sizePolicy1.setHeightForWidth(self.label_client_photo_show.sizePolicy().hasHeightForWidth())
-        self.label_client_photo_show.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.label_client_photo_show.sizePolicy().hasHeightForWidth())
+        self.label_client_photo_show.setSizePolicy(sizePolicy2)
         self.label_client_photo_show.setMinimumSize(QSize(500, 500))
         self.label_client_photo_show.setMaximumSize(QSize(16777215, 16777215))
         self.label_client_photo_show.setStyleSheet(u"QFrame {\n"
@@ -4595,8 +4783,8 @@ class Ui_MainWindow(object):
 
         self.frame_111 = QFrame(self.tab_tq_account_mamnage)
         self.frame_111.setObjectName(u"frame_111")
-        sizePolicy1.setHeightForWidth(self.frame_111.sizePolicy().hasHeightForWidth())
-        self.frame_111.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.frame_111.sizePolicy().hasHeightForWidth())
+        self.frame_111.setSizePolicy(sizePolicy2)
         self.frame_111.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
@@ -4974,8 +5162,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_42.setContentsMargins(-1, 10, -1, 5)
         self.label_tital_3 = QLabel(self.frame_41)
         self.label_tital_3.setObjectName(u"label_tital_3")
-        sizePolicy2.setHeightForWidth(self.label_tital_3.sizePolicy().hasHeightForWidth())
-        self.label_tital_3.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.label_tital_3.sizePolicy().hasHeightForWidth())
+        self.label_tital_3.setSizePolicy(sizePolicy1)
         self.label_tital_3.setMaximumSize(QSize(16777215, 50))
         self.label_tital_3.setStyleSheet(u"font: 700 20pt \"\u7b49\u7ebf\";\n"
 "color: rgb(0, 255, 0);\n"
@@ -4989,8 +5177,8 @@ class Ui_MainWindow(object):
 
         self.frame_42 = QFrame(self.frame_37)
         self.frame_42.setObjectName(u"frame_42")
-        sizePolicy1.setHeightForWidth(self.frame_42.sizePolicy().hasHeightForWidth())
-        self.frame_42.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.frame_42.sizePolicy().hasHeightForWidth())
+        self.frame_42.setSizePolicy(sizePolicy2)
         self.frame_42.setMinimumSize(QSize(0, 540))
         self.frame_42.setMaximumSize(QSize(450, 540))
         self.frame_42.setStyleSheet(u"QFrame {\n"
@@ -5589,7 +5777,7 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(25, 25, 25);\n"
 "}")
-        self.Btn_opne_in_excel2.setIcon(icon7)
+        self.Btn_opne_in_excel2.setIcon(icon6)
         self.Btn_opne_in_excel2.setIconSize(QSize(20, 20))
 
         self.horizontalLayout_40.addWidget(self.Btn_opne_in_excel2)
@@ -5629,30 +5817,37 @@ class Ui_MainWindow(object):
         self.horizontalLayout_36.setObjectName(u"horizontalLayout_36")
         self.horizontalLayout_36.setContentsMargins(0, 0, 0, 0)
         self.tableWidget_process = QTableWidget(self.frame_61)
+        if (self.tableWidget_process.columnCount() < 20):
+            self.tableWidget_process.setColumnCount(20)
+        if (self.tableWidget_process.rowCount() < 44):
+            self.tableWidget_process.setRowCount(44)
         self.tableWidget_process.setObjectName(u"tableWidget_process")
+        self.tableWidget_process.viewport().setProperty("cursor", QCursor(Qt.PointingHandCursor))
+        self.tableWidget_process.setMouseTracking(True)
         self.tableWidget_process.setStyleSheet(u"QTableWidget{\n"
-"font: 11pt \"\u7b49\u7ebf\";\n"
+"font: 10pt \"\u7b49\u7ebf\";\n"
 "color:rgb(255, 255, 255);\n"
-"background-color: transparent;\n"
-"/*alternate-background-color:rgb(35, 18, 90);/*\u4ea4\u9519\u989c\u8272*/\n"
-"gridline-color:transparent;\n"
-"border: none;\n"
+"background-color: rgb(13,9,27);\n"
+"alternate-background-color:rgba(13,9,36, 170);\n"
+"gridline-color:rgba(140, 140, 140, 60);\n"
+"border: 1px;\n"
 "padding: 5px 5px 5px 5px;\n"
 "}\n"
 "QTableWidget:hover{\n"
 "border: none;\n"
 "}\n"
 "QTableWidget::item {\n"
-"background-color: rgb(13, 9, 37);\n"
-"border: 1px solid rgba(140, 140, 140, 50);\n"
-"border-radius: 13px;\n"
+"text-align:left;\n"
+"background-color: transparent;\n"
+"border: none;\n"
+"border-radius: none;\n"
 "}\n"
 "/*\u9009\u4e2ditem*/\n"
 "QTableWidget::item:selected{\n"
 "font: 700 12pt \"\u7b49\u7ebf\";\n"
-"color:rgb(0, 255, 0);\n"
-"background:rgb(126, 0, 95);\n"
-"border: none;\n"
+"color: rgb(0, 255, 0);\n"
+"background:rgba(65, 0, 44, 180);\n"
+"border: 1px solid rgba(140, 140, 140, 60);\n"
 "}\n"
 "/*\n"
 "\u60ac\u6d6eitem*/\n"
@@ -5662,42 +5857,49 @@ class Ui_MainWindow(object):
 "}\n"
 "/*\u8868\u5934*/\n"
 "QHeaderView::section:horizontal{\n"
-"font: 700 12pt \"\u7b49\u7ebf\";\n"
-"color: rgb(255, 255, 255);\n"
-"border: none;\n"
-"background:rgb(140, 45, 0);\n"
-"border-left-width:0;\n"
-"border-top-width:0;\n"
-"border-radius: 13px;\n"
+"font: 700 10pt \"\u7b49\u7ebf\";\n"
+"color: rgb(255, 0, 127);\n"
+"text-align:center;\n"
+"border: 1px solid rgba(140, 140, 140, 60);\n"
+"background-color: rgb(26, 18, 54);\n"
+"border-radius"
+                        ": none;\n"
+"margin:1px;\n"
 "}\n"
-""
-                        "QHeaderView::section:hover:horizontal{\n"
-"border: none;\n"
+"QHeaderView::section:hover:horizontal{\n"
+"border: 1px solid rgba(140, 140, 140, 160);\n"
+"background-color: rgba(255, 255, 0, 150);\n"
 "}\n"
 "QHeaderView::section:vertical{\n"
-"border: none;\n"
-"text-align:center;\n"
-"background:rgb(13, 9, 37);\n"
-"color: rgb(13, 9, 37);\n"
+"font: 700 14pt \"\u7b49\u7ebf\";\n"
+"color: rgb(255, 0, 0);\n"
+"text-align: right;\n"
+"border: 1px solid rgba(140, 140, 140, 60);\n"
+"background-color: rgb(26, 18, 54);\n"
+"border-radius: none;\n"
+"margin:1px;\n"
+"}\n"
+"QHeaderView::section:hover:vertical{\n"
+"border: 1px solid rgba(140, 140, 140, 160);\n"
+"background-color: rgba(255, 255, 0, 150);\n"
 "}\n"
 "/*\u8868\u5934\u6700\u5de6\u4e0a\u89d2\u7684\u65b9\u5757*/\n"
 "QTableCornerButton:section{\n"
-"border-left-width:0;\n"
-"border-top-width:0;\n"
-"border-bottom-width:0;\n"
-"border-right-width:0;\n"
 "text-align:center;\n"
-"background:transparent;\n"
-"margin:-5px;\n"
+"border: 1px solid rgba(140, 140, 140, 60);\n"
+"background-color: rgb(26, 18, 54);\n"
+"margin:1px;\n"
 "color:rgb(255, 255, 255)\n"
 "}\n"
 "QTableCornerButton::section:hover{\n"
-"border:none;\n"
+"border: 1px solid rgba(140, 140, 140, 160);\n"
+"background-color: rgba(255, 255, 0, 50);\n"
 "}\n"
 "\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    "
+                        "background: rgb(52, 59, 72);\n"
 "    height: 8px;\n"
 "    margin: 0px 20px 0 20px;\n"
 "	border-radius: 3px;\n"
@@ -5710,8 +5912,7 @@ class Ui_MainWindow(object):
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
-"backgroun"
-                        "d:rgb(150, 0, 150);\n"
+"background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
@@ -5731,7 +5932,8 @@ class Ui_MainWindow(object):
 "    subcontrol-position: left;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
-"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:hor"
+                        "izontal\n"
 "{\n"
 "     background: none;\n"
 "}\n"
@@ -5747,8 +5949,7 @@ class Ui_MainWindow(object):
 "	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
-"	background:rgba(249, 83, 255, 170);"
-                        "\n"
+"	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
 "	border-radius: 3px\n"
 " }\n"
@@ -5770,7 +5971,8 @@ class Ui_MainWindow(object):
 "	border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "     height: 20px;\n"
-"	border-top-left-radius: 3px;\n"
+"	"
+                        "border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
 "     subcontrol-origin: margin;\n"
@@ -5784,20 +5986,17 @@ class Ui_MainWindow(object):
 " }\n"
 "\n"
 "")
-        self.tableWidget_process.setEditTriggers(QAbstractItemView.DoubleClicked|QAbstractItemView.EditKeyPressed)
-        self.tableWidget_process.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
-        self.tableWidget_process.setCornerButtonEnabled(False)
-        self.tableWidget_process.horizontalHeader().setMinimumSectionSize(10)
-        self.tableWidget_process.horizontalHeader().setDefaultSectionSize(120)
-        self.tableWidget_process.horizontalHeader().setHighlightSections(False)
+        self.tableWidget_process.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tableWidget_process.setProperty("showDropIndicator", False)
+        self.tableWidget_process.setDragEnabled(False)
+        self.tableWidget_process.setDragDropOverwriteMode(False)
+        self.tableWidget_process.setAlternatingRowColors(True)
+        self.tableWidget_process.setRowCount(44)
+        self.tableWidget_process.setColumnCount(20)
+        self.tableWidget_process.horizontalHeader().setCascadingSectionResizes(True)
         self.tableWidget_process.horizontalHeader().setProperty("showSortIndicator", True)
-        self.tableWidget_process.horizontalHeader().setStretchLastSection(False)
-        self.tableWidget_process.verticalHeader().setVisible(False)
-        self.tableWidget_process.verticalHeader().setCascadingSectionResizes(False)
-        self.tableWidget_process.verticalHeader().setMinimumSectionSize(30)
-        self.tableWidget_process.verticalHeader().setDefaultSectionSize(30)
-        self.tableWidget_process.verticalHeader().setProperty("showSortIndicator", False)
-        self.tableWidget_process.verticalHeader().setStretchLastSection(False)
+        self.tableWidget_process.verticalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_process.verticalHeader().setProperty("showSortIndicator", True)
 
         self.horizontalLayout_36.addWidget(self.tableWidget_process)
 
@@ -5942,8 +6141,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_17.setContentsMargins(10, 0, 5, 0)
         self.frame_34 = QFrame(self.third_page)
         self.frame_34.setObjectName(u"frame_34")
-        sizePolicy2.setHeightForWidth(self.frame_34.sizePolicy().hasHeightForWidth())
-        self.frame_34.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.frame_34.sizePolicy().hasHeightForWidth())
+        self.frame_34.setSizePolicy(sizePolicy1)
         self.frame_34.setMinimumSize(QSize(250, 0))
         self.frame_34.setMaximumSize(QSize(250, 16777215))
         self.frame_34.setStyleSheet(u"QFrame {\n"
@@ -6191,8 +6390,8 @@ class Ui_MainWindow(object):
 
         self.frame_25 = QFrame(self.third_page)
         self.frame_25.setObjectName(u"frame_25")
-        sizePolicy1.setHeightForWidth(self.frame_25.sizePolicy().hasHeightForWidth())
-        self.frame_25.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.frame_25.sizePolicy().hasHeightForWidth())
+        self.frame_25.setSizePolicy(sizePolicy2)
         self.frame_25.setMinimumSize(QSize(550, 0))
         self.frame_25.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
@@ -6927,8 +7126,8 @@ class Ui_MainWindow(object):
 
         self.label_current_time = QLabel(self.buttonframe)
         self.label_current_time.setObjectName(u"label_current_time")
-        sizePolicy1.setHeightForWidth(self.label_current_time.sizePolicy().hasHeightForWidth())
-        self.label_current_time.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.label_current_time.sizePolicy().hasHeightForWidth())
+        self.label_current_time.setSizePolicy(sizePolicy2)
         self.label_current_time.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
 "color: rgb(255, 0, 0);\n"
 "font: 12pt \"\u7b49\u7ebf\";\n"
@@ -6961,7 +7160,6 @@ class Ui_MainWindow(object):
         self.label_futures_psd.setBuddy(self.futures_psd)
 #endif // QT_CONFIG(shortcut)
         QWidget.setTabOrder(self.Btn_setting, self.Btn_donation)
-        QWidget.setTabOrder(self.Btn_donation, self.Btn_warning)
 
         self.retranslateUi(MainWindow)
         self.Btn_min_window.clicked.connect(MainWindow.showMinimized)
@@ -6969,7 +7167,7 @@ class Ui_MainWindow(object):
         self.stackedWidget.setCurrentIndex(0)
         self.Veiw_Box.setCurrentIndex(4)
         self.Veiw_Box.layout().setSpacing(6)
-        self.tabWidget_account.setCurrentIndex(0)
+        self.tabWidget_account.setCurrentIndex(2)
         self.tabWidget_chart.setCurrentIndex(0)
 
 
@@ -7007,7 +7205,8 @@ class Ui_MainWindow(object):
         self.label_tital.setText(QCoreApplication.translate("MainWindow", u"\u8fdb\u7a0b\u4ea4\u6613\u8005  \u7a0b\u5e8f\u5316\u671f\u8d27\u4ea4\u6613\u6846\u67b6", None))
         self.Btn_setting.setText(QCoreApplication.translate("MainWindow", u"\u8bbe\u7f6e", None))
         self.Btn_donation.setText(QCoreApplication.translate("MainWindow", u"\u6350\u52a9\u4f5c\u8005", None))
-        self.Btn_warning.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.Btn_light_theme.setText(QCoreApplication.translate("MainWindow", u"\u4eae", None))
+        self.Btn_dark_theme.setText(QCoreApplication.translate("MainWindow", u"\u6697", None))
         self.Btn_min_window.setText("")
         self.Btn_normal_max_window.setText("")
         self.Btn_close_window.setText("")
@@ -7109,6 +7308,8 @@ class Ui_MainWindow(object):
         self.label_upper_limit.setText("")
         self.label_lower_limit.setText("")
         self.label_37.setText(QCoreApplication.translate("MainWindow", u"\u81ea\u9009\u5408\u7ea6\u5217\u8868\uff1a", None))
+        self.Btn_start_TQ_services.setText(QCoreApplication.translate("MainWindow", u"\u5f00\u542f\u5929\u52e4\u884c\u60c5\u670d\u52a1", None))
+        self.Btn_stop_TQ_services.setText(QCoreApplication.translate("MainWindow", u"\u5173\u95ed\u5929\u52e4\u884c\u60c5\u670d\u52a1", None))
 #if QT_CONFIG(whatsthis)
         self.tabWidget_account.setWhatsThis(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u7528\u6237\u6982\u89c8</p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)

@@ -76,7 +76,7 @@ class BackTestWindow(QWidget, Ui_Form):  # 创建回测窗口类
         tq_account_list = []
         data = self.ioModal.read_csv_file(path='./data/tq_account.csv')
         if data.empty:
-            clients_list = []
+            pass
         else:
             for index, item in data.iterrows():
                 tq_account_list.append(str(item['tq_account']))

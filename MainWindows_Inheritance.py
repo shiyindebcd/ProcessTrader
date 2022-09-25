@@ -18,25 +18,46 @@ from PySide6.QtCharts import QChart
 from PySide6.QtCore import QEventLoop, QStringListModel, QTimer, Signal, QThread
 from PySide6.QtGui import QCursor, QStandardItem, QStandardItemModel, Qt, QPixmap
 from PySide6.QtUiTools import loadUiType
-from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QTableWidgetItem, QWidget, QDialog)
-from PySide6.QtWidgets import QMessageBox
+from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QTableWidgetItem, QWidget, QDialog, QMenu)
+from PySide6.QtWidgets import QMessageBox, QHeaderView
 from tqsdk import TqApi, TqAuth, TargetPosTask, TqKq, TqBacktest, ta, tafunc
 from dtview import DonutWidget
-from mainwindows import Ui_MainWindow
+import mainwindows_dark
+import mainwindows_light
 from Main_Process_Function import *
 from K_Chart_Widget import KLineWidget
 from read_write_file import ReadWriteCsv
 
+THEME = "dark"      # 皮肤选择 这里的THEME改为 dark 为深色模式,改为  light 为浅色模式
 
 
-# ui, _ = loadUiType('mainwindows.ui')                                      
-# class Main_window(QMainWindow, ui, Main_Process_Function):                    # 创建主窗口类方式一，通过loadUiType()函数直接加载UI文件
-class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # 创建主窗口类方式二，通过继承Ui_MainWindow类
+
+if THEME == "dark":
+    ui, _ = loadUiType('mainwindows_dark.ui')
+elif THEME == "light":
+    ui, _ = loadUiType('mainwindows_light.ui')
+else:
+    pass
+
+class Main_window(QMainWindow, ui, Main_Process_Function):                    # 创建主窗口类方式一，通过loadUiType()函数直接加载UI文件
     def __init__(self):
         super(Main_window, self).__init__()
-        self.setupUi(self)
-        self.setWindowOpacity(0.97)                                     # 设置窗口透明度
 
+
+# if THEME == "dark":
+#     UI = mainwindows_dark.Ui_MainWindow
+# elif:
+#     UI = mainwindows_light.Ui_MainWindow
+# else:
+#     pass
+# class Main_window(QMainWindow, UI, Main_Process_Function):  # 创建主窗口类方式二，通过继承Ui_MainWindow类
+#     def __init__(self):
+#         super(Main_window, self).__init__()
+
+
+
+        self.setupUi(self)
+        self.setWindowOpacity(0.98)                                     # 设置窗口透明度
         self.start_time = datetime.now()                                # 记录程序开始时间
         self.main_tq_account = ''                                       # 主账户
         self.main_tq__pwd = ''                                          # 主账户密码
@@ -46,23 +67,23 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         # 将主进程的控制台输出重定向到textBrowser中显示
         sys.stdout = EmittingStr()
         sys.stdout.textWritten.connect(self.outputWritten)
-        
+
         self.ioModal = ReadWriteCsv()                                   # 实例化 csv 操作类
         self.KLineWidget = KLineWidget()                                      # 实例化K线图widget部件
         self.verticalLayout_klines.addWidget(self.KLineWidget)               # 添加K线图部件到布局中
         self.whether_the_folder_exists()                                # 判断文件夹是否存在，不存在则创建
 
         self.times = 0                                                  # 进程守护定时器计数
-        self.Quantity = 0 - self.get_inactivated_process_quantity() 
-        
+        self.Quantity = 0 - self.get_inactivated_process_quantity()
+
 
         self.cwd = os.getcwd()                                          # 获取当前路径
         self.Process_dict = {}                                          # 创建进程字典，用于存储子进程的pid
-        
-        
+
+
         # 清屏定时器
         self.textBrowser_clear = QTimer(self)
-        self.textBrowser_clear.timeout.connect(self.textBrowser_terminal.clear)        
+        self.textBrowser_clear.timeout.connect(self.textBrowser_terminal.clear)
         self.textBrowser_clear.start(1000 * 60 * 60 * 24)                # 清屏定时器，每天清屏一次
 
         # 进程监控定时器
@@ -105,7 +126,7 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
             self.setCursor(QCursor(Qt.ArrowCursor))
 
     def mouseMoveEvent(self, e):    # 鼠标拖动事件
-        if Qt.LeftButton and self.m_drag:  
+        if Qt.LeftButton and self.m_drag:
             self.move(e.globalPosition().toPoint() - self.m_DragPosition)
             e.accept()
 
@@ -120,7 +141,7 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
             os.mkdir('./clients_photo')
 
         # 判断配置文件是否存在，不存在则创建
-        self.ioModal.judge_config_exist(path='./data/deal_detials.csv')    
+        self.ioModal.judge_config_exist(path='./data/deal_detials.csv')
         self.ioModal.judge_config_exist(path='./data/config.csv')
         self.ioModal.judge_config_exist(path='./data/clients.csv')
         self.ioModal.judge_config_exist(path='./data/tq_account.csv')
@@ -151,18 +172,18 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         # self.process_listview.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         # self.tableview.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         # self.tableWidget_deal_detials.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-         
+
         # # 隐藏点击时的虚线框
         self.tableWidget_process.setFocusPolicy(Qt.NoFocus)   # QtableWidget隐藏点击时的虚线框
         self.tableWidget_deal_detials.setFocusPolicy(Qt.NoFocus)
         self.tabWidget_chart.setFocusPolicy(Qt.NoFocus)
         self.tabWidget_account.setFocusPolicy(Qt.NoFocus)
-        
+
         self.clients_listview.setFocusPolicy(Qt.NoFocus)        # QListView隐藏点击时的虚线框
         self.clients_listview2.setFocusPolicy(Qt.NoFocus)
-        self.tq_account_listview.setFocusPolicy(Qt.NoFocus) 
+        self.tq_account_listview.setFocusPolicy(Qt.NoFocus)
         self.tq_account_listview2.setFocusPolicy(Qt.NoFocus)
-        self.clients_listview.setFocusPolicy(Qt.NoFocus)        
+        self.clients_listview.setFocusPolicy(Qt.NoFocus)
         self.tq_account_listview.setFocusPolicy(Qt.NoFocus)
         self.strategy_listview.setFocusPolicy(Qt.NoFocus)
         self.quote_listview.setFocusPolicy(Qt.NoFocus)
@@ -183,7 +204,6 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         self.Btn_switch_left_panel.setFocusPolicy(Qt.NoFocus)
         self.Btn_setting.setFocusPolicy(Qt.NoFocus)
         self.Btn_donation.setFocusPolicy(Qt.NoFocus)
-        self.Btn_warning.setFocusPolicy(Qt.NoFocus)
         self.Btn_min_window.setFocusPolicy(Qt.NoFocus)
         self.Btn_normal_max_window.setFocusPolicy(Qt.NoFocus)
         self.Btn_close_window.setFocusPolicy(Qt.NoFocus)
@@ -237,44 +257,42 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         self.self_selection_listview.clicked.connect(self.set_current_dissplayed_Kline)
 
 
-
     def set_tableWidget(self):  # 设置tableWidget
 
-        # 隐藏竖直表头
+        # 隐藏表头
         self.tableWidget_deal_detials.verticalHeader().setVisible(False)
-        self.tableWidget_process.verticalHeader().setVisible(False)
+        self.tableWidget_process.horizontalHeader().setVisible(True)
+        self.tableWidget_process.verticalHeader().setVisible(True)
 
-        # tablewidget单击选中整行
-        self.tableWidget_deal_detials.setSelectionBehavior(PySide6.QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
-        self.tableWidget_process.setSelectionBehavior(PySide6.QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
+        # 设置列表默认行列数量
+        self.tableWidget_deal_detials.setRowCount(50)
+        self.tableWidget_deal_detials.setColumnCount(8)
+        self.tableWidget_process.setRowCount(44)
+        self.tableWidget_process.setColumnCount(10)
+
+        # tablewidget单击选中整行,SelectItems为仅单选,SelectColumns为选中列,SelectRows为选中行
+        self.tableWidget_deal_detials.setSelectionBehavior(PySide6.QtWidgets.QAbstractItemView.SelectionBehavior.SelectItems)
+        self.tableWidget_process.setSelectionBehavior(PySide6.QtWidgets.QAbstractItemView.SelectionBehavior.SelectItems)
+
+        # tablewidget 只允许选中一个格子,禁止拖动多选
+        self.tableWidget_deal_detials.setSelectionMode(PySide6.QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
+        self.tableWidget_process.setSelectionMode(PySide6.QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
 
         # tablewidget 设置水平表头高度
         self.tableWidget_deal_detials.horizontalHeader().setFixedHeight(30)
-        self.tableWidget_process.horizontalHeader().setFixedHeight(30)  
+        self.tableWidget_process.horizontalHeader().setFixedHeight(50)
+        # self.tableWidget_process.horizontalHeader().setAutoScroll()
 
-        # 指定列宽
-        self.tableWidget_deal_detials.setColumnWidth(0, 200)
-
-        self.tableWidget_process.setColumnWidth(0, 40)
-        self.tableWidget_process.setColumnWidth(1, 450)
-        self.tableWidget_process.setColumnWidth(18, 150)
-
-        # 设置表头标题        
-        process_list_header = ['序号', '进程名（策略实例名）', '客户名', '天勤帐户', '天勤密码', '期货公司', '期货帐户', '期货资金密码', 
-                                '合约名称', '合约周期', '策略名称', '是否自启', '是否实盘', '是否回测', '是否开启web', 'web端口','停止交易标志', 
-                                '交易方向', '初始资金', '当前资金',  '合约倍数', '保证金率', '止损位%', '止盈位%', '多单加仓次数', '多单当前持仓', 
-                                '多单首次成交价', '多单首次成交量','空单加仓次数', '空单首次成交价', '空单首次成交量', '空单当前持仓', 
-                                '自定义参数1', '自定义参数2', '自定义参数3', '自定义参数4', '自定义参数5', '自定义参数6', '自定义参数7', '自定义参数8', ]
-        self.tableWidget_process.setHorizontalHeaderLabels(process_list_header)
-
-        
+        # tablewidget 设置右键菜单
+        self.tableWidget_deal_detials.setContextMenuPolicy(Qt.CustomContextMenu)             # 允许单机右键响应
+        self.tableWidget_deal_detials.customContextMenuRequested.connect(self.generateMenu)      # 构建右键的点击事件
 
 
     def other_item_settings(self):    # 其他设置
         self.m_drag = False
-        self.label_logo.setPixmap(QPixmap('./logo/logo.png'))           # 加载logo图片     
+        self.label_logo.setPixmap(QPixmap('./logo/logo.png'))           # 加载logo图片
         self.label_logo.setScaledContents(True)                         # 设置图片自适应
-        self.label_client_photo_show.setScaledContents(True)   
+        self.label_client_photo_show.setScaledContents(True)
 
 
     def show_setting_dialog(self):  # 显示设置窗口
@@ -299,7 +317,7 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
 
         from Donation_Inheritance import Donation
         self.donation = Donation()
-        self.donation.show()                   
+        self.donation.show()
 
     def show_create_new_process_window(self):   # 弹出新建策略进程窗口
 
@@ -313,27 +331,68 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
         self.create_backtest_window = BackTestWindow()
         self.create_backtest_window.show()
 
+
+    def generateMenu(self, pos):
+        # print(pos)
+        #获得右键所点击的索引值
+        for i in self.tableWidget_deal_detials.selectionModel().selection().indexes():
+            #获得当前点击的行和列的值
+            rowIndex = i.row()
+            columnIndex = i.column()
+            if rowIndex < 50:       #   如果选择的索引小于50, 弹出上下文菜单
+                menu = QMenu()      #   构造菜单
+                menu.setStyleSheet(         # 设置整个菜单框的边界高亮厚度# 整个边框的颜色
+                    u"QMenu{background:transparent;\n   font: 700 14pt \"\u7b49\u7ebf\";\n   border-radius: 10px;\n  border-color: none;\n    border:none;\n}\n"                                              
+                    "QMenu::item{padding:2px 15px 2px 15px;\n height:30px;\n  color:blue;\n   margin:2px 1px 2px 1px;\n"  
+                                "background-color: rgb(200,200,200);\n  border-radius: 15px;}\n"  # 选项背景     
+                    "QMenu::item:selected:enabled{background:lightgray;\n   color:red;\n    background:rgb(255,255,255);}\n"     
+                    "QMenu::separator{height:1px;\n width:50px;\n   background:blue;\n  margin:0px 0px 0px 0px;}\n"  # 要在两个选项设置self.groupBox_menu.addSeparator()才有用
+                        )
+                #添加菜单的选项
+                item1 = menu.addAction("临时停止策略")
+                item2 = menu.addAction("永久停止策略")
+                item3 = menu.addAction("重启策略")
+                item4 = menu.addAction("修改策略参数")
+                item5 = menu.addAction("停止并删除策略")
+
+                screenPos = self.tableWidget_deal_detials.mapToGlobal(pos)          #   获得相对屏幕的位置
+
+                action = menu.exec(screenPos)       #   被阻塞, 执行菜单
+                if action == item1:
+                    print("\n\n选择了--临时停止策略",'\n点击的单元格坐标为:  ',rowIndex, columnIndex, '  单元格的值为:  ',self.tableWidget_deal_detials.item(rowIndex,columnIndex).text())
+                elif action == item2:
+                    print("\n\n选择了--永久停止策略",'\n点击的单元格坐标为:  ',rowIndex, columnIndex, '  单元格的值为:  ', self.tableWidget_deal_detials.item(rowIndex,columnIndex).text())
+                elif action == item3:
+                    print("\n\n选择了--重启策略",'\n点击的单元格坐标为:  ',rowIndex, columnIndex, '  单元格的值为:  ', self.tableWidget_deal_detials.item(rowIndex,columnIndex).text())
+                elif action == item4:
+                    print('\n\n选择了--修改策略参数','\n点击的单元格坐标为:  ',rowIndex, columnIndex, '  单元格的值为:  ', self.tableWidget_deal_detials.item(rowIndex,columnIndex).text())
+                elif action == item5:
+                    print('\n\n选择了--停止并删除策略','\n点击的单元格坐标为:  ',rowIndex, columnIndex, '  单元格的值为:  ', self.tableWidget_deal_detials.item(rowIndex,columnIndex).text())
+            else:
+                return
+
+
     def chack_main_tq_account(self):            # 检查主账号是否存在
         if self.main_tq_account == '' or self.main_tq_pwd == '':
             data = self.ioModal.read_csv_file(path='./data/main_tq_account.csv')
             if data.empty:                                     # 判断self.data是否为空
                 print('\n\nmain_tq_account.csv文件里没有帐户，请先在设置里添加天勤主账号和密码')
-            else:  
+            else:
                 self.main_tq_account = data.iloc[0, 0]
                 self.main_tq_pwd = data.iloc[0, 1]
         else:
-            self.times1 += 1        
+            self.times1 += 1
 
             if self.times1 == 10:       #主程序运行10秒后才登录天勤帐户,以防天勤帐户登录出问题时,主程序也打不开
                 self.sign_in_tq_account()
-            
+
 
     def sign_in_tq_account(self):  # 登录天勤账户并订阅k线
         try:
             self.api = TqApi(TqKq(),auth=TqAuth(self.main_tq_account, self.main_tq_pwd))
         except Exception as ex:
-                        print('登录天勤帐户时发生异常: %r' % ex)
-        
+            print('登录天勤帐户时发生异常: %r' % ex)
+
         self_selection_quote_list = self.get_self_selection_quote_list()
         if self_selection_quote_list:
             for kl in self_selection_quote_list:
@@ -343,17 +402,17 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
                     print('合约: ', kl,' 已订阅')
 
             # print('\n\n\n当前字典为:',self.Quote_klines_dict, '\n\n\n\n\n')
-        
+
         self.GengXin_ShuJu=UpdateTqsdkDate(self.api) #信号线程，发送数据更新
         self.GengXin_ShuJu.start()
         self.init_Klines_chart()
         # self.GengXin_ShuJu.TQ_signal.connect(self.widget.update_bar) #信号绑定更新函数update_bar
         # self.GengXin_ShuJu.TQ_signal.connect(self.updateindicator) #信号绑定更新函数updateindicator
         # self.GengXin_ShuJu.TQ_signal.connect(self.Update_quotes) #信号绑定更新quote
-    
+
 
     def ceate_TQ_klines_and_quote(self,symbol): # 根据合约创建对应的klines和quote
-        try:                        
+        try:
             self.Quote_klines_dict['%s_quote'%symbol]  = self.api.get_quote(symbol=symbol)   # 创建quote
             self.Quote_klines_dict['%s_1_min'%symbol]  = self.api.get_kline_serial(symbol=symbol, duration_seconds=60, data_length=8000) # 订阅1分钟k线
             self.Quote_klines_dict['%s_15_min'%symbol] = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*15, data_length=8000) # 订阅15分钟k线
@@ -367,7 +426,7 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
 
 
         except Exception as ex:
-                print('订阅k线 ', symbol, ' 时发生错误: %r' % ex)
+            print('订阅k线 ', symbol, ' 时发生错误: %r' % ex)
 
     #####################################################################
     #####################下面这个函数是进程自启的核心代码 #####################
@@ -383,7 +442,7 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
             if data.empty:
                 print('策略实例配置文件 config.csv 为空,请添加参数后再运行...')
             else:
-            
+
                 for index, item in data.iterrows():
                     if item['whether_self_start']:
 
@@ -411,10 +470,10 @@ class Main_window(QMainWindow, Ui_MainWindow, Main_Process_Function):       # �
                                 print('重启时间为: ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n\n')
 
                             self.Quantity += 1
-                            if self.Quantity > 0:                                
+                            if self.Quantity > 0:
                                 self.label_process_reboot_quantity.setText(str(self.Quantity))
                             elif self.Quantity == 0:
-                                self.label_process_reboot_quantity.setText('进程已全部启动')                                
+                                self.label_process_reboot_quantity.setText('进程已全部启动')
                             else:
                                 self.label_process_reboot_quantity.setText('进程启动中\n还没启动完')
 

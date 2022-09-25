@@ -78,7 +78,7 @@ class DonutWidget:
         # self.chart.setTitle("用户统计")                                # 设置图表标题
         self.chart.setTheme(QChart.ChartThemeDark)                      # 设置图表主题
         # 设置图表的背景颜色
-        self.chart.setBackgroundBrush(QColor(13, 9, 36))                # 设置图表的背景颜色
+        self.chart.setBackgroundBrush(QColor(0, 0, 0, 0))                # 设置图表的背景颜色
         self.chart.setAnimationOptions(QChart.AllAnimations)            # 设置动画效果
 
         self.min_size = 0.1                                             # 最小占比

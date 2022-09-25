@@ -138,7 +138,7 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
         self.file_system_model.setRootPath('./log')
         self.treeview_log.setModel(self.file_system_model)
         self.treeview_log.setRootIndex(self.file_system_model.index('./log'))
-        self.treeview_log.setColumnHidden(1, True)  
+        self.treeview_log.setColumnHidden(1, True)
         self.treeview_log.setColumnHidden(2, True)
         self.treeview_log.setColumnHidden(3, True)
         
@@ -190,7 +190,7 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
         data = self.ioModal.read_csv_file(path)
 
         for index, item in data.iterrows():
-            if item['whether_self_start'] == True:
+            if item['whether_self_start']:
                 # 判断self.Process_dict中是否有该进程，如果有，则不再添加
                 if item['process_name'] in self.Process_dict.keys():
                     pass
@@ -212,7 +212,7 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
         tq_account_list = []
         data = self.ioModal.read_csv_file(path='./data/tq_account.csv')
         if data.empty:
-            clients_list = []
+            pass
         else:
             for index, item in data.iterrows():
                 tq_account_list.append(str(item['tq_account']))
@@ -233,7 +233,8 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
         # 判断self.Process_dict中每一项的值是否在pid_list中，如果在，则添加到process_list中
         for key, value in self.Process_dict.items():
             if value in pid_list:
-                process_list.append(key)
+                tmp = key.split('-', 3)[0] + '-' + key.split('-', 3)[1] + '-' + key.split('-', 3)[2] + '\n-' + key.split('-', 3)[3]
+                process_list.append(tmp)
         return process_list
 
     def get_quote_list(self):   # 获取行情引用列表
@@ -297,7 +298,7 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
     def switch_left_panel(self, enable):    # 左侧面板开关切换
         if enable:            
             width = self.left_panel.width()
-            max_with = 350
+            max_with = 250
             min_with = 0            
             if width > 100:
                 widthExtended = min_with
@@ -305,7 +306,7 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
                 widthExtended = max_with
             # 动画效果
             self.animation = QPropertyAnimation(self.left_panel, b"maximumWidth")
-            self.animation.setDuration(500)
+            self.animation.setDuration(1000)
             self.animation.setStartValue(width)
             self.animation.setEndValue(widthExtended)
             self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)  # 设置动画的缓动效果
@@ -316,7 +317,7 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
             self.showNormal()
         else:
             self.showMaximized()
-            self.left_panel.setMaximumWidth(350)
+            self.left_panel.setMaximumWidth(250)
 
     def previous_page(self):    # 向前翻页
         t = self.stackedWidget.currentIndex()
@@ -439,7 +440,7 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
         self.futures_psd.clear()
 
     def add_paramer_to_combobox(self):  # 将参数添加到combobox中
-        self.comboBox_select_clients_name.clear()     
+        self.comboBox_select_clients_name.clear()
         self.add_clients_list_to_combobox()
 
     def add_clients_list_to_combobox(self): # 将用户列表添加到combobox中
@@ -456,7 +457,7 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
             pass
         else:
             for index, item in data.iterrows():
-                if item['whether_self_start'] == True:
+                if item['whether_self_start']:
                     quantity += 1
         return quantity
 
@@ -521,28 +522,32 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
         excel.Workbooks.Open(out_file)
 
     def draw_dount_chart(self): # 画饼图
-        chart = QChart()
+        # chart = QChart()
         pi = self.pieCard
         cd = DonutWidget(pi)
         cd.add_donut()
 
     def load_deal_detials_data(self):   # 加载交易明细数据
         dirs = './data/'
+        deal_detials_header_list = ['日期','时间','合约','开平','方向','手数','价格','手续费',]
         if not os.path.exists(dirs):
             os.makedirs(dirs)
         if os.path.exists('./data/deal_detials.csv'):
             df = pd.read_csv('./data/deal_detials.csv')
-            table = self.tableWidget_deal_detials
-            table.setColumnCount(len(df.columns))
-            table.setHorizontalHeaderLabels(df.columns)
-            table.setRowCount(len(df.index))
+            if df.empty:
+                self.tableWidget_deal_detials.setHorizontalHeaderLabels(deal_detials_header_list)
+            else:
+                table = self.tableWidget_deal_detials
+                table.setColumnCount(len(df.columns))
+                table.setHorizontalHeaderLabels(df.columns)
+                table.setRowCount(len(df.index))
 
-            for rn, row in enumerate(df.index):
-                for cn, col in enumerate(df.columns):
-                    item = QTableWidgetItem(str(df.loc[row, col]))
-                    table.setItem(rn, cn, item)
-                    item.setFlags(Qt.ItemIsSelectable | Qt.ItemIsEnabled)
-                    item.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)  # 文字具中显示
+                for rn, row in enumerate(df.index):
+                    for cn, col in enumerate(df.columns):
+                        item = QTableWidgetItem(str(df.loc[row, col]))
+                        table.setItem(rn, cn, item)
+                        item.setFlags(Qt.ItemIsSelectable | Qt.ItemIsEnabled)
+                        item.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)  # 文字具中显示
         else:
             path = './data/deal_detials.csv'
             self.ioModal.judge_config_exist(path)
@@ -550,21 +555,36 @@ class Main_Process_Function:    # 主进程函数类，该类由主进程窗口�
 
     def load_process_config(self):  # 加载策略进程配置
         dirs = './data/'
+        process_header_list = ['序号', '进程名（策略实例名）', '客户名', '天勤帐户', '天勤密码', '期货公司', '期货帐户', '期货资金密码', '合约名称', '合约周期', '策略名称', '是否自启', '是否实盘', '是否回测', '是否开启web', 'web端口', '停止交易标志', '交易方向', '初始资金', '当前资金',
+                               '合约倍数', '保证金率', '止损位%', '止盈位%', '多单加仓次数', '多单当前持仓', '多单首次成交价', '多单首次成交量', '空单加仓次数', '空单首次成交价', '空单首次成交量', '空单当前持仓', '是否定义了开仓直线', '开仓直线坐标', '是否定义了平仓直线', '平仓直线坐标',
+                               '自定义参数1', '自定义参数2', '自定义参数3', '自定义参数4', '自定义参数5', '自定义参数6', '自定义参数7', '自定义参数8', ]
         if not os.path.exists(dirs):
             os.makedirs(dirs)
         if os.path.exists('./data/config.csv'):
             df = pd.read_csv('./data/config.csv')
-            table = self.tableWidget_process
-            table.setColumnCount(len(df.columns))
-            table.setHorizontalHeaderLabels(df.columns)
-            table.setRowCount(len(df.index))
+            if df.empty:
+                self.tableWidget_process.setVerticalHeaderLabels(process_header_list)
+            else:
+                table = self.tableWidget_process
+                table.setColumnCount(len(df.index))     # 设置列数量
+                table.setRowCount(len(df.columns))      # 设置行数量
+                list = df['process_name'].tolist()
+                header_name_list = []
+                for name in list:
+                    tmp = name.split('-', 3)[0] + '-' + name.split('-', 3)[1] + '-' + name.split('-', 3)[2] + '\n-' + name.split('-', 3)[3]
+                    header_name_list.append(tmp)
+                table.setHorizontalHeaderLabels(header_name_list)
+                table.setVerticalHeaderLabels(df.columns)
 
-            for rn, row in enumerate(df.index):
                 for cn, col in enumerate(df.columns):
-                    item = QTableWidgetItem(str(df.loc[row, col]))
-                    table.setItem(rn, cn, item)
-                    item.setFlags(Qt.ItemIsSelectable | Qt.ItemIsEnabled)
-                    item.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)  # 文字具中显示
+                    table.setColumnWidth(cn, 160)
+                    for rn, row in enumerate(df.index):
+                        item = QTableWidgetItem(str(df.loc[row, col]))
+                        table.setItem(cn, rn, item)
+                        item.setFlags(Qt.ItemIsSelectable | Qt.ItemIsEnabled)
+                        item.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)  # 文字具中显示
+
+                table.setVerticalHeaderLabels(process_header_list)
         else:
             path = './data/config.csv'
             self.ioModal.judge_config_exist(path)
