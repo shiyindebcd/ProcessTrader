@@ -378,7 +378,6 @@ QSpinBox::up-button { /* 向上按钮 */
 	subcontrol-position: top right; /* 居于右上角 */
 	border: none;
 	width: 30px;
-	high: 20px;
 }
 
 QSpinBox::up-button:hover {
