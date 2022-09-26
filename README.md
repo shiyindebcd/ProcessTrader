@@ -70,6 +70,7 @@ C:\Users\你的电脑用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Prog
 <br/>
 在  main.py  中,把 THEME 改成 dark 或 light ,即可切换到两种主题
 <br/><br/><br/><br/>
+
 ## 详解视频
 <br/>
 软件的详细用法请参考B站的视频解说
