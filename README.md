@@ -36,6 +36,7 @@ pip install ping3 -i https://pypi.tuna.tsinghua.edu.cn/simple/
 pip install openpyxl -i https://pypi.tuna.tsinghua.edu.cn/simple/
 
 pip install pyqtgraph -i https://pypi.tuna.tsinghua.edu.cn/simple/
+
 ~~~
 
 3. 运行*main.py*  即可启动程序
@@ -65,7 +66,10 @@ C:\Users\你的电脑用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Prog
 ~~~
 文件夹下，即可实现开机自启动软件
 <br/><br/><br/><br/>
-
+## 主题切换
+<br/>
+在  main.py  中,把 THEME 改成 dark 或 light ,即可切换到两种主题
+<br/><br/><br/><br/>
 ## 详解视频
 <br/>
 软件的详细用法请参考B站的视频解说
