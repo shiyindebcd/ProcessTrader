@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'LineStyle.ui'
+## Form generated from reading UI file 'LineStyle_dark.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.3.1
 ##
@@ -48,10 +48,9 @@ class Ui_Form(object):
         self.frame_2.setMaximumSize(QSize(16777215, 50))
         self.frame_2.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
-"	border: none;	\n"
+"	border: none;\n"
 "	border-radius: 20px;\n"
-"}\n"
-"")
+"}")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frame_2)
@@ -158,7 +157,6 @@ class Ui_Form(object):
         self.frame_4 = QFrame(self.frame)
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;	\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -196,6 +194,72 @@ class Ui_Form(object):
         self.spinBox_linewidth.setObjectName(u"spinBox_linewidth")
         self.spinBox_linewidth.setMinimumSize(QSize(110, 40))
         self.spinBox_linewidth.setMaximumSize(QSize(110, 40))
+        self.spinBox_linewidth.setStyleSheet(u"QSpinBox {\n"
+"    padding-top: 2px;\n"
+"    padding-bottom: 2px;\n"
+"	padding-left: 15px;\n"
+"    padding-right: 10px;\n"
+"    border: 1px solid rgb(64,64,64);\n"
+"    border-radius: 15px;\n"
+"	color: rgb(0,0,0);\n"
+"    background-color: rgb(255,255,255);\n"
+"	selection-color: rgb(255,0,0);\n"
+"	selection-background-color: rgb(83,121,180);	\n"
+"	font: 700 20pt \"\u7b49\u7ebf\";\n"
+"}\n"
+"\n"
+"QSpinBox:hover {\n"
+"    background-color: rgb(240,240,240);\n"
+"}\n"
+"\n"
+"QSpinBox::up-button { /* \u5411\u4e0a\u6309\u94ae */\n"
+"	subcontrol-origin: border; /* \u8d77\u59cb\u4f4d\u7f6e */\n"
+"	subcontrol-position: top right; /* \u5c45\u4e8e\u53f3\u4e0a\u89d2 */\n"
+"	border: none;\n"
+"	width: 30px;\n"
+"	high: 20px;\n"
+"}\n"
+"\n"
+"QSpinBox::up-button:hover {\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"QSpinBox::up-arrow { /* \u5411\u4e0a\u7bad\u5934 */\n"
+"	width: 20px;\n"
+"	image: url(:/\u56fe\u6807/icons/\u4e0a.svg);\n"
+"}\n"
+"\n"
+"QSpinBox::up-arrow:hover {\n"
+"}\n"
+"\n"
+"QSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off {"
+                        "\n"
+"	\n"
+"}\n"
+"\n"
+"QSpinBox::down-button { /* \u5411\u4e0b\u6309\u94ae */\n"
+"	subcontrol-origin: border;\n"
+"	subcontrol-position: bottom right;\n"
+"	border: none;\n"
+"	width: 30px;\n"
+"}\n"
+"\n"
+"QSpinBox::down-button:hover {\n"
+"	border: none;\n"
+"}\n"
+"\n"
+"QSpinBox::down-arrow { /* \u5411\u4e0b\u7bad\u5934 */\n"
+"	width: 20px;\n"
+"	image: url(:/\u56fe\u6807/icons/\u4e0b.svg);\n"
+"}\n"
+"\n"
+"QSpinBox::down-arrow:hover {\n"
+"	\n"
+"}\n"
+"\n"
+"QSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {\n"
+"	\n"
+"}")
 
         self.verticalLayout_4.addWidget(self.spinBox_linewidth, 0, Qt.AlignHCenter)
 

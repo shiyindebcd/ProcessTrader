@@ -1,60 +1,36 @@
 # -*- coding: utf-8 -*-
 
 import datetime
-from os import path
-import sys
-import time
-import multiprocessing
-import PySide6
-import pandas as pd
 import importlib
-from pandas import DataFrame
-from datetime import datetime, date
-from multiprocessing import Process, Manager
 import PySide6
-import pyqtgraph as pg
-from PySide6 import QtCore, QtGui
-from PySide6.QtCharts import QChart
-from PySide6.QtCore import QEventLoop, QStringListModel, QTimer, Signal, QThread
-from PySide6.QtGui import QCursor, QStandardItem, QStandardItemModel, Qt, QPixmap
-from PySide6.QtUiTools import loadUiType
-from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QTableWidgetItem, QWidget, QDialog, QMenu)
-from PySide6.QtWidgets import QMessageBox, QHeaderView
-from tqsdk import TqApi, TqAuth, TargetPosTask, TqKq, TqBacktest, ta, tafunc
-from dtview import DonutWidget
-import mainwindows_dark
-import mainwindows_light
+from PySide6.QtCore import QEvent
+from PySide6.QtWidgets import (QApplication, QMenu)
 from Main_Process_Function import *
+from PySide6.QtUiTools import loadUiType
 from K_Chart_Widget import KLineWidget
 from read_write_file import ReadWriteCsv
+from RightButtonMenu import RightButtonMenu
+from UI.mainwindows_dark import Ui_MainWindow as dark_windows
+from UI.mainwindows_light import Ui_MainWindow as light_windows
 
-THEME = "dark"      # 皮肤选择 这里的THEME改为 dark 为深色模式,改为  light 为浅色模式
+from main import THEME
 
 
 
-if THEME == "dark":
-    ui, _ = loadUiType('mainwindows_dark.ui')
-elif THEME == "light":
-    ui, _ = loadUiType('mainwindows_light.ui')
+if THEME == "dark":                                    # 创建主窗口类方式一，通过loadUiType()函数直接加载UI文件
+    UI, _ = loadUiType('./UI/mainwindows_dark.ui')
 else:
-    pass
+    UI, _ = loadUiType('./UI/mainwindows_light.ui')
 
-class Main_window(QMainWindow, ui, Main_Process_Function):                    # 创建主窗口类方式一，通过loadUiType()函数直接加载UI文件
+# if THEME == "dark":                                  # 创建主窗口类方式二，通过继承Ui_MainWindow类
+#     UI = dark_windows
+# else:
+#     UI = light_windows
+
+
+class Main_window(QMainWindow, UI, Main_Process_Function, RightButtonMenu):
     def __init__(self):
         super(Main_window, self).__init__()
-
-
-# if THEME == "dark":
-#     UI = mainwindows_dark.Ui_MainWindow
-# elif:
-#     UI = mainwindows_light.Ui_MainWindow
-# else:
-#     pass
-# class Main_window(QMainWindow, UI, Main_Process_Function):  # 创建主窗口类方式二，通过继承Ui_MainWindow类
-#     def __init__(self):
-#         super(Main_window, self).__init__()
-
-
 
         self.setupUi(self)
         self.setWindowOpacity(0.98)                                     # 设置窗口透明度
@@ -110,7 +86,18 @@ class Main_window(QMainWindow, ui, Main_Process_Function):                    # 
         self.load_process_config()                                  # 加载进程配置数据
         self.draw_dount_chart()                                     # 绘制饼图
         self.start_inactivated_process()                            # 启动未激活的进程
-        # pg.setConfigOption('background', QtGui.QColor(13, 9, 27))
+
+        # 各个需要鼠标右键的点击的地方安装事件过滤器
+        # self.clients_listview.viewport().installEventFilter(self)
+        # self.clients_listview2.viewport().installEventFilter(self)
+        # self.tq_account_listview.viewport().installEventFilter(self)
+        # self.tq_account_listview2.viewport().installEventFilter(self)
+        # self.strategy_listview.viewport().installEventFilter(self)
+        # self.quote_listview.viewport().installEventFilter(self)
+        # self.process_listview.viewport().installEventFilter(self)
+        # self.self_selection_listview.viewport().installEventFilter(self)
+        # self.tableWidget_process.viewport().installEventFilter(self)
+        # self.tableWidget_deal_detials.viewport().installEventFilter(self)
 
 
     def mousePressEvent(self, e):  # 鼠标点击事件
@@ -129,6 +116,57 @@ class Main_window(QMainWindow, ui, Main_Process_Function):                    # 
         if Qt.LeftButton and self.m_drag:
             self.move(e.globalPosition().toPoint() - self.m_DragPosition)
             e.accept()
+
+
+    # def eventFilter(self, obj, event): # 鼠标事件过虑器
+    #     if obj == self.process_listview.viewport():
+    #         if event.type() == QEvent.MouseButtonPress:
+    #             if event.buttons() == Qt.RightButton:
+    #                 self.left_widget_menu(QCursor.pos())
+    #     elif obj == self.tableWidget_deal_detials.viewport():
+    #         if event.type() == QEvent.MouseButtonPress:
+    #             if event.buttons() == Qt.RightButton:
+    #                 self.left_widget_menu(QCursor.pos())
+    #     return
+
+
+
+
+    def eventFilter(self, objwatched, event):               # 事件过滤器
+        # flag = eventType == QEvent.MouseButtonPress or eventType == QEvent.KeyPress or eventType == QEvent.Close  #
+        # if flag:
+        #     print(f"事件类型值={eventType}，\n事件objwatched={objwatched},\nparent={objwatched.parent()},\nchild={objwatched.children()}")
+
+        if event.type() == QEvent.MouseButtonPress:
+            if event.buttons() == Qt.LeftButton:
+                print('\n\n 左单击   坐标:  ', QCursor.pos())
+            elif event.buttons() == Qt.RightButton:
+                print('\n\n 右单击   坐标:  ', QCursor.pos())
+                if objwatched == self.clients_listview.viewport():
+                    print('clients_listview')
+                elif objwatched == self.clients_listview2.viewport():
+                    print('clients_listview2')
+                elif objwatched == self.tq_account_listview.viewport():
+                    print('tq_account_listview')
+                elif objwatched == self.tq_account_listview2.viewport():
+                    print('tq_account_listview2')
+                elif objwatched == self.strategy_listview.viewport():
+                    print('strategy_listview')
+                elif objwatched == self.quote_listview.viewport():
+                    print('quote_listview')
+                elif objwatched == self.process_listview.viewport():
+                    print('process_listview')
+                elif objwatched == self.self_selection_listview.viewport():
+                    print('self_selection_listview')
+                elif objwatched == self.tableWidget_process.viewport():
+                    print('tableWidget_process')
+                    self.generate_precess_table_menu(pos=QCursor.pos())
+                elif objwatched == self.tableWidget_deal_detials.viewport():
+                    print('tableWidget_deal_detials')
+                    self.generate_deal_detials_table_menu(pos=QCursor.pos())
+
+        ret = super().eventFilter(objwatched, event)
+        return ret
 
 
     def whether_the_folder_exists(self):    # 检查必要的文件及文件夹是否存在，不存在则创建
@@ -271,21 +309,30 @@ class Main_window(QMainWindow, ui, Main_Process_Function):                    # 
         self.tableWidget_process.setColumnCount(10)
 
         # tablewidget单击选中整行,SelectItems为仅单选,SelectColumns为选中列,SelectRows为选中行
-        self.tableWidget_deal_detials.setSelectionBehavior(PySide6.QtWidgets.QAbstractItemView.SelectionBehavior.SelectItems)
-        self.tableWidget_process.setSelectionBehavior(PySide6.QtWidgets.QAbstractItemView.SelectionBehavior.SelectItems)
-
-        # tablewidget 只允许选中一个格子,禁止拖动多选
-        self.tableWidget_deal_detials.setSelectionMode(PySide6.QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
-        self.tableWidget_process.setSelectionMode(PySide6.QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
+        self.tableWidget_deal_detials.setSelectionBehavior(PySide6.QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
+        self.tableWidget_process.setSelectionBehavior(PySide6.QtWidgets.QAbstractItemView.SelectionBehavior.SelectColumns)
+        #
+        # # tablewidget 只允许选中一个格子,禁止拖动多选
+        # self.tableWidget_deal_detials.setSelectionMode(PySide6.QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
+        # self.tableWidget_process.setSelectionMode(PySide6.QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
 
         # tablewidget 设置水平表头高度
         self.tableWidget_deal_detials.horizontalHeader().setFixedHeight(30)
         self.tableWidget_process.horizontalHeader().setFixedHeight(50)
         # self.tableWidget_process.horizontalHeader().setAutoScroll()
 
-        # tablewidget 设置右键菜单
-        self.tableWidget_deal_detials.setContextMenuPolicy(Qt.CustomContextMenu)             # 允许单机右键响应
-        self.tableWidget_deal_detials.customContextMenuRequested.connect(self.generateMenu)      # 构建右键的点击事件
+        # # tablewidget 设置右键菜单
+        self.tableWidget_process.setContextMenuPolicy(Qt.CustomContextMenu)             # 允许单击右键响应
+        self.tableWidget_deal_detials.setContextMenuPolicy(Qt.CustomContextMenu)             # 允许单击右键响应
+        self.tableWidget_process.customContextMenuRequested.connect(self.generate_precess_table_menu)      # 构建右键的点击事件
+        self.tableWidget_deal_detials.customContextMenuRequested.connect(self.generate_deal_detials_table_menu)      # 构建右键的点击事件
+
+        # QlistView 设置右键菜单
+        # self.process_listview.setContextMenuPolicy(Qt.CustomContextMenu)
+        # self.process_listview.customContextMenuRequested[QtCore.QPoint].connect(lambda: self.process_listview_menu(x,y))
+
+
+
 
 
     def other_item_settings(self):    # 其他设置
@@ -304,7 +351,6 @@ class Main_window(QMainWindow, ui, Main_Process_Function):                    # 
 
 
     def show_exit_dialog(self):     # 退出程序
-
         from ExitDialog_Inheritance import Exit_Dialog
 
         self.exit_dialog = Exit_Dialog()
@@ -330,47 +376,6 @@ class Main_window(QMainWindow, ui, Main_Process_Function):                    # 
         from CreateBackTestProcess_Inheritance import BackTestWindow
         self.create_backtest_window = BackTestWindow()
         self.create_backtest_window.show()
-
-
-    def generateMenu(self, pos):
-        # print(pos)
-        #获得右键所点击的索引值
-        for i in self.tableWidget_deal_detials.selectionModel().selection().indexes():
-            #获得当前点击的行和列的值
-            rowIndex = i.row()
-            columnIndex = i.column()
-            if rowIndex < 50:       #   如果选择的索引小于50, 弹出上下文菜单
-                menu = QMenu()      #   构造菜单
-                menu.setStyleSheet(         # 设置整个菜单框的边界高亮厚度# 整个边框的颜色
-                    u"QMenu{background:transparent;\n   font: 700 14pt \"\u7b49\u7ebf\";\n   border-radius: 10px;\n  border-color: none;\n    border:none;\n}\n"                                              
-                    "QMenu::item{padding:2px 15px 2px 15px;\n height:30px;\n  color:blue;\n   margin:2px 1px 2px 1px;\n"  
-                                "background-color: rgb(200,200,200);\n  border-radius: 15px;}\n"  # 选项背景     
-                    "QMenu::item:selected:enabled{background:lightgray;\n   color:red;\n    background:rgb(255,255,255);}\n"     
-                    "QMenu::separator{height:1px;\n width:50px;\n   background:blue;\n  margin:0px 0px 0px 0px;}\n"  # 要在两个选项设置self.groupBox_menu.addSeparator()才有用
-                        )
-                #添加菜单的选项
-                item1 = menu.addAction("临时停止策略")
-                item2 = menu.addAction("永久停止策略")
-                item3 = menu.addAction("重启策略")
-                item4 = menu.addAction("修改策略参数")
-                item5 = menu.addAction("停止并删除策略")
-
-                screenPos = self.tableWidget_deal_detials.mapToGlobal(pos)          #   获得相对屏幕的位置
-
-                action = menu.exec(screenPos)       #   被阻塞, 执行菜单
-                if action == item1:
-                    print("\n\n选择了--临时停止策略",'\n点击的单元格坐标为:  ',rowIndex, columnIndex, '  单元格的值为:  ',self.tableWidget_deal_detials.item(rowIndex,columnIndex).text())
-                elif action == item2:
-                    print("\n\n选择了--永久停止策略",'\n点击的单元格坐标为:  ',rowIndex, columnIndex, '  单元格的值为:  ', self.tableWidget_deal_detials.item(rowIndex,columnIndex).text())
-                elif action == item3:
-                    print("\n\n选择了--重启策略",'\n点击的单元格坐标为:  ',rowIndex, columnIndex, '  单元格的值为:  ', self.tableWidget_deal_detials.item(rowIndex,columnIndex).text())
-                elif action == item4:
-                    print('\n\n选择了--修改策略参数','\n点击的单元格坐标为:  ',rowIndex, columnIndex, '  单元格的值为:  ', self.tableWidget_deal_detials.item(rowIndex,columnIndex).text())
-                elif action == item5:
-                    print('\n\n选择了--停止并删除策略','\n点击的单元格坐标为:  ',rowIndex, columnIndex, '  单元格的值为:  ', self.tableWidget_deal_detials.item(rowIndex,columnIndex).text())
-            else:
-                return
-
 
     def chack_main_tq_account(self):            # 检查主账号是否存在
         if self.main_tq_account == '' or self.main_tq_pwd == '':

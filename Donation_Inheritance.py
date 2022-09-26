@@ -1,17 +1,22 @@
 # -*- coding: utf-8 -*-
 
-import PySide6
-from PySide6 import QtCore, QtGui
-from PySide6.QtCharts import QChart
-from PySide6.QtCore import QEventLoop, QStringListModel, QTimer
-from PySide6.QtGui import QCursor, QStandardItem, QStandardItemModel, Qt, QPixmap
-from PySide6.QtUiTools import loadUiType
-from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QTableWidgetItem, QWidget, QDialog)
-from PySide6.QtWidgets import QMessageBox
+from PySide6 import QtCore
+from PySide6.QtGui import QCursor, Qt
+from PySide6.QtWidgets import (QWidget)
 
-from Donation import Ui_Form
+from UI.Donation_dark import Ui_Form as UI_dark
+from UI.Donation_light import Ui_Form as UI_light
 
-class Donation(QWidget, Ui_Form):                # 捐赠窗口类
+
+from main import THEME
+
+if THEME == "dark":
+    UI = UI_dark
+else:
+    UI = UI_light
+
+
+class Donation(QWidget, UI):                # 捐赠窗口类
     def __init__(self):
         super(Donation, self).__init__()
         self.setupUi(self)

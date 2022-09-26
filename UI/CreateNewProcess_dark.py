@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'CreateNewProcess.ui'
+## Form generated from reading UI file 'CreateNewProcess_dark.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.3.1
 ##

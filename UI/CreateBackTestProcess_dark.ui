@@ -220,7 +220,7 @@ QPushButton:pressed {
             <string> 在浏览器中打开回测页</string>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset resource="../resource.qrc">
              <normaloff>:/图标/icons/chrome.svg</normaloff>:/图标/icons/chrome.svg</iconset>
            </property>
            <property name="iconSize">
@@ -282,7 +282,7 @@ QPushButton:pressed {
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset resource="../resource.qrc">
              <normaloff>:/图标/icons/最小化.svg</normaloff>:/图标/icons/最小化.svg</iconset>
            </property>
            <property name="iconSize">
@@ -344,7 +344,7 @@ QPushButton:pressed {
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset resource="../resource.qrc">
              <normaloff>:/图标/icons/关闭.svg</normaloff>:/图标/icons/关闭.svg</iconset>
            </property>
            <property name="iconSize">
@@ -3084,7 +3084,7 @@ QPushButton:disabled{
   <tabstop>Btn_close_window</tabstop>
  </tabstops>
  <resources>
-  <include location="resource.qrc"/>
+  <include location="../resource.qrc"/>
  </resources>
  <connections>
   <connection>

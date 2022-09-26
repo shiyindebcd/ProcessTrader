@@ -126,7 +126,7 @@ QPushButton:pressed {
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="resource.qrc">
+          <iconset resource="../resource.qrc">
            <normaloff>:/图标/icons/菜单.svg</normaloff>:/图标/icons/菜单.svg</iconset>
          </property>
          <property name="iconSize">
@@ -697,7 +697,7 @@ QPushButton:pressed {
              <string>设置</string>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../resource.qrc">
               <normaloff>:/图标/icons/设置.svg</normaloff>:/图标/icons/设置.svg</iconset>
             </property>
             <property name="iconSize">
@@ -753,7 +753,7 @@ QPushButton:pressed {
              <string>捐助作者</string>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../resource.qrc">
               <normaloff>:/图标/icons/作者.svg</normaloff>:/图标/icons/作者.svg</iconset>
             </property>
             <property name="iconSize">
@@ -845,7 +845,7 @@ QPushButton:pressed {
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../resource.qrc">
                  <normaloff>:/图标/icons/最小化.svg</normaloff>:/图标/icons/最小化.svg</iconset>
                </property>
                <property name="iconSize">
@@ -891,7 +891,7 @@ QPushButton:pressed {
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../resource.qrc">
                  <normaloff>:/图标/icons/最大化-还原.svg</normaloff>:/图标/icons/最大化-还原.svg</iconset>
                </property>
                <property name="iconSize">
@@ -937,7 +937,7 @@ QPushButton:pressed {
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resource.qrc">
+                <iconset resource="../resource.qrc">
                  <normaloff>:/图标/icons/关闭.svg</normaloff>:/图标/icons/关闭.svg</iconset>
                </property>
                <property name="iconSize">
@@ -957,8 +957,7 @@ QPushButton:pressed {
        <item>
         <widget class="QFrame" name="body">
          <property name="styleSheet">
-          <string notr="true">QFrame {
-	
+          <string notr="true">QFrame {	
 	background-color: rgb(0, 0, 0);
 	border-radius: 20px;
 	border: none;
@@ -991,8 +990,7 @@ QPushButton:pressed {
           <item>
            <widget class="QFrame" name="Container">
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(15, 8, 31);
-border: none;</string>
+             <string notr="true"/>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -1016,8 +1014,7 @@ border: none;</string>
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
                <property name="styleSheet">
-                <string notr="true">background-color: rgb(0, 0, 0);
-border: none;</string>
+                <string notr="true"/>
                </property>
                <property name="currentIndex">
                 <number>0</number>
@@ -1160,7 +1157,7 @@ color:black;
 </string>
                          </property>
                          <property name="currentIndex">
-                          <number>4</number>
+                          <number>3</number>
                          </property>
                          <property name="tabSpacing">
                           <number>6</number>
@@ -2473,7 +2470,7 @@ QPushButton:pressed {
                                    <string>  在Excel中打开</string>
                                   </property>
                                   <property name="icon">
-                                   <iconset resource="resource.qrc">
+                                   <iconset resource="../resource.qrc">
                                     <normaloff>:/图标/icons/Excel.svg</normaloff>:/图标/icons/Excel.svg</iconset>
                                   </property>
                                   <property name="iconSize">
@@ -2744,16 +2741,16 @@ background:rgb(150, 0, 150);
                                       <set>QAbstractItemView::NoEditTriggers</set>
                                      </property>
                                      <property name="showDropIndicator" stdset="0">
-                                      <bool>false</bool>
+                                      <bool>true</bool>
                                      </property>
                                      <property name="dragEnabled">
-                                      <bool>false</bool>
+                                      <bool>true</bool>
                                      </property>
                                      <property name="dragDropOverwriteMode">
-                                      <bool>false</bool>
+                                      <bool>true</bool>
                                      </property>
                                      <property name="dragDropMode">
-                                      <enum>QAbstractItemView::NoDragDrop</enum>
+                                      <enum>QAbstractItemView::DragDrop</enum>
                                      </property>
                                      <property name="defaultDropAction">
                                       <enum>Qt::IgnoreAction</enum>
@@ -3788,7 +3785,7 @@ QPushButton:pressed {
                                 <string> 清空显示内容</string>
                                </property>
                                <property name="icon">
-                                <iconset resource="resource.qrc">
+                                <iconset resource="../resource.qrc">
                                  <normaloff>:/图标/icons/清屏.svg</normaloff>:/图标/icons/清屏.svg</iconset>
                                </property>
                                <property name="iconSize">
@@ -6609,7 +6606,7 @@ QTabWidget::tab-bar {
 }
 
 QTabBar::tab{
-		margin:3px;
+		margin:1px;
 		border-top-left-radius: 30px;
          border-top-right-radius: 30px;         
  		width:200px; 
@@ -6622,13 +6619,15 @@ QTabBar::tab{
                  }
 QTabBar::tab:hover{
          color: rgb(255, 0, 127);
+		background-color: rgb(0, 70, 0);
 		border-left: 2px solid rgb(255, 85, 0) ;
 		border-top: 2px solid rgb(255, 85, 0) ;
 		border-right: 2px solid rgb(255, 85, 0);		
 }
 QTabBar::tab:selected {
-		height: 35px;
-		width: 250px;
+		height: 32px;
+		width: 250px;		
+	 	background-color: rgb(0, 100, 0);
          margin-left: 5; margin-right: 5;
 		font: 700 16pt &quot;等线&quot;;
          color: rgb(255, 0, 0);
@@ -9962,7 +9961,7 @@ QPushButton:pressed {
                            <string>  在Excel中打开</string>
                           </property>
                           <property name="icon">
-                           <iconset resource="resource.qrc">
+                           <iconset resource="../resource.qrc">
                             <normaloff>:/图标/icons/Excel.svg</normaloff>:/图标/icons/Excel.svg</iconset>
                           </property>
                           <property name="iconSize">
@@ -10218,10 +10217,13 @@ background:rgb(150, 0, 150);
                               <bool>false</bool>
                              </property>
                              <property name="dragEnabled">
-                              <bool>false</bool>
+                              <bool>true</bool>
                              </property>
                              <property name="dragDropOverwriteMode">
-                              <bool>false</bool>
+                              <bool>true</bool>
+                             </property>
+                             <property name="dragDropMode">
+                              <enum>QAbstractItemView::DragDrop</enum>
                              </property>
                              <property name="alternatingRowColors">
                               <bool>true</bool>
@@ -12414,7 +12416,7 @@ border: none;</string>
   <tabstop>Btn_donation</tabstop>
  </tabstops>
  <resources>
-  <include location="resource.qrc"/>
+  <include location="../resource.qrc"/>
  </resources>
  <connections>
   <connection>

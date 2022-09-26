@@ -2,25 +2,25 @@
 
 import os
 import re
-import time
-import pandas as pd
 from datetime import datetime
 import importlib
 import webbrowser
-import PySide6
-from PySide6 import QtCore, QtGui
-from PySide6.QtCharts import QChart
-from PySide6.QtCore import QEventLoop, QStringListModel, QTimer
-from PySide6.QtGui import QCursor, QStandardItem, QStandardItemModel, Qt, QPixmap
-from PySide6.QtUiTools import loadUiType
-from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QTableWidgetItem, QWidget, QDialog)
-from PySide6.QtWidgets import QMessageBox
+from PySide6 import QtCore
+from PySide6.QtGui import QCursor, Qt
+from PySide6.QtWidgets import (QWidget)
 
 from read_write_file import ReadWriteCsv
-from CreateBackTestProcess import Ui_Form
-        
+from UI.CreateBackTestProcess_dark import Ui_Form as UI_dark
+from UI.CreateBackTestProcess_light import Ui_Form as UI_light
 
-class BackTestWindow(QWidget, Ui_Form):  # 创建回测窗口类
+from main import THEME
+
+if THEME == "dark":
+    UI = UI_dark
+else:
+    UI = UI_light
+
+class BackTestWindow(QWidget, UI):  # 创建回测窗口类
     def __init__(self):
         super(BackTestWindow, self).__init__()
         self.setupUi(self)

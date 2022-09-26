@@ -392,54 +392,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addWidget(self.Btn_donation)
 
-        self.Btn_light_theme = QPushButton(self.Headerframe)
-        self.Btn_light_theme.setObjectName(u"Btn_light_theme")
-        self.Btn_light_theme.setMinimumSize(QSize(30, 30))
-        self.Btn_light_theme.setMaximumSize(QSize(30, 30))
-        self.Btn_light_theme.setStyleSheet(u"QPushButton {\n"
-"	border: none;\n"
-"	background-color: rgba(40, 40, 70, 80);\n"
-"	color: rgb(255, 85, 0);	\n"
-"	\n"
-"	font: 700 10pt \"\u7b49\u7ebf\";\n"
-"	border-radius: 13px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	border-left: 3px solid rgb(255, 85, 0);\n"
-"	border-right: 3px solid rgb(255, 85, 0);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"	background-color: rgb(25, 25, 25);\n"
-"}")
-
-        self.horizontalLayout_7.addWidget(self.Btn_light_theme)
-
-        self.Btn_dark_theme = QPushButton(self.Headerframe)
-        self.Btn_dark_theme.setObjectName(u"Btn_dark_theme")
-        self.Btn_dark_theme.setMinimumSize(QSize(30, 30))
-        self.Btn_dark_theme.setMaximumSize(QSize(30, 30))
-        self.Btn_dark_theme.setStyleSheet(u"QPushButton {\n"
-"	border: none;\n"
-"	background-color: rgba(40, 40, 70, 80);\n"
-"	color: rgb(255, 85, 0);	\n"
-"	\n"
-"	font: 700 10pt \"\u7b49\u7ebf\";\n"
-"	border-radius: 13px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	border-left: 3px solid rgb(255, 85, 0);\n"
-"	border-right: 3px solid rgb(255, 85, 0);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"	background-color: rgb(25, 25, 25);\n"
-"}")
-
-        self.horizontalLayout_7.addWidget(self.Btn_dark_theme)
-
         self.horizontalSpacer_3 = QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
 
         self.horizontalLayout_7.addItem(self.horizontalSpacer_3)
@@ -539,8 +491,7 @@ class Ui_MainWindow(object):
 
         self.body = QFrame(self.frame_55)
         self.body.setObjectName(u"body")
-        self.body.setStyleSheet(u"QFrame {\n"
-"	\n"
+        self.body.setStyleSheet(u"QFrame {	\n"
 "	background-color: rgb(0, 0, 0);\n"
 "	border-radius: 20px;\n"
 "	border: none;\n"
@@ -555,8 +506,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(0, 5, 0, 0)
         self.Container = QFrame(self.body)
         self.Container.setObjectName(u"Container")
-        self.Container.setStyleSheet(u"background-color: rgb(15, 8, 31);\n"
-"border: none;")
+        self.Container.setStyleSheet(u"")
         self.Container.setFrameShape(QFrame.StyledPanel)
         self.Container.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.Container)
@@ -564,8 +514,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget = QStackedWidget(self.Container)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
-"border: none;")
+        self.stackedWidget.setStyleSheet(u"")
         self.MainPage = QWidget()
         self.MainPage.setObjectName(u"MainPage")
         self.horizontalLayout_5 = QHBoxLayout(self.MainPage)
@@ -1768,12 +1717,13 @@ class Ui_MainWindow(object):
         self.tableWidget_deal_detials.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.tableWidget_deal_detials.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.tableWidget_deal_detials.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.tableWidget_deal_detials.setProperty("showDropIndicator", False)
-        self.tableWidget_deal_detials.setDragEnabled(False)
-        self.tableWidget_deal_detials.setDragDropOverwriteMode(False)
-        self.tableWidget_deal_detials.setDragDropMode(QAbstractItemView.NoDragDrop)
+        self.tableWidget_deal_detials.setProperty("showDropIndicator", True)
+        self.tableWidget_deal_detials.setDragEnabled(True)
+        self.tableWidget_deal_detials.setDragDropOverwriteMode(True)
+        self.tableWidget_deal_detials.setDragDropMode(QAbstractItemView.DragDrop)
         self.tableWidget_deal_detials.setDefaultDropAction(Qt.IgnoreAction)
         self.tableWidget_deal_detials.setAlternatingRowColors(True)
+        self.tableWidget_deal_detials.setSelectionMode(QAbstractItemView.SingleSelection)
         self.tableWidget_deal_detials.setVerticalScrollMode(QAbstractItemView.ScrollPerPixel)
         self.tableWidget_deal_detials.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
         self.tableWidget_deal_detials.setSortingEnabled(False)
@@ -3843,7 +3793,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QTabBar::tab{\n"
-"		margin:3px;\n"
+"		margin:1px;\n"
 "		border-top-left-radius: 30px;\n"
 "         border-top-right-radius: 30px;         \n"
 " 		width:200px; \n"
@@ -3856,20 +3806,22 @@ class Ui_MainWindow(object):
 "                 }\n"
 "QTabBar::tab:hover{\n"
 "         color: rgb(255, 0, 127);\n"
+"		background-color: rgb(0, 70, 0);\n"
 "		border-left: 2px solid rgb(255, 85, 0) ;\n"
 "		border-top: 2px solid rgb(255, 85, 0) ;\n"
 "		border-right: 2px solid rgb(255, 85, 0);		\n"
 "}\n"
 "QTabBar::tab:selected {\n"
-"		height: 35px;\n"
-"		width: 250px;\n"
+"		height: 32px;\n"
+"		width: 250px;		\n"
+"	 	background-color: rgb(0, 100, 0);\n"
 "         margin-left: 5; margin-right: 5;\n"
 "		font: 700 16pt \"\u7b49\u7ebf\";\n"
 "         color: rgb(255, 0, 0);\n"
-"		border-left: 2px solid rgb(255, 85, 0) ;\n"
+"		border-"
+                        "left: 2px solid rgb(255, 85, 0) ;\n"
 "		border-top: 2px solid rgb(255, 85, 0) ;\n"
-""
-                        "		border-right: 2px solid rgb(255, 85, 0);\n"
+"		border-right: 2px solid rgb(255, 85, 0);\n"
 " }\n"
 "")
         self.tabWidget_account.setTabPosition(QTabWidget.North)
@@ -5988,8 +5940,9 @@ class Ui_MainWindow(object):
 "")
         self.tableWidget_process.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.tableWidget_process.setProperty("showDropIndicator", False)
-        self.tableWidget_process.setDragEnabled(False)
-        self.tableWidget_process.setDragDropOverwriteMode(False)
+        self.tableWidget_process.setDragEnabled(True)
+        self.tableWidget_process.setDragDropOverwriteMode(True)
+        self.tableWidget_process.setDragDropMode(QAbstractItemView.DragDrop)
         self.tableWidget_process.setAlternatingRowColors(True)
         self.tableWidget_process.setRowCount(44)
         self.tableWidget_process.setColumnCount(20)
@@ -7165,7 +7118,7 @@ class Ui_MainWindow(object):
         self.Btn_min_window.clicked.connect(MainWindow.showMinimized)
 
         self.stackedWidget.setCurrentIndex(0)
-        self.Veiw_Box.setCurrentIndex(4)
+        self.Veiw_Box.setCurrentIndex(3)
         self.Veiw_Box.layout().setSpacing(6)
         self.tabWidget_account.setCurrentIndex(2)
         self.tabWidget_chart.setCurrentIndex(0)
@@ -7205,8 +7158,6 @@ class Ui_MainWindow(object):
         self.label_tital.setText(QCoreApplication.translate("MainWindow", u"\u8fdb\u7a0b\u4ea4\u6613\u8005  \u7a0b\u5e8f\u5316\u671f\u8d27\u4ea4\u6613\u6846\u67b6", None))
         self.Btn_setting.setText(QCoreApplication.translate("MainWindow", u"\u8bbe\u7f6e", None))
         self.Btn_donation.setText(QCoreApplication.translate("MainWindow", u"\u6350\u52a9\u4f5c\u8005", None))
-        self.Btn_light_theme.setText(QCoreApplication.translate("MainWindow", u"\u4eae", None))
-        self.Btn_dark_theme.setText(QCoreApplication.translate("MainWindow", u"\u6697", None))
         self.Btn_min_window.setText("")
         self.Btn_normal_max_window.setText("")
         self.Btn_close_window.setText("")

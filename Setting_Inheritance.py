@@ -1,19 +1,23 @@
 # -*- coding: utf-8 -*-
 
-import PySide6
-from PySide6 import QtCore, QtGui
-from PySide6.QtCharts import QChart
-from PySide6.QtCore import QEventLoop, QStringListModel, QTimer
-from PySide6.QtGui import QCursor, QStandardItem, QStandardItemModel, Qt, QPixmap
-from PySide6.QtUiTools import loadUiType
-from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QTableWidgetItem, QWidget, QDialog)
-from PySide6.QtWidgets import QMessageBox
+from PySide6 import QtCore
+from PySide6.QtGui import QCursor, Qt
+from PySide6.QtWidgets import (QDialog)
 import pandas as pd
 from read_write_file import ReadWriteCsv
 
-from Setting import Ui_Dialog
+from UI.Setting_dark import Ui_Dialog as UI_dark
+from UI.Setting_light import Ui_Dialog as UI_light
 
-class SettingDialog(QDialog, Ui_Dialog):
+from main import THEME
+
+if THEME == "dark":
+    UI = UI_dark
+else:
+    UI = UI_light
+
+
+class SettingDialog(QDialog, UI):
     def __init__(self):
         super(SettingDialog, self).__init__()
         self.setupUi(self)

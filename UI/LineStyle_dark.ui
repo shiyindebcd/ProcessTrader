@@ -72,10 +72,9 @@
         <property name="styleSheet">
          <string notr="true">QFrame {
 	background-color: rgb(13, 9, 36);
-	border: none;	
+	border: none;
 	border-radius: 20px;
-}
-</string>
+}</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -158,7 +157,7 @@ QPushButton:pressed {
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="resource.qrc">
+            <iconset resource="../resource.qrc">
              <normaloff>:/图标/icons/关闭.svg</normaloff>:/图标/icons/关闭.svg</iconset>
            </property>
            <property name="iconSize">
@@ -274,7 +273,6 @@ QPushButton:disabled{
        <widget class="QFrame" name="frame_4">
         <property name="styleSheet">
          <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;	
 	border-radius: 20px;
 }
@@ -355,6 +353,73 @@ border: none;</string>
                 <width>110</width>
                 <height>40</height>
                </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QSpinBox {
+    padding-top: 2px;
+    padding-bottom: 2px;
+	padding-left: 15px;
+    padding-right: 10px;
+    border: 1px solid rgb(64,64,64);
+    border-radius: 15px;
+	color: rgb(0,0,0);
+    background-color: rgb(255,255,255);
+	selection-color: rgb(255,0,0);
+	selection-background-color: rgb(83,121,180);	
+	font: 700 20pt &quot;等线&quot;;
+}
+
+QSpinBox:hover {
+    background-color: rgb(240,240,240);
+}
+
+QSpinBox::up-button { /* 向上按钮 */
+	subcontrol-origin: border; /* 起始位置 */
+	subcontrol-position: top right; /* 居于右上角 */
+	border: none;
+	width: 30px;
+	high: 20px;
+}
+
+QSpinBox::up-button:hover {
+	border: none;
+}
+
+QSpinBox::up-arrow { /* 向上箭头 */
+	width: 20px;
+	image: url(:/图标/icons/上.svg);
+}
+
+QSpinBox::up-arrow:hover {
+}
+
+QSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off {
+	
+}
+
+QSpinBox::down-button { /* 向下按钮 */
+	subcontrol-origin: border;
+	subcontrol-position: bottom right;
+	border: none;
+	width: 30px;
+}
+
+QSpinBox::down-button:hover {
+	border: none;
+}
+
+QSpinBox::down-arrow { /* 向下箭头 */
+	width: 20px;
+	image: url(:/图标/icons/下.svg);
+}
+
+QSpinBox::down-arrow:hover {
+	
+}
+
+QSpinBox::down-arrow:disabled, QSpinBox::down-arrow:off {
+	
+}</string>
               </property>
              </widget>
             </item>
@@ -468,7 +533,7 @@ QPushButton:disabled{
   </layout>
  </widget>
  <resources>
-  <include location="resource.qrc"/>
+  <include location="../resource.qrc"/>
  </resources>
  <connections>
   <connection>

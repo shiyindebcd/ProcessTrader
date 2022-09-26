@@ -2,21 +2,24 @@
 
 import os
 import re
-import time
 import pandas as pd
-import PySide6
-from PySide6 import QtCore, QtGui
-from PySide6.QtCharts import QChart
-from PySide6.QtCore import QEventLoop, QStringListModel, QTimer
-from PySide6.QtGui import QCursor, QStandardItem, QStandardItemModel, Qt, QPixmap
-from PySide6.QtUiTools import loadUiType
-from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QTableWidgetItem, QWidget, QDialog)
-from PySide6.QtWidgets import QMessageBox
+from PySide6 import QtCore
+from PySide6.QtGui import QCursor, Qt
+from PySide6.QtWidgets import (QWidget)
 
 from read_write_file import ReadWriteCsv
-from CreateNewProcess import Ui_Form
+from UI.CreateNewProcess_dark import Ui_Form as UI_dark
+from UI.CreateNewProcess_light import Ui_Form as UI_light
 
-class NewProcessWindow(QWidget, Ui_Form):   # 添加新的策略进程窗口类
+from main import THEME
+
+if THEME == "dark":
+    UI = UI_dark
+else:
+    UI = UI_light
+
+
+class NewProcessWindow(QWidget, UI):   # 添加新的策略进程窗口类
     def __init__(self):
         super(NewProcessWindow, self).__init__()
         self.setupUi(self)

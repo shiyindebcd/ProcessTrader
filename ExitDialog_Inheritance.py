@@ -1,18 +1,22 @@
 # -*- coding: utf-8 -*-
 
-import PySide6
-from PySide6 import QtCore, QtGui
-from PySide6.QtCharts import QChart
-from PySide6.QtCore import QEventLoop, QStringListModel, QTimer
-from PySide6.QtGui import QCursor, QStandardItem, QStandardItemModel, Qt, QPixmap
-from PySide6.QtUiTools import loadUiType
-from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QTableWidgetItem, QWidget, QDialog)
-from PySide6.QtWidgets import QMessageBox
+from PySide6 import QtCore
+from PySide6.QtGui import QCursor, Qt
+from PySide6.QtWidgets import (QDialog)
 
-from Exit_dialog import Ui_Dialog
+from UI.Exit_dialog_dark import Ui_Dialog as UI_dark
+from UI.Exit_dialog_light import Ui_Dialog as UI_light
 
 
-class Exit_Dialog(QDialog, Ui_Dialog):                # 退出程序对话框类
+from main import THEME
+
+if THEME == "dark":
+    UI = UI_dark
+else:
+    UI = UI_light
+
+
+class Exit_Dialog(QDialog, UI):                # 退出程序对话框类
     def __init__(self):
         super(Exit_Dialog, self).__init__()
         self.setupUi(self)
