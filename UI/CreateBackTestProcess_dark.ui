@@ -220,7 +220,7 @@ QPushButton:pressed {
             <string> 在浏览器中打开回测页</string>
            </property>
            <property name="icon">
-            <iconset resource="../resource.qrc">
+            <iconset>
              <normaloff>:/图标/icons/chrome.svg</normaloff>:/图标/icons/chrome.svg</iconset>
            </property>
            <property name="iconSize">
@@ -283,7 +283,7 @@ QPushButton:pressed {
            </property>
            <property name="icon">
             <iconset resource="../resource.qrc">
-             <normaloff>:/图标/icons/最小化.svg</normaloff>:/图标/icons/最小化.svg</iconset>
+             <normaloff>:/icon/icons/最小化.svg</normaloff>:/icon/icons/最小化.svg</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -345,7 +345,7 @@ QPushButton:pressed {
            </property>
            <property name="icon">
             <iconset resource="../resource.qrc">
-             <normaloff>:/图标/icons/关闭.svg</normaloff>:/图标/icons/关闭.svg</iconset>
+             <normaloff>:/icon/icons/关闭.svg</normaloff>:/icon/icons/关闭.svg</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -968,7 +968,7 @@ QComboBox QAbstractItemView {
 }
 /* 下拉箭头样式 */
  QComboBox::down-arrow {
-	image: url(:/图标/icons/双下拉箭头.svg);
+	image: url(:/icon/icons/双下拉箭头.svg);
 	width: 30px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
 	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
 	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
@@ -1033,7 +1033,7 @@ QComboBox QAbstractItemView {
 }
 /* 下拉箭头样式 */
  QComboBox::down-arrow {
-	image: url(:/图标/icons/双下拉箭头.svg);
+	image: url(:/icon/icons/双下拉箭头.svg);
 	width: 30px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
 	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
 	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
@@ -1098,7 +1098,7 @@ QComboBox QAbstractItemView {
 }
 /* 下拉箭头样式 */
  QComboBox::down-arrow {
-	image: url(:/图标/icons/双下拉箭头.svg);
+	image: url(:/icon/icons/双下拉箭头.svg);
 	width: 30px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
 	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
 	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
@@ -2539,13 +2539,13 @@ QCalendarWidget QMenu{
 QToolButton#qt_calendar_prevmonth{/*向左箭头*/	
 	background-color: transparent;
 	icon-size:30px 30px;
-	qproperty-icon: url(:/图标/icons/箭头_向左.svg);
+	qproperty-icon: url(:/icon/icons/箭头_向左.svg);
 	margin-left:0px;
 }
 QToolButton#qt_calendar_nextmonth{
     background-color: transparent;
 	icon-size:30px 30px;	
-	qproperty-icon: url(:/图标/icons/箭头_向右.svg);
+	qproperty-icon: url(:/icon/icons/箭头_向右.svg);
 }
 QToolButton#qt_calendar_monthbutton::menu-indicator{/*月份下拉箭头*/
     subcontrol-origin: padding;
@@ -2773,13 +2773,13 @@ QCalendarWidget QMenu{
 QToolButton#qt_calendar_prevmonth{/*向左箭头*/	
 	background-color: transparent;
 	icon-size:30px 30px;
-	qproperty-icon: url(:/图标/icons/箭头_向左.svg);
+	qproperty-icon: url(:/icon/icons/箭头_向左.svg);
 	margin-left:0px;
 }
 QToolButton#qt_calendar_nextmonth{
     background-color: transparent;
 	icon-size:30px 30px;	
-	qproperty-icon: url(:/图标/icons/箭头_向右.svg);
+	qproperty-icon: url(:/icon/icons/箭头_向右.svg);
 }
 QToolButton#qt_calendar_monthbutton::menu-indicator{/*月份下拉箭头*/
     subcontrol-origin: padding;

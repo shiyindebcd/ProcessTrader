@@ -68,7 +68,7 @@ class SettingDialog(QDialog, UI):
     def get_tq_account(self):
         dict = {}
         # 如果main_tq_account不为空，则读取main_tq_account的值
-        if (self.main_tq_account.text() != "") and (self.main_tq_account.text() != None):   #如果帐户框和密码框都有都有输入
+        if (self.main_tq_account.text() != "") and (self.main_tq_account.text() is not None):   #如果帐户框和密码框都有都有输入
             
             self.RW_csv.delete_file(path=self.path)         #删除原文件
             self.RW_csv.judge_config_exist(path=self.path)  # 判断main_tq_account.csv是否存在,如果不存在，则创建

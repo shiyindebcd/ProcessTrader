@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>504</width>
-    <height>400</height>
+    <width>506</width>
+    <height>402</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -153,7 +153,7 @@ QPushButton:pressed {
            </property>
            <property name="icon">
             <iconset resource="../resource.qrc">
-             <normaloff>:/图标/icons/关闭 (1).svg</normaloff>:/图标/icons/关闭 (1).svg</iconset>
+             <normaloff>:/icon/icons/关闭 (1).svg</normaloff>:/icon/icons/关闭 (1).svg</iconset>
            </property>
            <property name="iconSize">
             <size>

@@ -154,7 +154,7 @@ QPushButton:pressed {
            </property>
            <property name="icon">
             <iconset resource="../resource.qrc">
-             <normaloff>:/图标/icons/关闭.svg</normaloff>:/图标/icons/关闭.svg</iconset>
+             <normaloff>:/icon/icons/关闭.svg</normaloff>:/icon/icons/关闭.svg</iconset>
            </property>
            <property name="iconSize">
             <size>

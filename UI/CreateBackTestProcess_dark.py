@@ -147,7 +147,7 @@ class Ui_Form(object):
 "	background-color: rgb(21, 21, 21)\n"
 "}")
         icon1 = QIcon()
-        icon1.addFile(u":/\u56fe\u6807/icons/\u6700\u5c0f\u5316.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u":/icon/icons/\u6700\u5c0f\u5316.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.Btn_min_window.setIcon(icon1)
         self.Btn_min_window.setIconSize(QSize(30, 30))
 
@@ -177,7 +177,7 @@ class Ui_Form(object):
 "	background-color: rgb(21, 21, 21)\n"
 "}")
         icon2 = QIcon()
-        icon2.addFile(u":/\u56fe\u6807/icons/\u5173\u95ed.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u":/icon/icons/\u5173\u95ed.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.Btn_close_window.setIcon(icon2)
         self.Btn_close_window.setIconSize(QSize(35, 35))
 
@@ -497,8 +497,8 @@ class Ui_Form(object):
 "}\n"
 "/* \u4e0b\u62c9\u7bad\u5934\u6837\u5f0f */\n"
 " QComboBox::down-arrow {\n"
-"	image: url(:/\u56fe\u6807/icons/"
-                        "\u53cc\u4e0b\u62c9\u7bad\u5934.svg);\n"
+"	image: url(:/icon/icons/\u53cc\u4e0b"
+                        "\u62c9\u7bad\u5934.svg);\n"
 "	width: 30px; /* \u4e0b\u62c9\u7bad\u5934\u7684\u5bbd\u5ea6\uff08\u5efa\u8bae\u4e0e\u4e0b\u62c9\u6846drop-down\u7684\u5bbd\u5ea6\u4e00\u81f4\uff09 */ \n"
 "	background: rgb(255, 255, 255); /* \u4e0b\u62c9\u7bad\u5934\u7684\u7684\u80cc\u666f\u8272 */ \n"
 "	padding: 0px 0px 0px 0px; /* \u4e0a\u5185\u8fb9\u8ddd\u3001\u53f3\u5185\u8fb9\u8ddd\u3001\u4e0b\u5185\u8fb9\u8ddd\u3001\u5de6\u5185\u8fb9\u8ddd */\n"
@@ -510,9 +510,9 @@ class Ui_Form(object):
 "   /* subcontrol-position: top right;   /* \u4e0b\u62c9\u6846\u7684\u4f4d\u7f6e\uff08\u53f3\u4e0a\uff09 */\n"
 "    width: 30px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
 "\n"
-"    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6"
-                        " */\n"
-"    border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
+"    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6 */\n"
+"    "
+                        "border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
 "    border-left-style: solid;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u4e3a\u5b9e\u7ebf */\n"
 "    border-top-right-radius: 10px;   /* \u4e0b\u62c9\u6846\u7684\u53f3\u4e0a\u8fb9\u754c\u7ebf\u7684\u5706\u89d2\u534a\u5f84\uff08\u5e94\u548c\u6574\u4e2aQComboBox\u53f3\u4e0a\u8fb9\u754c\u7ebf\u7684\u5706\u89d2\u534a\u5f84\u4e00\u81f4\uff09 */\n"
 "    border-bottom-right-radius: 10px;   /* \u540c\u4e0a */\n"
@@ -553,8 +553,8 @@ class Ui_Form(object):
 "}\n"
 "/* \u4e0b\u62c9\u7bad\u5934\u6837\u5f0f */\n"
 " QComboBox::down-arrow {\n"
-"	image: url(:/\u56fe\u6807/icons/"
-                        "\u53cc\u4e0b\u62c9\u7bad\u5934.svg);\n"
+"	image: url(:/icon/icons/\u53cc\u4e0b"
+                        "\u62c9\u7bad\u5934.svg);\n"
 "	width: 30px; /* \u4e0b\u62c9\u7bad\u5934\u7684\u5bbd\u5ea6\uff08\u5efa\u8bae\u4e0e\u4e0b\u62c9\u6846drop-down\u7684\u5bbd\u5ea6\u4e00\u81f4\uff09 */ \n"
 "	background: rgb(255, 255, 255); /* \u4e0b\u62c9\u7bad\u5934\u7684\u7684\u80cc\u666f\u8272 */ \n"
 "	padding: 0px 0px 0px 0px; /* \u4e0a\u5185\u8fb9\u8ddd\u3001\u53f3\u5185\u8fb9\u8ddd\u3001\u4e0b\u5185\u8fb9\u8ddd\u3001\u5de6\u5185\u8fb9\u8ddd */\n"
@@ -566,9 +566,9 @@ class Ui_Form(object):
 "   /* subcontrol-position: top right;   /* \u4e0b\u62c9\u6846\u7684\u4f4d\u7f6e\uff08\u53f3\u4e0a\uff09 */\n"
 "    width: 30px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
 "\n"
-"    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6"
-                        " */\n"
-"    border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
+"    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6 */\n"
+"    "
+                        "border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
 "    border-left-style: solid;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u4e3a\u5b9e\u7ebf */\n"
 "    border-top-right-radius: 10px;   /* \u4e0b\u62c9\u6846\u7684\u53f3\u4e0a\u8fb9\u754c\u7ebf\u7684\u5706\u89d2\u534a\u5f84\uff08\u5e94\u548c\u6574\u4e2aQComboBox\u53f3\u4e0a\u8fb9\u754c\u7ebf\u7684\u5706\u89d2\u534a\u5f84\u4e00\u81f4\uff09 */\n"
 "    border-bottom-right-radius: 10px;   /* \u540c\u4e0a */\n"
@@ -614,8 +614,8 @@ class Ui_Form(object):
 "}\n"
 "/* \u4e0b\u62c9\u7bad\u5934\u6837\u5f0f */\n"
 " QComboBox::down-arrow {\n"
-"	image: url(:/\u56fe\u6807/icons/"
-                        "\u53cc\u4e0b\u62c9\u7bad\u5934.svg);\n"
+"	image: url(:/icon/icons/\u53cc\u4e0b"
+                        "\u62c9\u7bad\u5934.svg);\n"
 "	width: 30px; /* \u4e0b\u62c9\u7bad\u5934\u7684\u5bbd\u5ea6\uff08\u5efa\u8bae\u4e0e\u4e0b\u62c9\u6846drop-down\u7684\u5bbd\u5ea6\u4e00\u81f4\uff09 */ \n"
 "	background: rgb(255, 255, 255); /* \u4e0b\u62c9\u7bad\u5934\u7684\u7684\u80cc\u666f\u8272 */ \n"
 "	padding: 0px 0px 0px 0px; /* \u4e0a\u5185\u8fb9\u8ddd\u3001\u53f3\u5185\u8fb9\u8ddd\u3001\u4e0b\u5185\u8fb9\u8ddd\u3001\u5de6\u5185\u8fb9\u8ddd */\n"
@@ -627,9 +627,9 @@ class Ui_Form(object):
 "   /* subcontrol-position: top right;   /* \u4e0b\u62c9\u6846\u7684\u4f4d\u7f6e\uff08\u53f3\u4e0a\uff09 */\n"
 "    width: 30px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
 "\n"
-"    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6"
-                        " */\n"
-"    border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
+"    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6 */\n"
+"    "
+                        "border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
 "    border-left-style: solid;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u4e3a\u5b9e\u7ebf */\n"
 "    border-top-right-radius: 10px;   /* \u4e0b\u62c9\u6846\u7684\u53f3\u4e0a\u8fb9\u754c\u7ebf\u7684\u5706\u89d2\u534a\u5f84\uff08\u5e94\u548c\u6574\u4e2aQComboBox\u53f3\u4e0a\u8fb9\u754c\u7ebf\u7684\u5706\u89d2\u534a\u5f84\u4e00\u81f4\uff09 */\n"
 "    border-bottom-right-radius: 10px;   /* \u540c\u4e0a */\n"
@@ -1489,13 +1489,13 @@ class Ui_Form(object):
                         "nth{/*\u5411\u5de6\u7bad\u5934*/	\n"
 "	background-color: transparent;\n"
 "	icon-size:30px 30px;\n"
-"	qproperty-icon: url(:/\u56fe\u6807/icons/\u7bad\u5934_\u5411\u5de6.svg);\n"
+"	qproperty-icon: url(:/icon/icons/\u7bad\u5934_\u5411\u5de6.svg);\n"
 "	margin-left:0px;\n"
 "}\n"
 "QToolButton#qt_calendar_nextmonth{\n"
 "    background-color: transparent;\n"
 "	icon-size:30px 30px;	\n"
-"	qproperty-icon: url(:/\u56fe\u6807/icons/\u7bad\u5934_\u5411\u53f3.svg);\n"
+"	qproperty-icon: url(:/icon/icons/\u7bad\u5934_\u5411\u53f3.svg);\n"
 "}\n"
 "QToolButton#qt_calendar_monthbutton::menu-indicator{/*\u6708\u4efd\u4e0b\u62c9\u7bad\u5934*/\n"
 "    subcontrol-origin: padding;\n"
@@ -1629,13 +1629,13 @@ class Ui_Form(object):
                         "nth{/*\u5411\u5de6\u7bad\u5934*/	\n"
 "	background-color: transparent;\n"
 "	icon-size:30px 30px;\n"
-"	qproperty-icon: url(:/\u56fe\u6807/icons/\u7bad\u5934_\u5411\u5de6.svg);\n"
+"	qproperty-icon: url(:/icon/icons/\u7bad\u5934_\u5411\u5de6.svg);\n"
 "	margin-left:0px;\n"
 "}\n"
 "QToolButton#qt_calendar_nextmonth{\n"
 "    background-color: transparent;\n"
 "	icon-size:30px 30px;	\n"
-"	qproperty-icon: url(:/\u56fe\u6807/icons/\u7bad\u5934_\u5411\u53f3.svg);\n"
+"	qproperty-icon: url(:/icon/icons/\u7bad\u5934_\u5411\u53f3.svg);\n"
 "}\n"
 "QToolButton#qt_calendar_monthbutton::menu-indicator{/*\u6708\u4efd\u4e0b\u62c9\u7bad\u5934*/\n"
 "    subcontrol-origin: padding;\n"
@@ -1650,9 +1650,9 @@ class Ui_Form(object):
 "	font: 700 10pt \"\u7b49\u7ebf\";\n"
 "}\n"
 " /*\u8fd9\u91cc\u662f\u5176\u4ed6\u6708\u4efd\u65e5\u671f\u7684\u6837\u5f0f*/\n"
-"QCalendarWidget QAbstractItem"
-                        "View:disabled \n"
-"{     \n"
+"QCalendarWidget QAbstractItemView:disabled \n"
+""
+                        "{     \n"
 "color: rgb(147, 147, 147); \n"
 "}")
 

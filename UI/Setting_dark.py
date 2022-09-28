@@ -89,7 +89,7 @@ class Ui_Dialog(object):
 "	background-color: rgb(21, 21, 21)\n"
 "}")
         icon = QIcon()
-        icon.addFile(u":/\u56fe\u6807/icons/\u5173\u95ed.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/icon/icons/\u5173\u95ed.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.Btn_close_window.setIcon(icon)
         self.Btn_close_window.setIconSize(QSize(35, 35))
 

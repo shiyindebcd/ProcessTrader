@@ -76,7 +76,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(21, 21, 21)\n"
 "}")
         icon = QIcon()
-        icon.addFile(u":/\u56fe\u6807/icons/\u83dc\u5355.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/icon/icons/\u83dc\u5355.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.Btn_switch_left_panel.setIcon(icon)
         self.Btn_switch_left_panel.setIconSize(QSize(30, 30))
 
@@ -274,9 +274,7 @@ class Ui_MainWindow(object):
         self.Headerframe.setMinimumSize(QSize(0, 40))
         self.Headerframe.setMaximumSize(QSize(16777215, 40))
         self.Headerframe.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(0, 0, 0);\n"
-"	border: none;\n"
-"	\n"
+"	border: none;	\n"
 "	border-radius: 20px;\n"
 "}\n"
 "\n"
@@ -352,7 +350,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(25, 25, 25);\n"
 "}")
         icon1 = QIcon()
-        icon1.addFile(u":/\u56fe\u6807/icons/\u8bbe\u7f6e.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u":/icon/icons/\u8bbe\u7f6e.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.Btn_setting.setIcon(icon1)
         self.Btn_setting.setIconSize(QSize(30, 30))
 
@@ -386,7 +384,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(25, 25, 25);\n"
 "}")
         icon2 = QIcon()
-        icon2.addFile(u":/\u56fe\u6807/icons/\u4f5c\u8005.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u":/icon/icons/\u4f5c\u8005.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.Btn_donation.setIcon(icon2)
         self.Btn_donation.setIconSize(QSize(30, 30))
 
@@ -425,7 +423,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(21, 21, 21)\n"
 "}")
         icon3 = QIcon()
-        icon3.addFile(u":/\u56fe\u6807/icons/\u6700\u5c0f\u5316.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u":/icon/icons/\u6700\u5c0f\u5316.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.Btn_min_window.setIcon(icon3)
         self.Btn_min_window.setIconSize(QSize(30, 30))
 
@@ -451,7 +449,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(21, 21, 21)\n"
 "}")
         icon4 = QIcon()
-        icon4.addFile(u":/\u56fe\u6807/icons/\u6700\u5927\u5316-\u8fd8\u539f.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile(u":/icon/icons/\u6700\u5927\u5316-\u8fd8\u539f.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.Btn_normal_max_window.setIcon(icon4)
         self.Btn_normal_max_window.setIconSize(QSize(30, 30))
 
@@ -477,7 +475,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(21, 21, 21)\n"
 "}")
         icon5 = QIcon()
-        icon5.addFile(u":/\u56fe\u6807/icons/\u5173\u95ed.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon5.addFile(u":/icon/icons/\u5173\u95ed.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.Btn_close_window.setIcon(icon5)
         self.Btn_close_window.setIconSize(QSize(35, 35))
 
@@ -492,7 +490,6 @@ class Ui_MainWindow(object):
         self.body = QFrame(self.frame_55)
         self.body.setObjectName(u"body")
         self.body.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(0, 0, 0);\n"
 "	border-radius: 20px;\n"
 "	border: none;\n"
 "}\n"
@@ -523,7 +520,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.left_panel = QFrame(self.MainPage)
         self.left_panel.setObjectName(u"left_panel")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.left_panel.sizePolicy().hasHeightForWidth())
@@ -547,7 +544,6 @@ class Ui_MainWindow(object):
         self.frame_18.setObjectName(u"frame_18")
         self.frame_18.setStyleSheet(u"\n"
 "QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 20px;\n"
 "	border: none;\n"
 "}\n"
@@ -598,8 +594,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
         self.clients_listview = QListView(self.clients_list_page)
         self.clients_listview.setObjectName(u"clients_listview")
-        sizePolicy1.setHeightForWidth(self.clients_listview.sizePolicy().hasHeightForWidth())
-        self.clients_listview.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.clients_listview.sizePolicy().hasHeightForWidth())
+        self.clients_listview.setSizePolicy(sizePolicy2)
         font1 = QFont()
         font1.setFamilies([u"\u7b49\u7ebf"])
         font1.setPointSize(16)
@@ -608,8 +607,8 @@ class Ui_MainWindow(object):
         self.clients_listview.setFont(font1)
         self.clients_listview.setAutoFillBackground(False)
         self.clients_listview.setStyleSheet(u"QListView {	\n"
-"	font:  16pt \"\u7b49\u7ebf\";\n"
-"	color: rgb(170, 0, 255);\n"
+"	font:  16pt \"\u7b49\u7ebf\";	\n"
+"	color: rgb(230, 0, 115);\n"
 "	background-color: rgb(13,9,36);\n"
 "	alternate-background-color:rgba(36, 27, 102, 120);\n"
 "	border-radius: 15px;\n"
@@ -633,11 +632,14 @@ class Ui_MainWindow(object):
 "QListView::item:hover { \n"
 "	background-color: rgb(0, 70, 0);\n"
 "}\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
@@ -645,16 +647,15 @@ class Ui_MainWindow(object):
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
-"QScrollBar::handle:hover:horizon"
-                        "tal,QScrollBar::handle:pressed:horizontal{\n"
+"/*\u6ed1\u5757\u60ac"
+                        "\u6d6e\uff0c\u6309\u4e0b*/\n"
+"QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
@@ -662,8 +663,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -677,15 +678,20 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, "
+                        "0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
-" QScrollBar::han"
-                        "dle:vertical {	\n"
+" QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
 "	border-radius: 3px\n"
@@ -697,8 +703,8 @@ class Ui_MainWindow(object):
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -706,21 +712,26 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
-"     subcontrol-origin: margin;\n"
+"     subcontrol-origin: margi"
+                        "n;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
 "     background: none;\n"
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"     background"
-                        ": none;\n"
+"     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
         self.clients_listview.setFrameShadow(QFrame.Sunken)
         self.clients_listview.setLineWidth(1)
@@ -740,11 +751,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_37.setContentsMargins(0, 0, 0, 0)
         self.tq_account_listview = QListView(self.tq_account_list_page)
         self.tq_account_listview.setObjectName(u"tq_account_listview")
-        sizePolicy1.setHeightForWidth(self.tq_account_listview.sizePolicy().hasHeightForWidth())
-        self.tq_account_listview.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.tq_account_listview.sizePolicy().hasHeightForWidth())
+        self.tq_account_listview.setSizePolicy(sizePolicy2)
         self.tq_account_listview.setStyleSheet(u"QListView {	\n"
 "	font:  16pt \"\u7b49\u7ebf\";\n"
-"	color: rgb(255, 85, 0);\n"
+"	color: rgb(255, 0, 127);\n"
 "	background-color: rgb(13,9,36);\n"
 "	alternate-background-color:rgba(36, 27, 102, 120);\n"
 "	border-radius: 15px;\n"
@@ -768,11 +779,15 @@ class Ui_MainWindow(object):
 "QListView::item:hover { \n"
 "	background-color: rgb(0, 70, 0);\n"
 "}\n"
+"\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
@@ -780,16 +795,15 @@ class Ui_MainWindow(object):
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
-"QScrollBar::handle:hover:horizont"
-                        "al,QScrollBar::handle:pressed:horizontal{\n"
+"/*\u6ed1\u5757"
+                        "\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
@@ -797,8 +811,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -812,15 +826,20 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rg"
+                        "b(85, 0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
-" QScrollBar::hand"
-                        "le:vertical {	\n"
+" QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
 "	border-radius: 3px\n"
@@ -832,8 +851,8 @@ class Ui_MainWindow(object):
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -841,21 +860,26 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
-"     subcontrol-origin: margin;\n"
+"     subcontrol-origin:"
+                        " margin;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
 "     background: none;\n"
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"     background:"
-                        " none;\n"
+"     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
         self.tq_account_listview.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.tq_account_listview.setAlternatingRowColors(True)
@@ -872,13 +896,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
         self.strategy_listview = QListView(self.strategy_list_page)
         self.strategy_listview.setObjectName(u"strategy_listview")
-        sizePolicy1.setHeightForWidth(self.strategy_listview.sizePolicy().hasHeightForWidth())
-        self.strategy_listview.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.strategy_listview.sizePolicy().hasHeightForWidth())
+        self.strategy_listview.setSizePolicy(sizePolicy2)
         self.strategy_listview.setFont(font1)
         self.strategy_listview.setAutoFillBackground(False)
         self.strategy_listview.setStyleSheet(u"QListView {	\n"
 "	font:  16pt \"\u7b49\u7ebf\";\n"
-"	color: rgb(255, 255, 0);\n"
+"	color: rgb(0, 170, 0);\n"
 "	background-color: rgb(13,9,36);\n"
 "	alternate-background-color:rgba(36, 27, 102, 120);\n"
 "	border-radius: 15px;\n"
@@ -902,11 +926,15 @@ class Ui_MainWindow(object):
 "QListView::item:hover { \n"
 "	background-color: rgb(0, 70, 0);\n"
 "}\n"
+"\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
@@ -914,16 +942,15 @@ class Ui_MainWindow(object):
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
-"QScrollBar::handle:hover:horizon"
-                        "tal,QScrollBar::handle:pressed:horizontal{\n"
+"/*\u6ed1\u5757"
+                        "\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
@@ -931,8 +958,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -946,15 +973,20 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rg"
+                        "b(85, 0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
-" QScrollBar::han"
-                        "dle:vertical {	\n"
+" QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
 "	border-radius: 3px\n"
@@ -966,8 +998,8 @@ class Ui_MainWindow(object):
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -975,21 +1007,26 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
-"     subcontrol-origin: margin;\n"
+"     subcontrol-origin:"
+                        " margin;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
 "     background: none;\n"
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"     background"
-                        ": none;\n"
+"     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
         self.strategy_listview.setFrameShadow(QFrame.Plain)
         self.strategy_listview.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -1008,8 +1045,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
         self.quote_listview = QListView(self.qoute_list_page)
         self.quote_listview.setObjectName(u"quote_listview")
-        sizePolicy1.setHeightForWidth(self.quote_listview.sizePolicy().hasHeightForWidth())
-        self.quote_listview.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.quote_listview.sizePolicy().hasHeightForWidth())
+        self.quote_listview.setSizePolicy(sizePolicy2)
         font2 = QFont()
         font2.setFamilies([u"\u7b49\u7ebf"])
         font2.setPointSize(12)
@@ -1019,7 +1056,7 @@ class Ui_MainWindow(object):
         self.quote_listview.setAutoFillBackground(False)
         self.quote_listview.setStyleSheet(u"QListView {	\n"
 "	font:  12pt \"\u7b49\u7ebf\";\n"
-"	color: rgb(0, 255, 0);\n"
+"	color: rgb(255, 85, 255);\n"
 "	background-color: rgb(13,9,36);\n"
 "	alternate-background-color:rgba(36, 27, 102, 120);\n"
 "	border-radius: 15px;\n"
@@ -1030,7 +1067,7 @@ class Ui_MainWindow(object):
 "	padding-right: 0;\n"
 "}\n"
 "QListView::item {\n"
-"	min-height:30px;\n"
+"	height:30px;\n"
 "     border-radius: 15px;\n"
 "	padding-left: 20px;\n"
 "}\n"
@@ -1043,11 +1080,14 @@ class Ui_MainWindow(object):
 "QListView::item:hover { \n"
 "	background-color: rgb(0, 70, 0);\n"
 "}\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
@@ -1055,16 +1095,15 @@ class Ui_MainWindow(object):
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
-"QScrollBar::handle:hover:horizonta"
-                        "l,QScrollBar::handle:pressed:horizontal{\n"
+"/*\u6ed1\u5757\u60ac"
+                        "\u6d6e\uff0c\u6309\u4e0b*/\n"
+"QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
@@ -1072,8 +1111,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -1087,15 +1126,20 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, "
+                        "0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
-" QScrollBar::handl"
-                        "e:vertical {	\n"
+" QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
 "	border-radius: 3px\n"
@@ -1107,8 +1151,8 @@ class Ui_MainWindow(object):
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -1116,21 +1160,26 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
-"     subcontrol-origin: margin;\n"
+"     subcontrol-origin: margi"
+                        "n;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
 "     background: none;\n"
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"     background: "
-                        "none;\n"
+"     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
         self.quote_listview.setFrameShadow(QFrame.Plain)
         self.quote_listview.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -1183,28 +1232,31 @@ class Ui_MainWindow(object):
 "QListView::item:hover { \n"
 "	background-color: rgba(0, 70, 0, 200);\n"
 "}\n"
+"\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
 "    background:rgba(249, 83, 255, 170);\n"
 "    min-width: 30px;\n"
-"	border-radius: 3px\n"
+""
+                        "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b"
-                        "*/\n"
+"/*\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
@@ -1212,8 +1264,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -1227,13 +1279,18 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizon"
+                        "tal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
-"	border-r"
-                        "adius: 3px;\n"
+"    margin: 17px 0 17px 0;\n"
+"	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
@@ -1247,8 +1304,8 @@ class Ui_MainWindow(object):
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -1256,21 +1313,26 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
-"     subcontrol-position: top;\n"
+"     subcontro"
+                        "l-position: top;\n"
 "     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
 "     background: none;\n"
 " }\n"
 "\n"
-" QScrollBar::add-page:vertical, QScrollBar::"
-                        "sub-page:vertical {\n"
+" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
         self.process_listview.setFrameShadow(QFrame.Plain)
         self.process_listview.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -1316,7 +1378,6 @@ class Ui_MainWindow(object):
         self.frame_28.setObjectName(u"frame_28")
         self.frame_28.setMinimumSize(QSize(0, 100))
         self.frame_28.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 20px;\n"
 "	border: none;\n"
 "}\n"
@@ -1331,7 +1392,7 @@ class Ui_MainWindow(object):
         self.frame_17 = QFrame(self.frame_28)
         self.frame_17.setObjectName(u"frame_17")
         self.frame_17.setMinimumSize(QSize(0, 30))
-        self.frame_17.setStyleSheet(u"border: none;")
+        self.frame_17.setStyleSheet(u"")
         self.frame_17.setFrameShape(QFrame.StyledPanel)
         self.frame_17.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.frame_17)
@@ -1376,13 +1437,12 @@ class Ui_MainWindow(object):
 
         self.frame = QFrame(self.MainPage)
         self.frame.setObjectName(u"frame")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
-        self.frame.setSizePolicy(sizePolicy2)
-        self.frame.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
-"border: none;")
+        sizePolicy1.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
+        self.frame.setSizePolicy(sizePolicy1)
+        self.frame.setStyleSheet(u"QFrame:{\n"
+"background-color: rgb(0, 0, 0);\n"
+"border: none;\n"
+"}")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_4 = QVBoxLayout(self.frame)
@@ -1391,10 +1451,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.frame_3 = QFrame(self.frame)
         self.frame_3.setObjectName(u"frame_3")
-        sizePolicy1.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
-        self.frame_3.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
+        self.frame_3.setSizePolicy(sizePolicy2)
         self.frame_3.setMinimumSize(QSize(1000, 0))
-        self.frame_3.setStyleSheet(u"background-color: rgb(0, 0, 0);")
+        self.frame_3.setStyleSheet(u"QFrame:{\n"
+"border: none;\n"
+"}")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frame_3)
@@ -1409,7 +1471,7 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
         self.frame_5.setSizePolicy(sizePolicy3)
         self.frame_5.setMaximumSize(QSize(16777215, 16777215))
-        self.frame_5.setStyleSheet(u"background-color: rgb(0, 0, 0);")
+        self.frame_5.setStyleSheet(u"")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.frame_5)
@@ -1424,12 +1486,7 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.frame_10.sizePolicy().hasHeightForWidth())
         self.frame_10.setSizePolicy(sizePolicy4)
         self.frame_10.setMaximumSize(QSize(16777215, 16777215))
-        self.frame_10.setStyleSheet(u"QFrame {\n"
-"	background-color:rgb(0, 0, 0);\n"
-"	border-radius: 20px;\n"
-"}\n"
-"\n"
-"")
+        self.frame_10.setStyleSheet(u"")
         self.frame_10.setFrameShape(QFrame.StyledPanel)
         self.frame_10.setFrameShadow(QFrame.Raised)
         self.verticalLayout_6 = QVBoxLayout(self.frame_10)
@@ -1501,7 +1558,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(25, 25, 25);\n"
 "}")
         icon6 = QIcon()
-        icon6.addFile(u":/\u56fe\u6807/icons/Excel.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon6.addFile(u":/icon/icons/Excel.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.Btn_opne_in_excel1.setIcon(icon6)
         self.Btn_opne_in_excel1.setIconSize(QSize(20, 20))
 
@@ -1556,16 +1613,13 @@ class Ui_MainWindow(object):
 "color:rgb(255, 255, 255);\n"
 "background-color: rgb(13,9,27);\n"
 "alternate-background-color:rgba(13,9,36, 170);\n"
-"gridline-color:rgba(140, 140, 140, 60);\n"
-"border: 1px;\n"
+"gridline-color:rgba(140, 140, 140, 50);\n"
 "padding: 5px 5px 5px 5px;\n"
 "}\n"
 "QTableWidget:hover{\n"
 "border: none;\n"
 "}\n"
 "QTableWidget::item {\n"
-"text-align:left;\n"
-"background-color: transparent;\n"
 "border: none;\n"
 "border-radius: none;\n"
 "}\n"
@@ -1573,41 +1627,38 @@ class Ui_MainWindow(object):
 "QTableWidget::item:selected{\n"
 "font: 700 12pt \"\u7b49\u7ebf\";\n"
 "color: rgb(0, 255, 0);\n"
-"background:rgba(65, 0, 44, 180);\n"
-"border: 1px solid rgba(140, 140, 140, 60);\n"
+"background:rgba(65, 0, 44, 100);\n"
 "}\n"
 "/*\n"
 "\u60ac\u6d6eitem*/\n"
 "QTableWidget::item:hover{\n"
 "color:rgb(0, 255, 0);\n"
-"background:rgb(100, 0, 80);\n"
+"background:rgba(100, 0, 80, 150);\n"
 "}\n"
 "/*\u8868\u5934*/\n"
 "QHeaderView::section:horizontal{\n"
 "font: 700 10pt \"\u7b49\u7ebf\";\n"
 "color: rgb(255, 0, 127);\n"
 "text-align:center;\n"
-"border: 1px solid rgba(140, 140, 140, 60);\n"
+"border: 1px solid rgba(140, 140, 140, 40);\n"
+"border-left: none;\n"
 "background-color: rgb(26, 18, 54);\n"
-"border-radius"
-                        ": none;\n"
-"margin:1px;\n"
 "}\n"
 "QHeaderView::section:hover:horizontal{\n"
-"border: 1px solid rgba(140, 140, 140, 160);\n"
-"background-color: rgba(255, 255, 0, 150);\n"
+"border: 1px solid rgba(140, 140, 140, 100);\n"
+"backgro"
+                        "und-color: rgba(255, 255, 0, 150);\n"
 "}\n"
 "QHeaderView::section:vertical{\n"
 "font: 700 14pt \"\u7b49\u7ebf\";\n"
 "color: rgb(255, 0, 0);\n"
 "text-align: right;\n"
-"border: 1px solid rgba(140, 140, 140, 60);\n"
+"border: 1px solid rgba(140, 140, 140, 40);\n"
+"border-top: none;\n"
 "background-color: rgb(26, 18, 54);\n"
-"border-radius: none;\n"
-"margin:1px;\n"
 "}\n"
 "QHeaderView::section:hover:vertical{\n"
-"border: 1px solid rgba(140, 140, 140, 160);\n"
+"border: 1px solid rgba(140, 140, 140, 100);\n"
 "background-color: rgba(255, 255, 0, 150);\n"
 "}\n"
 "/*\u8868\u5934\u6700\u5de6\u4e0a\u89d2\u7684\u65b9\u5757*/\n"
@@ -1615,7 +1666,6 @@ class Ui_MainWindow(object):
 "text-align:center;\n"
 "border: 1px solid rgba(140, 140, 140, 60);\n"
 "background-color: rgb(26, 18, 54);\n"
-"margin:1px;\n"
 "color:rgb(255, 255, 255)\n"
 "}\n"
 "QTableCornerButton::section:hover{\n"
@@ -1623,28 +1673,31 @@ class Ui_MainWindow(object):
 "background-color: rgba(255, 255, 0, 50);\n"
 "}\n"
 "\n"
+"\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    "
-                        "background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
-"	border-radius: 3px;\n"
+"    margin: 0px 17px 0 17px;\n"
+"	bo"
+                        "rder-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
 "    background:rgba(249, 83, 255, 170);\n"
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"/*\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
@@ -1652,27 +1705,32 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
-"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:hor"
-                        "izontal\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
 "{\n"
 "     background: none;\n"
 "}\n"
-"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal\n"
+"QScrollBar::add-page:horizontal, QScrollBar:"
+                        ":sub-page:horizontal\n"
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
@@ -1687,8 +1745,8 @@ class Ui_MainWindow(object):
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -1696,10 +1754,10 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
-"	"
-                        "border-top-left-radius: 3px;\n"
+"    backgroun"
+                        "d: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
+"	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
 "     subcontrol-origin: margin;\n"
@@ -1711,19 +1769,23 @@ class Ui_MainWindow(object):
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
 "\n"
 "")
         self.tableWidget_deal_detials.setFrameShadow(QFrame.Raised)
         self.tableWidget_deal_detials.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.tableWidget_deal_detials.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.tableWidget_deal_detials.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.tableWidget_deal_detials.setProperty("showDropIndicator", True)
-        self.tableWidget_deal_detials.setDragEnabled(True)
-        self.tableWidget_deal_detials.setDragDropOverwriteMode(True)
-        self.tableWidget_deal_detials.setDragDropMode(QAbstractItemView.DragDrop)
+        self.tableWidget_deal_detials.setProperty("showDropIndicator", False)
+        self.tableWidget_deal_detials.setDragEnabled(False)
+        self.tableWidget_deal_detials.setDragDropOverwriteMode(False)
+        self.tableWidget_deal_detials.setDragDropMode(QAbstractItemView.NoDragDrop)
         self.tableWidget_deal_detials.setDefaultDropAction(Qt.IgnoreAction)
         self.tableWidget_deal_detials.setAlternatingRowColors(True)
-        self.tableWidget_deal_detials.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.tableWidget_deal_detials.setSelectionMode(QAbstractItemView.ExtendedSelection)
         self.tableWidget_deal_detials.setVerticalScrollMode(QAbstractItemView.ScrollPerPixel)
         self.tableWidget_deal_detials.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
         self.tableWidget_deal_detials.setSortingEnabled(False)
@@ -1750,14 +1812,11 @@ class Ui_MainWindow(object):
 
         self.frame_4 = QFrame(self.frame_5)
         self.frame_4.setObjectName(u"frame_4")
-        sizePolicy2.setHeightForWidth(self.frame_4.sizePolicy().hasHeightForWidth())
-        self.frame_4.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.frame_4.sizePolicy().hasHeightForWidth())
+        self.frame_4.setSizePolicy(sizePolicy1)
         self.frame_4.setMinimumSize(QSize(356, 390))
         self.frame_4.setMaximumSize(QSize(356, 16777215))
-        self.frame_4.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(0, 0, 0);\n"
-"	border-radius: 20px;\n"
-"}")
+        self.frame_4.setStyleSheet(u"")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_28 = QHBoxLayout(self.frame_4)
@@ -2078,8 +2137,9 @@ class Ui_MainWindow(object):
         self.frame_2 = QFrame(self.frame)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setMinimumSize(QSize(1000, 0))
-        self.frame_2.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
-"border-radius: 20px;")
+        self.frame_2.setStyleSheet(u"QFrame:{\n"
+"border: none;\n"
+"}")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.frame_2.setMidLineWidth(-1)
@@ -2089,10 +2149,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11.setContentsMargins(0, 5, 0, 0)
         self.frame_19 = QFrame(self.frame_2)
         self.frame_19.setObjectName(u"frame_19")
-        sizePolicy2.setHeightForWidth(self.frame_19.sizePolicy().hasHeightForWidth())
-        self.frame_19.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.frame_19.sizePolicy().hasHeightForWidth())
+        self.frame_19.setSizePolicy(sizePolicy1)
         self.frame_19.setMinimumSize(QSize(0, 0))
-        self.frame_19.setStyleSheet(u"background-color: rgb(0, 0, 0);")
+        self.frame_19.setStyleSheet(u"QFrame:{\n"
+"border: none;\n"
+"}")
         self.frame_19.setFrameShape(QFrame.StyledPanel)
         self.frame_19.setFrameShadow(QFrame.Raised)
         self.verticalLayout_17 = QVBoxLayout(self.frame_19)
@@ -2157,7 +2219,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(25, 25, 25);\n"
 "}")
         icon7 = QIcon()
-        icon7.addFile(u":/\u56fe\u6807/icons/\u6e05\u5c4f.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon7.addFile(u":/icon/icons/\u6e05\u5c4f.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.Btn_cleartext.setIcon(icon7)
         self.Btn_cleartext.setIconSize(QSize(30, 30))
 
@@ -2194,11 +2256,14 @@ class Ui_MainWindow(object):
 "padding: 5px 5px 5px 20px;\n"
 "border: none;\n"
 "}\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
@@ -2206,25 +2271,24 @@ class Ui_MainWindow(object):
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"/*\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
-"    subcontrol-position: right;\n"
+"    subcontrol-position"
+                        ": right;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
-"QScrollBar::s"
-                        "ub-line:horizontal {\n"
+"QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -2238,11 +2302,16 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
@@ -2251,15 +2320,15 @@ class Ui_MainWindow(object):
 "	border-radius: 3px\n"
 " }\n"
 "/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309"
+                        "\u4e0b*/\n"
 "QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55"
-                        ", 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -2267,8 +2336,8 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
@@ -2281,6 +2350,11 @@ class Ui_MainWindow(object):
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
 
         self.horizontalLayout_12.addWidget(self.textBrowser_terminal)
@@ -2293,11 +2367,13 @@ class Ui_MainWindow(object):
 
         self.frame_20 = QFrame(self.frame_2)
         self.frame_20.setObjectName(u"frame_20")
-        sizePolicy1.setHeightForWidth(self.frame_20.sizePolicy().hasHeightForWidth())
-        self.frame_20.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.frame_20.sizePolicy().hasHeightForWidth())
+        self.frame_20.setSizePolicy(sizePolicy2)
         self.frame_20.setMinimumSize(QSize(350, 0))
         self.frame_20.setMaximumSize(QSize(350, 16777215))
-        self.frame_20.setStyleSheet(u"background-color: rgb(0, 0, 0);")
+        self.frame_20.setStyleSheet(u"QFrame:{\n"
+"border: none;\n"
+"}")
         self.frame_20.setFrameShape(QFrame.StyledPanel)
         self.frame_20.setFrameShadow(QFrame.Raised)
         self.verticalLayout_5 = QVBoxLayout(self.frame_20)
@@ -2413,8 +2489,6 @@ class Ui_MainWindow(object):
         self.frame_16.setObjectName(u"frame_16")
         self.frame_16.setMinimumSize(QSize(0, 770))
         self.frame_16.setStyleSheet(u"QFrame {\n"
-"	\n"
-"	background-color: rgb(0, 0, 0);\n"
 "	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
@@ -2429,8 +2503,6 @@ class Ui_MainWindow(object):
         self.frame_23 = QFrame(self.frame_16)
         self.frame_23.setObjectName(u"frame_23")
         self.frame_23.setStyleSheet(u"QFrame {\n"
-"	\n"
-"	background-color: rgb(0, 0, 0);\n"
 "	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
@@ -2444,10 +2516,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setContentsMargins(0, 3, 0, 0)
         self.frame_24 = QFrame(self.frame_23)
         self.frame_24.setObjectName(u"frame_24")
-        self.frame_24.setStyleSheet(u"	background-color: rgb(13, 9, 27);\n"
-"	border-radius: none;\n"
-"	border: none;\n"
-"")
+        self.frame_24.setStyleSheet(u"")
         self.frame_24.setFrameShape(QFrame.StyledPanel)
         self.frame_24.setFrameShadow(QFrame.Raised)
         self.verticalLayout_20 = QVBoxLayout(self.frame_24)
@@ -2456,13 +2525,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
         self.frame_36 = QFrame(self.frame_24)
         self.frame_36.setObjectName(u"frame_36")
-        self.frame_36.setStyleSheet(u"QFrame {		\n"
-"	background-color: rgb(0, 0, 0);\n"
-"	border-radius: 10px;\n"
-"	border: none;\n"
-"}\n"
-"\n"
-"")
+        self.frame_36.setStyleSheet(u"")
         self.frame_36.setFrameShape(QFrame.StyledPanel)
         self.frame_36.setFrameShadow(QFrame.Raised)
         self.verticalLayout_32 = QVBoxLayout(self.frame_36)
@@ -2602,8 +2665,8 @@ class Ui_MainWindow(object):
 "}\n"
 "/* \u4e0b\u62c9\u7bad\u5934\u6837\u5f0f */\n"
 " QComboBox::down-arrow {\n"
-"	image: url(:/\u56fe\u6807/icons/"
-                        "\u53cc\u4e0b\u62c9\u7bad\u5934.svg);\n"
+"	image: url(:/icon/icons/\u53cc\u4e0b"
+                        "\u62c9\u7bad\u5934.svg);\n"
 "	width: 10px; /* \u4e0b\u62c9\u7bad\u5934\u7684\u5bbd\u5ea6\uff08\u5efa\u8bae\u4e0e\u4e0b\u62c9\u6846drop-down\u7684\u5bbd\u5ea6\u4e00\u81f4\uff09 */ \n"
 "	background: rgb(255, 255, 255); /* \u4e0b\u62c9\u7bad\u5934\u7684\u7684\u80cc\u666f\u8272 */ \n"
 "	padding: 0px 0px 0px 0px; /* \u4e0a\u5185\u8fb9\u8ddd\u3001\u53f3\u5185\u8fb9\u8ddd\u3001\u4e0b\u5185\u8fb9\u8ddd\u3001\u5de6\u5185\u8fb9\u8ddd */\n"
@@ -2615,9 +2678,9 @@ class Ui_MainWindow(object):
 "   /* subcontrol-position: top right;   /* \u4e0b\u62c9\u6846\u7684\u4f4d\u7f6e\uff08\u53f3\u4e0a\uff09 */\n"
 "    width: 20px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
 "\n"
-"    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6"
-                        " */\n"
-"    border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
+"    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6 */\n"
+"    "
+                        "border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
 "    border-left-style: solid;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u4e3a\u5b9e\u7ebf */\n"
 "    border-top-right-radius: 10px;   /* \u4e0b\u62c9\u6846\u7684\u53f3\u4e0a\u8fb9\u754c\u7ebf\u7684\u5706\u89d2\u534a\u5f84\uff08\u5e94\u548c\u6574\u4e2aQComboBox\u53f3\u4e0a\u8fb9\u754c\u7ebf\u7684\u5706\u89d2\u534a\u5f84\u4e00\u81f4\uff09 */\n"
 "    border-bottom-right-radius: 10px;   /* \u540c\u4e0a */\n"
@@ -2690,8 +2753,8 @@ class Ui_MainWindow(object):
         self.frame_40 = QFrame(self.frame_36)
         self.frame_40.setObjectName(u"frame_40")
         self.frame_40.setStyleSheet(u"QFrame {		\n"
-"	background-color: rgb(0, 0, 0);\n"
-"	border-radius: 10px;\n"
+"	background-color: rgb(13, 9, 36);\n"
+"	border-radius: none;\n"
 "	border: none;\n"
 "}\n"
 "\n"
@@ -2713,7 +2776,6 @@ class Ui_MainWindow(object):
         self.frame_45.setMinimumSize(QSize(20, 0))
         self.frame_45.setMaximumSize(QSize(20, 16777215))
         self.frame_45.setStyleSheet(u"QFrame {		\n"
-"	background-color: rgb(0, 0, 0);\n"
 "	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
@@ -2934,7 +2996,6 @@ class Ui_MainWindow(object):
         self.frame_57.setMinimumSize(QSize(0, 70))
         self.frame_57.setMaximumSize(QSize(16777215, 70))
         self.frame_57.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "}\n"
@@ -2981,7 +3042,6 @@ class Ui_MainWindow(object):
         self.frame_58.setMinimumSize(QSize(0, 60))
         self.frame_58.setMaximumSize(QSize(16777215, 60))
         self.frame_58.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "}\n"
@@ -2996,7 +3056,6 @@ class Ui_MainWindow(object):
         self.frame_59 = QFrame(self.frame_58)
         self.frame_59.setObjectName(u"frame_59")
         self.frame_59.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
@@ -3047,7 +3106,6 @@ class Ui_MainWindow(object):
         self.frame_77 = QFrame(self.frame_58)
         self.frame_77.setObjectName(u"frame_77")
         self.frame_77.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
@@ -3102,7 +3160,6 @@ class Ui_MainWindow(object):
         self.frame_78.setObjectName(u"frame_78")
         self.frame_78.setMaximumSize(QSize(16777215, 200))
         self.frame_78.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "}\n"
@@ -3117,8 +3174,6 @@ class Ui_MainWindow(object):
         self.frame_79 = QFrame(self.frame_78)
         self.frame_79.setObjectName(u"frame_79")
         self.frame_79.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 36);\n"
-"	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
 "\n"
@@ -3303,8 +3358,6 @@ class Ui_MainWindow(object):
         self.frame_94 = QFrame(self.frame_78)
         self.frame_94.setObjectName(u"frame_94")
         self.frame_94.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 36);\n"
-"	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
 "\n"
@@ -3493,7 +3546,6 @@ class Ui_MainWindow(object):
         self.frame_97.setObjectName(u"frame_97")
         self.frame_97.setMaximumSize(QSize(16777215, 40))
         self.frame_97.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "}\n"
@@ -3527,13 +3579,7 @@ class Ui_MainWindow(object):
 
         self.frame_98 = QFrame(self.frame_56)
         self.frame_98.setObjectName(u"frame_98")
-        self.frame_98.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 27);\n"
-"	border-radius: 10px;\n"
-"	border: none;\n"
-"}\n"
-"\n"
-"")
+        self.frame_98.setStyleSheet(u"")
         self.frame_98.setFrameShape(QFrame.StyledPanel)
         self.frame_98.setFrameShadow(QFrame.Raised)
         self.verticalLayout_56 = QVBoxLayout(self.frame_98)
@@ -3570,28 +3616,33 @@ class Ui_MainWindow(object):
 "QListView::item:hover { \n"
 "	background-color: rgba(0, 70, 0, 200);\n"
 "}\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
 "    background:rgba(249, 83, 255, 170);\n"
-"    min-width: 30px;\n"
+"    min-width: "
+                        "30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b"
-                        "*/\n"
+"/*\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
@@ -3599,8 +3650,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -3614,13 +3665,18 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-li"
+                        "ne:horizontal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
-"	border-r"
-                        "adius: 3px;\n"
+"    margin: 17px 0 17px 0;\n"
+"	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
@@ -3634,8 +3690,8 @@ class Ui_MainWindow(object):
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -3643,21 +3699,26 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
-"     subcontrol-position: top;\n"
+"    "
+                        " subcontrol-position: top;\n"
 "     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
 "     background: none;\n"
 " }\n"
 "\n"
-" QScrollBar::add-page:vertical, QScrollBar::"
-                        "sub-page:vertical {\n"
+" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
         self.self_selection_listview.setAlternatingRowColors(True)
 
@@ -3670,7 +3731,6 @@ class Ui_MainWindow(object):
         self.frame_115.setObjectName(u"frame_115")
         self.frame_115.setMinimumSize(QSize(0, 100))
         self.frame_115.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "}\n"
@@ -3683,7 +3743,6 @@ class Ui_MainWindow(object):
         self.frame_116 = QFrame(self.frame_115)
         self.frame_116.setObjectName(u"frame_116")
         self.frame_116.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 27);\n"
 "	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
@@ -3723,7 +3782,6 @@ class Ui_MainWindow(object):
         self.frame_117 = QFrame(self.frame_115)
         self.frame_117.setObjectName(u"frame_117")
         self.frame_117.setStyleSheet(u"QFrame {	\n"
-"	background-color: rgb(13, 9, 27);\n"
 "	border-radius: 10px;\n"
 "	border: none;\n"
 "}\n"
@@ -3831,16 +3889,15 @@ class Ui_MainWindow(object):
         self.tabWidget_account.setUsesScrollButtons(False)
         self.tab_user_manage = QWidget()
         self.tab_user_manage.setObjectName(u"tab_user_manage")
-        self.tab_user_manage.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
-"border-radius: 20px;")
+        self.tab_user_manage.setStyleSheet(u"")
         self.horizontalLayout_13 = QHBoxLayout(self.tab_user_manage)
         self.horizontalLayout_13.setSpacing(10)
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
         self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
         self.frame_100 = QFrame(self.tab_user_manage)
         self.frame_100.setObjectName(u"frame_100")
-        sizePolicy2.setHeightForWidth(self.frame_100.sizePolicy().hasHeightForWidth())
-        self.frame_100.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.frame_100.sizePolicy().hasHeightForWidth())
+        self.frame_100.setSizePolicy(sizePolicy1)
         self.frame_100.setMinimumSize(QSize(520, 0))
         self.frame_100.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
@@ -3858,11 +3915,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_57.setContentsMargins(1, 10, 1, 1)
         self.frame_101 = QFrame(self.frame_100)
         self.frame_101.setObjectName(u"frame_101")
-        sizePolicy2.setHeightForWidth(self.frame_101.sizePolicy().hasHeightForWidth())
-        self.frame_101.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.frame_101.sizePolicy().hasHeightForWidth())
+        self.frame_101.setSizePolicy(sizePolicy1)
         self.frame_101.setMinimumSize(QSize(510, 510))
         self.frame_101.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: none;\n"
 "}\n"
@@ -3873,8 +3929,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_51.setObjectName(u"horizontalLayout_51")
         self.label_client_photo_show = QLabel(self.frame_101)
         self.label_client_photo_show.setObjectName(u"label_client_photo_show")
-        sizePolicy2.setHeightForWidth(self.label_client_photo_show.sizePolicy().hasHeightForWidth())
-        self.label_client_photo_show.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.label_client_photo_show.sizePolicy().hasHeightForWidth())
+        self.label_client_photo_show.setSizePolicy(sizePolicy1)
         self.label_client_photo_show.setMinimumSize(QSize(500, 500))
         self.label_client_photo_show.setMaximumSize(QSize(16777215, 16777215))
         self.label_client_photo_show.setStyleSheet(u"QFrame {\n"
@@ -3893,7 +3949,6 @@ class Ui_MainWindow(object):
         self.frame_103.setObjectName(u"frame_103")
         self.frame_103.setMinimumSize(QSize(0, 250))
         self.frame_103.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -3936,17 +3991,19 @@ class Ui_MainWindow(object):
         self.textBrowser_clients_details.setStyleSheet(u"QTextBrowser{\n"
 "color: rgb(255, 85, 0);\n"
 "border-radius: 15px;\n"
-"font: 14pt \"\u7b49\u7ebf\";\n"
-"/*padding-left: 20px;\n"
-"padding-right: 20px;*/\n"
+"font: 12pt \"\u7b49\u7ebf\";\n"
 "padding: 5px 5px 5px 20px;\n"
 "border: none;\n"
 "}\n"
+"\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
@@ -3954,25 +4011,24 @@ class Ui_MainWindow(object):
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"/*\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
-"    border: none;\n"
-" "
-                        "   background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    "
+                        "border: none;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -3986,11 +4042,16 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
@@ -4001,22 +4062,22 @@ class Ui_MainWindow(object):
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{\n"
-"background:rgb(150, 0, 150);\n"
+"backgro"
+                        "und:rgb(150, 0, 150);\n"
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
-"	border-bo"
-                        "ttom-left-radius: 3px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
+"	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
 "     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
@@ -4029,6 +4090,11 @@ class Ui_MainWindow(object):
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
 
         self.verticalLayout_60.addWidget(self.textBrowser_clients_details)
@@ -4045,7 +4111,7 @@ class Ui_MainWindow(object):
         self.frame_13 = QFrame(self.tab_user_manage)
         self.frame_13.setObjectName(u"frame_13")
         self.frame_13.setMinimumSize(QSize(250, 0))
-        self.frame_13.setMaximumSize(QSize(500, 16777215))
+        self.frame_13.setMaximumSize(QSize(300, 16777215))
         self.frame_13.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
@@ -4064,7 +4130,6 @@ class Ui_MainWindow(object):
         self.frame_109.setObjectName(u"frame_109")
         self.frame_109.setMinimumSize(QSize(0, 50))
         self.frame_109.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -4077,7 +4142,6 @@ class Ui_MainWindow(object):
         self.frame_110 = QFrame(self.frame_13)
         self.frame_110.setObjectName(u"frame_110")
         self.frame_110.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -4090,6 +4154,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_62.setContentsMargins(0, 0, 0, 0)
         self.clients_listview2 = QListView(self.frame_110)
         self.clients_listview2.setObjectName(u"clients_listview2")
+        self.clients_listview2.setMinimumSize(QSize(0, 540))
+        self.clients_listview2.setMaximumSize(QSize(16777215, 540))
         self.clients_listview2.setStyleSheet(u"QListView {	\n"
 "	font:  16pt \"\u7b49\u7ebf\";	\n"
 "	color: rgb(255, 0, 127);\n"
@@ -4113,11 +4179,15 @@ class Ui_MainWindow(object):
 "QListView::item:hover { \n"
 "	background-color: rgb(0, 70, 0);\n"
 "}\n"
+"\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
@@ -4125,16 +4195,15 @@ class Ui_MainWindow(object):
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
-"QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
+"/*\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"QScrollBar::handle:hover:horizontal,QScrollBar::ha"
+                        "ndle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
-"QScr"
-                        "ollBar::add-line:horizontal {\n"
+"QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
@@ -4142,8 +4211,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -4157,18 +4226,23 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    backgro"
+                        "und: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
-"	bo"
-                        "rder-radius: 3px\n"
+"	border-radius: 3px\n"
 " }\n"
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
@@ -4177,8 +4251,8 @@ class Ui_MainWindow(object):
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -4186,40 +4260,36 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
 "     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"     background: none;\n"
+""
+                        "     background: none;\n"
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
 
         self.verticalLayout_62.addWidget(self.clients_listview2)
 
+        self.verticalSpacer_8 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_62.addItem(self.verticalSpacer_8)
+
 
         self.verticalLayout_63.addWidget(self.frame_110)
-
-        self.frame_108 = QFrame(self.frame_13)
-        self.frame_108.setObjectName(u"frame_108")
-        self.frame_108.setMinimumSize(QSize(0, 200))
-        self.frame_108.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
-"	border: none;\n"
-"	border-radius: 20px;\n"
-"}\n"
-"")
-        self.frame_108.setFrameShape(QFrame.StyledPanel)
-        self.frame_108.setFrameShadow(QFrame.Raised)
-
-        self.verticalLayout_63.addWidget(self.frame_108)
 
 
         self.horizontalLayout_13.addWidget(self.frame_13)
@@ -4264,7 +4334,22 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_19.addWidget(self.frame_51)
 
-        self.frame_32 = QFrame(self.frame_14)
+        self.frame_102 = QFrame(self.frame_14)
+        self.frame_102.setObjectName(u"frame_102")
+        self.frame_102.setMinimumSize(QSize(0, 540))
+        self.frame_102.setMaximumSize(QSize(16777215, 540))
+        self.frame_102.setStyleSheet(u"QFrame {\n"
+"	border: none;\n"
+"	border-radius: 20px;\n"
+"}\n"
+"")
+        self.frame_102.setFrameShape(QFrame.StyledPanel)
+        self.frame_102.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_69 = QVBoxLayout(self.frame_102)
+        self.verticalLayout_69.setSpacing(10)
+        self.verticalLayout_69.setObjectName(u"verticalLayout_69")
+        self.verticalLayout_69.setContentsMargins(0, 0, 0, 0)
+        self.frame_32 = QFrame(self.frame_102)
         self.frame_32.setObjectName(u"frame_32")
         sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy5.setHorizontalStretch(0)
@@ -4274,7 +4359,6 @@ class Ui_MainWindow(object):
         self.frame_32.setMinimumSize(QSize(0, 360))
         self.frame_32.setMaximumSize(QSize(450, 360))
         self.frame_32.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -4523,11 +4607,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_14.addWidget(self.frame_46, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_19.addWidget(self.frame_32)
+        self.verticalLayout_69.addWidget(self.frame_32)
 
-        self.frame_89 = QFrame(self.frame_14)
+        self.frame_89 = QFrame(self.frame_102)
         self.frame_89.setObjectName(u"frame_89")
         self.frame_89.setMinimumSize(QSize(0, 150))
+        self.frame_89.setStyleSheet(u"QFrame {\n"
+"	border: 1px solid rgb(65, 51, 156);\n"
+"	border-radius: 20px;\n"
+"}\n"
+"QFrame:hover {\n"
+"	border: 1px solid rgb(65, 51, 156);\n"
+"}")
         self.frame_89.setFrameShape(QFrame.StyledPanel)
         self.frame_89.setFrameShadow(QFrame.Raised)
         self.verticalLayout_65 = QVBoxLayout(self.frame_89)
@@ -4591,7 +4682,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_65.addWidget(self.clients_photo_address)
 
 
-        self.verticalLayout_19.addWidget(self.frame_89)
+        self.verticalLayout_69.addWidget(self.frame_89)
+
+
+        self.verticalLayout_19.addWidget(self.frame_102)
 
         self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -4602,7 +4696,6 @@ class Ui_MainWindow(object):
         self.frame_47.setMinimumSize(QSize(0, 60))
         self.frame_47.setMaximumSize(QSize(16777215, 100))
         self.frame_47.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -4616,7 +4709,6 @@ class Ui_MainWindow(object):
         self.frame_48 = QFrame(self.frame_47)
         self.frame_48.setObjectName(u"frame_48")
         self.frame_48.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -4666,7 +4758,6 @@ class Ui_MainWindow(object):
         self.frame_52 = QFrame(self.frame_47)
         self.frame_52.setObjectName(u"frame_52")
         self.frame_52.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -4720,23 +4811,15 @@ class Ui_MainWindow(object):
         self.tabWidget_account.addTab(self.tab_user_manage, "")
         self.tab_tq_account_mamnage = QWidget()
         self.tab_tq_account_mamnage.setObjectName(u"tab_tq_account_mamnage")
-        self.tab_tq_account_mamnage.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
-"border-radius: 20px;")
+        self.tab_tq_account_mamnage.setStyleSheet(u"")
         self.horizontalLayout_18 = QHBoxLayout(self.tab_tq_account_mamnage)
         self.horizontalLayout_18.setSpacing(10)
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
         self.horizontalLayout_18.setContentsMargins(0, 0, 0, 0)
-        self.frame_104 = QFrame(self.tab_tq_account_mamnage)
-        self.frame_104.setObjectName(u"frame_104")
-        self.frame_104.setFrameShape(QFrame.StyledPanel)
-        self.frame_104.setFrameShadow(QFrame.Raised)
-
-        self.horizontalLayout_18.addWidget(self.frame_104)
-
         self.frame_111 = QFrame(self.tab_tq_account_mamnage)
         self.frame_111.setObjectName(u"frame_111")
-        sizePolicy2.setHeightForWidth(self.frame_111.sizePolicy().hasHeightForWidth())
-        self.frame_111.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.frame_111.sizePolicy().hasHeightForWidth())
+        self.frame_111.setSizePolicy(sizePolicy1)
         self.frame_111.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
@@ -4756,7 +4839,6 @@ class Ui_MainWindow(object):
         self.frame_113.setMinimumSize(QSize(0, 50))
         self.frame_113.setMaximumSize(QSize(16777215, 50))
         self.frame_113.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -4781,7 +4863,6 @@ class Ui_MainWindow(object):
         self.frame_114 = QFrame(self.frame_111)
         self.frame_114.setObjectName(u"frame_114")
         self.frame_114.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -4795,19 +4876,21 @@ class Ui_MainWindow(object):
         self.textBrowser_tq_account_details = QTextBrowser(self.frame_114)
         self.textBrowser_tq_account_details.setObjectName(u"textBrowser_tq_account_details")
         self.textBrowser_tq_account_details.setStyleSheet(u"QTextBrowser{\n"
-"color: rgb(255, 116, 225);\n"
+"color: rgb(255, 0, 127);\n"
 "border-radius: 15px;\n"
 "font: 14pt \"\u7b49\u7ebf\";\n"
-"/*padding-left: 20px;\n"
-"padding-right: 20px;*/\n"
 "padding: 5px 5px 5px 20px;\n"
 "border: none;\n"
 "}\n"
+"\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
@@ -4815,25 +4898,24 @@ class Ui_MainWindow(object):
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"/*\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
-"    border: none;\n"
-""
-                        "    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"   "
+                        " border: none;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -4847,11 +4929,16 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
@@ -4862,22 +4949,22 @@ class Ui_MainWindow(object):
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{\n"
-"background:rgb(150, 0, 150);\n"
+"backgr"
+                        "ound:rgb(150, 0, 150);\n"
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
-"	border-b"
-                        "ottom-left-radius: 3px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
+"	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
 "     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
@@ -4890,6 +4977,11 @@ class Ui_MainWindow(object):
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
 
         self.verticalLayout_67.addWidget(self.textBrowser_tq_account_details)
@@ -4903,7 +4995,7 @@ class Ui_MainWindow(object):
         self.frame_35 = QFrame(self.tab_tq_account_mamnage)
         self.frame_35.setObjectName(u"frame_35")
         self.frame_35.setMinimumSize(QSize(250, 0))
-        self.frame_35.setMaximumSize(QSize(500, 16777215))
+        self.frame_35.setMaximumSize(QSize(300, 16777215))
         self.frame_35.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
@@ -4923,7 +5015,6 @@ class Ui_MainWindow(object):
         self.frame_66.setMinimumSize(QSize(0, 50))
         self.frame_66.setMaximumSize(QSize(16777215, 50))
         self.frame_66.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -4936,7 +5027,6 @@ class Ui_MainWindow(object):
         self.frame_67 = QFrame(self.frame_35)
         self.frame_67.setObjectName(u"frame_67")
         self.frame_67.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -4949,6 +5039,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_61.setContentsMargins(0, 0, 0, 0)
         self.tq_account_listview2 = QListView(self.frame_67)
         self.tq_account_listview2.setObjectName(u"tq_account_listview2")
+        self.tq_account_listview2.setMinimumSize(QSize(0, 540))
+        self.tq_account_listview2.setMaximumSize(QSize(16777215, 540))
         self.tq_account_listview2.setStyleSheet(u"QListView {	\n"
 "	font:  16pt \"\u7b49\u7ebf\";\n"
 "	color: rgb(255, 85, 0);\n"
@@ -4972,11 +5064,15 @@ class Ui_MainWindow(object):
 "QListView::item:hover { \n"
 "	background-color: rgb(0, 70, 0);\n"
 "}\n"
+"\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
@@ -4984,16 +5080,15 @@ class Ui_MainWindow(object):
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
-"QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
+"/*\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"QScrollBar::handle:hover:horizontal,QScrollBar::hand"
+                        "le:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
-"QScrol"
-                        "lBar::add-line:horizontal {\n"
+"QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
@@ -5001,8 +5096,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -5016,18 +5111,23 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    backgroun"
+                        "d: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
-"	bord"
-                        "er-radius: 3px\n"
+"	border-radius: 3px\n"
 " }\n"
 "/*\n"
 "\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
@@ -5036,8 +5136,8 @@ class Ui_MainWindow(object):
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -5045,40 +5145,36 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
 "     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"     background: none;\n"
+""
+                        "     background: none;\n"
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
 
         self.verticalLayout_61.addWidget(self.tq_account_listview2)
 
+        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_61.addItem(self.verticalSpacer_7)
+
 
         self.verticalLayout_53.addWidget(self.frame_67)
-
-        self.frame_102 = QFrame(self.frame_35)
-        self.frame_102.setObjectName(u"frame_102")
-        self.frame_102.setMinimumSize(QSize(0, 200))
-        self.frame_102.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
-"	border: none;\n"
-"	border-radius: 20px;\n"
-"}\n"
-"")
-        self.frame_102.setFrameShape(QFrame.StyledPanel)
-        self.frame_102.setFrameShadow(QFrame.Raised)
-
-        self.verticalLayout_53.addWidget(self.frame_102)
 
 
         self.horizontalLayout_18.addWidget(self.frame_35)
@@ -5114,8 +5210,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_42.setContentsMargins(-1, 10, -1, 5)
         self.label_tital_3 = QLabel(self.frame_41)
         self.label_tital_3.setObjectName(u"label_tital_3")
-        sizePolicy1.setHeightForWidth(self.label_tital_3.sizePolicy().hasHeightForWidth())
-        self.label_tital_3.setSizePolicy(sizePolicy1)
+        sizePolicy2.setHeightForWidth(self.label_tital_3.sizePolicy().hasHeightForWidth())
+        self.label_tital_3.setSizePolicy(sizePolicy2)
         self.label_tital_3.setMaximumSize(QSize(16777215, 50))
         self.label_tital_3.setStyleSheet(u"font: 700 20pt \"\u7b49\u7ebf\";\n"
 "color: rgb(0, 255, 0);\n"
@@ -5129,12 +5225,11 @@ class Ui_MainWindow(object):
 
         self.frame_42 = QFrame(self.frame_37)
         self.frame_42.setObjectName(u"frame_42")
-        sizePolicy2.setHeightForWidth(self.frame_42.sizePolicy().hasHeightForWidth())
-        self.frame_42.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.frame_42.sizePolicy().hasHeightForWidth())
+        self.frame_42.setSizePolicy(sizePolicy1)
         self.frame_42.setMinimumSize(QSize(0, 540))
         self.frame_42.setMaximumSize(QSize(450, 540))
         self.frame_42.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -5162,7 +5257,7 @@ class Ui_MainWindow(object):
         self.frame_49.setSizePolicy(sizePolicy5)
         self.frame_49.setMinimumSize(QSize(205, 0))
         self.frame_49.setMaximumSize(QSize(205, 16777215))
-        self.frame_49.setStyleSheet(u"border:none")
+        self.frame_49.setStyleSheet(u"")
         self.frame_49.setFrameShape(QFrame.StyledPanel)
         self.frame_49.setFrameShadow(QFrame.Raised)
         self.verticalLayout_22 = QVBoxLayout(self.frame_49)
@@ -5328,7 +5423,7 @@ class Ui_MainWindow(object):
         self.frame_50.setSizePolicy(sizePolicy5)
         self.frame_50.setMinimumSize(QSize(205, 0))
         self.frame_50.setMaximumSize(QSize(205, 16777215))
-        self.frame_50.setStyleSheet(u"border:none")
+        self.frame_50.setStyleSheet(u"")
         self.frame_50.setFrameShape(QFrame.StyledPanel)
         self.frame_50.setFrameShadow(QFrame.Raised)
         self.verticalLayout_34 = QVBoxLayout(self.frame_50)
@@ -5360,8 +5455,8 @@ class Ui_MainWindow(object):
 "}\n"
 "/* \u4e0b\u62c9\u7bad\u5934\u6837\u5f0f */\n"
 " QComboBox::down-arrow {\n"
-"	image: url(:/\u56fe\u6807/icons/"
-                        "\u53cc\u4e0b\u62c9\u7bad\u5934.svg);\n"
+"	image: url(:/icon/icons/\u53cc\u4e0b"
+                        "\u62c9\u7bad\u5934.svg);\n"
 "	width: 30px; /* \u4e0b\u62c9\u7bad\u5934\u7684\u5bbd\u5ea6\uff08\u5efa\u8bae\u4e0e\u4e0b\u62c9\u6846drop-down\u7684\u5bbd\u5ea6\u4e00\u81f4\uff09 */ \n"
 "	background: rgb(255, 255, 255); /* \u4e0b\u62c9\u7bad\u5934\u7684\u7684\u80cc\u666f\u8272 */ \n"
 "	padding: 0px 0px 0px 0px; /* \u4e0a\u5185\u8fb9\u8ddd\u3001\u53f3\u5185\u8fb9\u8ddd\u3001\u4e0b\u5185\u8fb9\u8ddd\u3001\u5de6\u5185\u8fb9\u8ddd */\n"
@@ -5373,9 +5468,9 @@ class Ui_MainWindow(object):
 "   /* subcontrol-position: top right;   /* \u4e0b\u62c9\u6846\u7684\u4f4d\u7f6e\uff08\u53f3\u4e0a\uff09 */\n"
 "    width: 30px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
 "\n"
-"    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6"
-                        " */\n"
-"    border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
+"    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6 */\n"
+"    "
+                        "border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
 "    border-left-style: solid;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u4e3a\u5b9e\u7ebf */\n"
 "    border-top-right-radius: 10px;   /* \u4e0b\u62c9\u6846\u7684\u53f3\u4e0a\u8fb9\u754c\u7ebf\u7684\u5706\u89d2\u534a\u5f84\uff08\u5e94\u548c\u6574\u4e2aQComboBox\u53f3\u4e0a\u8fb9\u754c\u7ebf\u7684\u5706\u89d2\u534a\u5f84\u4e00\u81f4\uff09 */\n"
 "    border-bottom-right-radius: 10px;   /* \u540c\u4e0a */\n"
@@ -5545,7 +5640,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_36.addWidget(self.frame_42)
 
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_3 = QSpacerItem(20, 60, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_36.addItem(self.verticalSpacer_3)
 
@@ -5554,7 +5649,6 @@ class Ui_MainWindow(object):
         self.frame_43.setMinimumSize(QSize(0, 60))
         self.frame_43.setMaximumSize(QSize(16777215, 100))
         self.frame_43.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -5568,7 +5662,6 @@ class Ui_MainWindow(object):
         self.frame_44 = QFrame(self.frame_43)
         self.frame_44.setObjectName(u"frame_44")
         self.frame_44.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -5615,7 +5708,6 @@ class Ui_MainWindow(object):
         self.frame_62 = QFrame(self.frame_43)
         self.frame_62.setObjectName(u"frame_62")
         self.frame_62.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -5666,8 +5758,7 @@ class Ui_MainWindow(object):
         self.tabWidget_account.addTab(self.tab_tq_account_mamnage, "")
         self.tab_start_stop_strategy = QWidget()
         self.tab_start_stop_strategy.setObjectName(u"tab_start_stop_strategy")
-        self.tab_start_stop_strategy.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
-"border-radius: 20px;")
+        self.tab_start_stop_strategy.setStyleSheet(u"")
         self.verticalLayout_27 = QVBoxLayout(self.tab_start_stop_strategy)
         self.verticalLayout_27.setSpacing(7)
         self.verticalLayout_27.setObjectName(u"verticalLayout_27")
@@ -5693,13 +5784,12 @@ class Ui_MainWindow(object):
         self.label = QLabel(self.frame_69)
         self.label.setObjectName(u"label")
         self.label.setMaximumSize(QSize(500, 40))
-        self.label.setStyleSheet(u"QFrame {\n"
+        self.label.setStyleSheet(u"\n"
 "	background-color: rgba(30, 30, 40, 0);\n"
 "	border: none;\n"
-"	border-radius: 15px;\n"
 "	color: rgb(255, 0, 255);\n"
 "	font: 700 14pt \"\u7b49\u7ebf\";\n"
-"}\n"
+"\n"
 "")
 
         self.horizontalLayout_40.addWidget(self.label, 0, Qt.AlignLeft)
@@ -5707,6 +5797,22 @@ class Ui_MainWindow(object):
         self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_40.addItem(self.horizontalSpacer_6)
+
+        self.label_process_right_btn_info = QLabel(self.frame_69)
+        self.label_process_right_btn_info.setObjectName(u"label_process_right_btn_info")
+        self.label_process_right_btn_info.setMinimumSize(QSize(200, 0))
+        self.label_process_right_btn_info.setStyleSheet(u"	background-color: rgba(30, 30, 40, 0);\n"
+"	border: none;\n"
+"	color: rgb(255, 0, 0);\n"
+"	font: 700 12pt \"\u7b49\u7ebf\";\n"
+"\n"
+"")
+
+        self.horizontalLayout_40.addWidget(self.label_process_right_btn_info)
+
+        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_40.addItem(self.horizontalSpacer_12)
 
         self.Btn_opne_in_excel2 = QPushButton(self.frame_69)
         self.Btn_opne_in_excel2.setObjectName(u"Btn_opne_in_excel2")
@@ -5740,7 +5846,6 @@ class Ui_MainWindow(object):
         self.frame_31 = QFrame(self.tab_start_stop_strategy)
         self.frame_31.setObjectName(u"frame_31")
         self.frame_31.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "	border-radius: 15px;\n"
 "}\n"
@@ -5781,16 +5886,13 @@ class Ui_MainWindow(object):
 "color:rgb(255, 255, 255);\n"
 "background-color: rgb(13,9,27);\n"
 "alternate-background-color:rgba(13,9,36, 170);\n"
-"gridline-color:rgba(140, 140, 140, 60);\n"
-"border: 1px;\n"
+"gridline-color:rgba(140, 140, 140, 50);\n"
 "padding: 5px 5px 5px 5px;\n"
 "}\n"
 "QTableWidget:hover{\n"
 "border: none;\n"
 "}\n"
 "QTableWidget::item {\n"
-"text-align:left;\n"
-"background-color: transparent;\n"
 "border: none;\n"
 "border-radius: none;\n"
 "}\n"
@@ -5798,41 +5900,38 @@ class Ui_MainWindow(object):
 "QTableWidget::item:selected{\n"
 "font: 700 12pt \"\u7b49\u7ebf\";\n"
 "color: rgb(0, 255, 0);\n"
-"background:rgba(65, 0, 44, 180);\n"
-"border: 1px solid rgba(140, 140, 140, 60);\n"
+"background:rgba(65, 0, 44, 100);\n"
 "}\n"
 "/*\n"
 "\u60ac\u6d6eitem*/\n"
 "QTableWidget::item:hover{\n"
 "color:rgb(0, 255, 0);\n"
-"background:rgb(100, 0, 80);\n"
+"background:rgba(100, 0, 80, 150);\n"
 "}\n"
 "/*\u8868\u5934*/\n"
 "QHeaderView::section:horizontal{\n"
 "font: 700 10pt \"\u7b49\u7ebf\";\n"
 "color: rgb(255, 0, 127);\n"
 "text-align:center;\n"
-"border: 1px solid rgba(140, 140, 140, 60);\n"
+"border: 1px solid rgba(140, 140, 140, 40);\n"
+"border-left: none;\n"
 "background-color: rgb(26, 18, 54);\n"
-"border-radius"
-                        ": none;\n"
-"margin:1px;\n"
 "}\n"
 "QHeaderView::section:hover:horizontal{\n"
-"border: 1px solid rgba(140, 140, 140, 160);\n"
-"background-color: rgba(255, 255, 0, 150);\n"
+"border: 1px solid rgba(140, 140, 140, 100);\n"
+"backgro"
+                        "und-color: rgba(255, 255, 0, 150);\n"
 "}\n"
 "QHeaderView::section:vertical{\n"
 "font: 700 14pt \"\u7b49\u7ebf\";\n"
 "color: rgb(255, 0, 0);\n"
 "text-align: right;\n"
-"border: 1px solid rgba(140, 140, 140, 60);\n"
+"border: 1px solid rgba(140, 140, 140, 40);\n"
+"border-top: none;\n"
 "background-color: rgb(26, 18, 54);\n"
-"border-radius: none;\n"
-"margin:1px;\n"
 "}\n"
 "QHeaderView::section:hover:vertical{\n"
-"border: 1px solid rgba(140, 140, 140, 160);\n"
+"border: 1px solid rgba(140, 140, 140, 100);\n"
 "background-color: rgba(255, 255, 0, 150);\n"
 "}\n"
 "/*\u8868\u5934\u6700\u5de6\u4e0a\u89d2\u7684\u65b9\u5757*/\n"
@@ -5840,7 +5939,6 @@ class Ui_MainWindow(object):
 "text-align:center;\n"
 "border: 1px solid rgba(140, 140, 140, 60);\n"
 "background-color: rgb(26, 18, 54);\n"
-"margin:1px;\n"
 "color:rgb(255, 255, 255)\n"
 "}\n"
 "QTableCornerButton::section:hover{\n"
@@ -5848,28 +5946,31 @@ class Ui_MainWindow(object):
 "background-color: rgba(255, 255, 0, 50);\n"
 "}\n"
 "\n"
+"\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    "
-                        "background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
-"	border-radius: 3px;\n"
+"    margin: 0px 17px 0 17px;\n"
+"	bo"
+                        "rder-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
 "    background:rgba(249, 83, 255, 170);\n"
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"/*\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
@@ -5877,27 +5978,32 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
-"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:hor"
-                        "izontal\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
 "{\n"
 "     background: none;\n"
 "}\n"
-"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal\n"
+"QScrollBar::add-page:horizontal, QScrollBar:"
+                        ":sub-page:horizontal\n"
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
@@ -5912,8 +6018,8 @@ class Ui_MainWindow(object):
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -5921,10 +6027,10 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
-"	"
-                        "border-top-left-radius: 3px;\n"
+"    backgroun"
+                        "d: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
+"	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
 "     subcontrol-origin: margin;\n"
@@ -5936,10 +6042,14 @@ class Ui_MainWindow(object):
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
 "\n"
 "")
         self.tableWidget_process.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.tableWidget_process.setProperty("showDropIndicator", False)
+        self.tableWidget_process.setProperty("showDropIndicator", True)
         self.tableWidget_process.setDragEnabled(True)
         self.tableWidget_process.setDragDropOverwriteMode(True)
         self.tableWidget_process.setDragDropMode(QAbstractItemView.DragDrop)
@@ -6097,9 +6207,8 @@ class Ui_MainWindow(object):
         sizePolicy1.setHeightForWidth(self.frame_34.sizePolicy().hasHeightForWidth())
         self.frame_34.setSizePolicy(sizePolicy1)
         self.frame_34.setMinimumSize(QSize(250, 0))
-        self.frame_34.setMaximumSize(QSize(250, 16777215))
+        self.frame_34.setMaximumSize(QSize(400, 16777215))
         self.frame_34.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "	border-radius: 15px;\n"
 "}\n"
@@ -6117,7 +6226,6 @@ class Ui_MainWindow(object):
         self.frame_91.setMinimumSize(QSize(0, 50))
         self.frame_91.setMaximumSize(QSize(16777215, 50))
         self.frame_91.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -6157,7 +6265,6 @@ class Ui_MainWindow(object):
         self.treeview_log = QTreeView(self.frame_92)
         self.treeview_log.setObjectName(u"treeview_log")
         self.treeview_log.setStyleSheet(u"QTreeView {\n"
-"    background: rgb(13, 9, 36);	\n"
 "	color: rgb(255, 255, 255);\n"
 "	font: 10pt \"\u7b49\u7ebf\";\n"
 "	border: none;\n"
@@ -6168,7 +6275,7 @@ class Ui_MainWindow(object):
 "	padding-left: 5px;\n"
 "}\n"
 "QTreeView::item:open {\n"
-"    background-color: rgb(25, 25, 25);\n"
+"    background-color: rgb(26, 18, 72);\n"
 "    color: rgb(255, 0, 255);\n"
 "}\n"
 "QTreeView::item:selected {\n"
@@ -6179,40 +6286,37 @@ class Ui_MainWindow(object):
 "    background-color:  rgb(13, 9, 36);\n"
 "}\n"
 "QTreeView::branch:open {    \n"
-"	\n"
-"	\n"
-"	image: url(:/\u56fe\u6807/icons/arrow-right-bold.svg);\n"
+"	image: url(:/icon/icons/arrow-right-bold.svg);\n"
 "	\n"
 "}\n"
 "QTreeView::branch:closed:has-children {   \n"
-"	\n"
-"	\n"
-"	image: url(:/\u56fe\u6807/icons/arrow-down-bold.svg);\n"
+"	image: url(:/icon/icons/arrow-down-bold.svg);\n"
 "}\n"
 "\n"
 "\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
-"    background:rgba(249,"
-                        " 83, 255, 170);\n"
+"    background:rgba(249, 83, 255, "
+                        "170);\n"
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"/*\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "    subcontrol-position: right;\n"
@@ -6220,8 +6324,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -6235,12 +6339,17 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
-" QScrollBar:vertica"
-                        "l {\n"
+"QScrollBar::add-line:horizontal:pr"
+                        "essed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
+" QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
@@ -6255,8 +6364,8 @@ class Ui_MainWindow(object):
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -6264,21 +6373,26 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
-"    border-top-right-radius: 3px;\n"
+"    border-top-ri"
+                        "ght-radius: 3px;\n"
 "     subcontrol-position: top;\n"
 "     subcontrol-origin: margin;\n"
 " }\n"
-" QScrollBar::up-arrow:vertica"
-                        "l, QScrollBar::down-arrow:vertical {\n"
+" QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
 "     background: none;\n"
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
         self.treeview_log.setDragEnabled(True)
         self.treeview_log.setIconSize(QSize(20, 20))
@@ -6298,7 +6412,6 @@ class Ui_MainWindow(object):
         self.frame_112.setMinimumSize(QSize(0, 50))
         self.frame_112.setMaximumSize(QSize(16777215, 50))
         self.frame_112.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -6343,8 +6456,8 @@ class Ui_MainWindow(object):
 
         self.frame_25 = QFrame(self.third_page)
         self.frame_25.setObjectName(u"frame_25")
-        sizePolicy2.setHeightForWidth(self.frame_25.sizePolicy().hasHeightForWidth())
-        self.frame_25.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.frame_25.sizePolicy().hasHeightForWidth())
+        self.frame_25.setSizePolicy(sizePolicy1)
         self.frame_25.setMinimumSize(QSize(550, 0))
         self.frame_25.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
@@ -6365,7 +6478,6 @@ class Ui_MainWindow(object):
         self.frame_120.setMinimumSize(QSize(0, 50))
         self.frame_120.setMaximumSize(QSize(16777215, 50))
         self.frame_120.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -6376,15 +6488,21 @@ class Ui_MainWindow(object):
         self.horizontalLayout_60.setObjectName(u"horizontalLayout_60")
         self.label_8 = QLabel(self.frame_120)
         self.label_8.setObjectName(u"label_8")
-        self.label_8.setMinimumSize(QSize(150, 40))
+        self.label_8.setMinimumSize(QSize(100, 40))
         self.label_8.setStyleSheet(u"font: 700 16pt \"\u7b49\u7ebf\";\n"
 "color: rgb(255, 0, 127);\n"
 "border: none;")
 
         self.horizontalLayout_60.addWidget(self.label_8)
 
+        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_60.addItem(self.horizontalSpacer_9)
+
         self.label_log_file_name = QLabel(self.frame_120)
         self.label_log_file_name.setObjectName(u"label_log_file_name")
+        sizePolicy3.setHeightForWidth(self.label_log_file_name.sizePolicy().hasHeightForWidth())
+        self.label_log_file_name.setSizePolicy(sizePolicy3)
         self.label_log_file_name.setMinimumSize(QSize(150, 40))
         self.label_log_file_name.setStyleSheet(u"font: 16pt \"\u7b49\u7ebf\";\n"
 "color: rgb(0, 255, 0);\n"
@@ -6398,7 +6516,6 @@ class Ui_MainWindow(object):
         self.frame_121 = QFrame(self.frame_25)
         self.frame_121.setObjectName(u"frame_121")
         self.frame_121.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: 1px solid rgb(65, 51, 156);\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -6423,11 +6540,15 @@ class Ui_MainWindow(object):
 "padding: 5px 5px 5px 20px;\n"
 "border: none;\n"
 "}\n"
+"\n"
+"\n"
+"\n"
+"/*\u4e0b\u8fb9\u548c\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
-"    margin: 0px 20px 0 20px;\n"
+"    margin: 0px 17px 0 17px;\n"
 "	border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
@@ -6435,25 +6556,24 @@ class Ui_MainWindow(object):
 "    min-width: 30px;\n"
 "	border-radius: 3px\n"
 "}\n"
-"/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"/*\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-right-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
-"    subcontrol-position: right;\n"
+"    subcontrol-pos"
+                        "ition: right;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
-"QScrollBar::s"
-                        "ub-line:horizontal {\n"
+"QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"    width: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"    width: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-bottom-left-radius: 3px;\n"
 "    subcontrol-position: left;\n"
@@ -6467,11 +6587,16 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
+"QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 " QScrollBar:vertical {\n"
 "	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
+"    background: rgb(26, 19, 75);\n"
 "    width: 8px;\n"
-"    margin: 20px 0 20px 0;\n"
+"    margin: 17px 0 17px 0;\n"
 "	border-radius: 3px;\n"
 " }\n"
 " QScrollBar::handle:vertical {	\n"
@@ -6480,15 +6605,15 @@ class Ui_MainWindow(object):
 "	border-radius: 3px\n"
 " }\n"
 "/*\n"
-"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"\u6ed1\u5757\u60ac\u6d6e\uff0c"
+                        "\u6309\u4e0b*/\n"
 "QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{\n"
 "background:rgb(150, 0, 150);\n"
 "}\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
-"    background: rgb(55"
-                        ", 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-bottom-left-radius: 3px;\n"
 "    border-bottom-right-radius: 3px;\n"
 "     subcontrol-position: bottom;\n"
@@ -6496,8 +6621,8 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    background: rgb(55, 63, 77);\n"
-"     height: 20px;\n"
+"    background: rgb(0, 50, 135);\n"
+"     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
 "     subcontrol-position: top;\n"
@@ -6510,6 +6635,11 @@ class Ui_MainWindow(object):
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: rgb(85, 0, 255);\n"
+"}\n"
+"\n"
 "")
 
         self.verticalLayout_72.addWidget(self.textBrowser_log)
@@ -6522,7 +6652,6 @@ class Ui_MainWindow(object):
         self.frame_122.setMinimumSize(QSize(0, 50))
         self.frame_122.setMaximumSize(QSize(16777215, 50))
         self.frame_122.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -6577,7 +6706,6 @@ class Ui_MainWindow(object):
         self.tabWidget_chart = QTabWidget(self.frame_70)
         self.tabWidget_chart.setObjectName(u"tabWidget_chart")
         self.tabWidget_chart.setStyleSheet(u"QTabWidget::pane{\n"
-"	background-color: rgb(0, 0, 0);\n"
 "	border-radius:20px;\n"
 "}\n"
 "\n"
@@ -6604,15 +6732,15 @@ class Ui_MainWindow(object):
 "		border-right: 2px solid rgb(255, 85, 0);		\n"
 "}\n"
 "QTabBar::tab:selected {\n"
-"		height: 35px;\n"
+"		height: 30px;\n"
 "		width: 200px;\n"
 "         margin-left: 5; margin-right: 5;\n"
 "		font: 700 16pt \"\u7b49\u7ebf\";\n"
 "         color: rgb(255, 0, 0);\n"
 "		border-left: 2px solid rgb(255, 85, 0) ;\n"
-"		border-bottom: 2px solid rgb(255,"
-                        " 85, 0) ;\n"
-"		border-right: 2px solid rgb(255, 85, 0);\n"
+"		border-bottom: 2px solid rgb(255, 85, 0) ;\n"
+"		border-right: 2px sol"
+                        "id rgb(255, 85, 0);\n"
 " }\n"
 "")
         self.tabWidget_chart.setTabPosition(QTabWidget.South)
@@ -6946,88 +7074,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_50.addWidget(self.frame_84)
 
         self.tabWidget_chart.addTab(self.widget, "")
-        self.tab_6 = QWidget()
-        self.tab_6.setObjectName(u"tab_6")
-        self.verticalLayout_51 = QVBoxLayout(self.tab_6)
-        self.verticalLayout_51.setSpacing(5)
-        self.verticalLayout_51.setObjectName(u"verticalLayout_51")
-        self.verticalLayout_51.setContentsMargins(0, 0, 0, 0)
-        self.frame_86 = QFrame(self.tab_6)
-        self.frame_86.setObjectName(u"frame_86")
-        self.frame_86.setMinimumSize(QSize(0, 40))
-        self.frame_86.setMaximumSize(QSize(16777215, 40))
-        self.frame_86.setFrameShape(QFrame.StyledPanel)
-        self.frame_86.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_47 = QHBoxLayout(self.frame_86)
-        self.horizontalLayout_47.setSpacing(0)
-        self.horizontalLayout_47.setObjectName(u"horizontalLayout_47")
-        self.horizontalLayout_47.setContentsMargins(0, 0, 0, 0)
-        self.pushButton_account_manage_9 = QPushButton(self.frame_86)
-        self.pushButton_account_manage_9.setObjectName(u"pushButton_account_manage_9")
-        self.pushButton_account_manage_9.setMinimumSize(QSize(500, 35))
-        self.pushButton_account_manage_9.setMaximumSize(QSize(1000, 16777215))
-        self.pushButton_account_manage_9.setStyleSheet(u"QPushButton{	\n"
-"	background-color: rgb(255, 255, 0);\n"
-"	font: 700 20pt \"\u7b49\u7ebf\";\n"
-"	border-radius: 15px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"	border: 3px solid rgb(255, 200, 0);  \n"
-"}\n"
-"QPushButton:pressed{\n"
-"	color: green;\n"
-"	border-color: rgb(255, 0, 0);\n"
-"    background-color: rgb(255, 255, 0);\n"
-"}\n"
-"QPushButton:disabled{\n"
-"	color: rgb(31, 31, 31);\n"
-"    background-color: rgb(152, 152, 152);\n"
-"}")
-
-        self.horizontalLayout_47.addWidget(self.pushButton_account_manage_9)
-
-
-        self.verticalLayout_51.addWidget(self.frame_86)
-
-        self.frame_88 = QFrame(self.tab_6)
-        self.frame_88.setObjectName(u"frame_88")
-        self.frame_88.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
-"	border: 1px solid rgb(65, 51, 156);\n"
-"	border-radius: 15px;\n"
-"}\n"
-"QFrame:hover {\n"
-"	border: 2px solid rgb(255, 85, 0);\n"
-"}")
-        self.frame_88.setFrameShape(QFrame.StyledPanel)
-        self.frame_88.setFrameShadow(QFrame.Raised)
-        self.label_11 = QLabel(self.frame_88)
-        self.label_11.setObjectName(u"label_11")
-        self.label_11.setGeometry(QRect(280, 250, 500, 40))
-        self.label_11.setMinimumSize(QSize(500, 40))
-        self.label_11.setStyleSheet(u"font: 700 16pt \"\u7b49\u7ebf\";\n"
-"color: rgb(255, 0, 127);\n"
-"border: none;")
-
-        self.verticalLayout_51.addWidget(self.frame_88)
-
-        self.frame_87 = QFrame(self.tab_6)
-        self.frame_87.setObjectName(u"frame_87")
-        self.frame_87.setMaximumSize(QSize(16777215, 100))
-        self.frame_87.setStyleSheet(u"QFrame {\n"
-"	background-color: rgb(13, 9, 36);\n"
-"	border: 1px solid rgb(65, 51, 156);\n"
-"	border-radius: 15px;\n"
-"}\n"
-"QFrame:hover {\n"
-"	border: 2px solid rgb(255, 85, 0);\n"
-"}")
-        self.frame_87.setFrameShape(QFrame.StyledPanel)
-        self.frame_87.setFrameShadow(QFrame.Raised)
-
-        self.verticalLayout_51.addWidget(self.frame_87)
-
-        self.tabWidget_chart.addTab(self.tab_6, "")
 
         self.horizontalLayout_41.addWidget(self.tabWidget_chart)
 
@@ -7048,9 +7094,7 @@ class Ui_MainWindow(object):
         self.buttonframe.setObjectName(u"buttonframe")
         self.buttonframe.setMinimumSize(QSize(0, 20))
         self.buttonframe.setMaximumSize(QSize(16777215, 20))
-        self.buttonframe.setStyleSheet(u"QFrame {\n"
-"	\n"
-"	background-color: rgb(0, 0, 0);\n"
+        self.buttonframe.setStyleSheet(u"QFrame {	\n"
 "	border: none;\n"
 "	border-radius: 10px;\n"
 "}\n"
@@ -7079,8 +7123,8 @@ class Ui_MainWindow(object):
 
         self.label_current_time = QLabel(self.buttonframe)
         self.label_current_time.setObjectName(u"label_current_time")
-        sizePolicy2.setHeightForWidth(self.label_current_time.sizePolicy().hasHeightForWidth())
-        self.label_current_time.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.label_current_time.sizePolicy().hasHeightForWidth())
+        self.label_current_time.setSizePolicy(sizePolicy1)
         self.label_current_time.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
 "color: rgb(255, 0, 0);\n"
 "font: 12pt \"\u7b49\u7ebf\";\n"
@@ -7118,7 +7162,7 @@ class Ui_MainWindow(object):
         self.Btn_min_window.clicked.connect(MainWindow.showMinimized)
 
         self.stackedWidget.setCurrentIndex(0)
-        self.Veiw_Box.setCurrentIndex(3)
+        self.Veiw_Box.setCurrentIndex(4)
         self.Veiw_Box.layout().setSpacing(6)
         self.tabWidget_account.setCurrentIndex(2)
         self.tabWidget_chart.setCurrentIndex(0)
@@ -7287,6 +7331,7 @@ class Ui_MainWindow(object):
         self.Btn_cancel_input_tq_account.setText(QCoreApplication.translate("MainWindow", u"\u53d6\u6d88\u8f93\u5165", None))
         self.tabWidget_account.setTabText(self.tabWidget_account.indexOf(self.tab_tq_account_mamnage), QCoreApplication.translate("MainWindow", u"\u5929\u52e4\u5e10\u6237\u7ba1\u7406", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u8fdb\u7a0b\u53c2\u6570\u914d\u7f6e\u8868", None))
+        self.label_process_right_btn_info.setText("")
         self.Btn_opne_in_excel2.setText(QCoreApplication.translate("MainWindow", u"  \u5728Excel\u4e2d\u6253\u5f00", None))
         self.Btn_add_new_process.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0\u65b0\u7684\u7b56\u7565\u8fdb\u7a0b", None))
         self.Btn_add_backtest_process.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0\u7b56\u7565\u56de\u6d4b\u8fdb\u7a0b", None))
@@ -7309,9 +7354,6 @@ class Ui_MainWindow(object):
         self.pushButton_account_manage_8.setText(QCoreApplication.translate("MainWindow", u"\u7b56\u7565\u5b9e\u4f8b\u5f52\u5c5e\u5173\u7cfb\u56fe", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u8868\u529f\u80fd\u8fd8\u6ca1\u505a\u51fa\u6765\uff0c\u540e\u7eed\u4f1a\u66f4\u65b0", None))
         self.tabWidget_chart.setTabText(self.tabWidget_chart.indexOf(self.widget), QCoreApplication.translate("MainWindow", u"\u6851\u57fa\u56fe", None))
-        self.pushButton_account_manage_9.setText(QCoreApplication.translate("MainWindow", u"\u8ba2\u9605\u7684k\u7ebf\u56fe", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u8868\u529f\u80fd\u8fd8\u6ca1\u505a\u51fa\u6765\uff0c\u540e\u7eed\u4f1a\u66f4\u65b0", None))
-        self.tabWidget_chart.setTabText(self.tabWidget_chart.indexOf(self.tab_6), QCoreApplication.translate("MainWindow", u"K\u7ebf\u56fe", None))
         self.label_eduition.setText(QCoreApplication.translate("MainWindow", u"\u8fdb\u7a0b\u4ea4\u6613\u8005--\u57fa\u4e8e\u5929\u52e4\u7684\u7a0b\u5e8f\u5316\u4ea4\u6613\u6846\u67b62.0", None))
         self.label_current_time.setText(QCoreApplication.translate("MainWindow", u"\u5f53\u524d\u65f6\u95f4", None))
     # retranslateUi

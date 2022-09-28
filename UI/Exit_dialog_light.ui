@@ -376,7 +376,7 @@ QPushButton:disabled{
    <sender>Btn_cancel_exit</sender>
    <signal>clicked()</signal>
    <receiver>Dialog</receiver>
-   <slot>hide()</slot>
+   <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>478</x>

@@ -13,7 +13,7 @@ class ReadWriteCsv(object): # csv文件读写类
         data = self.read_csv_file(path)
         data = pd.concat([data, my_df], ignore_index=True)
         
-        self.write_config_file(data, path)
+        self.write_datas_to_csv_file(data, path)
         print('数据已存入config文件')
 
     def read_csv_file(self, path):
@@ -21,7 +21,7 @@ class ReadWriteCsv(object): # csv文件读写类
                
         return df
 
-    def write_config_file(self, df_tmp, path, encoding='utf_8_sig',index=False):
+    def write_datas_to_csv_file(self, df_tmp, path, encoding='utf_8_sig', index=False):
         df = pd.DataFrame(df_tmp)
         df.to_csv(path, encoding=encoding)
 
@@ -35,7 +35,7 @@ class ReadWriteCsv(object): # csv文件读写类
         
         if not os.path.exists(path):
             df_tmp = pd.DataFrame()
-            self.write_config_file(df_tmp, path)
+            self.write_datas_to_csv_file(df_tmp, path)
             print('文件' + path + '不存在，已创建空白文件')
         else:
             print('文件' + path + '已存在')

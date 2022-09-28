@@ -1,34 +1,34 @@
 # -*- coding: utf-8 -*-
-
+import sys
 import datetime
 import importlib
 import PySide6
-from PySide6.QtCore import QEvent
-from PySide6.QtWidgets import (QApplication, QMenu)
+from PySide6.QtGui import QCursor
+from PySide6.QtWidgets import QApplication, QMainWindow
 from Main_Process_Function import *
 from PySide6.QtUiTools import loadUiType
-from K_Chart_Widget import KLineWidget
 from read_write_file import ReadWriteCsv
 from RightButtonMenu import RightButtonMenu
-from UI.mainwindows_dark import Ui_MainWindow as dark_windows
 from UI.mainwindows_light import Ui_MainWindow as light_windows
+from UI.mainwindows_dark import Ui_MainWindow as dark_windows
+from KChart.K_Chart_Widget import KLineWidget
 
 from main import THEME
 
 
 
-if THEME == "dark":                                    # 创建主窗口类方式一，通过loadUiType()函数直接加载UI文件
-    UI, _ = loadUiType('./UI/mainwindows_dark.ui')
-else:
-    UI, _ = loadUiType('./UI/mainwindows_light.ui')
-
-# if THEME == "dark":                                  # 创建主窗口类方式二，通过继承Ui_MainWindow类
-#     UI = dark_windows
+# if THEME == "dark":                                    # 创建主窗口类方式一，通过loadUiType()函数直接加载UI文件
+#     UI, _ = loadUiType('./UI/mainwindows_dark.ui')
 # else:
-#     UI = light_windows
+#     UI, _ = loadUiType('./UI/mainwindows_light.ui')
+
+if THEME == "dark":                                  # 创建主窗口类方式二，通过继承Ui_MainWindow类
+    UI = dark_windows
+else:
+    UI = light_windows
 
 
-class Main_window(QMainWindow, UI, Main_Process_Function, RightButtonMenu):
+class Main_window(QMainWindow, UI, Main_Process_Function):
     def __init__(self):
         super(Main_window, self).__init__()
 
@@ -46,6 +46,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function, RightButtonMenu):
 
         self.ioModal = ReadWriteCsv()                                   # 实例化 csv 操作类
         self.KLineWidget = KLineWidget()                                      # 实例化K线图widget部件
+        self.RightBtbMenu = RightButtonMenu(self)                            # 右键菜单类
         self.verticalLayout_klines.addWidget(self.KLineWidget)               # 添加K线图部件到布局中
         self.whether_the_folder_exists()                                # 判断文件夹是否存在，不存在则创建
 
@@ -87,18 +88,6 @@ class Main_window(QMainWindow, UI, Main_Process_Function, RightButtonMenu):
         self.draw_dount_chart()                                     # 绘制饼图
         self.start_inactivated_process()                            # 启动未激活的进程
 
-        # 各个需要鼠标右键的点击的地方安装事件过滤器
-        # self.clients_listview.viewport().installEventFilter(self)
-        # self.clients_listview2.viewport().installEventFilter(self)
-        # self.tq_account_listview.viewport().installEventFilter(self)
-        # self.tq_account_listview2.viewport().installEventFilter(self)
-        # self.strategy_listview.viewport().installEventFilter(self)
-        # self.quote_listview.viewport().installEventFilter(self)
-        # self.process_listview.viewport().installEventFilter(self)
-        # self.self_selection_listview.viewport().installEventFilter(self)
-        # self.tableWidget_process.viewport().installEventFilter(self)
-        # self.tableWidget_deal_detials.viewport().installEventFilter(self)
-
 
     def mousePressEvent(self, e):  # 鼠标点击事件
         if e.button() == Qt.LeftButton:
@@ -117,56 +106,6 @@ class Main_window(QMainWindow, UI, Main_Process_Function, RightButtonMenu):
             self.move(e.globalPosition().toPoint() - self.m_DragPosition)
             e.accept()
 
-
-    # def eventFilter(self, obj, event): # 鼠标事件过虑器
-    #     if obj == self.process_listview.viewport():
-    #         if event.type() == QEvent.MouseButtonPress:
-    #             if event.buttons() == Qt.RightButton:
-    #                 self.left_widget_menu(QCursor.pos())
-    #     elif obj == self.tableWidget_deal_detials.viewport():
-    #         if event.type() == QEvent.MouseButtonPress:
-    #             if event.buttons() == Qt.RightButton:
-    #                 self.left_widget_menu(QCursor.pos())
-    #     return
-
-
-
-
-    def eventFilter(self, objwatched, event):               # 事件过滤器
-        # flag = eventType == QEvent.MouseButtonPress or eventType == QEvent.KeyPress or eventType == QEvent.Close  #
-        # if flag:
-        #     print(f"事件类型值={eventType}，\n事件objwatched={objwatched},\nparent={objwatched.parent()},\nchild={objwatched.children()}")
-
-        if event.type() == QEvent.MouseButtonPress:
-            if event.buttons() == Qt.LeftButton:
-                print('\n\n 左单击   坐标:  ', QCursor.pos())
-            elif event.buttons() == Qt.RightButton:
-                print('\n\n 右单击   坐标:  ', QCursor.pos())
-                if objwatched == self.clients_listview.viewport():
-                    print('clients_listview')
-                elif objwatched == self.clients_listview2.viewport():
-                    print('clients_listview2')
-                elif objwatched == self.tq_account_listview.viewport():
-                    print('tq_account_listview')
-                elif objwatched == self.tq_account_listview2.viewport():
-                    print('tq_account_listview2')
-                elif objwatched == self.strategy_listview.viewport():
-                    print('strategy_listview')
-                elif objwatched == self.quote_listview.viewport():
-                    print('quote_listview')
-                elif objwatched == self.process_listview.viewport():
-                    print('process_listview')
-                elif objwatched == self.self_selection_listview.viewport():
-                    print('self_selection_listview')
-                elif objwatched == self.tableWidget_process.viewport():
-                    print('tableWidget_process')
-                    self.generate_precess_table_menu(pos=QCursor.pos())
-                elif objwatched == self.tableWidget_deal_detials.viewport():
-                    print('tableWidget_deal_detials')
-                    self.generate_deal_detials_table_menu(pos=QCursor.pos())
-
-        ret = super().eventFilter(objwatched, event)
-        return ret
 
 
     def whether_the_folder_exists(self):    # 检查必要的文件及文件夹是否存在，不存在则创建
@@ -308,10 +247,19 @@ class Main_window(QMainWindow, UI, Main_Process_Function, RightButtonMenu):
         self.tableWidget_process.setRowCount(44)
         self.tableWidget_process.setColumnCount(10)
 
+        # 第二行随内容自动调整行高
+        self.tableWidget_process.verticalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        # self.tableWidget_process.verticalHeader().setSectionResizeMode(1, QHeaderView.ResizeToContents)
+
+        # 随内容分配列宽
+        # self.tableWidget_deal_detials.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        # self.tableWidget_process.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        # self.tableWidget_process.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeToContents)
+
         # tablewidget单击选中整行,SelectItems为仅单选,SelectColumns为选中列,SelectRows为选中行
         self.tableWidget_deal_detials.setSelectionBehavior(PySide6.QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
         self.tableWidget_process.setSelectionBehavior(PySide6.QtWidgets.QAbstractItemView.SelectionBehavior.SelectColumns)
-        #
+
         # # tablewidget 只允许选中一个格子,禁止拖动多选
         # self.tableWidget_deal_detials.setSelectionMode(PySide6.QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
         # self.tableWidget_process.setSelectionMode(PySide6.QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
@@ -322,10 +270,27 @@ class Main_window(QMainWindow, UI, Main_Process_Function, RightButtonMenu):
         # self.tableWidget_process.horizontalHeader().setAutoScroll()
 
         # # tablewidget 设置右键菜单
-        self.tableWidget_process.setContextMenuPolicy(Qt.CustomContextMenu)             # 允许单击右键响应
-        self.tableWidget_deal_detials.setContextMenuPolicy(Qt.CustomContextMenu)             # 允许单击右键响应
-        self.tableWidget_process.customContextMenuRequested.connect(self.generate_precess_table_menu)      # 构建右键的点击事件
-        self.tableWidget_deal_detials.customContextMenuRequested.connect(self.generate_deal_detials_table_menu)      # 构建右键的点击事件
+        self.clients_listview.setContextMenuPolicy(Qt.CustomContextMenu)              # 允许单击右键响应
+        self.clients_listview2.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.tq_account_listview.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.tq_account_listview2.setContextMenuPolicy(Qt.CustomContextMenu)
+        # self.strategy_listview.setContextMenuPolicy(Qt.CustomContextMenu)
+        # self.quote_listview.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.process_listview.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.self_selection_listview.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.tableWidget_process.setContextMenuPolicy(Qt.CustomContextMenu)
+        # self.tableWidget_deal_detials.setContextMenuPolicy(Qt.CustomContextMenu)
+
+        self.clients_listview.customContextMenuRequested.connect(self.RightBtbMenu.clients_listview_menu)      # 构建右键的点击事件
+        self.clients_listview2.customContextMenuRequested.connect(self.RightBtbMenu.clients_listview2_menu)
+        self.tq_account_listview.customContextMenuRequested.connect(self.RightBtbMenu.tq_account_listview_menu)
+        self.tq_account_listview2.customContextMenuRequested.connect(self.RightBtbMenu.tq_account_listview2_menu)
+        self.self_selection_listview.customContextMenuRequested.connect(self.RightBtbMenu.self_selection_listview_menu)
+        # self.strategy_listview.customContextMenuRequested.connect(self.strategy_listview_menu)
+        # self.quote_listview.customContextMenuRequested.connect(self.generate_general_list_del_menu)
+        self.process_listview.customContextMenuRequested.connect(self.RightBtbMenu.process_listview_menu)
+        self.tableWidget_process.customContextMenuRequested.connect(self.RightBtbMenu.precess_table_menu)
+        # self.tableWidget_deal_detials.customContextMenuRequested.connect(self.generate_deal_detials_table_menu)
 
         # QlistView 设置右键菜单
         # self.process_listview.setContextMenuPolicy(Qt.CustomContextMenu)
@@ -340,6 +305,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function, RightButtonMenu):
         self.label_logo.setPixmap(QPixmap('./logo/logo.png'))           # 加载logo图片
         self.label_logo.setScaledContents(True)                         # 设置图片自适应
         self.label_client_photo_show.setScaledContents(True)
+        self.stackedWidget.setCurrentIndex(0)                           # 设置第一页
 
 
     def show_setting_dialog(self):  # 显示设置窗口

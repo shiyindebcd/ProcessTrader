@@ -12,9 +12,9 @@ from PySide6.QtCore import QPointF
 from PySide6.QtWidgets import *
 from tqsdk.ta import MACD, MV, PUBU
 
-from K_Chart_assist import DatetimeAxis, KeyWraper, LineStyleWidget
-from K_Chart_Item import CandlestickItem, MACDItem, VolumeItem
-from K_Chart_Crosshair import Crosshair
+from KChart.K_Chart_assist import DatetimeAxis, KeyWraper, LineStyleWidget
+from KChart.K_Chart_Item import CandlestickItem, MACDItem, VolumeItem
+from KChart.K_Chart_Crosshair import Crosshair
 
 
 ########################################################################
@@ -153,7 +153,13 @@ class KLineWidget(KeyWraper):
         self.candle_bar_list = self.datas[['open', 'high', 'low', 'close', 'volume']].to_records(index=True)
         self.macd_bar_list = macd[['bar']].to_records(index=True)
 
-        # 如果传进来的是从天勤直接获取的klines,前面有可能有无数据的空行,当从天勤请求的k线数量大于该合约原有的k线数量时,前面会以空行填充  # 需要下面这几句去掉空行,并重建index.因为我传入的数据已经预先把前面空的部分截掉了,所经这里不需要再截一次空行  # data = pd.concat([datas, mv_vol, macd], axis=1)  # self.datas = data.drop(data[data['id']<0].index)       # 删除所有没有数据的空行  # self.datas = self.datas.reset_index(drop=True)         # 删除开头空白的数据行后重建索引  # print('传入的数据为: ', self.datas)
+        # 如果传进来的是从天勤直接获取的klines,前面有可能有无数据的空行,当从天勤请求的k线数量大于该合约原有的k线数量时,前面会以空行填充
+        # 需要下面这几句去掉空行,并重建index.因为我传入的数据已经预先把前面空的部分截掉了,所经这里不需要再截一次空行
+        # data = pd.concat([datas, mv_vol, macd], axis=1)
+        # self.datas = data.drop(data[data['id']<0].index)
+        # 删除所有没有数据的空行
+        # self.datas = self.datas.reset_index(drop=True)
+        # 删除开头空白的数据行后重建索引  # print('传入的数据为: ', self.datas)
 
 
     def initplotKline(self):

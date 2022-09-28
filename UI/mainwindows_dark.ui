@@ -127,7 +127,7 @@ QPushButton:pressed {
          </property>
          <property name="icon">
           <iconset resource="../resource.qrc">
-           <normaloff>:/图标/icons/菜单.svg</normaloff>:/图标/icons/菜单.svg</iconset>
+           <normaloff>:/icon/icons/菜单.svg</normaloff>:/icon/icons/菜单.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -503,9 +503,7 @@ QPushButton:pressed{
          </property>
          <property name="styleSheet">
           <string notr="true">QFrame {
-	background-color: rgb(0, 0, 0);
-	border: none;
-	
+	border: none;	
 	border-radius: 20px;
 }
 
@@ -698,7 +696,7 @@ QPushButton:pressed {
             </property>
             <property name="icon">
              <iconset resource="../resource.qrc">
-              <normaloff>:/图标/icons/设置.svg</normaloff>:/图标/icons/设置.svg</iconset>
+              <normaloff>:/icon/icons/设置.svg</normaloff>:/icon/icons/设置.svg</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -754,7 +752,7 @@ QPushButton:pressed {
             </property>
             <property name="icon">
              <iconset resource="../resource.qrc">
-              <normaloff>:/图标/icons/作者.svg</normaloff>:/图标/icons/作者.svg</iconset>
+              <normaloff>:/icon/icons/作者.svg</normaloff>:/icon/icons/作者.svg</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -846,7 +844,7 @@ QPushButton:pressed {
                </property>
                <property name="icon">
                 <iconset resource="../resource.qrc">
-                 <normaloff>:/图标/icons/最小化.svg</normaloff>:/图标/icons/最小化.svg</iconset>
+                 <normaloff>:/icon/icons/最小化.svg</normaloff>:/icon/icons/最小化.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -892,7 +890,7 @@ QPushButton:pressed {
                </property>
                <property name="icon">
                 <iconset resource="../resource.qrc">
-                 <normaloff>:/图标/icons/最大化-还原.svg</normaloff>:/图标/icons/最大化-还原.svg</iconset>
+                 <normaloff>:/icon/icons/最大化-还原.svg</normaloff>:/icon/icons/最大化-还原.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -938,7 +936,7 @@ QPushButton:pressed {
                </property>
                <property name="icon">
                 <iconset resource="../resource.qrc">
-                 <normaloff>:/图标/icons/关闭.svg</normaloff>:/图标/icons/关闭.svg</iconset>
+                 <normaloff>:/icon/icons/关闭.svg</normaloff>:/icon/icons/关闭.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -958,7 +956,6 @@ QPushButton:pressed {
         <widget class="QFrame" name="body">
          <property name="styleSheet">
           <string notr="true">QFrame {	
-	background-color: rgb(0, 0, 0);
 	border-radius: 20px;
 	border: none;
 }
@@ -1039,7 +1036,7 @@ QPushButton:pressed {
                  <item>
                   <widget class="QFrame" name="left_panel">
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
@@ -1092,7 +1089,6 @@ QPushButton:pressed {
                       <property name="styleSheet">
                        <string notr="true">
 QFrame {
-	background-color: rgb(13, 9, 36);
 	border-radius: 20px;
 	border: none;
 }
@@ -1157,7 +1153,7 @@ color:black;
 </string>
                          </property>
                          <property name="currentIndex">
-                          <number>3</number>
+                          <number>4</number>
                          </property>
                          <property name="tabSpacing">
                           <number>6</number>
@@ -1211,8 +1207,8 @@ color:black;
                              </property>
                              <property name="styleSheet">
                               <string notr="true">QListView {	
-	font:  16pt &quot;等线&quot;;
-	color: rgb(170, 0, 255);
+	font:  16pt &quot;等线&quot;;	
+	color: rgb(230, 0, 115);
 	background-color: rgb(13,9,36);
 	alternate-background-color:rgba(36, 27, 102, 120);
 	border-radius: 15px;
@@ -1236,11 +1232,14 @@ QListView::item:selected {
 QListView::item:hover { 
 	background-color: rgb(0, 70, 0);
 }
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -1248,15 +1247,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -1264,8 +1262,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -1279,11 +1277,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -1298,8 +1301,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -1307,8 +1310,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -1321,6 +1324,11 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                              </property>
                              <property name="frameShadow">
@@ -1381,7 +1389,7 @@ background:rgb(150, 0, 150);
                              <property name="styleSheet">
                               <string notr="true">QListView {	
 	font:  16pt &quot;等线&quot;;
-	color: rgb(255, 85, 0);
+	color: rgb(255, 0, 127);
 	background-color: rgb(13,9,36);
 	alternate-background-color:rgba(36, 27, 102, 120);
 	border-radius: 15px;
@@ -1405,11 +1413,15 @@ QListView::item:selected {
 QListView::item:hover { 
 	background-color: rgb(0, 70, 0);
 }
+
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -1417,15 +1429,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -1433,8 +1444,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -1448,11 +1459,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -1467,8 +1483,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -1476,8 +1492,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -1490,6 +1506,11 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                              </property>
                              <property name="editTriggers">
@@ -1552,7 +1573,7 @@ background:rgb(150, 0, 150);
                              <property name="styleSheet">
                               <string notr="true">QListView {	
 	font:  16pt &quot;等线&quot;;
-	color: rgb(255, 255, 0);
+	color: rgb(0, 170, 0);
 	background-color: rgb(13,9,36);
 	alternate-background-color:rgba(36, 27, 102, 120);
 	border-radius: 15px;
@@ -1576,11 +1597,15 @@ QListView::item:selected {
 QListView::item:hover { 
 	background-color: rgb(0, 70, 0);
 }
+
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -1588,15 +1613,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -1604,8 +1628,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -1619,11 +1643,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -1638,8 +1667,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -1647,8 +1676,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -1661,6 +1690,11 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                              </property>
                              <property name="frameShadow">
@@ -1729,7 +1763,7 @@ background:rgb(150, 0, 150);
                              <property name="styleSheet">
                               <string notr="true">QListView {	
 	font:  12pt &quot;等线&quot;;
-	color: rgb(0, 255, 0);
+	color: rgb(255, 85, 255);
 	background-color: rgb(13,9,36);
 	alternate-background-color:rgba(36, 27, 102, 120);
 	border-radius: 15px;
@@ -1740,7 +1774,7 @@ background:rgb(150, 0, 150);
 	padding-right: 0;
 }
 QListView::item {
-	min-height:30px;
+	height:30px;
      border-radius: 15px;
 	padding-left: 20px;
 }
@@ -1753,11 +1787,14 @@ QListView::item:selected {
 QListView::item:hover { 
 	background-color: rgb(0, 70, 0);
 }
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -1765,15 +1802,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -1781,8 +1817,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -1796,11 +1832,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -1815,8 +1856,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -1824,8 +1865,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -1838,6 +1879,11 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                              </property>
                              <property name="frameShadow">
@@ -1925,11 +1971,15 @@ QListView::item:selected {
 QListView::item:hover { 
 	background-color: rgba(0, 70, 0, 200);
 }
+
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -1937,15 +1987,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -1953,8 +2002,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -1968,11 +2017,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -1987,8 +2041,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -1996,8 +2050,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -2010,6 +2064,11 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                              </property>
                              <property name="frameShadow">
@@ -2095,7 +2154,6 @@ QPushButton:pressed{
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border-radius: 20px;
 	border: none;
 }
@@ -2133,7 +2191,7 @@ QPushButton:pressed{
                           </size>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">border: none;</string>
+                          <string notr="true"/>
                          </property>
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
@@ -2207,8 +2265,10 @@ QPushButton:pressed{
                     </sizepolicy>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 0, 0);
-border: none;</string>
+                    <string notr="true">QFrame:{
+background-color: rgb(0, 0, 0);
+border: none;
+}</string>
                    </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
@@ -2247,7 +2307,9 @@ border: none;</string>
                        </size>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">background-color: rgb(0, 0, 0);</string>
+                       <string notr="true">QFrame:{
+border: none;
+}</string>
                       </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
@@ -2286,7 +2348,7 @@ border: none;</string>
                           </size>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">background-color: rgb(0, 0, 0);</string>
+                          <string notr="true"/>
                          </property>
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
@@ -2325,12 +2387,7 @@ border: none;</string>
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">QFrame {
-	background-color:rgb(0, 0, 0);
-	border-radius: 20px;
-}
-
-</string>
+                             <string notr="true"/>
                             </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
@@ -2471,7 +2528,7 @@ QPushButton:pressed {
                                   </property>
                                   <property name="icon">
                                    <iconset resource="../resource.qrc">
-                                    <normaloff>:/图标/icons/Excel.svg</normaloff>:/图标/icons/Excel.svg</iconset>
+                                    <normaloff>:/icon/icons/Excel.svg</normaloff>:/icon/icons/Excel.svg</iconset>
                                   </property>
                                   <property name="iconSize">
                                    <size>
@@ -2574,16 +2631,13 @@ font: 10pt &quot;等线&quot;;
 color:rgb(255, 255, 255);
 background-color: rgb(13,9,27);
 alternate-background-color:rgba(13,9,36, 170);
-gridline-color:rgba(140, 140, 140, 60);
-border: 1px;
+gridline-color:rgba(140, 140, 140, 50);
 padding: 5px 5px 5px 5px;
 }
 QTableWidget:hover{
 border: none;
 }
 QTableWidget::item {
-text-align:left;
-background-color: transparent;
 border: none;
 border-radius: none;
 }
@@ -2591,40 +2645,37 @@ border-radius: none;
 QTableWidget::item:selected{
 font: 700 12pt &quot;等线&quot;;
 color: rgb(0, 255, 0);
-background:rgba(65, 0, 44, 180);
-border: 1px solid rgba(140, 140, 140, 60);
+background:rgba(65, 0, 44, 100);
 }
 /*
 悬浮item*/
 QTableWidget::item:hover{
 color:rgb(0, 255, 0);
-background:rgb(100, 0, 80);
+background:rgba(100, 0, 80, 150);
 }
 /*表头*/
 QHeaderView::section:horizontal{
 font: 700 10pt &quot;等线&quot;;
 color: rgb(255, 0, 127);
 text-align:center;
-border: 1px solid rgba(140, 140, 140, 60);
+border: 1px solid rgba(140, 140, 140, 40);
+border-left: none;
 background-color: rgb(26, 18, 54);
-border-radius: none;
-margin:1px;
 }
 QHeaderView::section:hover:horizontal{
-border: 1px solid rgba(140, 140, 140, 160);
+border: 1px solid rgba(140, 140, 140, 100);
 background-color: rgba(255, 255, 0, 150);
 }
 QHeaderView::section:vertical{
 font: 700 14pt &quot;等线&quot;;
 color: rgb(255, 0, 0);
 text-align: right;
-border: 1px solid rgba(140, 140, 140, 60);
+border: 1px solid rgba(140, 140, 140, 40);
+border-top: none;
 background-color: rgb(26, 18, 54);
-border-radius: none;
-margin:1px;
 }
 QHeaderView::section:hover:vertical{
-border: 1px solid rgba(140, 140, 140, 160);
+border: 1px solid rgba(140, 140, 140, 100);
 background-color: rgba(255, 255, 0, 150);
 }
 /*表头最左上角的方块*/
@@ -2632,7 +2683,6 @@ QTableCornerButton:section{
 text-align:center;
 border: 1px solid rgba(140, 140, 140, 60);
 background-color: rgb(26, 18, 54);
-margin:1px;
 color:rgb(255, 255, 255)
 }
 QTableCornerButton::section:hover{
@@ -2640,11 +2690,15 @@ border: 1px solid rgba(140, 140, 140, 160);
 background-color: rgba(255, 255, 0, 50);
 }
 
+
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -2652,15 +2706,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -2668,8 +2721,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -2683,11 +2736,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -2702,8 +2760,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -2711,8 +2769,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -2725,6 +2783,10 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
 
 </string>
                                      </property>
@@ -2741,16 +2803,16 @@ background:rgb(150, 0, 150);
                                       <set>QAbstractItemView::NoEditTriggers</set>
                                      </property>
                                      <property name="showDropIndicator" stdset="0">
-                                      <bool>true</bool>
+                                      <bool>false</bool>
                                      </property>
                                      <property name="dragEnabled">
-                                      <bool>true</bool>
+                                      <bool>false</bool>
                                      </property>
                                      <property name="dragDropOverwriteMode">
-                                      <bool>true</bool>
+                                      <bool>false</bool>
                                      </property>
                                      <property name="dragDropMode">
-                                      <enum>QAbstractItemView::DragDrop</enum>
+                                      <enum>QAbstractItemView::NoDragDrop</enum>
                                      </property>
                                      <property name="defaultDropAction">
                                       <enum>Qt::IgnoreAction</enum>
@@ -2759,7 +2821,7 @@ background:rgb(150, 0, 150);
                                       <bool>true</bool>
                                      </property>
                                      <property name="selectionMode">
-                                      <enum>QAbstractItemView::SingleSelection</enum>
+                                      <enum>QAbstractItemView::ExtendedSelection</enum>
                                      </property>
                                      <property name="verticalScrollMode">
                                       <enum>QAbstractItemView::ScrollPerPixel</enum>
@@ -2937,10 +2999,7 @@ background:rgb(150, 0, 150);
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">QFrame {
-	background-color: rgb(0, 0, 0);
-	border-radius: 20px;
-}</string>
+                             <string notr="true"/>
                             </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
@@ -3587,8 +3646,9 @@ border: none;</string>
                        </size>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">background-color: rgb(0, 0, 0);
-border-radius: 20px;</string>
+                       <string notr="true">QFrame:{
+border: none;
+}</string>
                       </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
@@ -3630,7 +3690,9 @@ border-radius: 20px;</string>
                           </size>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">background-color: rgb(0, 0, 0);</string>
+                          <string notr="true">QFrame:{
+border: none;
+}</string>
                          </property>
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
@@ -3786,7 +3848,7 @@ QPushButton:pressed {
                                </property>
                                <property name="icon">
                                 <iconset resource="../resource.qrc">
-                                 <normaloff>:/图标/icons/清屏.svg</normaloff>:/图标/icons/清屏.svg</iconset>
+                                 <normaloff>:/icon/icons/清屏.svg</normaloff>:/icon/icons/清屏.svg</iconset>
                                </property>
                                <property name="iconSize">
                                 <size>
@@ -3846,11 +3908,14 @@ padding-right: 20px;*/
 padding: 5px 5px 5px 20px;
 border: none;
 }
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -3858,15 +3923,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -3874,8 +3938,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -3889,11 +3953,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -3908,8 +3977,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -3917,8 +3986,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -3931,6 +4000,11 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                                </property>
                               </widget>
@@ -3962,7 +4036,9 @@ background:rgb(150, 0, 150);
                           </size>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">background-color: rgb(0, 0, 0);</string>
+                          <string notr="true">QFrame:{
+border: none;
+}</string>
                          </property>
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
@@ -4212,8 +4288,6 @@ QFrame:hover {
                    </property>
                    <property name="styleSheet">
                     <string notr="true">QFrame {
-	
-	background-color: rgb(0, 0, 0);
 	border-radius: 10px;
 	border: none;
 }
@@ -4246,8 +4320,6 @@ QFrame:hover {
                      <widget class="QFrame" name="frame_23">
                       <property name="styleSheet">
                        <string notr="true">QFrame {
-	
-	background-color: rgb(0, 0, 0);
 	border-radius: 10px;
 	border: none;
 }
@@ -4279,10 +4351,7 @@ QFrame:hover {
                        <item>
                         <widget class="QFrame" name="frame_24">
                          <property name="styleSheet">
-                          <string notr="true">	background-color: rgb(13, 9, 27);
-	border-radius: none;
-	border: none;
-</string>
+                          <string notr="true"/>
                          </property>
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
@@ -4309,13 +4378,7 @@ QFrame:hover {
                           <item>
                            <widget class="QFrame" name="frame_36">
                             <property name="styleSheet">
-                             <string notr="true">QFrame {		
-	background-color: rgb(0, 0, 0);
-	border-radius: 10px;
-	border: none;
-}
-
-</string>
+                             <string notr="true"/>
                             </property>
                             <property name="frameShape">
                              <enum>QFrame::StyledPanel</enum>
@@ -4579,7 +4642,7 @@ QComboBox QAbstractItemView {
 }
 /* 下拉箭头样式 */
  QComboBox::down-arrow {
-	image: url(:/图标/icons/双下拉箭头.svg);
+	image: url(:/icon/icons/双下拉箭头.svg);
 	width: 10px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
 	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
 	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
@@ -4720,8 +4783,8 @@ QPushButton:pressed{
                               <widget class="QFrame" name="frame_40">
                                <property name="styleSheet">
                                 <string notr="true">QFrame {		
-	background-color: rgb(0, 0, 0);
-	border-radius: 10px;
+	background-color: rgb(13, 9, 36);
+	border-radius: none;
 	border: none;
 }
 
@@ -4772,7 +4835,6 @@ QPushButton:pressed{
                                   </property>
                                   <property name="styleSheet">
                                    <string notr="true">QFrame {		
-	background-color: rgb(0, 0, 0);
 	border-radius: 10px;
 	border: none;
 }
@@ -5167,7 +5229,6 @@ K
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: 1px solid rgb(65, 51, 156);
 }
@@ -5276,7 +5337,6 @@ border: none;</string>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: 1px solid rgb(65, 51, 156);
 }
@@ -5309,7 +5369,6 @@ border: none;</string>
                            <widget class="QFrame" name="frame_59">
                             <property name="styleSheet">
                              <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: none;
 }
@@ -5396,7 +5455,6 @@ border: none;</string>
                            <widget class="QFrame" name="frame_77">
                             <property name="styleSheet">
                              <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: none;
 }
@@ -5492,7 +5550,6 @@ border: none;</string>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: 1px solid rgb(65, 51, 156);
 }
@@ -5525,8 +5582,6 @@ border: none;</string>
                            <widget class="QFrame" name="frame_79">
                             <property name="styleSheet">
                              <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 36);
-	border-radius: 10px;
 	border: none;
 }
 
@@ -5829,8 +5884,6 @@ border: none;</string>
                            <widget class="QFrame" name="frame_94">
                             <property name="styleSheet">
                              <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 36);
-	border-radius: 10px;
 	border: none;
 }
 
@@ -6142,7 +6195,6 @@ border: none;</string>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: 1px solid rgb(65, 51, 156);
 }
@@ -6217,13 +6269,7 @@ border: none;</string>
                        <item>
                         <widget class="QFrame" name="frame_98">
                          <property name="styleSheet">
-                          <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 27);
-	border-radius: 10px;
-	border: none;
-}
-
-</string>
+                          <string notr="true"/>
                          </property>
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
@@ -6283,11 +6329,17 @@ QListView::item:selected {
 QListView::item:hover { 
 	background-color: rgba(0, 70, 0, 200);
 }
+
+
+
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -6295,15 +6347,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -6311,8 +6362,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -6326,11 +6377,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -6345,8 +6401,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -6354,8 +6410,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -6368,6 +6424,11 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                             </property>
                             <property name="alternatingRowColors">
@@ -6388,7 +6449,6 @@ background:rgb(150, 0, 150);
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 36);
 	border-radius: 10px;
 	border: 1px solid rgb(65, 51, 156);
 }
@@ -6406,7 +6466,6 @@ background:rgb(150, 0, 150);
                            <widget class="QFrame" name="frame_116">
                             <property name="styleSheet">
                              <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 27);
 	border-radius: 10px;
 	border: none;
 }
@@ -6478,7 +6537,6 @@ QPushButton:pressed{
                            <widget class="QFrame" name="frame_117">
                             <property name="styleSheet">
                              <string notr="true">QFrame {	
-	background-color: rgb(13, 9, 27);
 	border-radius: 10px;
 	border: none;
 }
@@ -6660,8 +6718,7 @@ QTabBar::tab:selected {
                    </property>
                    <widget class="QWidget" name="tab_user_manage">
                     <property name="styleSheet">
-                     <string notr="true">background-color: rgb(0, 0, 0);
-border-radius: 20px;</string>
+                     <string notr="true"/>
                     </property>
                     <attribute name="title">
                      <string>用户管理</string>
@@ -6744,7 +6801,6 @@ QFrame:hover {
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: none;
 }
@@ -6803,7 +6859,6 @@ QFrame:hover {
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -6888,17 +6943,19 @@ border: none;</string>
                                  <string notr="true">QTextBrowser{
 color: rgb(255, 85, 0);
 border-radius: 15px;
-font: 14pt &quot;等线&quot;;
-/*padding-left: 20px;
-padding-right: 20px;*/
+font: 12pt &quot;等线&quot;;
 padding: 5px 5px 5px 20px;
 border: none;
 }
+
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -6906,15 +6963,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -6922,8 +6978,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -6937,11 +6993,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -6956,8 +7017,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -6965,8 +7026,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -6979,6 +7040,11 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                                 </property>
                                </widget>
@@ -7002,7 +7068,7 @@ background:rgb(150, 0, 150);
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>500</width>
+                         <width>300</width>
                          <height>16777215</height>
                         </size>
                        </property>
@@ -7048,7 +7114,6 @@ QFrame:hover {
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -7066,7 +7131,6 @@ QFrame:hover {
                          <widget class="QFrame" name="frame_110">
                           <property name="styleSheet">
                            <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -7096,6 +7160,18 @@ QFrame:hover {
                            </property>
                            <item>
                             <widget class="QListView" name="clients_listview2">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>540</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>16777215</width>
+                               <height>540</height>
+                              </size>
+                             </property>
                              <property name="styleSheet">
                               <string notr="true">QListView {	
 	font:  16pt &quot;等线&quot;;	
@@ -7120,11 +7196,15 @@ QListView::item:selected {
 QListView::item:hover { 
 	background-color: rgb(0, 70, 0);
 }
+
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -7132,15 +7212,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -7148,8 +7227,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -7163,11 +7242,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -7182,8 +7266,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -7191,8 +7275,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -7205,35 +7289,29 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                              </property>
                             </widget>
                            </item>
+                           <item>
+                            <spacer name="verticalSpacer_8">
+                             <property name="orientation">
+                              <enum>Qt::Vertical</enum>
+                             </property>
+                             <property name="sizeHint" stdset="0">
+                              <size>
+                               <width>20</width>
+                               <height>40</height>
+                              </size>
+                             </property>
+                            </spacer>
+                           </item>
                           </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_108">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>200</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
-	border: none;
-	border-radius: 20px;
-}
-</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
                          </widget>
                         </item>
                        </layout>
@@ -7334,73 +7412,76 @@ border: none;</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QFrame" name="frame_32">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
-                          </property>
+                         <widget class="QFrame" name="frame_102">
                           <property name="minimumSize">
                            <size>
                             <width>0</width>
-                            <height>360</height>
+                            <height>540</height>
                            </size>
                           </property>
                           <property name="maximumSize">
                            <size>
-                            <width>450</width>
-                            <height>360</height>
+                            <width>16777215</width>
+                            <height>540</height>
                            </size>
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
+	border: none;
+	border-radius: 20px;
+}
+</string>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_69">
+                           <property name="spacing">
+                            <number>10</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QFrame" name="frame_32">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>360</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>450</width>
+                               <height>360</height>
+                              </size>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QFrame {
 	border: 1px solid rgb(65, 51, 156);
 	border-radius: 20px;
 }
 QFrame:hover {
 	border: 1px solid rgb(65, 51, 156);
 }</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_14">
-                           <property name="spacing">
-                            <number>15</number>
-                           </property>
-                           <property name="leftMargin">
-                            <number>15</number>
-                           </property>
-                           <property name="topMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="rightMargin">
-                            <number>10</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>0</number>
-                           </property>
-                           <item alignment="Qt::AlignHCenter">
-                            <widget class="QFrame" name="frame_33">
-                             <property name="minimumSize">
-                              <size>
-                               <width>205</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="maximumSize">
-                              <size>
-                               <width>205</width>
-                               <height>16777215</height>
-                              </size>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true">border:none</string>
                              </property>
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
@@ -7408,38 +7489,77 @@ QFrame:hover {
                              <property name="frameShadow">
                               <enum>QFrame::Raised</enum>
                              </property>
-                             <layout class="QVBoxLayout" name="verticalLayout_29">
+                             <layout class="QHBoxLayout" name="horizontalLayout_14">
                               <property name="spacing">
-                               <number>0</number>
+                               <number>15</number>
                               </property>
                               <property name="leftMargin">
-                               <number>0</number>
+                               <number>15</number>
                               </property>
                               <property name="topMargin">
                                <number>0</number>
                               </property>
                               <property name="rightMargin">
-                               <number>0</number>
+                               <number>10</number>
                               </property>
                               <property name="bottomMargin">
                                <number>0</number>
                               </property>
-                              <item>
-                               <widget class="QLabel" name="label_add_clients_name">
+                              <item alignment="Qt::AlignHCenter">
+                               <widget class="QFrame" name="frame_33">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>200</width>
-                                  <height>40</height>
+                                  <width>205</width>
+                                  <height>0</height>
                                  </size>
                                 </property>
                                 <property name="maximumSize">
                                  <size>
-                                  <width>200</width>
-                                  <height>40</height>
+                                  <width>205</width>
+                                  <height>16777215</height>
                                  </size>
                                 </property>
                                 <property name="styleSheet">
-                                 <string notr="true">QLabel {
+                                 <string notr="true">border:none</string>
+                                </property>
+                                <property name="frameShape">
+                                 <enum>QFrame::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Raised</enum>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_29">
+                                 <property name="spacing">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="label_add_clients_name">
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
 	font: 700 18pt &quot;等线&quot;;
 	background-color: rgb(255, 0, 255);
 	border-radius: 15px;
@@ -7453,160 +7573,381 @@ QLabel:disabled{
 	border-color: rgb(166, 166, 166);
     background-color: rgb(186, 186, 186);
 }</string>
-                                </property>
-                                <property name="text">
-                                 <string>用户名</string>
-                                </property>
-                                <property name="alignment">
-                                 <set>Qt::AlignCenter</set>
-                                </property>
-                                <property name="buddy">
-                                 <cstring>clients_name</cstring>
-                                </property>
+                                   </property>
+                                   <property name="text">
+                                    <string>用户名</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                   <property name="buddy">
+                                    <cstring>clients_name</cstring>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="label_clients_ID">
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+	font: 700 18pt &quot;等线&quot;;
+	background-color: rgb(255, 0, 255);
+	border-radius: 15px;
+}
+
+QLabel:hover{
+	border: 3px solid rgb(0, 255, 0);
+}
+QLabel:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>用户身份证 </string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                   <property name="buddy">
+                                    <cstring>clients_id</cstring>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="label_clients_tel">
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+	font: 700 18pt &quot;等线&quot;;
+	background-color: rgb(255, 0, 255);
+	border-radius: 15px;
+}
+
+QLabel:hover{
+	border: 3px solid rgb(0, 255, 0);
+}
+QLabel:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>用户电话</string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                   <property name="buddy">
+                                    <cstring>clients_tel</cstring>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="label_clients_address">
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLabel {
+	font: 700 18pt &quot;等线&quot;;
+	background-color: rgb(255, 0, 255);
+	border-radius: 15px;
+}
+
+QLabel:hover{
+	border: 3px solid rgb(0, 255, 0);
+}
+QLabel:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>用户联系地址 </string>
+                                   </property>
+                                   <property name="alignment">
+                                    <set>Qt::AlignCenter</set>
+                                   </property>
+                                   <property name="buddy">
+                                    <cstring>clients_address</cstring>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
                                </widget>
                               </item>
-                              <item>
-                               <widget class="QLabel" name="label_clients_ID">
+                              <item alignment="Qt::AlignHCenter">
+                               <widget class="QFrame" name="frame_46">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>200</width>
-                                  <height>40</height>
+                                  <width>205</width>
+                                  <height>0</height>
                                  </size>
                                 </property>
                                 <property name="maximumSize">
                                  <size>
-                                  <width>200</width>
-                                  <height>40</height>
+                                  <width>205</width>
+                                  <height>16777215</height>
                                  </size>
                                 </property>
                                 <property name="styleSheet">
-                                 <string notr="true">QLabel {
-	font: 700 18pt &quot;等线&quot;;
-	background-color: rgb(255, 0, 255);
+                                 <string notr="true">border:none</string>
+                                </property>
+                                <property name="frameShape">
+                                 <enum>QFrame::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Raised</enum>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_30">
+                                 <property name="spacing">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLineEdit" name="clients_name">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
 	border-radius: 15px;
+	padding: 5px;
+	background-color: rgb(255, 255, 255);	
+	color: rgb(0, 0, 0);
+	font: 700 18pt &quot;等线&quot;;
 }
-
-QLabel:hover{
-	border: 3px solid rgb(0, 255, 0);
+QLineEdit:hover {
+	border: 3px solid rgb(255, 85, 0);
 }
-QLabel:disabled{
+QLineEdit:focus {
+	border: 3px solid rgb(255, 85, 0);
+	color: rgb(255, 0, 0);
+}
+QLineEdit:disabled{
 	color: rgb(0, 0, 0);
 	border-color: rgb(166, 166, 166);
     background-color: rgb(186, 186, 186);
 }</string>
-                                </property>
-                                <property name="text">
-                                 <string>用户身份证 </string>
-                                </property>
-                                <property name="alignment">
-                                 <set>Qt::AlignCenter</set>
-                                </property>
-                                <property name="buddy">
-                                 <cstring>clients_id</cstring>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QLabel" name="label_clients_tel">
-                                <property name="minimumSize">
-                                 <size>
-                                  <width>200</width>
-                                  <height>40</height>
-                                 </size>
-                                </property>
-                                <property name="maximumSize">
-                                 <size>
-                                  <width>200</width>
-                                  <height>40</height>
-                                 </size>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true">QLabel {
-	font: 700 18pt &quot;等线&quot;;
-	background-color: rgb(255, 0, 255);
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="clients_id">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
 	border-radius: 15px;
+	padding: 5px;
+	background-color: rgb(255, 255, 255);	
+	color: rgb(0, 0, 0);
+	font: 700 18pt &quot;等线&quot;;
 }
-
-QLabel:hover{
-	border: 3px solid rgb(0, 255, 0);
+QLineEdit:hover {
+	border: 3px solid rgb(255, 85, 0);
 }
-QLabel:disabled{
+QLineEdit:focus {
+	border: 3px solid rgb(255, 85, 0);
+	color: rgb(255, 0, 0);
+}
+QLineEdit:disabled{
 	color: rgb(0, 0, 0);
 	border-color: rgb(166, 166, 166);
     background-color: rgb(186, 186, 186);
 }</string>
-                                </property>
-                                <property name="text">
-                                 <string>用户电话</string>
-                                </property>
-                                <property name="alignment">
-                                 <set>Qt::AlignCenter</set>
-                                </property>
-                                <property name="buddy">
-                                 <cstring>clients_tel</cstring>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QLabel" name="label_clients_address">
-                                <property name="minimumSize">
-                                 <size>
-                                  <width>200</width>
-                                  <height>40</height>
-                                 </size>
-                                </property>
-                                <property name="maximumSize">
-                                 <size>
-                                  <width>200</width>
-                                  <height>40</height>
-                                 </size>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true">QLabel {
-	font: 700 18pt &quot;等线&quot;;
-	background-color: rgb(255, 0, 255);
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="clients_tel">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
 	border-radius: 15px;
+	padding: 5px;
+	background-color: rgb(255, 255, 255);	
+	color: rgb(0, 0, 0);
+	font: 700 18pt &quot;等线&quot;;
 }
-
-QLabel:hover{
-	border: 3px solid rgb(0, 255, 0);
+QLineEdit:hover {
+	border: 3px solid rgb(255, 85, 0);
 }
-QLabel:disabled{
+QLineEdit:focus {
+	border: 3px solid rgb(255, 85, 0);
+	color: rgb(255, 0, 0);
+}
+QLineEdit:disabled{
 	color: rgb(0, 0, 0);
 	border-color: rgb(166, 166, 166);
     background-color: rgb(186, 186, 186);
 }</string>
-                                </property>
-                                <property name="text">
-                                 <string>用户联系地址 </string>
-                                </property>
-                                <property name="alignment">
-                                 <set>Qt::AlignCenter</set>
-                                </property>
-                                <property name="buddy">
-                                 <cstring>clients_address</cstring>
-                                </property>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QLineEdit" name="clients_address">
+                                   <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                   </property>
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>200</width>
+                                     <height>40</height>
+                                    </size>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
+	border-radius: 15px;
+	padding: 5px;
+	background-color: rgb(255, 255, 255);	
+	color: rgb(0, 0, 0);
+	font: 700 18pt &quot;等线&quot;;
+}
+QLineEdit:hover {
+	border: 3px solid rgb(255, 85, 0);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(255, 85, 0);
+	color: rgb(255, 0, 0);
+}
+QLineEdit:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
                                </widget>
                               </item>
                              </layout>
                             </widget>
                            </item>
-                           <item alignment="Qt::AlignHCenter">
-                            <widget class="QFrame" name="frame_46">
+                           <item>
+                            <widget class="QFrame" name="frame_89">
                              <property name="minimumSize">
                               <size>
-                               <width>205</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="maximumSize">
-                              <size>
-                               <width>205</width>
-                               <height>16777215</height>
+                               <width>0</width>
+                               <height>150</height>
                               </size>
                              </property>
                              <property name="styleSheet">
-                              <string notr="true">border:none</string>
+                              <string notr="true">QFrame {
+	border: 1px solid rgb(65, 51, 156);
+	border-radius: 20px;
+}
+QFrame:hover {
+	border: 1px solid rgb(65, 51, 156);
+}</string>
                              </property>
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
@@ -7614,250 +7955,38 @@ QLabel:disabled{
                              <property name="frameShadow">
                               <enum>QFrame::Raised</enum>
                              </property>
-                             <layout class="QVBoxLayout" name="verticalLayout_30">
+                             <layout class="QVBoxLayout" name="verticalLayout_65">
                               <property name="spacing">
-                               <number>0</number>
+                               <number>10</number>
                               </property>
                               <property name="leftMargin">
-                               <number>0</number>
+                               <number>5</number>
                               </property>
                               <property name="topMargin">
-                               <number>0</number>
+                               <number>5</number>
                               </property>
                               <property name="rightMargin">
-                               <number>0</number>
+                               <number>5</number>
                               </property>
                               <property name="bottomMargin">
-                               <number>0</number>
+                               <number>5</number>
                               </property>
-                              <item>
-                               <widget class="QLineEdit" name="clients_name">
-                                <property name="sizePolicy">
-                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                                  <horstretch>0</horstretch>
-                                  <verstretch>0</verstretch>
-                                 </sizepolicy>
-                                </property>
+                              <item alignment="Qt::AlignHCenter">
+                               <widget class="QPushButton" name="Btn_select_clients_photo_address">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>200</width>
+                                  <width>300</width>
                                   <height>40</height>
                                  </size>
                                 </property>
                                 <property name="maximumSize">
                                  <size>
-                                  <width>200</width>
+                                  <width>300</width>
                                   <height>40</height>
                                  </size>
                                 </property>
                                 <property name="styleSheet">
-                                 <string notr="true">QLineEdit {
-	border: 2px solid rgb(45, 45, 45);
-	border-radius: 15px;
-	padding: 5px;
-	background-color: rgb(255, 255, 255);	
-	color: rgb(0, 0, 0);
-	font: 700 18pt &quot;等线&quot;;
-}
-QLineEdit:hover {
-	border: 3px solid rgb(255, 85, 0);
-}
-QLineEdit:focus {
-	border: 3px solid rgb(255, 85, 0);
-	color: rgb(255, 0, 0);
-}
-QLineEdit:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QLineEdit" name="clients_id">
-                                <property name="sizePolicy">
-                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                                  <horstretch>0</horstretch>
-                                  <verstretch>0</verstretch>
-                                 </sizepolicy>
-                                </property>
-                                <property name="minimumSize">
-                                 <size>
-                                  <width>200</width>
-                                  <height>40</height>
-                                 </size>
-                                </property>
-                                <property name="maximumSize">
-                                 <size>
-                                  <width>200</width>
-                                  <height>40</height>
-                                 </size>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true">QLineEdit {
-	border: 2px solid rgb(45, 45, 45);
-	border-radius: 15px;
-	padding: 5px;
-	background-color: rgb(255, 255, 255);	
-	color: rgb(0, 0, 0);
-	font: 700 18pt &quot;等线&quot;;
-}
-QLineEdit:hover {
-	border: 3px solid rgb(255, 85, 0);
-}
-QLineEdit:focus {
-	border: 3px solid rgb(255, 85, 0);
-	color: rgb(255, 0, 0);
-}
-QLineEdit:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QLineEdit" name="clients_tel">
-                                <property name="sizePolicy">
-                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                                  <horstretch>0</horstretch>
-                                  <verstretch>0</verstretch>
-                                 </sizepolicy>
-                                </property>
-                                <property name="minimumSize">
-                                 <size>
-                                  <width>200</width>
-                                  <height>40</height>
-                                 </size>
-                                </property>
-                                <property name="maximumSize">
-                                 <size>
-                                  <width>200</width>
-                                  <height>40</height>
-                                 </size>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true">QLineEdit {
-	border: 2px solid rgb(45, 45, 45);
-	border-radius: 15px;
-	padding: 5px;
-	background-color: rgb(255, 255, 255);	
-	color: rgb(0, 0, 0);
-	font: 700 18pt &quot;等线&quot;;
-}
-QLineEdit:hover {
-	border: 3px solid rgb(255, 85, 0);
-}
-QLineEdit:focus {
-	border: 3px solid rgb(255, 85, 0);
-	color: rgb(255, 0, 0);
-}
-QLineEdit:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QLineEdit" name="clients_address">
-                                <property name="sizePolicy">
-                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                                  <horstretch>0</horstretch>
-                                  <verstretch>0</verstretch>
-                                 </sizepolicy>
-                                </property>
-                                <property name="minimumSize">
-                                 <size>
-                                  <width>200</width>
-                                  <height>40</height>
-                                 </size>
-                                </property>
-                                <property name="maximumSize">
-                                 <size>
-                                  <width>200</width>
-                                  <height>40</height>
-                                 </size>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true">QLineEdit {
-	border: 2px solid rgb(45, 45, 45);
-	border-radius: 15px;
-	padding: 5px;
-	background-color: rgb(255, 255, 255);	
-	color: rgb(0, 0, 0);
-	font: 700 18pt &quot;等线&quot;;
-}
-QLineEdit:hover {
-	border: 3px solid rgb(255, 85, 0);
-}
-QLineEdit:focus {
-	border: 3px solid rgb(255, 85, 0);
-	color: rgb(255, 0, 0);
-}
-QLineEdit:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_89">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>150</height>
-                           </size>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_65">
-                           <property name="spacing">
-                            <number>10</number>
-                           </property>
-                           <property name="leftMargin">
-                            <number>5</number>
-                           </property>
-                           <property name="topMargin">
-                            <number>5</number>
-                           </property>
-                           <property name="rightMargin">
-                            <number>5</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>5</number>
-                           </property>
-                           <item alignment="Qt::AlignHCenter">
-                            <widget class="QPushButton" name="Btn_select_clients_photo_address">
-                             <property name="minimumSize">
-                              <size>
-                               <width>300</width>
-                               <height>40</height>
-                              </size>
-                             </property>
-                             <property name="maximumSize">
-                              <size>
-                               <width>300</width>
-                               <height>40</height>
-                              </size>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true">QPushButton{	
+                                 <string notr="true">QPushButton{	
 	font: 700 18pt &quot;等线&quot;;
 	background-color: rgb(255, 0, 127);
 	border-radius: 15px;
@@ -7877,34 +8006,34 @@ QPushButton:disabled{
 }
 
 </string>
-                             </property>
-                             <property name="text">
-                              <string>点击选择用户照片</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QLineEdit" name="clients_photo_address">
-                             <property name="sizePolicy">
-                              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                               <horstretch>0</horstretch>
-                               <verstretch>0</verstretch>
-                              </sizepolicy>
-                             </property>
-                             <property name="minimumSize">
-                              <size>
-                               <width>0</width>
-                               <height>40</height>
-                              </size>
-                             </property>
-                             <property name="maximumSize">
-                              <size>
-                               <width>16777215</width>
-                               <height>40</height>
-                              </size>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true">QLineEdit {
+                                </property>
+                                <property name="text">
+                                 <string>点击选择用户照片</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QLineEdit" name="clients_photo_address">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>40</height>
+                                 </size>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>16777215</width>
+                                  <height>40</height>
+                                 </size>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">QLineEdit {
 	border: 2px solid rgb(45, 45, 45);
 	border-radius: 15px;
 	padding: 5px;
@@ -7924,7 +8053,10 @@ QLineEdit:disabled{
 	border-color: rgb(166, 166, 166);
     background-color: rgb(186, 186, 186);
 }</string>
-                             </property>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
                             </widget>
                            </item>
                           </layout>
@@ -7959,7 +8091,6 @@ QLineEdit:disabled{
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -7991,7 +8122,6 @@ QLineEdit:disabled{
                             <widget class="QFrame" name="frame_48">
                              <property name="styleSheet">
                               <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -8085,7 +8215,6 @@ QPushButton:disabled{
                             <widget class="QFrame" name="frame_52">
                              <property name="styleSheet">
                               <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -8179,8 +8308,7 @@ QPushButton:disabled{
                    </widget>
                    <widget class="QWidget" name="tab_tq_account_mamnage">
                     <property name="styleSheet">
-                     <string notr="true">background-color: rgb(0, 0, 0);
-border-radius: 20px;</string>
+                     <string notr="true"/>
                     </property>
                     <attribute name="title">
                      <string>天勤帐户管理</string>
@@ -8201,16 +8329,6 @@ border-radius: 20px;</string>
                      <property name="bottomMargin">
                       <number>0</number>
                      </property>
-                     <item>
-                      <widget class="QFrame" name="frame_104">
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                      </widget>
-                     </item>
                      <item>
                       <widget class="QFrame" name="frame_111">
                        <property name="sizePolicy">
@@ -8267,7 +8385,6 @@ QFrame:hover {
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -8314,7 +8431,6 @@ border: none;</string>
                          <widget class="QFrame" name="frame_114">
                           <property name="styleSheet">
                            <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -8346,19 +8462,21 @@ border: none;</string>
                             <widget class="QTextBrowser" name="textBrowser_tq_account_details">
                              <property name="styleSheet">
                               <string notr="true">QTextBrowser{
-color: rgb(255, 116, 225);
+color: rgb(255, 0, 127);
 border-radius: 15px;
 font: 14pt &quot;等线&quot;;
-/*padding-left: 20px;
-padding-right: 20px;*/
 padding: 5px 5px 5px 20px;
 border: none;
 }
+
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -8366,15 +8484,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -8382,8 +8499,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -8397,11 +8514,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -8416,8 +8538,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -8425,8 +8547,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -8439,6 +8561,11 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                              </property>
                             </widget>
@@ -8459,7 +8586,7 @@ background:rgb(150, 0, 150);
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>500</width>
+                         <width>300</width>
                          <height>16777215</height>
                         </size>
                        </property>
@@ -8511,7 +8638,6 @@ QFrame:hover {
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -8529,7 +8655,6 @@ QFrame:hover {
                          <widget class="QFrame" name="frame_67">
                           <property name="styleSheet">
                            <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -8559,6 +8684,18 @@ QFrame:hover {
                            </property>
                            <item>
                             <widget class="QListView" name="tq_account_listview2">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>540</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>16777215</width>
+                               <height>540</height>
+                              </size>
+                             </property>
                              <property name="styleSheet">
                               <string notr="true">QListView {	
 	font:  16pt &quot;等线&quot;;
@@ -8583,11 +8720,15 @@ QListView::item:selected {
 QListView::item:hover { 
 	background-color: rgb(0, 70, 0);
 }
+
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -8595,15 +8736,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -8611,8 +8751,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -8626,11 +8766,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -8645,8 +8790,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -8654,8 +8799,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -8668,35 +8813,29 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                              </property>
                             </widget>
                            </item>
+                           <item>
+                            <spacer name="verticalSpacer_7">
+                             <property name="orientation">
+                              <enum>Qt::Vertical</enum>
+                             </property>
+                             <property name="sizeHint" stdset="0">
+                              <size>
+                               <width>20</width>
+                               <height>40</height>
+                              </size>
+                             </property>
+                            </spacer>
+                           </item>
                           </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_102">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>200</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
-	border: none;
-	border-radius: 20px;
-}
-</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
                          </widget>
                         </item>
                        </layout>
@@ -8833,7 +8972,6 @@ border: none;</string>
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: 1px solid rgb(65, 51, 156);
 	border-radius: 20px;
 }
@@ -8911,7 +9049,7 @@ QFrame:hover {
                                  </size>
                                 </property>
                                 <property name="styleSheet">
-                                 <string notr="true">border:none</string>
+                                 <string notr="true"/>
                                 </property>
                                 <property name="frameShape">
                                  <enum>QFrame::StyledPanel</enum>
@@ -9253,7 +9391,7 @@ QLabel:disabled{
                                  </size>
                                 </property>
                                 <property name="styleSheet">
-                                 <string notr="true">border:none</string>
+                                 <string notr="true"/>
                                 </property>
                                 <property name="frameShape">
                                  <enum>QFrame::StyledPanel</enum>
@@ -9313,7 +9451,7 @@ QComboBox QAbstractItemView {
 }
 /* 下拉箭头样式 */
  QComboBox::down-arrow {
-	image: url(:/图标/icons/双下拉箭头.svg);
+	image: url(:/icon/icons/双下拉箭头.svg);
 	width: 30px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
 	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
 	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
@@ -9579,7 +9717,7 @@ QLineEdit:disabled{
                           <property name="sizeHint" stdset="0">
                            <size>
                             <width>20</width>
-                            <height>40</height>
+                            <height>60</height>
                            </size>
                           </property>
                          </spacer>
@@ -9600,7 +9738,6 @@ QLineEdit:disabled{
                           </property>
                           <property name="styleSheet">
                            <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -9632,7 +9769,6 @@ QLineEdit:disabled{
                             <widget class="QFrame" name="frame_44">
                              <property name="styleSheet">
                               <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -9726,7 +9862,6 @@ QPushButton:disabled{
                             <widget class="QFrame" name="frame_62">
                              <property name="styleSheet">
                               <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -9820,8 +9955,7 @@ QPushButton:disabled{
                    </widget>
                    <widget class="QWidget" name="tab_start_stop_strategy">
                     <property name="styleSheet">
-                     <string notr="true">background-color: rgb(0, 0, 0);
-border-radius: 20px;</string>
+                     <string notr="true"/>
                     </property>
                     <attribute name="title">
                      <string>策略总览</string>
@@ -9897,13 +10031,12 @@ QFrame:hover {
                            </size>
                           </property>
                           <property name="styleSheet">
-                           <string notr="true">QFrame {
+                           <string notr="true">
 	background-color: rgba(30, 30, 40, 0);
 	border: none;
-	border-radius: 15px;
 	color: rgb(255, 0, 255);
 	font: 700 14pt &quot;等线&quot;;
-}
+
 </string>
                           </property>
                           <property name="text">
@@ -9913,6 +10046,40 @@ QFrame:hover {
                         </item>
                         <item>
                          <spacer name="horizontalSpacer_6">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>40</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_process_right_btn_info">
+                          <property name="minimumSize">
+                           <size>
+                            <width>200</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">	background-color: rgba(30, 30, 40, 0);
+	border: none;
+	color: rgb(255, 0, 0);
+	font: 700 12pt &quot;等线&quot;;
+
+</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="horizontalSpacer_12">
                           <property name="orientation">
                            <enum>Qt::Horizontal</enum>
                           </property>
@@ -9962,7 +10129,7 @@ QPushButton:pressed {
                           </property>
                           <property name="icon">
                            <iconset resource="../resource.qrc">
-                            <normaloff>:/图标/icons/Excel.svg</normaloff>:/图标/icons/Excel.svg</iconset>
+                            <normaloff>:/icon/icons/Excel.svg</normaloff>:/icon/icons/Excel.svg</iconset>
                           </property>
                           <property name="iconSize">
                            <size>
@@ -9979,7 +10146,6 @@ QPushButton:pressed {
                       <widget class="QFrame" name="frame_31">
                        <property name="styleSheet">
                         <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: 1px solid rgb(65, 51, 156);
 	border-radius: 15px;
 }
@@ -10056,16 +10222,13 @@ font: 10pt &quot;等线&quot;;
 color:rgb(255, 255, 255);
 background-color: rgb(13,9,27);
 alternate-background-color:rgba(13,9,36, 170);
-gridline-color:rgba(140, 140, 140, 60);
-border: 1px;
+gridline-color:rgba(140, 140, 140, 50);
 padding: 5px 5px 5px 5px;
 }
 QTableWidget:hover{
 border: none;
 }
 QTableWidget::item {
-text-align:left;
-background-color: transparent;
 border: none;
 border-radius: none;
 }
@@ -10073,40 +10236,37 @@ border-radius: none;
 QTableWidget::item:selected{
 font: 700 12pt &quot;等线&quot;;
 color: rgb(0, 255, 0);
-background:rgba(65, 0, 44, 180);
-border: 1px solid rgba(140, 140, 140, 60);
+background:rgba(65, 0, 44, 100);
 }
 /*
 悬浮item*/
 QTableWidget::item:hover{
 color:rgb(0, 255, 0);
-background:rgb(100, 0, 80);
+background:rgba(100, 0, 80, 150);
 }
 /*表头*/
 QHeaderView::section:horizontal{
 font: 700 10pt &quot;等线&quot;;
 color: rgb(255, 0, 127);
 text-align:center;
-border: 1px solid rgba(140, 140, 140, 60);
+border: 1px solid rgba(140, 140, 140, 40);
+border-left: none;
 background-color: rgb(26, 18, 54);
-border-radius: none;
-margin:1px;
 }
 QHeaderView::section:hover:horizontal{
-border: 1px solid rgba(140, 140, 140, 160);
+border: 1px solid rgba(140, 140, 140, 100);
 background-color: rgba(255, 255, 0, 150);
 }
 QHeaderView::section:vertical{
 font: 700 14pt &quot;等线&quot;;
 color: rgb(255, 0, 0);
 text-align: right;
-border: 1px solid rgba(140, 140, 140, 60);
+border: 1px solid rgba(140, 140, 140, 40);
+border-top: none;
 background-color: rgb(26, 18, 54);
-border-radius: none;
-margin:1px;
 }
 QHeaderView::section:hover:vertical{
-border: 1px solid rgba(140, 140, 140, 160);
+border: 1px solid rgba(140, 140, 140, 100);
 background-color: rgba(255, 255, 0, 150);
 }
 /*表头最左上角的方块*/
@@ -10114,7 +10274,6 @@ QTableCornerButton:section{
 text-align:center;
 border: 1px solid rgba(140, 140, 140, 60);
 background-color: rgb(26, 18, 54);
-margin:1px;
 color:rgb(255, 255, 255)
 }
 QTableCornerButton::section:hover{
@@ -10122,11 +10281,15 @@ border: 1px solid rgba(140, 140, 140, 160);
 background-color: rgba(255, 255, 0, 50);
 }
 
+
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -10134,15 +10297,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -10150,8 +10312,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -10165,11 +10327,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -10184,8 +10351,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -10193,8 +10360,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -10207,6 +10374,10 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
 
 </string>
                              </property>
@@ -10214,7 +10385,7 @@ background:rgb(150, 0, 150);
                               <set>QAbstractItemView::NoEditTriggers</set>
                              </property>
                              <property name="showDropIndicator" stdset="0">
-                              <bool>false</bool>
+                              <bool>true</bool>
                              </property>
                              <property name="dragEnabled">
                               <bool>true</bool>
@@ -10609,7 +10780,7 @@ QPushButton:disabled{
                  <item>
                   <widget class="QFrame" name="frame_34">
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
@@ -10622,13 +10793,12 @@ QPushButton:disabled{
                    </property>
                    <property name="maximumSize">
                     <size>
-                     <width>250</width>
+                     <width>400</width>
                      <height>16777215</height>
                     </size>
                    </property>
                    <property name="styleSheet">
                     <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: 1px solid rgb(65, 51, 156);
 	border-radius: 15px;
 }
@@ -10674,7 +10844,6 @@ QFrame:hover {
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -10746,7 +10915,6 @@ QFrame:hover {
                         <widget class="QTreeView" name="treeview_log">
                          <property name="styleSheet">
                           <string notr="true">QTreeView {
-    background: rgb(13, 9, 36);	
 	color: rgb(255, 255, 255);
 	font: 10pt &quot;等线&quot;;
 	border: none;
@@ -10757,7 +10925,7 @@ QTreeView::item {
 	padding-left: 5px;
 }
 QTreeView::item:open {
-    background-color: rgb(25, 25, 25);
+    background-color: rgb(26, 18, 72);
     color: rgb(255, 0, 255);
 }
 QTreeView::item:selected {
@@ -10768,23 +10936,21 @@ QTreeView::branch {
     background-color:  rgb(13, 9, 36);
 }
 QTreeView::branch:open {    
-	
-	
-	image: url(:/图标/icons/arrow-right-bold.svg);
+	image: url(:/icon/icons/arrow-right-bold.svg);
 	
 }
 QTreeView::branch:closed:has-children {   
-	
-	
-	image: url(:/图标/icons/arrow-down-bold.svg);
+	image: url(:/icon/icons/arrow-down-bold.svg);
 }
 
 
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -10792,15 +10958,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -10808,8 +10973,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -10823,11 +10988,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -10842,8 +11012,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -10851,8 +11021,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -10865,6 +11035,11 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                          </property>
                          <property name="dragEnabled">
@@ -10912,7 +11087,6 @@ background:rgb(150, 0, 150);
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -11046,7 +11220,6 @@ QFrame:hover {
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -11063,7 +11236,7 @@ QFrame:hover {
                         <widget class="QLabel" name="label_8">
                          <property name="minimumSize">
                           <size>
-                           <width>150</width>
+                           <width>100</width>
                            <height>40</height>
                           </size>
                          </property>
@@ -11078,7 +11251,26 @@ border: none;</string>
                         </widget>
                        </item>
                        <item>
+                        <spacer name="horizontalSpacer_9">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
                         <widget class="QLabel" name="label_log_file_name">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
                          <property name="minimumSize">
                           <size>
                            <width>150</width>
@@ -11102,7 +11294,6 @@ border: none;</string>
                      <widget class="QFrame" name="frame_121">
                       <property name="styleSheet">
                        <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: 1px solid rgb(65, 51, 156);
 	border-radius: 20px;
 }
@@ -11145,11 +11336,15 @@ padding-right: 20px;*/
 padding: 5px 5px 5px 20px;
 border: none;
 }
+
+
+
+/*下边和右边的滑动条*/
 QScrollBar:horizontal {
     border: none;
-    background: rgb(52, 59, 72);
+    background:rgb(26, 19, 75);
     height: 8px;
-    margin: 0px 20px 0 20px;
+    margin: 0px 17px 0 17px;
 	border-radius: 3px;
 }
 QScrollBar::handle:horizontal {
@@ -11157,15 +11352,14 @@ QScrollBar::handle:horizontal {
     min-width: 30px;
 	border-radius: 3px
 }
-/*
-滑块悬浮，按下*/
+/*滑块悬浮，按下*/
 QScrollBar::handle:hover:horizontal,QScrollBar::handle:pressed:horizontal{
 background:rgb(150, 0, 150);
 }
 QScrollBar::add-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     subcontrol-position: right;
@@ -11173,8 +11367,8 @@ QScrollBar::add-line:horizontal {
 }
 QScrollBar::sub-line:horizontal {
     border: none;
-    background: rgb(55, 63, 77);
-    width: 20px;
+    background: rgb(0, 50, 135);
+    width: 15px;
 	border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     subcontrol-position: left;
@@ -11188,11 +11382,16 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
      background: none;
 }
+QScrollBar::add-line:horizontal:pressed, QScrollBar::sub-line:horizontal:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
  QScrollBar:vertical {
 	border: none;
-    background: rgb(52, 59, 72);
+    background: rgb(26, 19, 75);
     width: 8px;
-    margin: 20px 0 20px 0;
+    margin: 17px 0 17px 0;
 	border-radius: 3px;
  }
  QScrollBar::handle:vertical {	
@@ -11207,8 +11406,8 @@ background:rgb(150, 0, 150);
 }
  QScrollBar::add-line:vertical {
      border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
      subcontrol-position: bottom;
@@ -11216,8 +11415,8 @@ background:rgb(150, 0, 150);
  }
  QScrollBar::sub-line:vertical {
 	border: none;
-    background: rgb(55, 63, 77);
-     height: 20px;
+    background: rgb(0, 50, 135);
+     height: 15px;
 	border-top-left-radius: 3px;
     border-top-right-radius: 3px;
      subcontrol-position: top;
@@ -11230,6 +11429,11 @@ background:rgb(150, 0, 150);
  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      background: none;
  }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: rgb(85, 0, 255);
+}
+
 </string>
                          </property>
                         </widget>
@@ -11253,7 +11457,6 @@ background:rgb(150, 0, 150);
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;
 	border-radius: 20px;
 }
@@ -11382,7 +11585,6 @@ border: none;</string>
                      <widget class="QTabWidget" name="tabWidget_chart">
                       <property name="styleSheet">
                        <string notr="true">QTabWidget::pane{
-	background-color: rgb(0, 0, 0);
 	border-radius:20px;
 }
 
@@ -11409,7 +11611,7 @@ QTabBar::tab:hover{
 		border-right: 2px solid rgb(255, 85, 0);		
 }
 QTabBar::tab:selected {
-		height: 35px;
+		height: 30px;
 		width: 200px;
          margin-left: 5; margin-right: 5;
 		font: 700 16pt &quot;等线&quot;;
@@ -12106,175 +12308,6 @@ QFrame:hover {
                         </item>
                        </layout>
                       </widget>
-                      <widget class="QWidget" name="tab_6">
-                       <attribute name="title">
-                        <string>K线图</string>
-                       </attribute>
-                       <layout class="QVBoxLayout" name="verticalLayout_51">
-                        <property name="spacing">
-                         <number>5</number>
-                        </property>
-                        <property name="leftMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="rightMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>0</number>
-                        </property>
-                        <item>
-                         <widget class="QFrame" name="frame_86">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>16777215</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_47">
-                           <property name="spacing">
-                            <number>0</number>
-                           </property>
-                           <property name="leftMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="topMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="rightMargin">
-                            <number>0</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>0</number>
-                           </property>
-                           <item>
-                            <widget class="QPushButton" name="pushButton_account_manage_9">
-                             <property name="minimumSize">
-                              <size>
-                               <width>500</width>
-                               <height>35</height>
-                              </size>
-                             </property>
-                             <property name="maximumSize">
-                              <size>
-                               <width>1000</width>
-                               <height>16777215</height>
-                              </size>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true">QPushButton{	
-	background-color: rgb(255, 255, 0);
-	font: 700 20pt &quot;等线&quot;;
-	border-radius: 15px;
-}
-QPushButton:hover{
-	border: 3px solid rgb(255, 200, 0);  
-}
-QPushButton:pressed{
-	color: green;
-	border-color: rgb(255, 0, 0);
-    background-color: rgb(255, 255, 0);
-}
-QPushButton:disabled{
-	color: rgb(31, 31, 31);
-    background-color: rgb(152, 152, 152);
-}</string>
-                             </property>
-                             <property name="text">
-                              <string>订阅的k线图</string>
-                             </property>
-                            </widget>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_88">
-                          <property name="styleSheet">
-                           <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
-	border: 1px solid rgb(65, 51, 156);
-	border-radius: 15px;
-}
-QFrame:hover {
-	border: 2px solid rgb(255, 85, 0);
-}</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <widget class="QLabel" name="label_11">
-                           <property name="geometry">
-                            <rect>
-                             <x>280</x>
-                             <y>250</y>
-                             <width>500</width>
-                             <height>40</height>
-                            </rect>
-                           </property>
-                           <property name="minimumSize">
-                            <size>
-                             <width>500</width>
-                             <height>40</height>
-                            </size>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true">font: 700 16pt &quot;等线&quot;;
-color: rgb(255, 0, 127);
-border: none;</string>
-                           </property>
-                           <property name="text">
-                            <string>图表功能还没做出来，后续会更新</string>
-                           </property>
-                          </widget>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_87">
-                          <property name="maximumSize">
-                           <size>
-                            <width>16777215</width>
-                            <height>100</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
-	border: 1px solid rgb(65, 51, 156);
-	border-radius: 15px;
-}
-QFrame:hover {
-	border: 2px solid rgb(255, 85, 0);
-}</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
                      </widget>
                     </item>
                    </layout>
@@ -12305,9 +12338,7 @@ QFrame:hover {
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">QFrame {
-	
-	background-color: rgb(0, 0, 0);
+          <string notr="true">QFrame {	
 	border: none;
 	border-radius: 10px;
 }
