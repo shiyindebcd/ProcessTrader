@@ -58,7 +58,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         self.textBrowser_terminal.ensureCursorVisible()  # 光标可见
 
 
-    def add_paramer_to_container(self):  # 将参数添加到面板各容器中
+    def add_paramer_to_container_by_timer(self):  # 将参数添加到面板各容器中,定时器驱动部分
 
         self.label_runing_process_quantity.setText(str(len(self.get_alive_process_pid_list())))  # 获取当前活着的子进程数(只有子进程，没有父进程和协程)
         self.label_current_time.setText(time.strftime('%Y-%m-%d    %H:%M:%S', time.localtime()))
@@ -67,7 +67,15 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         self.label_cpu_occupancy.setText(str(psutil.cpu_percent()) + ' %')
         self.label_total_profit.setText(str(self.get_total_profit()))
         self.process_dict_update()
-        self.load_process_config()
+
+        process_model = QStringListModel()
+        self.process_list = self.get_process_list()
+        process_model.setStringList(self.process_list)
+        self.process_listview.setModel(process_model)
+
+
+
+    def add_paramer_to_container_by_hand(self):         # 将参数添加到面板各容器中, 人工动作驱动部分
 
         account_model = QStringListModel()
         self.clients_list = self.get_clients_list()
@@ -91,16 +99,10 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         strategy_model.setStringList(self.strategy_list)
         self.strategy_listview.setModel(strategy_model)
 
-        process_model = QStringListModel()
-        self.process_list = self.get_process_list()
-        process_model.setStringList(self.process_list)
-        self.process_listview.setModel(process_model)
-
         self_selection_model = QStringListModel()
         self.self_selection_list = self.get_self_selection_quote_list()
         self_selection_model.setStringList(self.self_selection_list)
         self.self_selection_listview.setModel(self_selection_model)
-
 
     def show_clients_info(self, qModelIndex):  # 显示客户信息
         row = qModelIndex.row()
@@ -111,12 +113,12 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         self.textBrowser_clients_details.append('\n' + '电话号码：   ' + str(data.iloc[row]['clients_tel']))
         self.textBrowser_clients_details.append('\n' + '联系地址：   ' + str(data.iloc[row]['clients_address']))
         self.textBrowser_clients_details.append('\n' + '照片位置：   ' + str(data.iloc[row]['clients_photo_address']))
-
-        photo_path = './clients_photo/' + data.iloc[row, 0] + '.jpg'
-        if os.path.exists(photo_path):
-            self.show_client_photo(photo_path)
-        else:
-            self.show_client_photo('./logo/logo.png')
+        if data.iloc[row]['clients_photo_address']:
+            photo_path = './clients_photo/' + str(data.iloc[row, 0]) + '.jpg'
+            if os.path.exists(photo_path):
+                self.show_client_photo(photo_path)
+            else:
+                self.show_client_photo('./logo/Default_photo.png')
 
 
     def show_tq_account_info(self, qModelIndex):  # 显示天勤账户信息
@@ -334,7 +336,6 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         t = self.stackedWidget.currentIndex()
         self.stackedWidget.setCurrentIndex(t - 1)
 
-
     def next_page(self):  # 向后翻页
         t = self.stackedWidget.currentIndex()
         self.stackedWidget.setCurrentIndex(t + 1)
@@ -349,9 +350,6 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             return
 
         self.clients_photo_address.setText(fileName_choose)
-        print('\n已选择用户照片，  图片文件为:')
-        print(fileName_choose)
-        print('文件筛选器类型: ', filetype)
         self.show_client_photo(fileName_choose)
 
 
@@ -376,49 +374,56 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
     def get_clients(self):  # 获取并保存输入的用户信息
 
-        clients_dict = {}
+        if self.clients_name.text():  # 必须输入用户名
+            clients_dict = {}
+            clients_dict['clients_name'] = self.clients_name.text()
+            clients_dict['clients_id'] = self.clients_id.text()
+            clients_dict['clients_tel'] = self.clients_tel.text()
+            clients_dict['clients_address'] = self.clients_address.text()
+            clients_dict['clients_photo_address'] = self.clients_photo_address.text()
 
-        clients_dict['clients_name'] = self.clients_name.text()
-        clients_dict['clients_id'] = self.clients_id.text()
-        clients_dict['clients_tel'] = self.clients_tel.text()
-        clients_dict['clients_address'] = self.clients_address.text()
+            # 判断是否存在clients_photo文件夹，如果不存在，则创建
+            if not os.path.exists('./clients_photo'):
+                os.makedirs('./clients_photo')
+            try:
 
-        # 判断是否存在clients_photo文件夹，如果不存在，则创建
-        if not os.path.exists('./clients_photo'):
-            os.makedirs('./clients_photo')
+                if self.clients_photo_address.text():
+                    print(clients_dict['clients_address'])
+                    # 将clients_photo_address.text()的图片复制到clients_photo文件夹中
+                    # 打开源图片
+                    f_src = open(self.clients_photo_address.text(), 'rb')
+                    # self.clients_photo_address.text()表示图片路径，为字符串。
 
-        # 将clients_photo_address.text()的图片复制到clients_photo文件夹中
-        # 打开源图片
-        f_src = open(self.clients_photo_address.text(), 'rb')
-        # self.clients_photo_address.text()表示图片路径，为字符串。
+                    # 读取图片内容并存储到content临时变量
+                    content = f_src.read()
 
-        # 读取图片内容并存储到content临时变量
-        content = f_src.read()
+                    # 以二进制格式打开复制后的图片（只写）
+                    # wb一般用于非文本文件如图片等。
+                    # 如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。
+                    # 如果该文件不存在，创建新文件。
+                    photo_name = './clients_photo/' + self.clients_name.text() + '.jpg'
+                    f_copy = open(photo_name, 'wb')
 
-        # 以二进制格式打开复制后的图片（只写）
-        # wb一般用于非文本文件如图片等。
-        # 如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。
-        # 如果该文件不存在，创建新文件。
-        photo_name = './clients_photo/' + self.clients_name.text() + '.jpg'
-        f_copy = open(photo_name, 'wb')
+                    # 源图片的内容以二进制形式写入新图片
+                    f_copy.write(content)
+                    # 关闭文件（原则：先打开的后关闭）
+                    f_copy.close()
+                    f_src.close()
 
-        # 源图片的内容以二进制形式写入新图片
-        f_copy.write(content)
-        # 关闭文件（原则：先打开的后关闭）
-        f_copy.close()
-        f_src.close()
+                    clients_dict['clients_photo_address'] = photo_name
 
-        clients_dict['clients_photo_address'] = photo_name
-
-        df = pd.DataFrame(clients_dict, index=[0])
-        path = './data/clients.csv'
-        self.ioModal.judge_config_exist(path)
-        self.ioModal.add_dict_to_csv(df, path)
-        time.sleep(0.1)
-        self.clients_input_clear()
-        self.add_paramer_to_container()
-        self.add_paramer_to_combobox()
-
+                df = pd.DataFrame(clients_dict, index=[0])
+                path = './data/clients.csv'
+                self.ioModal.judge_config_exist(path)
+                self.ioModal.add_dict_to_csv(df, path)
+                self.clients_input_clear()
+                self.add_paramer_to_container_by_hand()
+                self.add_paramer_to_combobox()
+            except Exception as e:
+                print(e)
+        else:
+            # self.textBrowser_clients_details.clear()
+            self.textBrowser_clients_details.append('添加用户信息时用户名不能为空')
 
     def clients_input_clear(self):  # 清空客户信息输入框
         self.add_paramer_to_combobox()
@@ -426,27 +431,34 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         self.clients_id.clear()
         self.clients_tel.clear()
         self.clients_address.clear()
+        self.clients_photo_address.clear()
 
 
     def get_tq_account(self):  # 获取天勤账号信息
+        if self.comboBox_select_clients_name.currentText():
+            if self.tq_account.text() and self.tq_psd.text():
+                tq_account_dict = {}
+                tq_account_dict['clients_name'] = self.comboBox_select_clients_name.currentText()
+                tq_account_dict['tq_account'] = self.tq_account.text()
+                tq_account_dict['tq_psd'] = self.tq_psd.text()
+                tq_account_dict['futures_company'] = self.futures_company.text()
+                tq_account_dict['futures_account'] = self.futures_account.text()
+                tq_account_dict['futures_psd'] = self.futures_psd.text()
 
-        tq_account_dict = {}
-        tq_account_dict['clients_name'] = self.comboBox_select_clients_name.currentText()
-        tq_account_dict['tq_account'] = self.tq_account.text()
-        tq_account_dict['tq_psd'] = self.tq_psd.text()
-        tq_account_dict['futures_company'] = self.futures_company.text()
-        tq_account_dict['futures_account'] = self.futures_account.text()
-        tq_account_dict['futures_psd'] = self.futures_psd.text()
-
-        df = pd.DataFrame(tq_account_dict, index=[0])
-        path = './data/tq_account.csv'
-        self.ioModal.judge_config_exist(path)
-        self.ioModal.add_dict_to_csv(df, path)
-        time.sleep(0.1)
-        self.tq_account_input_clear()
-        self.add_paramer_to_container()
-        self.add_paramer_to_combobox()
-
+                df = pd.DataFrame(tq_account_dict, index=[0])
+                path = './data/tq_account.csv'
+                self.ioModal.judge_config_exist(path)
+                self.ioModal.add_dict_to_csv(df, path)
+                time.sleep(0.1)
+                self.tq_account_input_clear()
+                self.add_paramer_to_container_by_hand()
+                self.add_paramer_to_combobox()
+            else:
+                # self.textBrowser_tq_account_details.clear()
+                self.textBrowser_tq_account_details.append('添加天勤账户时，天勤账户名和密码不能为空')
+        else:
+            # self.textBrowser_tq_account_details.clear()
+            self.textBrowser_tq_account_details.append('请先添加用户，然后才能添加天勤账户')
 
     def tq_account_input_clear(self):  # 清空天勤账号信息输入框
         self.add_paramer_to_combobox()
@@ -589,6 +601,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         if os.path.exists('./data/config.csv'):
             df = pd.read_csv('./data/config.csv')
             self.tableWidget_process.setVerticalHeaderLabels(process_header_list)
+            self.tableWidget_process.setColumnCount(10)  # 设置列数量
             if df.empty:
                 pass
             else:
@@ -596,7 +609,8 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
                     pass
                 else:
                     table = self.tableWidget_process
-                    table.setColumnCount(len(df.index))  # 设置列数量
+                    if len(df.index) >= 10:
+                        table.setColumnCount(len(df.index))  # 设置列数量
                     table.setRowCount(len(df.columns))  # 设置行数量
                     list = df['process_name'].tolist()
                     header_name_list = []
@@ -607,7 +621,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
                     table.setVerticalHeaderLabels(df.columns)
 
                     for cn, col in enumerate(df.columns):
-                        table.setColumnWidth(cn, 200)
+                        table.setColumnWidth(cn, 180)
                         for rn, row in enumerate(df.index):
                             item = QTableWidgetItem(str(df.loc[row, col]))
                             table.setItem(cn, rn, item)
@@ -624,7 +638,6 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
 
     def add_Tq_Quote_to_csv(self):  # 将天勤自选行情引用数据添加到 csv 文件中
-        df = self.ioModal.read_csv_file(path='./data/self_selection.csv')
         my_dict = {}
         exchange = self.comboBox_add_quote_exchange.currentText().split()[-1]  # 获取列表框选择的字符串分割后的最后一部分
         quote = exchange + '.' + self.add_quote_symbol.text()
@@ -633,7 +646,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         else:
             my_dict['quote'] = quote
             df = pd.DataFrame(my_dict, index=[0])
-            self.ceate_TQ_klines_and_quote(quote)
+            # self.ceate_TQ_klines_and_quote(quote)
             self.ioModal.add_dict_to_csv(df, path='./data/self_selection.csv')
             text = '新的自选合约： ' + str(quote) + '  已添加'
             self.label_kline_info.setText(text)

@@ -44,10 +44,10 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         sys.stdout = EmittingStr()
         sys.stdout.textWritten.connect(self.outputWritten)
 
-        self.ioModal = ReadWriteCsv()                                   # 实例化 csv 操作类
-        self.KLineWidget = KLineWidget()                                      # 实例化K线图widget部件
-        self.RightBtbMenu = RightButtonMenu(self)                            # 右键菜单类
-        self.verticalLayout_klines.addWidget(self.KLineWidget)               # 添加K线图部件到布局中
+        self.ioModal = ReadWriteCsv()                                   # 实例化 csv 读写类
+        self.KLineWidget = KLineWidget()                                # 实例化K线图widget部件
+        self.RightBtbMenu = RightButtonMenu(self)                       # 右键菜单类
+        self.verticalLayout_klines.addWidget(self.KLineWidget)          # 添加K线图部件到布局中
         self.whether_the_folder_exists()                                # 判断文件夹是否存在，不存在则创建
 
         self.times = 0                                                  # 进程守护定时器计数
@@ -70,7 +70,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
 
         # 面板参数刷新定时器
         self.parameters_refresh = QTimer(self)
-        self.parameters_refresh.timeout.connect(self.add_paramer_to_container)
+        self.parameters_refresh.timeout.connect(self.add_paramer_to_container_by_timer)
         # self.parameters_refresh.timeout.connect(self.chack_main_tq_account)
         self.parameters_refresh.start(1000)
         self.times1 = 0                                             #用来辅助计时,程序启动20秒后才登录天勤
@@ -79,7 +79,8 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.hide_items()                                           # 隐藏控件
         self.add_paramer_to_combobox()                              # 将参数添加到下拉框
         self.set_tableWidget()                                      # 设置表格
-        self.add_paramer_to_container()                             # 将参数添加到容器
+        self.add_paramer_to_container_by_timer()                    # 将参数添加到容器
+        self.add_paramer_to_container_by_hand()
         self.other_item_settings()                                  # 其他控件设置
         self.process_dict_update()                                  # 更新进程字典
         self.show_file_in_treeview()                                # 显示文件到树状图
@@ -334,7 +335,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
     def show_create_new_process_window(self):   # 弹出新建策略进程窗口
 
         from CreateNewProcess_Inheritance import NewProcessWindow
-        self.create_process_strategy = NewProcessWindow()
+        self.create_process_strategy = NewProcessWindow(self)
         self.create_process_strategy.show()
 
     def show_create_backtest_window(self):      # 弹出新建策略回测进程窗口
@@ -449,7 +450,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
                                 self.label_process_reboot_quantity.setText('进程启动中\n还没启动完')
 
 
-                            self.add_paramer_to_container()
+                            self.add_paramer_to_container_by_timer()
                             time.sleep(1)
                     else:
                         pass

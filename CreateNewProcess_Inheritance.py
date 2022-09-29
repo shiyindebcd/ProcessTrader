@@ -5,7 +5,7 @@ import re
 import pandas as pd
 from PySide6 import QtCore
 from PySide6.QtGui import QCursor, Qt
-from PySide6.QtWidgets import (QWidget)
+from PySide6.QtWidgets import QWidget
 
 from read_write_file import ReadWriteCsv
 from UI.CreateNewProcess_dark import Ui_Form as UI_dark
@@ -20,8 +20,10 @@ else:
 
 
 class NewProcessWindow(QWidget, UI):   # 添加新的策略进程窗口类
-    def __init__(self):
+    def __init__(self, parent):
         super(NewProcessWindow, self).__init__()
+        self.parent = parent
+        print(parent)
         self.setupUi(self)
 
         # 不显示标题栏
@@ -165,11 +167,11 @@ class NewProcessWindow(QWidget, UI):   # 添加新的策略进程窗口类
         my_dict['strategy'] = self.comboBox_select_strategy.currentText()  # 策略名称
         my_dict['whether_self_start'] = self.checkBox_whether_self_start.isChecked()  # 是否自启动
         my_dict['whether_live_trading'] = self.checkBox_whether_live_futures_trading.isChecked()  # 是否实盘交易
-        my_dict['whether_backtest'] = 'False'  # 是否回测
+        my_dict['whether_backtest'] = False  # 是否回测
         my_dict['whether_open_web_services'] = self.checkBox_whether_open_web_services.isChecked()    
         my_dict['web_port'] = self.web_port.text()  # 网页端口
 
-        my_dict['stop_trading'] = 0  # 停止交易标志位，0为正常交易，1为停止交易
+        my_dict['stop_trading'] = True  # 停止交易标志位，True为正常交易，Flase为停止交易
         my_dict['orientation'] = self.orientation.text()  # 交易方向,用于半自动化策略,0为无方向,1或正整数为做多,-1或负整数为做空
         my_dict['initial_capital'] = self.initial_capital.text()  # 初始资金
         my_dict['final_capital'] = self.initial_capital.text()  # 最终资金
@@ -186,10 +188,10 @@ class NewProcessWindow(QWidget, UI):   # 添加新的策略进程窗口类
         my_dict['short_current_position'] = 0                       # 当前空单持仓
         my_dict['first_short_price'] = 0                            # 第一次做空价格
         my_dict['first_short_deal'] = 0                             # 第一次做空成交量
-        my_dict['whether_open_line'] = 'False'                        # 是否定义了开仓直线
+        my_dict['whether_open_line'] = False                      # 是否定义了开仓直线
         my_dict['open_line_Coordinates'] = '0,0'                  # 开仓线坐标
-        my_dict['whether_close_line'] = 'False'                       # 是否定义了平仓直线
-        my_dict['close_line_Coordinates'] = '0,0'                   # 平仓线坐标
+        my_dict['whether_close_line'] = False                     # 是否定义了平仓直线
+        my_dict['close_line_Coordinates'] = '0,0'                 # 平仓线坐标
         
         my_dict['Customized_parameters_1'] = self.Customized_parameters1.text()         # 自定义参数1
         my_dict['Customized_parameters_2'] = self.Customized_parameters2.text()         # 自定义参数2
@@ -206,6 +208,7 @@ class NewProcessWindow(QWidget, UI):   # 添加新的策略进程窗口类
 
         self.ioModal.add_dict_to_csv(df, path='./data/config.csv')
         self.label_info.setText('已新添加新策略：  ' + str(my_dict['process_name']))
+        self.parent.load_process_config()
 
     def process_parameters_input_clear(self):  # 清空进程参数输入框
         self.add_paramer_to_combobox()

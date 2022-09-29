@@ -851,8 +851,8 @@ QPushButton:pressed {
                </property>
                <property name="iconSize">
                 <size>
-                 <width>30</width>
-                 <height>30</height>
+                 <width>25</width>
+                 <height>25</height>
                 </size>
                </property>
               </widget>
@@ -1164,8 +1164,8 @@ QToolBox::tab:selected:hover{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>238</width>
-                            <height>455</height>
+                            <width>87</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1348,8 +1348,8 @@ QScrollBar::sub-line:vertical:pressed{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>238</width>
-                            <height>455</height>
+                            <width>87</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1513,8 +1513,8 @@ QScrollBar::sub-line:vertical:pressed{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>238</width>
-                            <height>455</height>
+                            <width>87</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1695,8 +1695,8 @@ QScrollBar::sub-line:vertical:pressed{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>238</width>
-                            <height>455</height>
+                            <width>87</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -10289,17 +10289,20 @@ QScrollBar::sub-line:vertical:pressed{
                              <property name="editTriggers">
                               <set>QAbstractItemView::NoEditTriggers</set>
                              </property>
+                             <property name="tabKeyNavigation">
+                              <bool>false</bool>
+                             </property>
                              <property name="showDropIndicator" stdset="0">
-                              <bool>true</bool>
+                              <bool>false</bool>
                              </property>
                              <property name="dragEnabled">
-                              <bool>true</bool>
+                              <bool>false</bool>
                              </property>
                              <property name="dragDropOverwriteMode">
-                              <bool>true</bool>
+                              <bool>false</bool>
                              </property>
                              <property name="dragDropMode">
-                              <enum>QAbstractItemView::DragDrop</enum>
+                              <enum>QAbstractItemView::NoDragDrop</enum>
                              </property>
                              <property name="alternatingRowColors">
                               <bool>true</bool>
@@ -10312,6 +10315,9 @@ QScrollBar::sub-line:vertical:pressed{
                              </property>
                              <attribute name="horizontalHeaderCascadingSectionResizes">
                               <bool>true</bool>
+                             </attribute>
+                             <attribute name="horizontalHeaderDefaultSectionSize">
+                              <number>180</number>
                              </attribute>
                              <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
                               <bool>true</bool>

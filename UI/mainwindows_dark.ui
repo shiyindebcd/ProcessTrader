@@ -1163,8 +1163,8 @@ color:black;
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>238</width>
-                            <height>455</height>
+                            <width>100</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1355,8 +1355,8 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>238</width>
-                            <height>455</height>
+                            <width>100</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1528,8 +1528,8 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>238</width>
-                            <height>455</height>
+                            <width>100</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1718,8 +1718,8 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>238</width>
-                            <height>455</height>
+                            <width>100</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -2801,6 +2801,9 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                                      </property>
                                      <property name="editTriggers">
                                       <set>QAbstractItemView::NoEditTriggers</set>
+                                     </property>
+                                     <property name="tabKeyNavigation">
+                                      <bool>false</bool>
                                      </property>
                                      <property name="showDropIndicator" stdset="0">
                                       <bool>false</bool>
@@ -10384,17 +10387,20 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                              <property name="editTriggers">
                               <set>QAbstractItemView::NoEditTriggers</set>
                              </property>
+                             <property name="tabKeyNavigation">
+                              <bool>false</bool>
+                             </property>
                              <property name="showDropIndicator" stdset="0">
-                              <bool>true</bool>
+                              <bool>false</bool>
                              </property>
                              <property name="dragEnabled">
-                              <bool>true</bool>
+                              <bool>false</bool>
                              </property>
                              <property name="dragDropOverwriteMode">
-                              <bool>true</bool>
+                              <bool>false</bool>
                              </property>
                              <property name="dragDropMode">
-                              <enum>QAbstractItemView::DragDrop</enum>
+                              <enum>QAbstractItemView::NoDragDrop</enum>
                              </property>
                              <property name="alternatingRowColors">
                               <bool>true</bool>
@@ -10407,6 +10413,9 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                              </property>
                              <attribute name="horizontalHeaderCascadingSectionResizes">
                               <bool>true</bool>
+                             </attribute>
+                             <attribute name="horizontalHeaderDefaultSectionSize">
+                              <number>180</number>
                              </attribute>
                              <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
                               <bool>true</bool>

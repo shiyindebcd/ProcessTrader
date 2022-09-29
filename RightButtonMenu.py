@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
+import os
+import numpy
+
 from PySide6.QtCore import QEvent
 from PySide6.QtGui import QCursor, Qt
 from PySide6.QtWidgets import QMenu
 from ExitDialog_Inheritance import DeleteWarning
+from ExitDialog_Inheritance import ModifyParameters
 
 class RightButtonMenu:      # 主界面用到的各种右键菜单
     def __init__(self, parent):
@@ -27,63 +31,11 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
                                         background:lightgray;\n   
                                         color:red;\n    
                                         background:rgb(255,255,255);\n
-                                    }\n
-                                QMenu::separator{
-                                        height:1px;\n 
-                                        width:50px;\n   
-                                        background:blue;\n  
-                                        margin:0px 0px 0px 0px;\n
                                     }\n'''
 
-
-    # 各个需要鼠标右键的点击的地方安装事件过滤器
-    # self.clients_listview.viewport().installEventFilter(self)
-    # self.clients_listview2.viewport().installEventFilter(self)
-    # self.tq_account_listview.viewport().installEventFilter(self)
-    # self.tq_account_listview2.viewport().installEventFilter(self)
-    # self.strategy_listview.viewport().installEventFilter(self)
-    # self.quote_listview.viewport().installEventFilter(self)
-    # self.process_listview.viewport().installEventFilter(self)
-    # self.self_selection_listview.viewport().installEventFilter(self)
-    # self.tableWidget_process.viewport().installEventFilter(self)
-    # self.tableWidget_deal_detials.viewport().installEventFilter(self)
-
-    # def eventFilter(self, objwatched, event):               # 事件过滤器
-    # flag = eventType == QEvent.MouseButtonPress or eventType == QEvent.KeyPress or eventType == QEvent.Close  #
-    # if flag:
-    #     print(f"事件类型值={eventType}，\n事件objwatched={objwatched},\nparent={objwatched.parent()},\nchild={objwatched.children()}")
-
-
-    # if event.type() == QEvent.MouseButtonPress:
-    #     if event.buttons() == Qt.LeftButton:
-    #         print('\n\n 左单击   坐标:  ', QCursor.pos())
-    #     elif event.buttons() == Qt.RightButton:
-    #         print('\n\n 右单击   坐标:  ', QCursor.pos())
-    #         if objwatched == self.clients_listview.viewport():
-    #             print('clients_listview')
-    #         elif objwatched == self.clients_listview2.viewport():
-    #             print('clients_listview2')
-    #         elif objwatched == self.tq_account_listview.viewport():
-    #             print('tq_account_listview')
-    #         elif objwatched == self.tq_account_listview2.viewport():
-    #             print('tq_account_listview2')
-    #         elif objwatched == self.strategy_listview.viewport():
-    #             print('strategy_listview')
-    #         elif objwatched == self.quote_listview.viewport():
-    #             print('quote_listview')
-    #         elif objwatched == self.process_listview.viewport():
-    #             print('process_listview')
-    #         elif objwatched == self.self_selection_listview.viewport():
-    #             print('self_selection_listview')
-    #         elif objwatched == self.tableWidget_process.viewport():
-    #             print('tableWidget_process')
-    #             self.generate_precess_table_menu(pos=QCursor.pos())
-    #         elif objwatched == self.tableWidget_deal_detials.viewport():
-    #             print('tableWidget_deal_detials')
-    #             self.generate_deal_detials_table_menu(pos=QCursor.pos())
-    #
-    # ret = super().eventFilter(objwatched, event)
-    # return ret
+# ---------------------------------------------------------------------
+#  以下是右键点击后各个部件的弹出菜单
+# ---------------------------------------------------------------------
 
     def clients_listview_menu(self, pos):
         cell = self.parent.clients_listview.indexAt(pos)
@@ -91,15 +43,15 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
         if rowIndex >= 0:
             menu = QMenu()
             menu.setStyleSheet(self.my_menu_style)
-            meun1 = menu.addAction('删除这个客户')
+            meun1 = menu.addAction('删除此用户')
             screenPos = self.parent.clients_listview.mapToGlobal(pos)  # 获得相对屏幕的位置
             action = menu.exec(screenPos)  # 被阻塞, 执行菜单
 
             if action == meun1:
-                self.Warning = DeleteWarning()
-                self.Warning.show()
-                self.Warning.Btn_determine_delete.clicked.connect(lambda: self.delete_clients(rowIndex))
-                self.Warning.exec()
+                Warning_Dialog = DeleteWarning()
+                Warning_Dialog.show()
+                Warning_Dialog.Btn_determine_delete.clicked.connect(lambda: self.delete_clients(rowIndex))
+                Warning_Dialog.exec()
         else:
             return
 
@@ -110,26 +62,17 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
         if rowIndex >= 0:
             menu = QMenu()
             menu.setStyleSheet(self.my_menu_style )
-            meun1 = menu.addAction('删除这个客户')
+            meun1 = menu.addAction('删除此用户')
             screenPos = self.parent.clients_listview2.mapToGlobal(pos)  # 获得相对屏幕的位置
             action = menu.exec(screenPos)  # 被阻塞, 执行菜单
 
             if action == meun1:
-                self.Warning = DeleteWarning()
-                self.Warning.show()
-                self.Warning.Btn_determine_delete.clicked.connect(lambda: self.delete_clients(rowIndex))
-                self.Warning.exec()
+                Warning_Dialog = DeleteWarning()
+                Warning_Dialog.show()
+                Warning_Dialog.Btn_determine_delete.clicked.connect(lambda: self.delete_clients(rowIndex))
+                Warning_Dialog.exec()
         else:
             return
-
-    def delete_clients(self, index):        # 删除用户
-        path = './data/clients.csv'
-        data = self.parent.ioModal.read_csv_file(path)
-        tmp = data.drop(index=index)
-        tmp = tmp.reset_index(drop=True)      # 重建索引
-        self.parent.ioModal.write_datas_to_csv_file(df_tmp=tmp, path=path)
-        self.parent.label_client_photo_show.clear()
-        self.parent.textBrowser_clients_details.clear()
 
     def tq_account_listview_menu(self, pos):
         cell = self.parent.tq_account_listview.indexAt(pos)
@@ -137,15 +80,15 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
         if rowIndex >= 0:
             menu = QMenu()
             menu.setStyleSheet(self.my_menu_style)
-            meun1 = menu.addAction('删除这个天勤帐户')
+            meun1 = menu.addAction('删除此天勤账户')
             screenPos = self.parent.tq_account_listview.mapToGlobal(pos)  # 获得相对屏幕的位置
             action = menu.exec(screenPos)  # 被阻塞, 执行菜单
 
             if action == meun1:
-                self.Warning = DeleteWarning()
-                self.Warning.show()
-                self.Warning.Btn_determine_delete.clicked.connect(lambda: self.delete_TQ_account(rowIndex))
-                self.Warning.exec()
+                Warning_Dialog = DeleteWarning()
+                Warning_Dialog.show()
+                Warning_Dialog.Btn_determine_delete.clicked.connect(lambda: self.delete_TQ_account(rowIndex))
+                Warning_Dialog.exec()
         else:
             return
 
@@ -155,25 +98,17 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
         if rowIndex >= 0:
             menu = QMenu()
             menu.setStyleSheet(self.my_menu_style)
-            meun1 = menu.addAction('删除这个天勤帐户')
+            meun1 = menu.addAction('删除此天勤账户')
             screenPos = self.parent.tq_account_listview2.mapToGlobal(pos)  # 获得相对屏幕的位置
             action = menu.exec(screenPos)  # 被阻塞, 执行菜单
 
             if action == meun1:
-                self.Warning = DeleteWarning()
-                self.Warning.show()
-                self.Warning.Btn_determine_delete.clicked.connect(lambda: self.delete_TQ_account(rowIndex))
-                self.Warning.exec()
+                Warning_Dialog = DeleteWarning()
+                Warning_Dialog.show()
+                Warning_Dialog.Btn_determine_delete.clicked.connect(lambda: self.delete_TQ_account(rowIndex))
+                Warning_Dialog.exec()
         else:
             return
-    def delete_TQ_account(self, index):     # 删除天勤帐户
-
-        path = './data/tq_account.csv'
-        data = self.parent.ioModal.read_csv_file(path)
-        tmp = data.drop(index=index)
-        tmp = tmp.reset_index(drop=True)      # 重建索引
-        self.parent.ioModal.write_datas_to_csv_file(df_tmp=tmp, path=path)
-        self.parent.textBrowser_tq_account_details.clear()
 
     def self_selection_listview_menu(self, pos):
         cell = self.parent.self_selection_listview.indexAt(pos)
@@ -190,12 +125,6 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
         else:
             return
 
-    def delete_self_seletion(self, index):      # 删除自选
-        path = './data/self_selection.csv'
-        data = self.parent.ioModal.read_csv_file(path)
-        tmp = data.drop(index=index)
-        tmp = tmp.reset_index(drop=True)      # 重建索引
-        self.parent.ioModal.write_datas_to_csv_file(df_tmp=tmp, path=path)
 
     def process_listview_menu(self, pos):
         cell = self.parent.process_listview.indexAt(pos)
@@ -213,16 +142,16 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
             action = menu.exec(screenPos)  # 被阻塞, 执行菜单
 
             if action == meun1:
-                print('选择了->  临时停止此策略,  在列表第    ',rowIndex, '  行', self.parent.tableWidget_process.item(rowIndex, 0))
+                print('选择了->  临时停止此策略,  在列表第    ', rowIndex, '  行', self.parent.tableWidget_process.item(rowIndex, 0))
             if action == meun2:
                 print('选择了->  重启此策略,  在列表第    ', rowIndex, '  行')
             if action == meun3:
                 print('选择了->  永久停止此策略,  在列表第    ', rowIndex, '  行')
             if action == meun4:
-                self.Warning = DeleteWarning()
-                self.Warning.show()
-                self.Warning.Btn_determine_delete.clicked.connect(lambda: self.delete_process_config(rowIndex))
-                self.Warning.exec()
+                Warning_Dialog = DeleteWarning()
+                Warning_Dialog.show()
+                Warning_Dialog.Btn_determine_delete.clicked.connect(lambda: self.delete_process_config(rowIndex))
+                Warning_Dialog.exec()
         else:
             return
 
@@ -259,28 +188,77 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
                     self.parent.label_process_right_btn_info.setText('重启此策略,点击的单元格坐标为:   ' + str(rowIndex) + ',' + str(columnIndex) + '    该单元格没有内容')
             elif action == menu4:
                 if self.parent.tableWidget_process.item(rowIndex, columnIndex):
-                    self.parent.label_process_right_btn_info.setText('修改此策略参数,点击的单元格坐标为:   ' + str(rowIndex) + ',' + str(columnIndex) + '    单元格的值为：     ' + str(self.parent.tableWidget_process.item(rowIndex, columnIndex).text()))
+                    ModifyParameters_window = ModifyParameters(columnIndex)
+                    ModifyParameters_window.show()
+                    # ModifyParameters_window.Btn_submit_changes.clicked.connect(self.modify_config_parameters)
+                    ModifyParameters_window.exec()
                 else:
                     self.parent.label_process_right_btn_info.setText('修改此策略参数,点击的单元格坐标为:   ' + str(rowIndex) + ',' + str(columnIndex) + '    该单元格没有内容')
             elif action == menu5:
                 if self.parent.tableWidget_process.item(rowIndex, columnIndex):
-                    self.Warning = DeleteWarning()
-                    self.Warning.show()
-                    self.Warning.Btn_determine_delete.clicked.connect(lambda: self.delete_process_config(columnIndex))
-                    self.Warning.exec()
+                    Warning_Dialog = DeleteWarning()
+                    Warning_Dialog.show()
+                    Warning_Dialog.Btn_determine_delete.clicked.connect(lambda: self.delete_process_config(columnIndex))
+                    Warning_Dialog.exec()
                 else:
                     self.parent.label_process_right_btn_info.setText('该单元格没有数据')
         else:
             self.parent.label_process_right_btn_info.setText('点击的单元格没有数据')
             return
 
-    def delete_process_config(self, index):      # 删除自选
-        path = './data/config.csv'
+
+#---------------------------------------------------------------------
+#  以下是菜单点击后的执行函数部分
+#---------------------------------------------------------------------
+
+
+    def delete_clients(self, index):        # 删除用户
+        path = './data/clients.csv'
+        data = self.parent.ioModal.read_csv_file(path)
+        photo_path = data.loc[index]['clients_photo_address']
+        try:
+            if type(photo_path) == numpy.float64:            # 判断照片地址是否为nan,只需要判断他的类型是否为numpy.64
+                pass
+            else:
+                os.remove(photo_path)
+        except Exception as e:
+            print(e)
+        tmp = data.drop(index=index)
+        tmp = tmp.reset_index(drop=True)      # 重建索引
+        self.parent.ioModal.write_datas_to_csv_file(df_tmp=tmp, path=path)
+        self.parent.label_client_photo_show.clear()
+        self.parent.textBrowser_clients_details.clear()
+        self.parent.add_paramer_to_container_by_hand()
+
+    def delete_TQ_account(self, index):     # 删除天勤账户
+
+        path = './data/tq_account.csv'
         data = self.parent.ioModal.read_csv_file(path)
         tmp = data.drop(index=index)
         tmp = tmp.reset_index(drop=True)      # 重建索引
         self.parent.ioModal.write_datas_to_csv_file(df_tmp=tmp, path=path)
-        self.parent.tableWidget_process.clear()
-        self.parent.load_process_config()
+        self.parent.textBrowser_tq_account_details.clear()
+        self.parent.add_paramer_to_container_by_hand()
 
+    def delete_process_config(self, index):      # 删除策略参数
+        path = './data/config.csv'
+        try:
+            data = self.parent.ioModal.read_csv_file(path)
+            tmp = data.drop(index=index)
+            tmp = tmp.reset_index(drop=True)      # 重建索引
+            self.parent.ioModal.write_datas_to_csv_file(df_tmp=tmp, path=path)
+            self.parent.tableWidget_process.clear()
+            self.parent.load_process_config()
+        except:
+            pass
 
+    def delete_self_seletion(self, index):      # 删除自选
+        path = './data/self_selection.csv'
+        try:
+            data = self.parent.ioModal.read_csv_file(path)
+            tmp = data.drop(index=index)
+            tmp = tmp.reset_index(drop=True)      # 重建索引
+            self.parent.ioModal.write_datas_to_csv_file(df_tmp=tmp, path=path)
+            self.parent.add_paramer_to_container_by_hand()
+        except:
+            pass

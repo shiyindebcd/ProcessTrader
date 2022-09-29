@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-THEME = "dark"      # 皮肤选择 这里的THEME改为 dark 为深色模式,改为  light 为浅色模式
+THEME = "light"      # 皮肤选择 这里的THEME改为 dark 为深色模式,改为  light 为浅色模式
 
 from MainWindows_Inheritance import *
 
