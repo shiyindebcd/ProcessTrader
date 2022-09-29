@@ -18,6 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout,
     QWidget)
+import resource_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -54,11 +55,11 @@ class Ui_Form(object):
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer)
 
-        self.Btn_close_window = QPushButton(self.frame_2)
-        self.Btn_close_window.setObjectName(u"Btn_close_window")
-        self.Btn_close_window.setMinimumSize(QSize(35, 35))
-        self.Btn_close_window.setMaximumSize(QSize(35, 35))
-        self.Btn_close_window.setStyleSheet(u"QPushButton {\n"
+        self.Btn_close_window_2 = QPushButton(self.frame_2)
+        self.Btn_close_window_2.setObjectName(u"Btn_close_window_2")
+        self.Btn_close_window_2.setMinimumSize(QSize(35, 35))
+        self.Btn_close_window_2.setMaximumSize(QSize(35, 35))
+        self.Btn_close_window_2.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(65, 51, 156);\n"
 "	border-radius: 10px;\n"
 "	background-color: rgb(20, 9, 70);\n"
@@ -74,11 +75,11 @@ class Ui_Form(object):
 "	background-color: rgb(21, 21, 21)\n"
 "}")
         icon = QIcon()
-        icon.addFile(u"D:/OneDrive/\u5929\u52e4\u7a0b\u5e8f\u5316\u4ea4\u6613\u6846\u67b6/icons/close.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.Btn_close_window.setIcon(icon)
-        self.Btn_close_window.setIconSize(QSize(35, 35))
+        icon.addFile(u":/icon/icons/\u5173\u95ed.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.Btn_close_window_2.setIcon(icon)
+        self.Btn_close_window_2.setIconSize(QSize(35, 35))
 
-        self.horizontalLayout_4.addWidget(self.Btn_close_window, 0, Qt.AlignHCenter)
+        self.horizontalLayout_4.addWidget(self.Btn_close_window_2)
 
 
         self.verticalLayout_2.addWidget(self.frame_2)
@@ -272,14 +273,14 @@ class Ui_Form(object):
 
 
         self.retranslateUi(Form)
-        self.Btn_close_window.clicked.connect(Form.close)
+        self.Btn_close_window_2.clicked.connect(Form.close)
 
         QMetaObject.connectSlotsByName(Form)
     # setupUi
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.Btn_close_window.setText("")
+        self.Btn_close_window_2.setText("")
         self.label_2.setText(QCoreApplication.translate("Form", u"\u672c\u5f00\u6e90\u6846\u67b6\u53ef\u968f\u610f\u4f7f\u7528", None))
         self.label_3.setText(QCoreApplication.translate("Form", u"\u4e8c\u6b21\u5f00\u53d1\u8bf7\u6ce8\u660e\u51fa\u5904", None))
         self.label_4.setText(QCoreApplication.translate("Form", u"\u521b\u4f5c\u4e0d\u6613\uff0c\u5982\u679c\u672c\u8f6f\u4ef6\u8ba9\u4f60\u8d5a\u94b1\u4e86\uff0c\u6216\u89c9\u5f97\u597d\u7528\uff0c\u6b22\u8fce\u6350\u52a9\u539f\u4f5c\u8005", None))

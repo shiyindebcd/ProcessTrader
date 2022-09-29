@@ -132,11 +132,11 @@ border: none;</string>
          <item>
           <widget class="QLabel" name="label">
            <property name="styleSheet">
-            <string notr="true">font: 16pt &quot;等线&quot;;
+            <string notr="true">font: 700 16pt &quot;等线&quot;;
 color: rgb(255, 0, 127);</string>
            </property>
            <property name="text">
-            <string>当前进程为：      </string>
+            <string>当前修改的策略实例为：</string>
            </property>
           </widget>
          </item>

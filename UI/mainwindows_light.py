@@ -3809,11 +3809,14 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QTabBar::tab{\n"
-"		margin:1px;\n"
-"		border-top-left-radius: 30px;\n"
-"         border-top-right-radius: 30px;         \n"
+"		margin-left: 5px;\n"
+"		margin-right: 5px;\n"
+"		margin-top: 0px;\n"
+"		margin-bottom: 0px;\n"
+"		border-top-left-radius: 25px;\n"
+"         border-top-right-radius: 25px;         \n"
 " 		width:200px; \n"
-"		height:30px;\n"
+"		height:25px;\n"
 "         font: 700 14pt \"\u7b49\u7ebf\";\n"
 "		color: rgb(0, 0, 0);\n"
 "         padding: 0px;	\n"
@@ -3827,16 +3830,19 @@ class Ui_MainWindow(object):
 "		border-right: 2px solid rgb(255, 85, 0);		\n"
 "}\n"
 "QTabBar::tab:selected {\n"
-"		height: 31px;\n"
-"		width: 250px;\n"
-"         margin-left: 5; margin-right: 5;\n"
+"		height: 26px;\n"
+"		width: 250px;		\n"
+"	 	background-color:rgb(200, 255, 200);\n"
+"         margin-left: 10px;\n"
+"		margin-right: 10px;\n"
 "		font: 700 16pt \"\u7b49\u7ebf\";\n"
-"         color: rgb(255, 0, 0);\n"
+"         color: rgb(255, 0, "
+                        "0);\n"
 "		border-left: 2px solid rgb(255, 85, 0) ;\n"
 "		border-top: 2px solid rgb(255, 85, 0) ;\n"
-"		border-right: 2px solid rgb(255, 85"
-                        ", 0);\n"
+"		border-right: 2px solid rgb(255, 85, 0);\n"
 " }\n"
+"\n"
 "")
         self.tabWidget_account.setTabPosition(QTabWidget.North)
         self.tabWidget_account.setTabShape(QTabWidget.Rounded)
@@ -6608,11 +6614,14 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QTabBar::tab{\n"
-"		margin:1px;\n"
-"		border-bottom-left-radius: 30px;\n"
-"         border-bottom-right-radius: 30px;         \n"
+"		margin-left: 5px;\n"
+"		margin-right: 5px;\n"
+"		margin-top: 0px;\n"
+"		margin-bottom: 0px;\n"
+"		border-bottom-left-radius: 25px;\n"
+"         border-bottom-right-radius: 25px;         \n"
 " 		width:150px; \n"
-"		height:30px;\n"
+"		height:25px;\n"
 "         font: 700 14pt \"\u7b49\u7ebf\";\n"
 "		color: rgb(0, 0, 0);\n"
 "         padding: 0px;	\n"
@@ -6626,16 +6635,19 @@ class Ui_MainWindow(object):
 "		border-right: 2px solid rgb(255, 85, 0);		\n"
 "}\n"
 "QTabBar::tab:selected {\n"
-"		height: 30px;\n"
+"		height: 26px;\n"
 "		width: 200px;\n"
-"         margin-left: 5; margin-right: 5;\n"
-"		font: 700 16pt \"\u7b49\u7ebf\";\n"
+"         margin-left: 10px;\n"
+"		background-color: rgb(139, 255, 131);\n"
+"		margin-right: 10px;\n"
+"		font: 700 16pt "
+                        "\"\u7b49\u7ebf\";\n"
 "         color: rgb(255, 0, 0);\n"
 "		border-left: 2px solid rgb(255, 85, 0) ;\n"
-"		border-bottom: 2px solid rgb("
-                        "255, 85, 0) ;\n"
+"		border-bottom: 2px solid rgb(255, 85, 0) ;\n"
 "		border-right: 2px solid rgb(255, 85, 0);\n"
 " }\n"
+"\n"
 "")
         self.tabWidget_chart.setTabPosition(QTabWidget.South)
         self.tabWidget_chart.setTabShape(QTabWidget.Rounded)
@@ -7068,7 +7080,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.setCurrentIndex(4)
         self.Veiw_Box.layout().setSpacing(6)
         self.tabWidget_account.setCurrentIndex(2)
-        self.tabWidget_chart.setCurrentIndex(0)
+        self.tabWidget_chart.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

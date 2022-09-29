@@ -8,17 +8,23 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QMetaObject, QSize, Qt)
-from PySide6.QtGui import (QIcon, QPixmap)
-from PySide6.QtWidgets import (QFrame, QHBoxLayout, QLabel,
-                               QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout)
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
+    QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout,
+    QWidget)
+import resource_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(700, 850)
+        Form.resize(702, 852)
         self.verticalLayout = QVBoxLayout(Form)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -68,7 +74,7 @@ class Ui_Form(object):
 "	background-color: rgb(121, 121, 121)\n"
 "}")
         icon = QIcon()
-        icon.addFile(u":/\u56fe\u6807/icons/\u5173\u95ed (1).svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/icon/icons/\u5173\u95ed (1).svg", QSize(), QIcon.Normal, QIcon.Off)
         self.Btn_close_window_2.setIcon(icon)
         self.Btn_close_window_2.setIconSize(QSize(35, 35))
 

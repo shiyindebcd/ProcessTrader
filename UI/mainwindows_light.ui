@@ -6653,11 +6653,14 @@ QTabWidget::tab-bar {
 }
 
 QTabBar::tab{
-		margin:1px;
-		border-top-left-radius: 30px;
-         border-top-right-radius: 30px;         
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		border-top-left-radius: 25px;
+         border-top-right-radius: 25px;         
  		width:200px; 
-		height:30px;
+		height:25px;
          font: 700 14pt &quot;等线&quot;;
 		color: rgb(0, 0, 0);
          padding: 0px;	
@@ -6671,15 +6674,18 @@ QTabBar::tab:hover{
 		border-right: 2px solid rgb(255, 85, 0);		
 }
 QTabBar::tab:selected {
-		height: 31px;
-		width: 250px;
-         margin-left: 5; margin-right: 5;
+		height: 26px;
+		width: 250px;		
+	 	background-color:rgb(200, 255, 200);
+         margin-left: 10px;
+		margin-right: 10px;
 		font: 700 16pt &quot;等线&quot;;
          color: rgb(255, 0, 0);
 		border-left: 2px solid rgb(255, 85, 0) ;
 		border-top: 2px solid rgb(255, 85, 0) ;
 		border-right: 2px solid rgb(255, 85, 0);
  }
+
 </string>
                    </property>
                    <property name="tabPosition">
@@ -11488,11 +11494,14 @@ QTabWidget::tab-bar {
 }
 
 QTabBar::tab{
-		margin:1px;
-		border-bottom-left-radius: 30px;
-         border-bottom-right-radius: 30px;         
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		border-bottom-left-radius: 25px;
+         border-bottom-right-radius: 25px;         
  		width:150px; 
-		height:30px;
+		height:25px;
          font: 700 14pt &quot;等线&quot;;
 		color: rgb(0, 0, 0);
          padding: 0px;	
@@ -11506,15 +11515,18 @@ QTabBar::tab:hover{
 		border-right: 2px solid rgb(255, 85, 0);		
 }
 QTabBar::tab:selected {
-		height: 30px;
+		height: 26px;
 		width: 200px;
-         margin-left: 5; margin-right: 5;
+         margin-left: 10px;
+		background-color: rgb(139, 255, 131);
+		margin-right: 10px;
 		font: 700 16pt &quot;等线&quot;;
          color: rgb(255, 0, 0);
 		border-left: 2px solid rgb(255, 85, 0) ;
 		border-bottom: 2px solid rgb(255, 85, 0) ;
 		border-right: 2px solid rgb(255, 85, 0);
  }
+
 </string>
                       </property>
                       <property name="tabPosition">
@@ -11524,7 +11536,7 @@ QTabBar::tab:selected {
                        <enum>QTabWidget::Rounded</enum>
                       </property>
                       <property name="currentIndex">
-                       <number>0</number>
+                       <number>3</number>
                       </property>
                       <widget class="QWidget" name="tab">
                        <attribute name="title">

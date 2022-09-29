@@ -136,79 +136,86 @@ class NewProcessWindow(QWidget, UI):   # 添加新的策略进程窗口类
 
 
     def get_process_parameters(self):   # 获取创建一个策略进程所需参数
+        if self.comboBox_select_clients_name.currentText():
+            if self.comboBox_select_tq_account.currentText():
+                if self.comboBox_select_strategy.currentText():
+                    df = self.ioModal.read_csv_file(path='./data/tq_account.csv')
+                    my_dict = {}
+                    exchange = self.comboBox_exchange.currentText().split()[-1]  # 获取列表框选择的字符串分割后的最后一部分
+                    symbol = exchange + '.' + self.symbol.text()
+                    # 进程名（或策略实例名）= 客户名 + 天勤帐户 + 交易所.合约 + 合约周期,  该名称将作为策略实例的名称，不能重复
+                    process_name = (
+                                    self.comboBox_select_clients_name.currentText() + '-'
+                                    + self.comboBox_select_tq_account.currentText() + '-'
+                                    + self.comboBox_select_strategy.currentText() + '-'
+                                    + symbol + '-' + self.symbol_period.text() + 'min'
+                                    )
 
-        df = self.ioModal.read_csv_file(path='./data/tq_account.csv')
-        my_dict = {}
-        exchange = self.comboBox_exchange.currentText().split()[-1]  # 获取列表框选择的字符串分割后的最后一部分
-        symbol = exchange + '.' + self.symbol.text()
-        # 进程名（或策略实例名）= 客户名 + 天勤帐户 + 交易所.合约 + 合约周期,  该名称将作为策略实例的名称，不能重复
-        process_name = (
-                        self.comboBox_select_clients_name.currentText() + '-'
-                        + self.comboBox_select_tq_account.currentText() + '-'
-                        + self.comboBox_select_strategy.currentText() + '-'
-                        + symbol + '-' + self.symbol_period.text() + 'min'
-                        )
+                    my_dict['process_name'] = process_name  # 进程名称或策略实例名称
+                    my_dict['client_name'] = self.comboBox_select_clients_name.currentText()  # 客户名称
+                    my_dict['tq_account'] = self.comboBox_select_tq_account.currentText()  # 天勤账号
 
-        my_dict['process_name'] = process_name  # 进程名称或策略实例名称
-        my_dict['client_name'] = self.comboBox_select_clients_name.currentText()  # 客户名称
-        my_dict['tq_account'] = self.comboBox_select_tq_account.currentText()  # 天勤账号
+                    current_tq_account = self.comboBox_select_tq_account.currentText()
+                    index = df.index[df['tq_account'] == current_tq_account]  # 获取当前所选项目对应的pd行index
+                    for idx, row in df.iterrows():
+                        if idx == index:
+                            my_dict['tq_psd'] = str(row['tq_psd'])  # 天勤密码
+                            my_dict['futures_company'] = row['futures_company']  # 期货公司
+                            my_dict['futures_account'] = row['futures_account']  # 期货账号
+                            my_dict['futures_psd'] = row['futures_psd']  # 期货密码
+                            break
+                    my_dict['symbol'] = symbol  # 合约代码
+                    my_dict['symbol_period'] = self.symbol_period.text()  # 合约周期
+                    my_dict['strategy'] = self.comboBox_select_strategy.currentText()  # 策略名称
+                    my_dict['whether_self_start'] = self.checkBox_whether_self_start.isChecked()  # 是否自启动
+                    my_dict['whether_live_trading'] = self.checkBox_whether_live_futures_trading.isChecked()  # 是否实盘交易
+                    my_dict['whether_backtest'] = False  # 是否回测
+                    my_dict['whether_open_web_services'] = self.checkBox_whether_open_web_services.isChecked()
+                    my_dict['web_port'] = self.web_port.text()  # 网页端口
 
-        current_tq_account = self.comboBox_select_tq_account.currentText()
-        index = df.index[df['tq_account'] == current_tq_account]  # 获取当前所选项目对应的pd行index
-        for idx, row in df.iterrows():
-            if idx == index:
-                my_dict['tq_psd'] = str(row['tq_psd'])  # 天勤密码
-                my_dict['futures_company'] = row['futures_company']  # 期货公司
-                my_dict['futures_account'] = row['futures_account']  # 期货账号
-                my_dict['futures_psd'] = row['futures_psd']  # 期货密码
-                break
-        my_dict['symbol'] = symbol  # 合约代码
-        my_dict['symbol_period'] = self.symbol_period.text()  # 合约周期
-        my_dict['strategy'] = self.comboBox_select_strategy.currentText()  # 策略名称
-        my_dict['whether_self_start'] = self.checkBox_whether_self_start.isChecked()  # 是否自启动
-        my_dict['whether_live_trading'] = self.checkBox_whether_live_futures_trading.isChecked()  # 是否实盘交易
-        my_dict['whether_backtest'] = False  # 是否回测
-        my_dict['whether_open_web_services'] = self.checkBox_whether_open_web_services.isChecked()    
-        my_dict['web_port'] = self.web_port.text()  # 网页端口
+                    my_dict['stop_trading'] = True  # 停止交易标志位，True为正常交易，Flase为停止交易
+                    my_dict['orientation'] = self.orientation.text()  # 交易方向,用于半自动化策略,0为无方向,1或正整数为做多,-1或负整数为做空
+                    my_dict['initial_capital'] = self.initial_capital.text()  # 初始资金
+                    my_dict['final_capital'] = self.initial_capital.text()  # 最终资金
+                    my_dict['contract_multiples'] = self.contract_multiples.text()  # 合约倍数
+                    my_dict['margin_rate'] = self.margin_rate.text()  # 保证金率
+                    my_dict['stop_loss'] = self.stop_loss.text()  # 止损位
+                    my_dict['stop_profit'] = self.stop_profit.text()  # 止盈位
 
-        my_dict['stop_trading'] = True  # 停止交易标志位，True为正常交易，Flase为停止交易
-        my_dict['orientation'] = self.orientation.text()  # 交易方向,用于半自动化策略,0为无方向,1或正整数为做多,-1或负整数为做空
-        my_dict['initial_capital'] = self.initial_capital.text()  # 初始资金
-        my_dict['final_capital'] = self.initial_capital.text()  # 最终资金
-        my_dict['contract_multiples'] = self.contract_multiples.text()  # 合约倍数
-        my_dict['margin_rate'] = self.margin_rate.text()  # 保证金率
-        my_dict['stop_loss'] = self.stop_loss.text()  # 止损位
-        my_dict['stop_profit'] = self.stop_profit.text()  # 止盈位
-        
-        my_dict['long_add_times'] = 0                               # 做多累积次数
-        my_dict['long_current_position'] = 0                        # 当前多单持仓
-        my_dict['first_long_price'] = 0                             # 第一次做多价格
-        my_dict['first_long_deal'] = 0                              # 第一次做多成交量
-        my_dict['short_add_times'] = 0                              # 做空累积次数
-        my_dict['short_current_position'] = 0                       # 当前空单持仓
-        my_dict['first_short_price'] = 0                            # 第一次做空价格
-        my_dict['first_short_deal'] = 0                             # 第一次做空成交量
-        my_dict['whether_open_line'] = False                      # 是否定义了开仓直线
-        my_dict['open_line_Coordinates'] = '0,0'                  # 开仓线坐标
-        my_dict['whether_close_line'] = False                     # 是否定义了平仓直线
-        my_dict['close_line_Coordinates'] = '0,0'                 # 平仓线坐标
-        
-        my_dict['Customized_parameters_1'] = self.Customized_parameters1.text()         # 自定义参数1
-        my_dict['Customized_parameters_2'] = self.Customized_parameters2.text()         # 自定义参数2
-        my_dict['Customized_parameters_3'] = self.Customized_parameters3.text()         # 自定义参数3
-        my_dict['Customized_parameters_4'] = self.Customized_parameters4.text()         # 自定义参数4
-        my_dict['Customized_parameters_5'] = self.Customized_parameters5.text()         # 自定义参数5
-        my_dict['Customized_parameters_6'] = self.Customized_parameters6.text()         # 自定义参数6
-        my_dict['Customized_parameters_7'] = self.Customized_parameters7.text()         # 自定义参数7
-        my_dict['Customized_parameters_8'] = self.Customized_parameters8.text()         # 自定义参数8
+                    my_dict['long_add_times'] = 0                               # 做多累积次数
+                    my_dict['long_current_position'] = 0                        # 当前多单持仓
+                    my_dict['first_long_price'] = 0                             # 第一次做多价格
+                    my_dict['first_long_deal'] = 0                              # 第一次做多成交量
+                    my_dict['short_add_times'] = 0                              # 做空累积次数
+                    my_dict['short_current_position'] = 0                       # 当前空单持仓
+                    my_dict['first_short_price'] = 0                            # 第一次做空价格
+                    my_dict['first_short_deal'] = 0                             # 第一次做空成交量
+                    my_dict['whether_open_line'] = False                      # 是否定义了开仓直线
+                    my_dict['open_line_Coordinates'] = '0,0'                  # 开仓线坐标
+                    my_dict['whether_close_line'] = False                     # 是否定义了平仓直线
+                    my_dict['close_line_Coordinates'] = '0,0'                 # 平仓线坐标
 
-        print('已新添加策略，策略参数为： \n' + str(my_dict))
+                    my_dict['Customized_parameters_1'] = self.Customized_parameters1.text()         # 自定义参数1
+                    my_dict['Customized_parameters_2'] = self.Customized_parameters2.text()         # 自定义参数2
+                    my_dict['Customized_parameters_3'] = self.Customized_parameters3.text()         # 自定义参数3
+                    my_dict['Customized_parameters_4'] = self.Customized_parameters4.text()         # 自定义参数4
+                    my_dict['Customized_parameters_5'] = self.Customized_parameters5.text()         # 自定义参数5
+                    my_dict['Customized_parameters_6'] = self.Customized_parameters6.text()         # 自定义参数6
+                    my_dict['Customized_parameters_7'] = self.Customized_parameters7.text()         # 自定义参数7
+                    my_dict['Customized_parameters_8'] = self.Customized_parameters8.text()         # 自定义参数8
 
-        df = pd.DataFrame(my_dict, index=[0])
+                    print('已新添加策略，策略参数为： \n' + str(my_dict))
+                    df = pd.DataFrame(my_dict, index=[0])
+                    self.ioModal.add_dict_to_csv(df, path='./data/config.csv')
+                    self.label_info.setText('已新添加新策略：  ' + str(my_dict['process_name']))
+                    self.parent.load_process_config()
+                else:
+                    self.label_info.setText('没有可有用策略')
+            else:
+                self.label_info.setText('请先添加至少一个可用的天勤帐户')
+        else:
+            self.label_info.setText('请先添加至少一个用户')
 
-        self.ioModal.add_dict_to_csv(df, path='./data/config.csv')
-        self.label_info.setText('已新添加新策略：  ' + str(my_dict['process_name']))
-        self.parent.load_process_config()
 
     def process_parameters_input_clear(self):  # 清空进程参数输入框
         self.add_paramer_to_combobox()

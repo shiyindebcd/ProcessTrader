@@ -587,7 +587,7 @@ class Ui_MainWindow(object):
 "")
         self.clients_list_page = QWidget()
         self.clients_list_page.setObjectName(u"clients_list_page")
-        self.clients_list_page.setGeometry(QRect(0, 0, 100, 66))
+        self.clients_list_page.setGeometry(QRect(0, 0, 87, 66))
         self.verticalLayout_13 = QVBoxLayout(self.clients_list_page)
         self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
@@ -744,7 +744,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.clients_list_page, u"\u7528\u6237\u5217\u8868")
         self.tq_account_list_page = QWidget()
         self.tq_account_list_page.setObjectName(u"tq_account_list_page")
-        self.tq_account_list_page.setGeometry(QRect(0, 0, 100, 66))
+        self.tq_account_list_page.setGeometry(QRect(0, 0, 87, 66))
         self.verticalLayout_37 = QVBoxLayout(self.tq_account_list_page)
         self.verticalLayout_37.setSpacing(0)
         self.verticalLayout_37.setObjectName(u"verticalLayout_37")
@@ -889,7 +889,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.tq_account_list_page, u"\u5929\u52e4\u5e10\u6237\u5217\u8868")
         self.strategy_list_page = QWidget()
         self.strategy_list_page.setObjectName(u"strategy_list_page")
-        self.strategy_list_page.setGeometry(QRect(0, 0, 100, 66))
+        self.strategy_list_page.setGeometry(QRect(0, 0, 87, 66))
         self.verticalLayout_16 = QVBoxLayout(self.strategy_list_page)
         self.verticalLayout_16.setSpacing(0)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
@@ -1038,7 +1038,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.strategy_list_page, u"\u6211\u7684\u53ef\u7528\u7b56\u7565\u5217\u8868")
         self.qoute_list_page = QWidget()
         self.qoute_list_page.setObjectName(u"qoute_list_page")
-        self.qoute_list_page.setGeometry(QRect(0, 0, 100, 66))
+        self.qoute_list_page.setGeometry(QRect(0, 0, 87, 66))
         self.verticalLayout_15 = QVBoxLayout(self.qoute_list_page)
         self.verticalLayout_15.setSpacing(0)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
@@ -3852,11 +3852,14 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QTabBar::tab{\n"
-"		margin:1px;\n"
-"		border-top-left-radius: 30px;\n"
-"         border-top-right-radius: 30px;         \n"
+"		margin-left: 5px;\n"
+"		margin-right: 5px;\n"
+"		margin-top: 0px;\n"
+"		margin-bottom: 0px;\n"
+"		border-top-left-radius: 25px;\n"
+"         border-top-right-radius: 25px;         \n"
 " 		width:200px; \n"
-"		height:30px;\n"
+"		height:25px;\n"
 "         font: 700 14pt \"\u7b49\u7ebf\";\n"
 "		color: rgb(255, 255, 255);\n"
 "         padding: 0px;	\n"
@@ -3871,14 +3874,15 @@ class Ui_MainWindow(object):
 "		border-right: 2px solid rgb(255, 85, 0);		\n"
 "}\n"
 "QTabBar::tab:selected {\n"
-"		height: 32px;\n"
+"		height: 26px;\n"
 "		width: 250px;		\n"
 "	 	background-color: rgb(0, 100, 0);\n"
-"         margin-left: 5; margin-right: 5;\n"
+"         margin-left: 10px;\n"
+"		margin-right: 10"
+                        "px;\n"
 "		font: 700 16pt \"\u7b49\u7ebf\";\n"
 "         color: rgb(255, 0, 0);\n"
-"		border-"
-                        "left: 2px solid rgb(255, 85, 0) ;\n"
+"		border-left: 2px solid rgb(255, 85, 0) ;\n"
 "		border-top: 2px solid rgb(255, 85, 0) ;\n"
 "		border-right: 2px solid rgb(255, 85, 0);\n"
 " }\n"
@@ -6718,10 +6722,14 @@ class Ui_MainWindow(object):
 "\n"
 "QTabBar::tab{\n"
 "		margin:3px;\n"
-"		border-bottom-left-radius: 30px;\n"
-"         border-bottom-right-radius: 30px;         \n"
+"		margin-left: 5px;\n"
+"		margin-right: 5px;\n"
+"		margin-top: 0px;\n"
+"		margin-bottom: 0px;\n"
+"		border-bottom-left-radius: 25px;\n"
+"         border-bottom-right-radius: 25px;         \n"
 " 		width:150px; \n"
-"		height:30px;\n"
+"		height:25px;\n"
 "         font: 700 14pt \"\u7b49\u7ebf\";\n"
 "		color: rgb(255, 255, 255);\n"
 "         padding: 0px;	\n"
@@ -6735,16 +6743,19 @@ class Ui_MainWindow(object):
 "		border-right: 2px solid rgb(255, 85, 0);		\n"
 "}\n"
 "QTabBar::tab:selected {\n"
-"		height: 30px;\n"
+"		height: 26px;\n"
 "		width: 200px;\n"
-"         margin-left: 5; margin-right: 5;\n"
+"         margin-left: 10px; \n"
+"		margin-right: 10px;\n"
 "		font: 700 16pt \"\u7b49\u7ebf\";\n"
 "         color: rgb(255, 0, 0);\n"
-"		border-left: 2px solid rgb(255, 85, 0) ;\n"
+"		border"
+                        "-left: 2px solid rgb(255, 85, 0) ;\n"
 "		border-bottom: 2px solid rgb(255, 85, 0) ;\n"
-"		border-right: 2px sol"
-                        "id rgb(255, 85, 0);\n"
+"		border-right: 2px solid rgb(255, 85, 0);\n"
 " }\n"
+"\n"
+"\n"
 "")
         self.tabWidget_chart.setTabPosition(QTabWidget.South)
         self.tabWidget_chart.setTabShape(QTabWidget.Rounded)
@@ -7164,11 +7175,11 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.Btn_min_window.clicked.connect(MainWindow.showMinimized)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
         self.Veiw_Box.setCurrentIndex(4)
         self.Veiw_Box.layout().setSpacing(6)
-        self.tabWidget_account.setCurrentIndex(2)
-        self.tabWidget_chart.setCurrentIndex(0)
+        self.tabWidget_account.setCurrentIndex(1)
+        self.tabWidget_chart.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

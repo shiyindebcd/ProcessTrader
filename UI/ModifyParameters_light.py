@@ -72,7 +72,7 @@ class Ui_Form(object):
 
         self.label = QLabel(self.frame_2)
         self.label.setObjectName(u"label")
-        self.label.setStyleSheet(u"font: 16pt \"\u7b49\u7ebf\";\n"
+        self.label.setStyleSheet(u"font: 700 16pt \"\u7b49\u7ebf\";\n"
 "color: rgb(255, 0, 127);")
 
         self.horizontalLayout_2.addWidget(self.label)
@@ -1860,7 +1860,7 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.label_tital_6.setText(QCoreApplication.translate("Form", u"\u4fee\u6539\u7b56\u7565\u8fdb\u7a0b\u53c2\u6570", None))
-        self.label.setText(QCoreApplication.translate("Form", u"\u5f53\u524d\u8fdb\u7a0b\u4e3a\uff1a      ", None))
+        self.label.setText(QCoreApplication.translate("Form", u"\u5f53\u524d\u4fee\u6539\u7684\u7b56\u7565\u5b9e\u4f8b\u4e3a\uff1a      ", None))
         self.label_info.setText("")
         self.Btn_min_window.setText("")
         self.Btn_close_window.setText("")

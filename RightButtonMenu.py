@@ -188,7 +188,7 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
                     self.parent.label_process_right_btn_info.setText('重启此策略,点击的单元格坐标为:   ' + str(rowIndex) + ',' + str(columnIndex) + '    该单元格没有内容')
             elif action == menu4:
                 if self.parent.tableWidget_process.item(rowIndex, columnIndex):
-                    ModifyParameters_window = ModifyParameters(columnIndex)
+                    ModifyParameters_window = ModifyParameters(self.parent, columnIndex)
                     ModifyParameters_window.show()
                     # ModifyParameters_window.Btn_submit_changes.clicked.connect(self.modify_config_parameters)
                     ModifyParameters_window.exec()

@@ -1014,7 +1014,7 @@ QPushButton:pressed {
                 <string notr="true"/>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>2</number>
                </property>
                <widget class="QWidget" name="MainPage">
                 <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -1163,7 +1163,7 @@ color:black;
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>100</width>
+                            <width>87</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1355,7 +1355,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>100</width>
+                            <width>87</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1528,7 +1528,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>100</width>
+                            <width>87</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1718,7 +1718,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>100</width>
+                            <width>87</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -6667,11 +6667,14 @@ QTabWidget::tab-bar {
 }
 
 QTabBar::tab{
-		margin:1px;
-		border-top-left-radius: 30px;
-         border-top-right-radius: 30px;         
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		border-top-left-radius: 25px;
+         border-top-right-radius: 25px;         
  		width:200px; 
-		height:30px;
+		height:25px;
          font: 700 14pt &quot;等线&quot;;
 		color: rgb(255, 255, 255);
          padding: 0px;	
@@ -6686,10 +6689,11 @@ QTabBar::tab:hover{
 		border-right: 2px solid rgb(255, 85, 0);		
 }
 QTabBar::tab:selected {
-		height: 32px;
+		height: 26px;
 		width: 250px;		
 	 	background-color: rgb(0, 100, 0);
-         margin-left: 5; margin-right: 5;
+         margin-left: 10px;
+		margin-right: 10px;
 		font: 700 16pt &quot;等线&quot;;
          color: rgb(255, 0, 0);
 		border-left: 2px solid rgb(255, 85, 0) ;
@@ -6705,7 +6709,7 @@ QTabBar::tab:selected {
                     <enum>QTabWidget::Rounded</enum>
                    </property>
                    <property name="currentIndex">
-                    <number>2</number>
+                    <number>1</number>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -11603,10 +11607,14 @@ QTabWidget::tab-bar {
 
 QTabBar::tab{
 		margin:3px;
-		border-bottom-left-radius: 30px;
-         border-bottom-right-radius: 30px;         
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		border-bottom-left-radius: 25px;
+         border-bottom-right-radius: 25px;         
  		width:150px; 
-		height:30px;
+		height:25px;
          font: 700 14pt &quot;等线&quot;;
 		color: rgb(255, 255, 255);
          padding: 0px;	
@@ -11620,15 +11628,18 @@ QTabBar::tab:hover{
 		border-right: 2px solid rgb(255, 85, 0);		
 }
 QTabBar::tab:selected {
-		height: 30px;
+		height: 26px;
 		width: 200px;
-         margin-left: 5; margin-right: 5;
+         margin-left: 10px; 
+		margin-right: 10px;
 		font: 700 16pt &quot;等线&quot;;
          color: rgb(255, 0, 0);
 		border-left: 2px solid rgb(255, 85, 0) ;
 		border-bottom: 2px solid rgb(255, 85, 0) ;
 		border-right: 2px solid rgb(255, 85, 0);
  }
+
+
 </string>
                       </property>
                       <property name="tabPosition">
@@ -11638,7 +11649,7 @@ QTabBar::tab:selected {
                        <enum>QTabWidget::Rounded</enum>
                       </property>
                       <property name="currentIndex">
-                       <number>0</number>
+                       <number>3</number>
                       </property>
                       <widget class="QWidget" name="tab">
                        <attribute name="title">
