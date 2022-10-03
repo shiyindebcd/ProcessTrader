@@ -23,6 +23,7 @@ class demo(multiprocessing.Process):
         self.dict = {}
         # 传入的参数存入临时字典
         self.dict['process_name'] = args[1]['process_name']                         # 进程名
+        self.dict['whether_self_start'] = args[1]['whether_self_start']             # 是否自动启动
         self.dict['client_name'] = args[1]['client_name']                           # 客户名
         self.dict['tq_account'] = args[1]['tq_account']                             # 天勤账号
         self.dict['tq_psd'] = args[1]['tq_psd']                                     # 天勤密码
@@ -32,13 +33,12 @@ class demo(multiprocessing.Process):
         self.dict['symbol'] = args[1]['symbol']                                     # 合约代码
         self.dict['symbol_period'] = args[1]['symbol_period']                       # 合约周期
         self.dict['strategy'] = args[1]['strategy']                                 # 策略名
-        self.dict['whether_self_start'] = args[1]['whether_self_start']             # 是否自动启动
         self.dict['whether_live_trading'] = args[1]['whether_live_trading']         # 是否为实盘
         self.dict['whether_backtest'] = args[1]['whether_backtest']                 # 是不是回测进程
         self.dict['whether_open_web_services'] = args[1]['whether_open_web_services']         # 是否启动web服务
         self.dict['web_port'] = args[1]['web_port']                                 # web服务端口
 
-        self.dict['stop_trading'] = args[1]['stop_trading']                         # 停止交易位，此位为True时，进程将停止交易
+        self.dict['trading_status'] = args[1]['trading_status']  # 交易状态标志位，默认True为正常交易，Flase为停止交易,可在策略中通过开关此位来停止或开启交易
         self.dict['orientation'] = args[1]['orientation']                           # 交易方向
         self.dict['initial_capital'] = args[1]['initial_capital']                   # 初始资金
         self.dict['final_capital'] = args[1]['final_capital']                       # 最终资金
@@ -55,15 +55,20 @@ class demo(multiprocessing.Process):
         self.dict['short_current_position'] = args[1]['short_current_position']     # 空头当前持仓
         self.dict['first_short_price'] = args[1]['first_short_price']               # 空头第一次加仓价格
         self.dict['first_short_deal'] = args[1]['first_short_deal']                 # 空头第一次加仓数量
+
+        self.dict['whether_open_line'] = args[1]['whether_open_line']                # 是否定义了开仓直线
+        self.dict['open_line_Coordinates'] = args[1]['open_line_Coordinates']        # 开仓线坐标
+        self.dict['whether_close_line'] = args[1]['whether_close_line']              # 是否定义了平仓直线
+        self.dict['close_line_Coordinates'] = args[1]['close_line_Coordinates']      # 平仓线坐标
         
-        self.dict['Customized_parameters_1'] = args[1]['Customized_parameters_1']   # 自定义参数1
-        self.dict['Customized_parameters_2'] = args[1]['Customized_parameters_2']   # 自定义参数2
-        self.dict['Customized_parameters_3'] = args[1]['Customized_parameters_3']   # 自定义参数3
-        self.dict['Customized_parameters_4'] = args[1]['Customized_parameters_4']   # 自定义参数4
-        self.dict['Customized_parameters_5'] = args[1]['Customized_parameters_5']   # 自定义参数5
-        self.dict['Customized_parameters_6'] = args[1]['Customized_parameters_6']   # 自定义参数6
-        self.dict['Customized_parameters_7'] = args[1]['Customized_parameters_7']   # 自定义参数7
-        self.dict['Customized_parameters_8'] = args[1]['Customized_parameters_8']   # 自定义参数8
+        self.dict['CP1'] = args[1]['CP1']   # 自定义参数1    Customized_parameters 为了方便使用,缩写为CP
+        self.dict['CP2'] = args[1]['CP2']   # 自定义参数2
+        self.dict['CP3'] = args[1]['CP3']   # 自定义参数3
+        self.dict['CP4'] = args[1]['CP4']   # 自定义参数4
+        self.dict['CP5'] = args[1]['CP5']   # 自定义参数5
+        self.dict['CP6'] = args[1]['CP6']   # 自定义参数6
+        self.dict['CP7'] = args[1]['CP7']   # 自定义参数7
+        self.dict['CP8'] = args[1]['CP8']   # 自定义参数8
 
         if len(args) > 2:   # 判断传入的元组是否有第三第四项参数，回测时才有第三第四项，不回测的情况下只有第一第二项
             self.backtest_start_date = args[2]                      # 回测开始日期,传入的是一个 '2022-03-03' 格式的字符串
@@ -158,6 +163,8 @@ class demo(multiprocessing.Process):
                 self.api.wait_update()
 
                 # 这里写你代码中的循环部分
+                # 这里写你代码中的循环部分
+                # 这里写你代码中的循环部分
 
                 
 
@@ -167,55 +174,60 @@ class demo(multiprocessing.Process):
 
 
 
+my_dict = {
+
+        'process_name': '回测-{2022.08.01-20时01分}-pingTest-DCE.i2209-15min',   # 进程的名称，主要用于区分进程，还有日志文件的命名
+        'whether_self_start': 'True',   # 是否自启动，此项只有为ture时，才会自启动，在config文件中将对应行的此项改为False，该进程就不会自启动
+        # 回测进程的命名规则：回测-{日期}-策略名-合约-周期，调试时可以自己任意设置，回测log就保存在这个文件夹下
+        'client_name': '小白兔',                                                 # 客户名称
+        'tq_account': '信易帐户',                                                # 天勤账号
+        'tq_psd': '信易密码',                                                    # 天勤密码
+        'futures_company': 'Z中信建投',                                          # 期货公司
+        'futures_account': '888888888',                                         # 实盘期货资金账号
+        'futures_psd': '123456789',                                             # 实盘期货资金密码
+        'symbol': 'DCE.i2209',                                                  # 合约代码
+        'symbol_period': '15',                                                  # 合约周期
+        'strategy': 'pingTest',                                                 # 策略名称
+        'whether_live_trading': 'Flase',                                        # 是否是实盘交易
+        'whether_backtest': 'True',                                             # 是否是回测
+        'whether_open_web_services': 'True',                                    # 是否开启web服务
+        'web_port': '9999',                                                     # web服务端口
+
+        'trading_status' : True,  # 交易状态标志位，默认True为正常交易，Flase为停止交易,可在策略中通过开关此位来停止或开启交易
+        'orientation': '1',                                                     # 交易方向，1为多，-1为空
+        'initial_capital': '10000',                                             # 初始资金
+        'final_capital': '10000',                                               # 最终资金
+        'contract_multiples': '100',                                            # 合约乘数
+        'margin_rate': '12',                                                    # 保证金率
+        'stop_loss': '3',                                                       # 止损位
+        'stop_profit': '20',                                                    # 止盈位
+
+        'long_add_times': 0,                                                    # 多单加仓次数
+        'long_current_position': 0,                                             # 多单当前持仓
+        'first_long_price': 0,                                                  # 多单第一次成交价格
+        'first_long_deal': 0,                                                   # 多单第一次成交数量
+        'short_add_times': 0,                                                   # 空单加仓次数
+        'short_current_position': 0,                                            # 空单当前持仓
+        'first_short_price': 0,                                                 # 空单第一次成交价格
+        'first_short_deal': 0,                                                  # 空单第一次成交数量
+
+        'whether_open_line'     : False,                                        # 是否定义了开仓直线
+        'open_line_Coordinates' : '0,0',                                        # 开仓线坐标
+        'whether_close_line'    : False,                                        # 是否定义了平仓直线
+        'close_line_Coordinates': '0,0',                                        # 平仓线坐标
+
+        'CP1': '11',                                        # 自定义参数1    Customized_parameters 为了方便使用,缩写为CP
+        'CP2': '22',                                        # 自定义参数2
+        'CP3': '33',                                        # 自定义参数3
+        'CP4': '44',                                        # 自定义参数4
+        'CP5': '55',                                        # 自定义参数5
+        'CP6': '66',                                        # 自定义参数6
+        'CP7': '77',                                        # 自定义参数7
+        'CP8': '88'                                         # 自定义参数8
+
+}
 if __name__ == '__main__':
     index = 0
-    my_dict = {
-                
-                'process_name': '回测-{2022.08.01-20时01分}-pingTest-DCE.i2209-15min',   # 进程的名称，主要用于区分进程，还有日志文件的命名
-                # 回测进程的命名规则：回测-{日期}-策略名-合约-周期，调试时可以自己任意设置，回测log就保存在这个文件夹下
-                'client_name': '小白兔',                                                 # 客户名称
-                'tq_account': '信易帐户',                                                # 天勤账号
-                'tq_psd': '信易密码',                                                    # 天勤密码
-                'futures_company': 'Z中信建投',                                          # 期货公司
-                'futures_account': '888888888',                                         # 实盘期货资金账号
-                'futures_psd': '123456789',                                             # 实盘期货资金密码
-                'symbol': 'DCE.i2209',                                                  # 合约代码
-                'symbol_period': '15',                                                  # 合约周期
-                'strategy': 'pingTest',                                                 # 策略名称
-                'whether_self_start': 'True',   # 是否自启动，此项只有为ture时，才会自启动，在config文件中将对应行的此项改为False，该进程就不会自启动
-                'whether_live_trading': 'Flase',                                        # 是否是实盘交易
-                'whether_backtest': 'True',                                             # 是否是回测
-                'whether_open_web_services': 'True',                                    # 是否开启web服务
-                'web_port': '9999',                                           # web服务端口
-
-                'stop_trading': 0,                                                      # 停止交易标记位，此项为0时正常交易，为1时停止交易
-                'orientation': '1',                                                     # 交易方向，1为多，-1为空
-                'initial_capital': '10000',                                             # 初始资金
-                'final_capital': '10000',                                               # 最终资金
-                'contract_multiples': '100',                                            # 合约乘数
-                'margin_rate': '12',                                                    # 保证金率
-                'stop_loss': '3',                                                       # 止损位
-                'stop_profit': '20',                                                    # 止盈位
-
-                'long_add_times': 0,                                                    # 多单加仓次数
-                'long_current_position': 0,                                             # 多单当前持仓
-                'first_long_price': 0,                                                  # 多单第一次成交价格
-                'first_long_deal': 0,                                                   # 多单第一次成交数量
-                'short_add_times': 0,                                                   # 空单加仓次数
-                'short_current_position': 0,                                            # 空单当前持仓
-                'first_short_price': 0,                                                 # 空单第一次成交价格
-                'first_short_deal': 0,                                                  # 空单第一次成交数量
-
-                'Customized_parameters_1': '11',                                        # 自定义参数1
-                'Customized_parameters_2': '22',                                        # 自定义参数2
-                'Customized_parameters_3': '33',                                        # 自定义参数3
-                'Customized_parameters_4': '44',                                        # 自定义参数4
-                'Customized_parameters_5': '55',                                        # 自定义参数5
-                'Customized_parameters_6': '66',                                        # 自定义参数6
-                'Customized_parameters_7': '77',                                        # 自定义参数7
-                'Customized_parameters_8': '88'                                         # 自定义参数8
-                
-                }
 
     backtest_start_date = '2021-09-10'
     backtest_end_date = '2022-03-14'

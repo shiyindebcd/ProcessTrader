@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
     QLabel, QLineEdit, QPushButton, QSizePolicy,
-    QVBoxLayout, QWidget)
+    QSpacerItem, QVBoxLayout, QWidget)
 import resource_rc
 
 class Ui_Dialog(object):
@@ -58,7 +58,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_2 = QHBoxLayout(self.frame_2)
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(5, 0, 0, 0)
+        self.horizontalLayout_2.setContentsMargins(8, 0, 5, 5)
         self.label_2 = QLabel(self.frame_2)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMinimumSize(QSize(0, 50))
@@ -68,6 +68,38 @@ class Ui_Dialog(object):
 "border: none;")
 
         self.horizontalLayout_2.addWidget(self.label_2)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
+
+        self.Btn_clear_main_tq_account = QPushButton(self.frame_2)
+        self.Btn_clear_main_tq_account.setObjectName(u"Btn_clear_main_tq_account")
+        self.Btn_clear_main_tq_account.setMinimumSize(QSize(120, 35))
+        self.Btn_clear_main_tq_account.setMaximumSize(QSize(120, 35))
+        self.Btn_clear_main_tq_account.setStyleSheet(u"QPushButton{	\n"
+"	background-color: rgb(0, 255, 255);\n"
+"	font: 700 16pt \"\u7b49\u7ebf\";\n"
+"	border-radius: 15px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	border: 3px solid rgb(255, 200, 0);  \n"
+"}\n"
+"QPushButton:pressed{\n"
+"	color: green;\n"
+"	border-color: blueviolet;\n"
+"    background-color: rgb(85, 0, 255);\n"
+"}\n"
+"QPushButton:disabled{\n"
+"	color: rgb(31, 31, 31);\n"
+"    background-color: rgb(152, 152, 152);\n"
+"}")
+
+        self.horizontalLayout_2.addWidget(self.Btn_clear_main_tq_account)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer)
 
         self.Btn_close_window = QPushButton(self.frame_2)
         self.Btn_close_window.setObjectName(u"Btn_close_window")
@@ -393,6 +425,8 @@ class Ui_Dialog(object):
         self.horizontalLayout.addWidget(self.frame)
 
 #if QT_CONFIG(shortcut)
+        self.label_Main_tqaccount.setBuddy(self.main_tq_account)
+        self.label_main_tqpsd.setBuddy(self.main_tq_psd)
 #endif // QT_CONFIG(shortcut)
 
         self.retranslateUi(Dialog)
@@ -404,6 +438,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"\u8bf7\u8f93\u5165\u4e3b\u5929\u52e4\u8d26\u6237\u53ca\u5bc6\u7801", None))
+        self.Btn_clear_main_tq_account.setText(QCoreApplication.translate("Dialog", u"\u5220\u9664\u8d26\u6237", None))
         self.Btn_close_window.setText("")
         self.label_1.setText(QCoreApplication.translate("Dialog", u"\u8be5\u5929\u52e4\u8d26\u6237\u7528\u4e8e\u5728\u4e3b\u7a0b\u5e8f\u4e2d\u663e\u793ak\u7ebf\uff0c\u5efa\u8bae\u5355\u72ec\u8bbe\u7f6e\u4e00\u4e2a\u8d26\u6237\uff0c\n"
 "\u4e0d\u8981\u548c\u5b50\u8fdb\u7a0b\u7b56\u7565\u4e2d\u7684\u5929\u52e4\u8d26\u6237\u5171\u7528\uff0c\u4ee5\u514d\u5f15\u8d77\u4e00\u4e9b\u672a\u77e5\u7684\u95ee\u9898", None))

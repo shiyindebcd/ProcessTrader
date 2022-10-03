@@ -587,7 +587,7 @@ class Ui_MainWindow(object):
 "")
         self.clients_list_page = QWidget()
         self.clients_list_page.setObjectName(u"clients_list_page")
-        self.clients_list_page.setGeometry(QRect(0, 0, 87, 66))
+        self.clients_list_page.setGeometry(QRect(0, 0, 83, 66))
         self.verticalLayout_13 = QVBoxLayout(self.clients_list_page)
         self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
@@ -744,7 +744,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.clients_list_page, u"\u7528\u6237\u5217\u8868")
         self.tq_account_list_page = QWidget()
         self.tq_account_list_page.setObjectName(u"tq_account_list_page")
-        self.tq_account_list_page.setGeometry(QRect(0, 0, 87, 66))
+        self.tq_account_list_page.setGeometry(QRect(0, 0, 83, 66))
         self.verticalLayout_37 = QVBoxLayout(self.tq_account_list_page)
         self.verticalLayout_37.setSpacing(0)
         self.verticalLayout_37.setObjectName(u"verticalLayout_37")
@@ -889,7 +889,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.tq_account_list_page, u"\u5929\u52e4\u5e10\u6237\u5217\u8868")
         self.strategy_list_page = QWidget()
         self.strategy_list_page.setObjectName(u"strategy_list_page")
-        self.strategy_list_page.setGeometry(QRect(0, 0, 87, 66))
+        self.strategy_list_page.setGeometry(QRect(0, 0, 83, 66))
         self.verticalLayout_16 = QVBoxLayout(self.strategy_list_page)
         self.verticalLayout_16.setSpacing(0)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
@@ -1038,7 +1038,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.strategy_list_page, u"\u6211\u7684\u53ef\u7528\u7b56\u7565\u5217\u8868")
         self.qoute_list_page = QWidget()
         self.qoute_list_page.setObjectName(u"qoute_list_page")
-        self.qoute_list_page.setGeometry(QRect(0, 0, 87, 66))
+        self.qoute_list_page.setGeometry(QRect(0, 0, 83, 66))
         self.verticalLayout_15 = QVBoxLayout(self.qoute_list_page)
         self.verticalLayout_15.setSpacing(0)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
@@ -1191,7 +1191,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.qoute_list_page, u"\u7b56\u7565\u4e2d\u5f15\u7528\u7684\u884c\u60c5\u5217\u8868")
         self.process_list_page = QWidget()
         self.process_list_page.setObjectName(u"process_list_page")
-        self.process_list_page.setGeometry(QRect(0, 0, 238, 455))
+        self.process_list_page.setGeometry(QRect(0, 0, 83, 66))
         self.verticalLayout_14 = QVBoxLayout(self.process_list_page)
         self.verticalLayout_14.setSpacing(0)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
@@ -2726,11 +2726,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_20.addWidget(self.add_quote_symbol, 0, Qt.AlignVCenter)
 
-        self.Btn_add_optional_contracts = QPushButton(self.frame_39)
-        self.Btn_add_optional_contracts.setObjectName(u"Btn_add_optional_contracts")
-        self.Btn_add_optional_contracts.setMinimumSize(QSize(80, 30))
-        self.Btn_add_optional_contracts.setMaximumSize(QSize(80, 30))
-        self.Btn_add_optional_contracts.setStyleSheet(u"QPushButton{\n"
+        self.Btn_add_self_selection_contracts = QPushButton(self.frame_39)
+        self.Btn_add_self_selection_contracts.setObjectName(u"Btn_add_self_selection_contracts")
+        self.Btn_add_self_selection_contracts.setMinimumSize(QSize(80, 30))
+        self.Btn_add_self_selection_contracts.setMaximumSize(QSize(80, 30))
+        self.Btn_add_self_selection_contracts.setStyleSheet(u"QPushButton{\n"
 "	color: rgb(13, 9, 36);\n"
 "	background-color:rgb(255, 0, 127);\n"
 "	font: 700 16pt \"\u7b49\u7ebf\";\n"
@@ -2746,7 +2746,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
 
-        self.horizontalLayout_20.addWidget(self.Btn_add_optional_contracts, 0, Qt.AlignVCenter)
+        self.horizontalLayout_20.addWidget(self.Btn_add_self_selection_contracts, 0, Qt.AlignVCenter)
 
 
         self.verticalLayout_32.addWidget(self.frame_39)
@@ -4330,7 +4330,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_24.setContentsMargins(-1, 10, -1, 5)
         self.label_tital_2 = QLabel(self.frame_51)
         self.label_tital_2.setObjectName(u"label_tital_2")
-        self.label_tital_2.setStyleSheet(u"font: 700 20pt \"\u7b49\u7ebf\";\n"
+        self.label_tital_2.setStyleSheet(u"font: 700 18pt \"\u7b49\u7ebf\";\n"
 "color: rgb(0, 255, 0);\n"
 "border: none;")
 
@@ -5218,7 +5218,7 @@ class Ui_MainWindow(object):
         sizePolicy2.setHeightForWidth(self.label_tital_3.sizePolicy().hasHeightForWidth())
         self.label_tital_3.setSizePolicy(sizePolicy2)
         self.label_tital_3.setMaximumSize(QSize(16777215, 50))
-        self.label_tital_3.setStyleSheet(u"font: 700 20pt \"\u7b49\u7ebf\";\n"
+        self.label_tital_3.setStyleSheet(u"font: 700 18pt \"\u7b49\u7ebf\";\n"
 "color: rgb(0, 255, 0);\n"
 "border: none;")
         self.label_tital_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
@@ -5445,7 +5445,7 @@ class Ui_MainWindow(object):
 "    border-radius: 15px;   /* \u5706\u89d2 */\n"
 "    padding: 1px 18px 1px 3px;   /* \u5b57\u4f53\u586b\u886c */\n"
 "    color: rgb(0, 0, 0);    \n"
-"	font: 700 18pt \"\u7b49\u7ebf\";    \n"
+"	font: 700 14pt \"\u7b49\u7ebf\";    \n"
 "	background-color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
@@ -5828,7 +5828,7 @@ class Ui_MainWindow(object):
 "	background-color: rgba(40, 40, 70, 0);\n"
 "	color: rgb(85, 255, 0);\n"
 "	\n"
-"	font: 14pt \"\u7b49\u7ebf\";\n"
+"	font: 700 14pt \"\u7b49\u7ebf\";\n"
 "	border-radius: 13px;\n"
 "}\n"
 "\n"
@@ -5928,8 +5928,8 @@ class Ui_MainWindow(object):
                         "und-color: rgba(255, 255, 0, 150);\n"
 "}\n"
 "QHeaderView::section:vertical{\n"
-"font: 700 14pt \"\u7b49\u7ebf\";\n"
-"color: rgb(255, 0, 0);\n"
+"font: 700 12pt \"\u7b49\u7ebf\";\n"
+"color: rgb(255, 0, 127);\n"
 "text-align: right;\n"
 "border: 1px solid rgba(140, 140, 140, 40);\n"
 "border-top: none;\n"
@@ -5960,8 +5960,8 @@ class Ui_MainWindow(object):
 "    background:rgb(26, 19, 75);\n"
 "    height: 8px;\n"
 "    margin: 0px 17px 0 17px;\n"
-"	bo"
-                        "rder-radius: 3px;\n"
+"	"
+                        "border-radius: 3px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
 "    background:rgba(249, 83, 255, 170);\n"
@@ -5994,8 +5994,8 @@ class Ui_MainWindow(object):
 "{\n"
 "     background: none;\n"
 "}\n"
-"QScrollBar::add-page:horizontal, QScrollBar:"
-                        ":sub-page:horizontal\n"
+"QScrollBar::add-page:horizontal, QScrollBa"
+                        "r::sub-page:horizontal\n"
 "{\n"
 "     background: none;\n"
 "}\n"
@@ -6032,8 +6032,8 @@ class Ui_MainWindow(object):
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
-"    backgroun"
-                        "d: rgb(0, 50, 135);\n"
+"    backgro"
+                        "und: rgb(0, 50, 135);\n"
 "     height: 15px;\n"
 "	border-top-left-radius: 3px;\n"
 "    border-top-right-radius: 3px;\n"
@@ -7178,7 +7178,7 @@ class Ui_MainWindow(object):
         self.stackedWidget.setCurrentIndex(2)
         self.Veiw_Box.setCurrentIndex(4)
         self.Veiw_Box.layout().setSpacing(6)
-        self.tabWidget_account.setCurrentIndex(1)
+        self.tabWidget_account.setCurrentIndex(2)
         self.tabWidget_chart.setCurrentIndex(3)
 
 
@@ -7258,7 +7258,7 @@ class Ui_MainWindow(object):
         self.comboBox_add_quote_exchange.setItemText(3, QCoreApplication.translate("MainWindow", u"\u80fd\u6e90\u4ea4\u6613\u6240 INE", None))
         self.comboBox_add_quote_exchange.setItemText(4, QCoreApplication.translate("MainWindow", u"\u4e2d\u91d1\u6240 CFFEX", None))
 
-        self.Btn_add_optional_contracts.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0", None))
+        self.Btn_add_self_selection_contracts.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0", None))
         self.Btn_klines_1min.setText(QCoreApplication.translate("MainWindow", u"1\n"
 "\u5206\n"
 "\u949f", None))

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icon">
+    <file>icons/勾选.svg</file>
     <file>icons/1246348342.png</file>
     <file>icons/453453542155.png</file>
     <file>icons/arrow-down-bold.svg</file>

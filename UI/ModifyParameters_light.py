@@ -86,7 +86,7 @@ class Ui_Form(object):
         self.label_info.setSizePolicy(sizePolicy)
         self.label_info.setMinimumSize(QSize(200, 0))
         self.label_info.setStyleSheet(u"font: 700 16pt \"\u7b49\u7ebf\";\n"
-"color: rgb(0, 255, 0);\n"
+"color: rgb(0, 200, 0);\n"
 "border: none;")
 
         self.horizontalLayout_2.addWidget(self.label_info)
@@ -195,7 +195,7 @@ class Ui_Form(object):
         self.label_tital_4.setObjectName(u"label_tital_4")
         self.label_tital_4.setMaximumSize(QSize(16777215, 50))
         self.label_tital_4.setStyleSheet(u"font: 700 16pt \"\u7b49\u7ebf\";\n"
-"color: rgb(0, 255, 0);\n"
+"color: rgb(0, 200, 0);\n"
 "border: none;")
 
         self.verticalLayout_39.addWidget(self.label_tital_4)
@@ -279,11 +279,11 @@ class Ui_Form(object):
 
         self.verticalLayout_32.addWidget(self.label_whether_live_futures_trading)
 
-        self.label_stop_trading = QLabel(self.upper_left_3)
-        self.label_stop_trading.setObjectName(u"label_stop_trading")
-        self.label_stop_trading.setMinimumSize(QSize(200, 40))
-        self.label_stop_trading.setMaximumSize(QSize(200, 40))
-        self.label_stop_trading.setStyleSheet(u"QLabel {\n"
+        self.label_trading_status = QLabel(self.upper_left_3)
+        self.label_trading_status.setObjectName(u"label_trading_status")
+        self.label_trading_status.setMinimumSize(QSize(200, 40))
+        self.label_trading_status.setMaximumSize(QSize(200, 40))
+        self.label_trading_status.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
 "	border-radius: 15px;\n"
@@ -297,9 +297,9 @@ class Ui_Form(object):
 "	border-color: rgb(166, 166, 166);\n"
 "    background-color: rgb(186, 186, 186);\n"
 "}")
-        self.label_stop_trading.setAlignment(Qt.AlignCenter)
+        self.label_trading_status.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_32.addWidget(self.label_stop_trading)
+        self.verticalLayout_32.addWidget(self.label_trading_status)
 
         self.label_whether_open_web_services = QLabel(self.upper_left_3)
         self.label_whether_open_web_services.setObjectName(u"label_whether_open_web_services")
@@ -432,8 +432,10 @@ class Ui_Form(object):
         self.checkBox_whether_self_start.setMinimumSize(QSize(200, 40))
         self.checkBox_whether_self_start.setMaximumSize(QSize(200, 40))
         self.checkBox_whether_self_start.setStyleSheet(u"QCheckBox{	\n"
+"	color: rgb(255, 0, 127);\n"
 "	background-color: rgb(255, 255, 255);\n"
-"	font: 700 16pt \"\u7b49\u7ebf\";\n"
+"	font: 700 14pt \"\u7b49\u7ebf\";\n"
+"	border:2px solid rgb(45, 45, 45);\n"
 "	border-radius: 15px;\n"
 "	padding:3px 3px 3px 7px;\n"
 "}\n"
@@ -441,19 +443,19 @@ class Ui_Form(object):
 "	border: 3px solid rgb(255, 85, 0);\n"
 "}\n"
 "QCheckBox::indicator {\n"
-"    width: 20px;\n"
-"    height: 20px;\n"
+"    width: 45px;\n"
+"    height: 25px;\n"
 "    border-radius:10px;\n"
 "}\n"
 " \n"
 "QCheckBox::indicator:checked {\n"
-"    background-color:rgb(255, 0, 0);\n"
-"    border: 3px solid rgb(255, 0, 255);\n"
-"}\n"
-" \n"
+"    background-color:rgb(0, 200, 0);\n"
+"    border: 3px solid rgb(255, 0, 0);\n"
+"	image: url(:/icon/icons/\u52fe\u9009.svg);\n"
+" }\n"
 "QCheckBox::indicator:unchecked {\n"
 "    background-color:rgb(136, 136, 136);\n"
-"    border:3px solid black;\n"
+"    border:2px solid rgb(80, 80, 80);\n"
 "}\n"
 "QCheckBox:disabled{\n"
 "	color: rgb(0, 0, 0);\n"
@@ -469,8 +471,10 @@ class Ui_Form(object):
         self.checkBox_whether_live_futures_trading.setMinimumSize(QSize(200, 40))
         self.checkBox_whether_live_futures_trading.setMaximumSize(QSize(200, 40))
         self.checkBox_whether_live_futures_trading.setStyleSheet(u"QCheckBox{	\n"
+"	color: rgb(255, 0, 127);\n"
 "	background-color: rgb(255, 255, 255);\n"
-"	font: 700 16pt \"\u7b49\u7ebf\";\n"
+"	font: 700 14pt \"\u7b49\u7ebf\";\n"
+"	border:2px solid rgb(45, 45, 45);\n"
 "	border-radius: 15px;\n"
 "	padding:3px 3px 3px 7px;\n"
 "}\n"
@@ -478,19 +482,19 @@ class Ui_Form(object):
 "	border: 3px solid rgb(255, 85, 0);\n"
 "}\n"
 "QCheckBox::indicator {\n"
-"    width: 20px;\n"
-"    height: 20px;\n"
+"    width: 45px;\n"
+"    height: 25px;\n"
 "    border-radius:10px;\n"
 "}\n"
 " \n"
 "QCheckBox::indicator:checked {\n"
-"    background-color:rgb(255, 0, 0);\n"
-"    border: 3px solid rgb(255, 0, 255);\n"
-"}\n"
-" \n"
+"    background-color:rgb(0, 200, 0);\n"
+"    border: 3px solid rgb(255, 0, 0);\n"
+"	image: url(:/icon/icons/\u52fe\u9009.svg);\n"
+" }\n"
 "QCheckBox::indicator:unchecked {\n"
 "    background-color:rgb(136, 136, 136);\n"
-"    border:3px solid black;\n"
+"    border:2px solid rgb(80, 80, 80);\n"
 "}\n"
 "QCheckBox:disabled{\n"
 "	color: rgb(0, 0, 0);\n"
@@ -500,13 +504,15 @@ class Ui_Form(object):
 
         self.verticalLayout_33.addWidget(self.checkBox_whether_live_futures_trading)
 
-        self.checkBox_stop_trading = QCheckBox(self.upper_right_3)
-        self.checkBox_stop_trading.setObjectName(u"checkBox_stop_trading")
-        self.checkBox_stop_trading.setMinimumSize(QSize(200, 40))
-        self.checkBox_stop_trading.setMaximumSize(QSize(200, 40))
-        self.checkBox_stop_trading.setStyleSheet(u"QCheckBox{	\n"
+        self.checkBox_trading_status = QCheckBox(self.upper_right_3)
+        self.checkBox_trading_status.setObjectName(u"checkBox_trading_status")
+        self.checkBox_trading_status.setMinimumSize(QSize(200, 40))
+        self.checkBox_trading_status.setMaximumSize(QSize(200, 40))
+        self.checkBox_trading_status.setStyleSheet(u"QCheckBox{	\n"
+"	color: rgb(255, 0, 127);\n"
 "	background-color: rgb(255, 255, 255);\n"
-"	font: 700 16pt \"\u7b49\u7ebf\";\n"
+"	font: 700 14pt \"\u7b49\u7ebf\";\n"
+"	border:2px solid rgb(45, 45, 45);\n"
 "	border-radius: 15px;\n"
 "	padding:3px 3px 3px 7px;\n"
 "}\n"
@@ -514,19 +520,19 @@ class Ui_Form(object):
 "	border: 3px solid rgb(255, 85, 0);\n"
 "}\n"
 "QCheckBox::indicator {\n"
-"    width: 20px;\n"
-"    height: 20px;\n"
+"    width: 45px;\n"
+"    height: 25px;\n"
 "    border-radius:10px;\n"
 "}\n"
 " \n"
 "QCheckBox::indicator:checked {\n"
-"    background-color:rgb(255, 0, 0);\n"
-"    border: 3px solid rgb(255, 0, 255);\n"
-"}\n"
-" \n"
+"    background-color:rgb(0, 200, 0);\n"
+"    border: 3px solid rgb(255, 0, 0);\n"
+"	image: url(:/icon/icons/\u52fe\u9009.svg);\n"
+" }\n"
 "QCheckBox::indicator:unchecked {\n"
 "    background-color:rgb(136, 136, 136);\n"
-"    border:3px solid black;\n"
+"    border:2px solid rgb(80, 80, 80);\n"
 "}\n"
 "QCheckBox:disabled{\n"
 "	color: rgb(0, 0, 0);\n"
@@ -534,15 +540,17 @@ class Ui_Form(object):
 "    background-color: rgb(186, 186, 186);\n"
 "}")
 
-        self.verticalLayout_33.addWidget(self.checkBox_stop_trading)
+        self.verticalLayout_33.addWidget(self.checkBox_trading_status)
 
         self.checkBox_whether_open_web_services = QCheckBox(self.upper_right_3)
         self.checkBox_whether_open_web_services.setObjectName(u"checkBox_whether_open_web_services")
         self.checkBox_whether_open_web_services.setMinimumSize(QSize(200, 40))
         self.checkBox_whether_open_web_services.setMaximumSize(QSize(200, 40))
         self.checkBox_whether_open_web_services.setStyleSheet(u"QCheckBox{	\n"
+"	color: rgb(255, 0, 127);\n"
 "	background-color: rgb(255, 255, 255);\n"
-"	font: 700 16pt \"\u7b49\u7ebf\";\n"
+"	font: 700 14pt \"\u7b49\u7ebf\";\n"
+"	border:2px solid rgb(45, 45, 45);\n"
 "	border-radius: 15px;\n"
 "	padding:3px 3px 3px 7px;\n"
 "}\n"
@@ -550,19 +558,19 @@ class Ui_Form(object):
 "	border: 3px solid rgb(255, 85, 0);\n"
 "}\n"
 "QCheckBox::indicator {\n"
-"    width: 20px;\n"
-"    height: 20px;\n"
+"    width: 45px;\n"
+"    height: 25px;\n"
 "    border-radius:10px;\n"
 "}\n"
 " \n"
 "QCheckBox::indicator:checked {\n"
-"    background-color:rgb(255, 0, 0);\n"
-"    border: 3px solid rgb(255, 0, 255);\n"
-"}\n"
-" \n"
+"    background-color:rgb(0, 200, 0);\n"
+"    border: 3px solid rgb(255, 0, 0);\n"
+"	image: url(:/icon/icons/\u52fe\u9009.svg);\n"
+" }\n"
 "QCheckBox::indicator:unchecked {\n"
 "    background-color:rgb(136, 136, 136);\n"
-"    border:3px solid black;\n"
+"    border:2px solid rgb(80, 80, 80);\n"
 "}\n"
 "QCheckBox:disabled{\n"
 "	color: rgb(0, 0, 0);\n"
@@ -1064,8 +1072,10 @@ class Ui_Form(object):
         self.checkBox_whether_open_line.setMinimumSize(QSize(200, 40))
         self.checkBox_whether_open_line.setMaximumSize(QSize(200, 40))
         self.checkBox_whether_open_line.setStyleSheet(u"QCheckBox{	\n"
+"	color: rgb(255, 0, 127);\n"
 "	background-color: rgb(255, 255, 255);\n"
-"	font: 700 16pt \"\u7b49\u7ebf\";\n"
+"	font: 700 14pt \"\u7b49\u7ebf\";\n"
+"	border:2px solid rgb(45, 45, 45);\n"
 "	border-radius: 15px;\n"
 "	padding:3px 3px 3px 7px;\n"
 "}\n"
@@ -1073,19 +1083,19 @@ class Ui_Form(object):
 "	border: 3px solid rgb(255, 85, 0);\n"
 "}\n"
 "QCheckBox::indicator {\n"
-"    width: 20px;\n"
-"    height: 20px;\n"
+"    width: 45px;\n"
+"    height: 25px;\n"
 "    border-radius:10px;\n"
 "}\n"
 " \n"
 "QCheckBox::indicator:checked {\n"
-"    background-color:rgb(255, 0, 0);\n"
-"    border: 3px solid rgb(255, 0, 255);\n"
-"}\n"
-" \n"
+"    background-color:rgb(0, 200, 0);\n"
+"    border: 3px solid rgb(255, 0, 0);\n"
+"	image: url(:/icon/icons/\u52fe\u9009.svg);\n"
+" }\n"
 "QCheckBox::indicator:unchecked {\n"
 "    background-color:rgb(136, 136, 136);\n"
-"    border:3px solid black;\n"
+"    border:2px solid rgb(80, 80, 80);\n"
 "}\n"
 "QCheckBox:disabled{\n"
 "	color: rgb(0, 0, 0);\n"
@@ -1128,8 +1138,10 @@ class Ui_Form(object):
         self.checkBox_whether_close_line.setMinimumSize(QSize(200, 40))
         self.checkBox_whether_close_line.setMaximumSize(QSize(200, 40))
         self.checkBox_whether_close_line.setStyleSheet(u"QCheckBox{	\n"
+"	color: rgb(255, 0, 127);\n"
 "	background-color: rgb(255, 255, 255);\n"
-"	font: 700 16pt \"\u7b49\u7ebf\";\n"
+"	font: 700 14pt \"\u7b49\u7ebf\";\n"
+"	border:2px solid rgb(45, 45, 45);\n"
 "	border-radius: 15px;\n"
 "	padding:3px 3px 3px 7px;\n"
 "}\n"
@@ -1137,19 +1149,19 @@ class Ui_Form(object):
 "	border: 3px solid rgb(255, 85, 0);\n"
 "}\n"
 "QCheckBox::indicator {\n"
-"    width: 20px;\n"
-"    height: 20px;\n"
+"    width: 45px;\n"
+"    height: 25px;\n"
 "    border-radius:10px;\n"
 "}\n"
 " \n"
 "QCheckBox::indicator:checked {\n"
-"    background-color:rgb(255, 0, 0);\n"
-"    border: 3px solid rgb(255, 0, 255);\n"
-"}\n"
-" \n"
+"    background-color:rgb(0, 200, 0);\n"
+"    border: 3px solid rgb(255, 0, 0);\n"
+"	image: url(:/icon/icons/\u52fe\u9009.svg);\n"
+" }\n"
 "QCheckBox::indicator:unchecked {\n"
 "    background-color:rgb(136, 136, 136);\n"
-"    border:3px solid black;\n"
+"    border:2px solid rgb(80, 80, 80);\n"
 "}\n"
 "QCheckBox:disabled{\n"
 "	color: rgb(0, 0, 0);\n"
@@ -1867,16 +1879,16 @@ class Ui_Form(object):
         self.label_tital_4.setText(QCoreApplication.translate("Form", u"\u8bf7\u4fee\u6539\u7b56\u7565\u53c2\u6570\u5e76\u4ed4\u7ec6\u6838\u5bf9", None))
         self.label_whether_self_start.setText(QCoreApplication.translate("Form", u"\u662f\u5426\u4e3a\u81ea\u542f\u8fdb\u7a0b", None))
         self.label_whether_live_futures_trading.setText(QCoreApplication.translate("Form", u"\u662f\u5426\u4e3a\u5b9e\u76d8", None))
-        self.label_stop_trading.setText(QCoreApplication.translate("Form", u"\u505c\u6b62\u4ea4\u6613\u4f4d", None))
+        self.label_trading_status.setText(QCoreApplication.translate("Form", u"\u4ea4\u6613\u72b6\u6001", None))
         self.label_whether_open_web_services.setText(QCoreApplication.translate("Form", u"\u662f\u5426\u5f00\u542fweb", None))
         self.label_web_port.setText(QCoreApplication.translate("Form", u"web\u7aef\u53e3\u53f7", None))
         self.label_symbol_period.setText(QCoreApplication.translate("Form", u"\u5408\u7ea6\u5468\u671f(\u5206\u949f)", None))
         self.label_initial_capital.setText(QCoreApplication.translate("Form", u"\u7b56\u7565\u521d\u59cb\u8d44\u91d1", None))
         self.label_orientation.setText(QCoreApplication.translate("Form", u"\u4ea4\u6613\u65b9\u5411", None))
-        self.checkBox_whether_self_start.setText(QCoreApplication.translate("Form", u"\u6b64\u5904\u52fe\u7ea2\u4e3a\u81ea\u542f", None))
-        self.checkBox_whether_live_futures_trading.setText(QCoreApplication.translate("Form", u"\u6b64\u5904\u52fe\u7ea2\u4e3a\u5b9e\u76d8", None))
-        self.checkBox_stop_trading.setText(QCoreApplication.translate("Form", u"\u52fe\u7ea2\u8fdb\u884c\u4ea4\u6613", None))
-        self.checkBox_whether_open_web_services.setText(QCoreApplication.translate("Form", u"\u52fe\u7ea2\u5f00\u542fweb", None))
+        self.checkBox_whether_self_start.setText(QCoreApplication.translate("Form", u"\u52fe\u9009\u4e3a\u81ea\u542f", None))
+        self.checkBox_whether_live_futures_trading.setText(QCoreApplication.translate("Form", u"\u52fe\u9009\u4e3a\u5b9e\u76d8", None))
+        self.checkBox_trading_status.setText(QCoreApplication.translate("Form", u"\u52fe\u9009\u4e3a\u6b63\u5e38\u4ea4\u6613", None))
+        self.checkBox_whether_open_web_services.setText(QCoreApplication.translate("Form", u"\u52fe\u9009\u5f00\u542fweb", None))
         self.label_contract_multiples.setText(QCoreApplication.translate("Form", u"\u5408\u7ea6\u500d\u6570", None))
         self.label_margin_rate.setText(QCoreApplication.translate("Form", u"\u4fdd\u8bc1\u91d1\u7387\uff08%\uff09", None))
         self.label_stop_loss.setText(QCoreApplication.translate("Form", u"\u6b62\u635f\u4f4d\uff08%\uff09", None))
@@ -1887,8 +1899,8 @@ class Ui_Form(object):
         self.label_close_line_Coordinates.setText(QCoreApplication.translate("Form", u"\u5e73\u4ed3\u7ebf\u5750\u6807", None))
         self.contract_multiples.setText("")
         self.margin_rate.setText("")
-        self.checkBox_whether_open_line.setText(QCoreApplication.translate("Form", u"\u52fe\u7ea2\u4e3a\u5df2\u6709\u76f4\u7ebf", None))
-        self.checkBox_whether_close_line.setText(QCoreApplication.translate("Form", u"\u52fe\u7ea2\u4e3a\u5df2\u6709\u76f4\u7ebf", None))
+        self.checkBox_whether_open_line.setText(QCoreApplication.translate("Form", u"\u52fe\u9009\u4e3a\u5df2\u6709\u76f4\u7ebf", None))
+        self.checkBox_whether_close_line.setText(QCoreApplication.translate("Form", u"\u52fe\u9009\u4e3a\u5df2\u6709\u76f4\u7ebf", None))
         self.label_Customized_parameters1.setText(QCoreApplication.translate("Form", u"\u81ea\u5b9a\u4e49\u53c2\u65701", None))
         self.label_Customized_parameters2.setText(QCoreApplication.translate("Form", u"\u81ea\u5b9a\u4e49\u53c2\u65702", None))
         self.label_Customized_parameters3.setText(QCoreApplication.translate("Form", u"\u81ea\u5b9a\u4e49\u53c2\u65703", None))

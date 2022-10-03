@@ -57,22 +57,31 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         self.textBrowser_terminal.setTextCursor(cursor)  # 设置光标
         self.textBrowser_terminal.ensureCursorVisible()  # 光标可见
 
+    def count_process_reboot_times(self):
+        times = 0
+        if self.Process_start_time_dict is not None:
+            for key, value in self.Process_start_time_dict.items():
+                if value > 1:
+                    times = times + value - 1
+        return times
+
 
     def add_paramer_to_container_by_timer(self):  # 将参数添加到面板各容器中,定时器驱动部分
 
-        self.label_runing_process_quantity.setText(str(len(self.get_alive_process_pid_list())))  # 获取当前活着的子进程数(只有子进程，没有父进程和协程)
+        self.label_runing_process_quantity.setText(str(len(self.get_alive_process_pid_list())))  # 获取当前活着的策略进程数, (只有子进程，没有父进程和协程)
         self.label_current_time.setText(time.strftime('%Y-%m-%d    %H:%M:%S', time.localtime()))
         self.label_frame_runing_time.setText(self.get_frame_runing_time())
         self.label_tq_account_quantity.setText(str(self.get_tq_account_quantity()))
         self.label_cpu_occupancy.setText(str(psutil.cpu_percent()) + ' %')
         self.label_total_profit.setText(str(self.get_total_profit()))
         self.process_dict_update()
+        self.add_process_list_to_process_listview()
 
+    def add_process_list_to_process_listview(self):
         process_model = QStringListModel()
-        self.process_list = self.get_process_list()
+        self.process_list, self.process_list_row = self.get_process_list()
         process_model.setStringList(self.process_list)
         self.process_listview.setModel(process_model)
-
 
 
     def add_paramer_to_container_by_hand(self):         # 将参数添加到面板各容器中, 人工动作驱动部分
@@ -103,6 +112,8 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         self.self_selection_list = self.get_self_selection_quote_list()
         self_selection_model.setStringList(self.self_selection_list)
         self.self_selection_listview.setModel(self_selection_model)
+
+        self.add_process_list_to_process_listview()
 
     def show_clients_info(self, qModelIndex):  # 显示客户信息
         row = qModelIndex.row()
@@ -175,17 +186,22 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             for child_proc in parent_proc.children(recursive=True):
                 child_proc.kill()
             parent_proc.kill()
-            print('pid为 ' + str(pid) + ' 的子进程 关闭成功 ！！！\n')
+            for key, value in self.Process_dict.items():
+                if value == pid:
+                    key = None
+                break
+            print('\npid为 ' + str(pid) + ' 的子进程 关闭成功 ！！！\n')
         except Exception as e:
-            print('pid为 ' + str(pid) + ' 的子进程 关闭失败 ！！！\n')
-            print(e)
-            print('\n')
+            print('\npid为 ' + str(pid) + ' 的子进程 关闭失败 ！！！\n')
+            print(e, '\n')
 
 
-    def kill_all_process(self):  # 杀死所有进程
-        # 关闭所有进程
+
+    def kill_all_process(self):  # 杀死所有进程 # 关闭所有进程
+
         for pid in self.get_alive_process_pid_list():
             self.kill_process(pid)
+        # self.Process_dict.clear()
         print('所有子进程都已关闭!\n')
 
 
@@ -199,7 +215,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
                 if item['process_name'] in self.Process_dict.keys():
                     pass
                 else:
-                    self.Process_dict[item['process_name']] = ''
+                    self.Process_dict[item['process_name']] = None
 
 
     def get_clients_list(self):  # 获取用户列表
@@ -228,22 +244,35 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
     def get_alive_process_pid_list(self):  # 获取运行着的子进程 pid列表
         p = psutil.Process(os.getpid())
-
-        # 获取p.children()中的所有子进程pid，并生成一个列表
-        living_pid_list = [x.pid for x in p.children()]
-
+        children = p.children()             # 获取p.children()中的所有子进程pid，并生成一个列表
+        living_pid_list = []
+        for child in children:
+            if child.name() == 'python.exe':        # 这里只需要自己策略创建的名为python.exe的子进程,主进程创建的名为conhost.exe的不要
+                pid = child.pid
+                if pid not in living_pid_list:
+                    living_pid_list.append(pid)
+            else:
+                pass
         return living_pid_list
+        # living_pid_list = [x.pid for x in p.children()]        return living_pid_list
 
 
     def get_process_list(self):  # 获取活着的进程名列表
-        process_list = []
+        process_list = []       # 这个list中间加了个 \n,用于在listview中显示进程名时从中间拆成两行
+        process_list_raw = []    # 这个list是原生的,中间不加 \n
         pid_list = self.get_alive_process_pid_list()
         # 判断self.Process_dict中每一项的值是否在pid_list中，如果在，则添加到process_list中
         for key, value in self.Process_dict.items():
             if value in pid_list:
-                tmp = key.split('-', 3)[0] + '-' + key.split('-', 3)[1] + '-' + key.split('-', 3)[2] + '\n-' + key.split('-', 3)[3]
+                if key.split('-',3)[0] == '回测':     # 判断字典键的第一个小块是不是回测
+                    tmp = (key.split('-',5)[0] + '-' + key.split('-',5)[1] + '-' + key.split('-',5)[2] + '\n-' +
+                            key.split('-',5)[3] + '-' + key.split('-',5)[4] + '-' + key.split('-',5)[5])
+                else:
+                    tmp = (key.split('-', 3)[0] + '-' + key.split('-', 3)[1] + '-' + key.split('-', 3)[2] +
+                           '\n-' + key.split('-', 3)[3])
                 process_list.append(tmp)
-        return process_list
+                process_list_raw.append(key)
+        return process_list, process_list_raw
 
 
     def get_quote_list(self):  # 获取行情引用列表
@@ -449,7 +478,6 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
                 path = './data/tq_account.csv'
                 self.ioModal.judge_config_exist(path)
                 self.ioModal.add_dict_to_csv(df, path)
-                time.sleep(0.1)
                 self.tq_account_input_clear()
                 self.add_paramer_to_container_by_hand()
                 self.add_paramer_to_combobox()
@@ -591,10 +619,12 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             print('文件不存在，已创建空文件')
 
 
-    def load_process_config(self):  # 加载策略进程配置
+    def load_process_config(self):  # 加载策略进程配置表
         dirs = './data/'
-        process_header_list = ['序号', '进程名（策略实例名）', '客户名', '天勤帐户', '天勤密码', '期货公司', '期货帐户', '期货资金密码', '合约名称', '合约周期', '策略名称', '是否自启', '是否实盘', '是否回测', '是否开启web', 'web端口', '停止交易标志', '交易方向', '初始资金', '当前资金', '合约倍数',
-                               '保证金率', '止损位%', '止盈位%', '多单加仓次数', '多单当前持仓', '多单首次成交价', '多单首次成交量', '空单加仓次数', '空单首次成交价', '空单首次成交量', '空单当前持仓', '是否定义了开仓直线', '开仓直线坐标', '是否定义了平仓直线', '平仓直线坐标', '自定义参数1',
+        process_header_list = ['序号', '进程名（策略实例名）', '是否自行启动', '客户名', '天勤帐户', '天勤密码', '期货公司', '期货帐户', '期货资金密码', '合约名称',
+                               '合约周期', '策略名称', '是否实盘', '是否回测', '是否开启web', 'web端口', '交易状态', '交易方向', '初始资金', '当前资金', '合约倍数',
+                               '保证金率', '止损位%', '止盈位%', '多单加仓次数', '多单当前持仓', '多单首次成交价', '多单首次成交量', '空单加仓次数', '空单首次成交价',
+                               '空单首次成交量', '空单当前持仓', '是否定义了开仓直线', '开仓直线坐标', '是否定义了平仓直线', '平仓直线坐标', '自定义参数1',
                                '自定义参数2', '自定义参数3', '自定义参数4', '自定义参数5', '自定义参数6', '自定义参数7', '自定义参数8', ]
         if not os.path.exists(dirs):
             os.makedirs(dirs)
@@ -637,13 +667,11 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             print('文件不存在，已创建空文件')
 
 
-    def add_Tq_Quote_to_csv(self):  # 将天勤自选行情引用数据添加到 csv 文件中
+    def add_self_selection_list(self):  # 将天勤自选行情引用数据添加到 csv 文件中
         my_dict = {}
         exchange = self.comboBox_add_quote_exchange.currentText().split()[-1]  # 获取列表框选择的字符串分割后的最后一部分
         quote = exchange + '.' + self.add_quote_symbol.text()
-        if self.add_quote_symbol.text() == '':
-            self.label_kline_info.setText('请输入正确的合约名再点添加')
-        else:
+        if self.add_quote_symbol.text():
             my_dict['quote'] = quote
             df = pd.DataFrame(my_dict, index=[0])
             # self.ceate_TQ_klines_and_quote(quote)
@@ -651,6 +679,9 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             text = '新的自选合约： ' + str(quote) + '  已添加'
             self.label_kline_info.setText(text)
             self.add_quote_symbol.clear()
+            self.add_paramer_to_container_by_hand()
+        else:
+            self.label_kline_info.setText('请输入正确的合约名再点添加')
 
 
     def set_current_dissplayed_Kline(self, qModelIndex):  # 显示订阅的k线

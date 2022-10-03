@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>504</width>
+    <width>500</width>
     <height>400</height>
    </rect>
   </property>
@@ -46,15 +46,6 @@
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="spacing">
-       <number>10</number>
-      </property>
-      <property name="topMargin">
-       <number>5</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
       <item>
        <widget class="QFrame" name="frame_2">
         <property name="maximumSize">
@@ -65,9 +56,7 @@
         </property>
         <property name="styleSheet">
          <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;	
-	border-radius: 20px;
 }
 
 </string>
@@ -79,33 +68,24 @@
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <property name="leftMargin">
-          <number>5</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
          <item>
           <widget class="QLabel" name="label_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="minimumSize">
             <size>
              <width>0</width>
-             <height>50</height>
+             <height>40</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>16777215</width>
-             <height>50</height>
+             <width>280</width>
+             <height>40</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -117,6 +97,70 @@ border: none;</string>
             <string>请输入主天勤账户及密码</string>
            </property>
           </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Btn_clear_main_tq_account">
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>120</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{	
+	background-color: rgb(255, 255, 0);
+	font: 700 16pt &quot;等线&quot;;
+	border-radius: 15px;
+}
+QPushButton:hover{
+	border: 3px solid rgb(255, 200, 0);  
+}
+QPushButton:pressed{
+	color: green;
+	border-color: blueviolet;
+    background-color: rgb(85, 0, 255);
+}
+QPushButton:disabled{
+	color: rgb(31, 31, 31);
+    background-color: rgb(152, 152, 152);
+}</string>
+           </property>
+           <property name="text">
+            <string>删除账户</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
          <item>
           <widget class="QPushButton" name="Btn_close_window">
@@ -183,9 +227,7 @@ QPushButton:pressed {
         </property>
         <property name="styleSheet">
          <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: 1px solid rgb(65, 51, 156);
-	border-radius: 20px;
 }
 QFrame:hover {
 	border: 2px solid rgb(255, 85, 0);
@@ -198,21 +240,6 @@ QFrame:hover {
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <property name="leftMargin">
-          <number>5</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
          <item>
           <widget class="QLabel" name="label_1">
            <property name="minimumSize">
@@ -266,12 +293,10 @@ border: none;</string>
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="frame_5">
+       <widget class="QFrame" name="frame_4">
         <property name="styleSheet">
          <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: 1px solid rgb(65, 51, 156);
-	border-radius: 20px;
 }
 QFrame:hover {
 	border: 2px solid rgb(255, 85, 0);
@@ -284,21 +309,6 @@ QFrame:hover {
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <property name="spacing">
-          <number>10</number>
-         </property>
-         <property name="leftMargin">
-          <number>20</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
          <item>
           <widget class="QFrame" name="frame_6">
            <property name="styleSheet">
@@ -501,7 +511,7 @@ QLineEdit:disabled{
        </widget>
       </item>
       <item>
-       <widget class="QFrame" name="frame_4">
+       <widget class="QFrame" name="frame_5">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
@@ -510,9 +520,7 @@ QLineEdit:disabled{
         </property>
         <property name="styleSheet">
          <string notr="true">QFrame {
-	background-color: rgb(13, 9, 36);
 	border: none;	
-	border-radius: 20px;
 }
 
 </string>
@@ -524,21 +532,6 @@ QLineEdit:disabled{
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>10</number>
-         </property>
          <item>
           <widget class="QFrame" name="frame_8">
            <property name="frameShape">
@@ -716,22 +709,5 @@ QPushButton:disabled{
  <resources>
   <include location="../resource.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>Btn_close_window</sender>
-   <signal>clicked()</signal>
-   <receiver>Dialog</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>476</x>
-     <y>34</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>414</x>
-     <y>47</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

@@ -83,16 +83,16 @@
           <number>0</number>
          </property>
          <property name="leftMargin">
-          <number>5</number>
+          <number>8</number>
          </property>
          <property name="topMargin">
           <number>0</number>
          </property>
          <property name="rightMargin">
-          <number>0</number>
+          <number>5</number>
          </property>
          <property name="bottomMargin">
-          <number>0</number>
+          <number>5</number>
          </property>
          <item>
           <widget class="QLabel" name="label_2">
@@ -117,6 +117,70 @@ border: none;</string>
             <string>请输入主天勤账户及密码</string>
            </property>
           </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Btn_clear_main_tq_account">
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>120</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{	
+	background-color: rgb(0, 255, 255);
+	font: 700 16pt &quot;等线&quot;;
+	border-radius: 15px;
+}
+QPushButton:hover{
+	border: 3px solid rgb(255, 200, 0);  
+}
+QPushButton:pressed{
+	color: green;
+	border-color: blueviolet;
+    background-color: rgb(85, 0, 255);
+}
+QPushButton:disabled{
+	color: rgb(31, 31, 31);
+    background-color: rgb(152, 152, 152);
+}</string>
+           </property>
+           <property name="text">
+            <string>删除账户</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
          <item>
           <widget class="QPushButton" name="Btn_close_window">
@@ -352,7 +416,7 @@ QLabel:disabled{
                <set>Qt::AlignCenter</set>
               </property>
               <property name="buddy">
-               <cstring>symbol</cstring>
+               <cstring>main_tq_account</cstring>
               </property>
              </widget>
             </item>
@@ -393,7 +457,7 @@ QLabel:disabled{
                <set>Qt::AlignCenter</set>
               </property>
               <property name="buddy">
-               <cstring>symbol</cstring>
+               <cstring>main_tq_psd</cstring>
               </property>
              </widget>
             </item>

@@ -1163,7 +1163,7 @@ color:black;
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>87</width>
+                            <width>83</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1355,7 +1355,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>87</width>
+                            <width>83</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1528,7 +1528,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>87</width>
+                            <width>83</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1718,7 +1718,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>87</width>
+                            <width>83</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1907,8 +1907,8 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>238</width>
-                            <height>455</height>
+                            <width>83</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -4744,7 +4744,7 @@ QLineEdit:disabled{
                                  </widget>
                                 </item>
                                 <item alignment="Qt::AlignVCenter">
-                                 <widget class="QPushButton" name="Btn_add_optional_contracts">
+                                 <widget class="QPushButton" name="Btn_add_self_selection_contracts">
                                   <property name="minimumSize">
                                    <size>
                                     <width>80</width>
@@ -6709,7 +6709,7 @@ QTabBar::tab:selected {
                     <enum>QTabWidget::Rounded</enum>
                    </property>
                    <property name="currentIndex">
-                    <number>1</number>
+                    <number>2</number>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -7406,7 +7406,7 @@ QFrame:hover {
                            <item alignment="Qt::AlignTop">
                             <widget class="QLabel" name="label_tital_2">
                              <property name="styleSheet">
-                              <string notr="true">font: 700 20pt &quot;等线&quot;;
+                              <string notr="true">font: 700 18pt &quot;等线&quot;;
 color: rgb(0, 255, 0);
 border: none;</string>
                              </property>
@@ -8942,7 +8942,7 @@ QFrame:hover {
                               </size>
                              </property>
                              <property name="styleSheet">
-                              <string notr="true">font: 700 20pt &quot;等线&quot;;
+                              <string notr="true">font: 700 18pt &quot;等线&quot;;
 color: rgb(0, 255, 0);
 border: none;</string>
                              </property>
@@ -9443,7 +9443,7 @@ QComboBox {
     border-radius: 15px;   /* 圆角 */
     padding: 1px 18px 1px 3px;   /* 字体填衬 */
     color: rgb(0, 0, 0);    
-	font: 700 18pt &quot;等线&quot;;    
+	font: 700 14pt &quot;等线&quot;;    
 	background-color: rgb(255, 255, 255);
 }
 
@@ -10118,7 +10118,7 @@ QFrame:hover {
 	background-color: rgba(40, 40, 70, 0);
 	color: rgb(85, 255, 0);
 	
-	font: 14pt &quot;等线&quot;;
+	font: 700 14pt &quot;等线&quot;;
 	border-radius: 13px;
 }
 
@@ -10265,8 +10265,8 @@ border: 1px solid rgba(140, 140, 140, 100);
 background-color: rgba(255, 255, 0, 150);
 }
 QHeaderView::section:vertical{
-font: 700 14pt &quot;等线&quot;;
-color: rgb(255, 0, 0);
+font: 700 12pt &quot;等线&quot;;
+color: rgb(255, 0, 127);
 text-align: right;
 border: 1px solid rgba(140, 140, 140, 40);
 border-top: none;

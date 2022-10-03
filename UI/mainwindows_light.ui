@@ -1164,7 +1164,7 @@ QToolBox::tab:selected:hover{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>87</width>
+                            <width>100</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1348,7 +1348,7 @@ QScrollBar::sub-line:vertical:pressed{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>87</width>
+                            <width>100</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1513,7 +1513,7 @@ QScrollBar::sub-line:vertical:pressed{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>87</width>
+                            <width>100</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1695,7 +1695,7 @@ QScrollBar::sub-line:vertical:pressed{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>87</width>
+                            <width>100</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -4689,7 +4689,7 @@ QLineEdit:disabled{
                                  </widget>
                                 </item>
                                 <item alignment="Qt::AlignVCenter">
-                                 <widget class="QPushButton" name="Btn_add_optional_contracts">
+                                 <widget class="QPushButton" name="Btn_add_self_selection_contracts">
                                   <property name="minimumSize">
                                    <size>
                                     <width>80</width>
@@ -7386,8 +7386,8 @@ QFrame:hover {
                            <item alignment="Qt::AlignTop">
                             <widget class="QLabel" name="label_tital_2">
                              <property name="styleSheet">
-                              <string notr="true">font: 700 20pt &quot;等线&quot;;
-color: rgb(0, 255, 0);
+                              <string notr="true">font: 700 18pt &quot;等线&quot;;
+color: rgb(0, 200, 0);
 border: none;</string>
                              </property>
                              <property name="text">
@@ -8858,8 +8858,8 @@ QFrame:hover {
                               </size>
                              </property>
                              <property name="styleSheet">
-                              <string notr="true">font: 700 20pt &quot;等线&quot;;
-color: rgb(0, 255, 0);
+                              <string notr="true">font: 700 18pt &quot;等线&quot;;
+color: rgb(0, 200, 0);
 border: none;</string>
                              </property>
                              <property name="text">
@@ -9359,7 +9359,7 @@ QComboBox {
     border-radius: 15px;   /* 圆角 */
     padding: 1px 18px 1px 3px;   /* 字体填衬 */
     color: rgb(0, 0, 0);    
-	font: 700 18pt &quot;等线&quot;;    
+	font: 700 14pt &quot;等线&quot;;    
 	background-color: rgb(255, 255, 255);
 }
 
@@ -9983,7 +9983,7 @@ QFrame:hover {
                           <property name="styleSheet">
                            <string notr="true">	background-color: rgba(30, 30, 40, 0);
 	border: none;
-	color: rgb(255, 0, 0);
+	color: rgb(200, 0, 0);
 	font: 700 12pt &quot;等线&quot;;
 
 </string>

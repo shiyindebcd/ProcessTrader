@@ -153,7 +153,7 @@ color: rgb(255, 0, 127);</string>
            </property>
            <property name="styleSheet">
             <string notr="true">font: 700 16pt &quot;等线&quot;;
-color: rgb(0, 255, 0);
+color: rgb(0, 200, 0);
 border: none;</string>
            </property>
            <property name="text">
@@ -393,7 +393,7 @@ QFrame:hover {
                  </property>
                  <property name="styleSheet">
                   <string notr="true">font: 700 16pt &quot;等线&quot;;
-color: rgb(0, 255, 0);
+color: rgb(0, 200, 0);
 border: none;</string>
                  </property>
                  <property name="text">
@@ -573,7 +573,7 @@ QLabel:disabled{
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="label_stop_trading">
+                   <widget class="QLabel" name="label_trading_status">
                     <property name="minimumSize">
                      <size>
                       <width>200</width>
@@ -603,7 +603,7 @@ QLabel:disabled{
 }</string>
                     </property>
                     <property name="text">
-                     <string>停止交易位</string>
+                     <string>交易状态</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -879,8 +879,10 @@ QLabel:disabled{
                     </property>
                     <property name="styleSheet">
                      <string notr="true">QCheckBox{	
+	color: rgb(255, 0, 127);
 	background-color: rgb(255, 255, 255);
-	font: 700 16pt &quot;等线&quot;;
+	font: 700 14pt &quot;等线&quot;;
+	border:2px solid rgb(45, 45, 45);
 	border-radius: 15px;
 	padding:3px 3px 3px 7px;
 }
@@ -888,19 +890,19 @@ QCheckBox:hover {
 	border: 3px solid rgb(255, 85, 0);
 }
 QCheckBox::indicator {
-    width: 20px;
-    height: 20px;
+    width: 45px;
+    height: 25px;
     border-radius:10px;
 }
  
 QCheckBox::indicator:checked {
-    background-color:rgb(255, 0, 0);
-    border: 3px solid rgb(255, 0, 255);
-}
- 
+    background-color:rgb(0, 200, 0);
+    border: 3px solid rgb(255, 0, 0);
+	image: url(:/icon/icons/勾选.svg);
+ }
 QCheckBox::indicator:unchecked {
     background-color:rgb(136, 136, 136);
-    border:3px solid black;
+    border:2px solid rgb(80, 80, 80);
 }
 QCheckBox:disabled{
 	color: rgb(0, 0, 0);
@@ -909,7 +911,7 @@ QCheckBox:disabled{
 }</string>
                     </property>
                     <property name="text">
-                     <string>此处勾红为自启</string>
+                     <string>勾选为自启</string>
                     </property>
                     <property name="checked">
                      <bool>true</bool>
@@ -932,8 +934,10 @@ QCheckBox:disabled{
                     </property>
                     <property name="styleSheet">
                      <string notr="true">QCheckBox{	
+	color: rgb(255, 0, 127);
 	background-color: rgb(255, 255, 255);
-	font: 700 16pt &quot;等线&quot;;
+	font: 700 14pt &quot;等线&quot;;
+	border:2px solid rgb(45, 45, 45);
 	border-radius: 15px;
 	padding:3px 3px 3px 7px;
 }
@@ -941,19 +945,19 @@ QCheckBox:hover {
 	border: 3px solid rgb(255, 85, 0);
 }
 QCheckBox::indicator {
-    width: 20px;
-    height: 20px;
+    width: 45px;
+    height: 25px;
     border-radius:10px;
 }
  
 QCheckBox::indicator:checked {
-    background-color:rgb(255, 0, 0);
-    border: 3px solid rgb(255, 0, 255);
-}
- 
+    background-color:rgb(0, 200, 0);
+    border: 3px solid rgb(255, 0, 0);
+	image: url(:/icon/icons/勾选.svg);
+ }
 QCheckBox::indicator:unchecked {
     background-color:rgb(136, 136, 136);
-    border:3px solid black;
+    border:2px solid rgb(80, 80, 80);
 }
 QCheckBox:disabled{
 	color: rgb(0, 0, 0);
@@ -962,12 +966,12 @@ QCheckBox:disabled{
 }</string>
                     </property>
                     <property name="text">
-                     <string>此处勾红为实盘</string>
+                     <string>勾选为实盘</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QCheckBox" name="checkBox_stop_trading">
+                   <widget class="QCheckBox" name="checkBox_trading_status">
                     <property name="minimumSize">
                      <size>
                       <width>200</width>
@@ -982,8 +986,10 @@ QCheckBox:disabled{
                     </property>
                     <property name="styleSheet">
                      <string notr="true">QCheckBox{	
+	color: rgb(255, 0, 127);
 	background-color: rgb(255, 255, 255);
-	font: 700 16pt &quot;等线&quot;;
+	font: 700 14pt &quot;等线&quot;;
+	border:2px solid rgb(45, 45, 45);
 	border-radius: 15px;
 	padding:3px 3px 3px 7px;
 }
@@ -991,19 +997,19 @@ QCheckBox:hover {
 	border: 3px solid rgb(255, 85, 0);
 }
 QCheckBox::indicator {
-    width: 20px;
-    height: 20px;
+    width: 45px;
+    height: 25px;
     border-radius:10px;
 }
  
 QCheckBox::indicator:checked {
-    background-color:rgb(255, 0, 0);
-    border: 3px solid rgb(255, 0, 255);
-}
- 
+    background-color:rgb(0, 200, 0);
+    border: 3px solid rgb(255, 0, 0);
+	image: url(:/icon/icons/勾选.svg);
+ }
 QCheckBox::indicator:unchecked {
     background-color:rgb(136, 136, 136);
-    border:3px solid black;
+    border:2px solid rgb(80, 80, 80);
 }
 QCheckBox:disabled{
 	color: rgb(0, 0, 0);
@@ -1012,7 +1018,7 @@ QCheckBox:disabled{
 }</string>
                     </property>
                     <property name="text">
-                     <string>勾红进行交易</string>
+                     <string>勾选为正常交易</string>
                     </property>
                    </widget>
                   </item>
@@ -1032,8 +1038,10 @@ QCheckBox:disabled{
                     </property>
                     <property name="styleSheet">
                      <string notr="true">QCheckBox{	
+	color: rgb(255, 0, 127);
 	background-color: rgb(255, 255, 255);
-	font: 700 16pt &quot;等线&quot;;
+	font: 700 14pt &quot;等线&quot;;
+	border:2px solid rgb(45, 45, 45);
 	border-radius: 15px;
 	padding:3px 3px 3px 7px;
 }
@@ -1041,19 +1049,19 @@ QCheckBox:hover {
 	border: 3px solid rgb(255, 85, 0);
 }
 QCheckBox::indicator {
-    width: 20px;
-    height: 20px;
+    width: 45px;
+    height: 25px;
     border-radius:10px;
 }
  
 QCheckBox::indicator:checked {
-    background-color:rgb(255, 0, 0);
-    border: 3px solid rgb(255, 0, 255);
-}
- 
+    background-color:rgb(0, 200, 0);
+    border: 3px solid rgb(255, 0, 0);
+	image: url(:/icon/icons/勾选.svg);
+ }
 QCheckBox::indicator:unchecked {
     background-color:rgb(136, 136, 136);
-    border:3px solid black;
+    border:2px solid rgb(80, 80, 80);
 }
 QCheckBox:disabled{
 	color: rgb(0, 0, 0);
@@ -1062,7 +1070,7 @@ QCheckBox:disabled{
 }</string>
                     </property>
                     <property name="text">
-                     <string>勾红开启web</string>
+                     <string>勾选开启web</string>
                     </property>
                    </widget>
                   </item>
@@ -1952,8 +1960,10 @@ QLineEdit:disabled{
                     </property>
                     <property name="styleSheet">
                      <string notr="true">QCheckBox{	
+	color: rgb(255, 0, 127);
 	background-color: rgb(255, 255, 255);
-	font: 700 16pt &quot;等线&quot;;
+	font: 700 14pt &quot;等线&quot;;
+	border:2px solid rgb(45, 45, 45);
 	border-radius: 15px;
 	padding:3px 3px 3px 7px;
 }
@@ -1961,19 +1971,19 @@ QCheckBox:hover {
 	border: 3px solid rgb(255, 85, 0);
 }
 QCheckBox::indicator {
-    width: 20px;
-    height: 20px;
+    width: 45px;
+    height: 25px;
     border-radius:10px;
 }
  
 QCheckBox::indicator:checked {
-    background-color:rgb(255, 0, 0);
-    border: 3px solid rgb(255, 0, 255);
-}
- 
+    background-color:rgb(0, 200, 0);
+    border: 3px solid rgb(255, 0, 0);
+	image: url(:/icon/icons/勾选.svg);
+ }
 QCheckBox::indicator:unchecked {
     background-color:rgb(136, 136, 136);
-    border:3px solid black;
+    border:2px solid rgb(80, 80, 80);
 }
 QCheckBox:disabled{
 	color: rgb(0, 0, 0);
@@ -1982,7 +1992,7 @@ QCheckBox:disabled{
 }</string>
                     </property>
                     <property name="text">
-                     <string>勾红为已有直线</string>
+                     <string>勾选为已有直线</string>
                     </property>
                    </widget>
                   </item>
@@ -2043,8 +2053,10 @@ QLineEdit:disabled{
                     </property>
                     <property name="styleSheet">
                      <string notr="true">QCheckBox{	
+	color: rgb(255, 0, 127);
 	background-color: rgb(255, 255, 255);
-	font: 700 16pt &quot;等线&quot;;
+	font: 700 14pt &quot;等线&quot;;
+	border:2px solid rgb(45, 45, 45);
 	border-radius: 15px;
 	padding:3px 3px 3px 7px;
 }
@@ -2052,19 +2064,19 @@ QCheckBox:hover {
 	border: 3px solid rgb(255, 85, 0);
 }
 QCheckBox::indicator {
-    width: 20px;
-    height: 20px;
+    width: 45px;
+    height: 25px;
     border-radius:10px;
 }
  
 QCheckBox::indicator:checked {
-    background-color:rgb(255, 0, 0);
-    border: 3px solid rgb(255, 0, 255);
-}
- 
+    background-color:rgb(0, 200, 0);
+    border: 3px solid rgb(255, 0, 0);
+	image: url(:/icon/icons/勾选.svg);
+ }
 QCheckBox::indicator:unchecked {
     background-color:rgb(136, 136, 136);
-    border:3px solid black;
+    border:2px solid rgb(80, 80, 80);
 }
 QCheckBox:disabled{
 	color: rgb(0, 0, 0);
@@ -2073,7 +2085,7 @@ QCheckBox:disabled{
 }</string>
                     </property>
                     <property name="text">
-                     <string>勾红为已有直线</string>
+                     <string>勾选为已有直线</string>
                     </property>
                    </widget>
                   </item>

@@ -138,7 +138,7 @@ class ModifyParameters(QDialog, Ui_Form):  # 修改策略参数窗口类
             self.label_info.setText(str(self.init_dict['process_name']))
             self.checkBox_whether_self_start.setChecked(self.init_dict['whether_self_start'])
             self.checkBox_whether_live_futures_trading.setChecked(self.init_dict['whether_live_trading'])
-            self.checkBox_stop_trading.setChecked(self.init_dict['stop_trading'])
+            self.checkBox_trading_status.setChecked(self.init_dict['trading_status'])
             self.checkBox_whether_open_web_services.setChecked(self.init_dict['whether_open_web_services'])
             self.checkBox_whether_open_line.setChecked(self.init_dict['whether_open_line'])
             self.checkBox_whether_close_line.setChecked(self.init_dict['whether_close_line'])
@@ -154,14 +154,14 @@ class ModifyParameters(QDialog, Ui_Form):  # 修改策略参数窗口类
             self.open_line_Coordinates.setText(str(self.init_dict['open_line_Coordinates']))
             self.close_line_Coordinates.setText(str(self.init_dict['close_line_Coordinates']))
 
-            self.Customized_parameters1.setText(str(self.init_dict['Customized_parameters_1']))
-            self.Customized_parameters2.setText(str(self.init_dict['Customized_parameters_2']))
-            self.Customized_parameters3.setText(str(self.init_dict['Customized_parameters_3']))
-            self.Customized_parameters4.setText(str(self.init_dict['Customized_parameters_4']))
-            self.Customized_parameters5.setText(str(self.init_dict['Customized_parameters_5']))
-            self.Customized_parameters6.setText(str(self.init_dict['Customized_parameters_6']))
-            self.Customized_parameters7.setText(str(self.init_dict['Customized_parameters_7']))
-            self.Customized_parameters8.setText(str(self.init_dict['Customized_parameters_8']))
+            self.Customized_parameters1.setText(str(self.init_dict['CP1']))     # Customized_parameters 为了方便使用,缩写为CP
+            self.Customized_parameters2.setText(str(self.init_dict['CP2']))
+            self.Customized_parameters3.setText(str(self.init_dict['CP3']))
+            self.Customized_parameters4.setText(str(self.init_dict['CP4']))
+            self.Customized_parameters5.setText(str(self.init_dict['CP5']))
+            self.Customized_parameters6.setText(str(self.init_dict['CP6']))
+            self.Customized_parameters7.setText(str(self.init_dict['CP7']))
+            self.Customized_parameters8.setText(str(self.init_dict['CP8']))
 
         except Exception as e:
             print(e)
@@ -174,7 +174,7 @@ class ModifyParameters(QDialog, Ui_Form):  # 修改策略参数窗口类
 
         self.finally_dict['whether_self_start'] = self.checkBox_whether_self_start.isChecked()  # 是否自启动
         self.finally_dict['whether_live_trading'] = self.checkBox_whether_live_futures_trading.isChecked()  # 是否实盘交易
-        self.finally_dict['stop_trading'] = self.checkBox_stop_trading.isChecked()   # 停止交易标志位，True为正常交易，Flase为停止交易
+        self.finally_dict['trading_status'] = self.checkBox_trading_status.isChecked()   # 交易状态标志位，默认True为正常交易，Flase为停止交易,可在策略中通过开关此位来停止或开启交易
         self.finally_dict['whether_open_web_services'] = self.checkBox_whether_open_web_services.isChecked()
         self.finally_dict['whether_open_line'] = self.checkBox_whether_open_line.isChecked()  # 是否定义了开仓直线
         self.finally_dict['whether_close_line'] = self.checkBox_whether_close_line.isChecked()  # 是否定义了平仓直线
@@ -210,15 +210,15 @@ class ModifyParameters(QDialog, Ui_Form):  # 修改策略参数窗口类
         self.finally_dict['first_short_price'] = self.init_dict['first_short_price']
         self.finally_dict['first_short_deal'] = self.init_dict['first_short_deal']
 
-        self.finally_dict['Customized_parameters_1'] = self.Customized_parameters1.text()  # 自定义参数1
-        self.finally_dict['Customized_parameters_2'] = self.Customized_parameters2.text()  # 自定义参数2
-        self.finally_dict['Customized_parameters_3'] = self.Customized_parameters3.text()  # 自定义参数3
-        self.finally_dict['Customized_parameters_4'] = self.Customized_parameters4.text()  # 自定义参数4
-        self.finally_dict['Customized_parameters_5'] = self.Customized_parameters5.text()  # 自定义参数5
-        self.finally_dict['Customized_parameters_6'] = self.Customized_parameters6.text()  # 自定义参数6
-        self.finally_dict['Customized_parameters_7'] = self.Customized_parameters7.text()  # 自定义参数7
-        self.finally_dict['Customized_parameters_8'] = self.Customized_parameters8.text()  # 自定义参数8
-        print('最后的字典', self.finally_dict)
+        self.finally_dict['CP1'] = self.Customized_parameters1.text()  # 自定义参数1     Customized_parameters 为了方便使用,缩写为CP
+        self.finally_dict['CP2'] = self.Customized_parameters2.text()  # 自定义参数2
+        self.finally_dict['CP3'] = self.Customized_parameters3.text()  # 自定义参数3
+        self.finally_dict['CP4'] = self.Customized_parameters4.text()  # 自定义参数4
+        self.finally_dict['CP5'] = self.Customized_parameters5.text()  # 自定义参数5
+        self.finally_dict['CP6'] = self.Customized_parameters6.text()  # 自定义参数6
+        self.finally_dict['CP7'] = self.Customized_parameters7.text()  # 自定义参数7
+        self.finally_dict['CP8'] = self.Customized_parameters8.text()  # 自定义参数8
+        # print('最后的字典', self.finally_dict)
 
         self.data.loc[self.rowIndex] = self.finally_dict
         self.ioModal.write_datas_to_csv_file(self.data, self.path)
@@ -226,20 +226,4 @@ class ModifyParameters(QDialog, Ui_Form):  # 修改策略参数窗口类
 
 
 
-
-        # self.finally_dict['whether_self_start'] = self.init_dict['whether_self_start']
-        # self.finally_dict['whether_live_trading'] = self.init_dict['whether_live_trading']
-        # self.finally_dict['whether_open_web_services'] = self.init_dict['whether_open_web_services']
-        # self.finally_dict['web_port'] = self.init_dict['web_port']
-        # self.finally_dict['stop_trading'] = self.init_dict['stop_trading']
-        # self.finally_dict['orientation'] = self.init_dict['orientation']
-        # self.finally_dict['initial_capital'] = self.init_dict['initial_capital']
-        # self.finally_dict['contract_multiples'] = self.init_dict['contract_multiples']
-        # self.finally_dict['margin_rate'] = self.init_dict['margin_rate']
-        # self.finally_dict['stop_loss'] = self.init_dict['stop_loss']
-        # self.finally_dict['stop_profit'] = self.init_dict['stop_profit']
-        # self.finally_dict['whether_open_line'] = self.init_dict['whether_open_line']
-        # self.finally_dict['open_line_Coordinates'] = self.init_dict['open_line_Coordinates']
-        # self.finally_dict['whether_close_line'] = self.init_dict['whether_close_line']
-        # self.finally_dict['close_line_Coordinates'] = self.init_dict['close_line_Coordinates']
 

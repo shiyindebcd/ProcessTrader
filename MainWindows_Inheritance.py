@@ -56,6 +56,9 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
 
         self.cwd = os.getcwd()                                          # 获取当前路径
         self.Process_dict = {}                                          # 创建进程字典，用于存储子进程的pid
+        self.Process_start_time_dict = {}                               # 各进程启动次数字典,用来记录各策略进程重启次数
+        self.process_list_row = []                                      # 当前活着的进程名列表,用于刷新 process_listview
+        # self.process_listview_selected_row = None                      # process_list被选择的行,用于刷新后保持选择状态
 
 
         # 清屏定时器
@@ -221,7 +224,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.Btn_update_treeview.clicked.connect(self.show_file_in_treeview)
         self.Btn_add_new_process.clicked.connect(self.show_create_new_process_window)
         self.Btn_add_backtest_process.clicked.connect(self.show_create_backtest_window)
-        self.Btn_add_optional_contracts.clicked.connect(self.add_Tq_Quote_to_csv)
+        self.Btn_add_self_selection_contracts.clicked.connect(self.add_self_selection_list)
         self.Btn_draw_line_order.clicked.connect(self.KLineWidget.draw_line_by_mouse)
         self.Btn_draw_line_style.clicked.connect(self.KLineWidget.set_draw_line_style)
         self.treeview_log.clicked.connect(self.on_tree_licked)
@@ -307,6 +310,8 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.label_logo.setScaledContents(True)                         # 设置图片自适应
         self.label_client_photo_show.setScaledContents(True)
         self.stackedWidget.setCurrentIndex(0)                           # 设置第一页
+        print('欢迎使用进程交易者程序化交易系统\n\n\n\n\n\n\n')
+
 
 
     def show_setting_dialog(self):  # 显示设置窗口
@@ -341,7 +346,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
     def show_create_backtest_window(self):      # 弹出新建策略回测进程窗口
 
         from CreateBackTestProcess_Inheritance import BackTestWindow
-        self.create_backtest_window = BackTestWindow()
+        self.create_backtest_window = BackTestWindow(self)
         self.create_backtest_window.show()
 
     def chack_main_tq_account(self):            # 检查主账号是否存在
@@ -403,7 +408,6 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
     #####################################################################
     #####################下面这个函数是进程自启的核心代码 #####################
 
-
     def start_inactivated_process(self):  # 根据 csv 文件启动未运行的策略
         living_pid_list = self.get_alive_process_pid_list()
         if self.times > 0:
@@ -422,24 +426,25 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
                             pass
                         else:
                             # 根据一个字符串的名称,自动实例化模块下的类
-
                             module = 'strategys' + '.' + item['strategy']
                             strategy_class_name = item['strategy']
 
-                            m = importlib.import_module(module)             # 导入模块
-                            my_class = getattr(m, strategy_class_name)      # 获取类
+                            m = importlib.import_module(module)  # 导入模块
+                            my_class = getattr(m, strategy_class_name)  # 获取类
 
-                            t = my_class(args=(index, data.iloc[index]))    # 实例化类                            
-                            t.name = item['process_name']                 # 设置进程名称
+                            t = my_class(args=(index, data.iloc[index]))  # 实例化类
+                            t.name = item['process_name']  # 设置进程名称
                             t.start()  # 启动进程
                             self.Process_dict[item['process_name']] = t.pid
 
-                            if self.Quantity < 1:                           # 区分第一次启动和非第一次启动
-                                print('进程 ', item['process_name'], '  已启动!')
-                                print('启动时间为: ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n\n')
+                            if item['process_name'] in self.Process_start_time_dict:
+                                self.Process_start_time_dict[item['process_name']] += 1
+                                print('\n进程 ', item['process_name'], '  已自动重启!!!,  目前该策略实例重启次数:   ', self.Process_start_time_dict[item['process_name']])
+                                print('重启时间: ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n\n')
                             else:
-                                print('进程 ', item['process_name'], '  意外中止,现已重启!!!')
-                                print('重启时间为: ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n\n')
+                                self.Process_start_time_dict[item['process_name']] = 1
+                                print('\n进程实例  ', item['process_name'], '  已启动, 本次为框架运行以来第一次启动!')
+                                print('启动时间:  ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n\n')
 
                             self.Quantity += 1
                             if self.Quantity > 0:
@@ -449,14 +454,40 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
                             else:
                                 self.label_process_reboot_quantity.setText('进程启动中\n还没启动完')
 
-
                             self.add_paramer_to_container_by_timer()
-                            time.sleep(1)
                     else:
                         pass
         else:
             print('\n\n\n策略将在主程序启动一分钟后，按 config.csv 文件中的配置逐个启动\n\n\n')
-            self.times += 1 
+            self.times += 1
 
 
 
+    def start_single_process(self, index, tmp_dict):         # 启动单个策略实例进程
+
+        module = 'strategys' + '.' + tmp_dict['strategy']
+        strategy_class_name = tmp_dict['strategy']
+
+        mod = importlib.import_module(module)  # 导入模块
+        my_class = getattr(mod, strategy_class_name)  # 获取类
+
+        t = my_class(args=(index, tmp_dict))  # 实例化类
+        t.name = tmp_dict['process_name']  # 设置进程名称
+        t.start()  # 启动进程
+        self.Process_dict[tmp_dict['process_name']] = t.pid
+
+        if tmp_dict['process_name'].split('-',3) == '回测':
+            print('\n回测进程的启动不计入策略进程总重启次数')
+        else:
+            if tmp_dict['process_name'] in self.Process_start_time_dict:
+                self.Process_start_time_dict[tmp_dict['process_name']] += 1
+                self.Quantity += 1
+                print('\n进程 ', tmp_dict['process_name'], '  已手动重启!!!,  目前该策略实例重启次数:   ', self.Process_start_time_dict[tmp_dict['process_name']])
+                print('重启时间: ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n\n')
+            else:
+                self.Process_start_time_dict[tmp_dict['process_name']] = 1
+                print('\n进程实例  ', tmp_dict['process_name'], '  已手动启动, 本次为框架运行以来第一次启动!')
+                print('启动时间:  ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n\n')
+
+        if self.Quantity > 0:
+            self.label_process_reboot_quantity.setText(str(self.count_process_reboot_times()))

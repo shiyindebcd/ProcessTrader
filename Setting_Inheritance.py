@@ -22,7 +22,7 @@ class SettingDialog(QDialog, UI):
         super(SettingDialog, self).__init__()
         self.setupUi(self)
 
-         # 不显示标题栏        
+        # 不显示标题栏
         self.setWindowFlags(QtCore.Qt.WindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint))
         # 不显示空白边框
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
@@ -40,6 +40,7 @@ class SettingDialog(QDialog, UI):
              self.label_Account.setText('已配置天勤帐号：  ' + str(self.data.iloc[0]['tq_account']) + '   无需再配置')
             
 
+        self.Btn_clear_main_tq_account.clicked.connect(self.clear_main_tq_account)
         self.Btn_Determine_add.clicked.connect(self.get_tq_account)
         self.Btn_Determine_add.setFocusPolicy(Qt.NoFocus)
         self.Btn_clear_input.clicked.connect(self.clear_input)
@@ -68,7 +69,7 @@ class SettingDialog(QDialog, UI):
     def get_tq_account(self):
         dict = {}
         # 如果main_tq_account不为空，则读取main_tq_account的值
-        if (self.main_tq_account.text() != "") and (self.main_tq_account.text() is not None):   #如果帐户框和密码框都有都有输入
+        if (self.main_tq_account.text() is not None) and (self.main_tq_account.text() is not None):   #如果帐户框和密码框都有都有输入
             
             self.RW_csv.delete_file(path=self.path)         #删除原文件
             self.RW_csv.judge_config_exist(path=self.path)  # 判断main_tq_account.csv是否存在,如果不存在，则创建
@@ -84,3 +85,7 @@ class SettingDialog(QDialog, UI):
     def clear_input(self):
         self.main_tq_account.clear()
         self.main_tq_psd.clear()
+
+    def clear_main_tq_account(self):
+        self.RW_csv.delete_file(self.path)
+        self.RW_csv.judge_config_exist(path=self.path)

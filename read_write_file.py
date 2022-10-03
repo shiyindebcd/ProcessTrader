@@ -38,7 +38,7 @@ class ReadWriteCsv(object): # csv文件读写类
             self.write_datas_to_csv_file(df_tmp, path)
             print('文件' + path + '不存在，已创建空白文件')
         else:
-            print('文件' + path + '已存在')
+            pass
 
     def delete_file(self, path):
         os.remove(path)
