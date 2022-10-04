@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindows_light.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.3.1
+## Created by: Qt User Interface Compiler version 6.3.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -7032,6 +7032,21 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_15.addWidget(self.label_eduition)
 
+        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_15.addItem(self.horizontalSpacer_13)
+
+        self.label_TQ_services_info = QLabel(self.buttonframe)
+        self.label_TQ_services_info.setObjectName(u"label_TQ_services_info")
+        sizePolicy3.setHeightForWidth(self.label_TQ_services_info.sizePolicy().hasHeightForWidth())
+        self.label_TQ_services_info.setSizePolicy(sizePolicy3)
+        self.label_TQ_services_info.setMinimumSize(QSize(100, 0))
+        self.label_TQ_services_info.setStyleSheet(u"color: rgb(255, 0, 0);\n"
+"font: 700 10pt \"\u7b49\u7ebf\";\n"
+"border: none;")
+
+        self.horizontalLayout_15.addWidget(self.label_TQ_services_info)
+
         self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_15.addItem(self.horizontalSpacer_5)
@@ -7270,6 +7285,7 @@ class Ui_MainWindow(object):
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u8868\u529f\u80fd\u8fd8\u6ca1\u505a\u51fa\u6765\uff0c\u540e\u7eed\u4f1a\u66f4\u65b0", None))
         self.tabWidget_chart.setTabText(self.tabWidget_chart.indexOf(self.widget), QCoreApplication.translate("MainWindow", u"\u6851\u57fa\u56fe", None))
         self.label_eduition.setText(QCoreApplication.translate("MainWindow", u"\u8fdb\u7a0b\u4ea4\u6613\u8005--\u57fa\u4e8e\u5929\u52e4\u7684\u7a0b\u5e8f\u5316\u4ea4\u6613\u6846\u67b62.0", None))
+        self.label_TQ_services_info.setText(QCoreApplication.translate("MainWindow", u"\u5929\u52e4\u884c\u60c5\u6570\u636e\u670d\u52a1\u672a\u5f00\u542f", None))
         self.label_current_time.setText(QCoreApplication.translate("MainWindow", u"\u5f53\u524d\u65f6\u95f4", None))
     # retranslateUi
 

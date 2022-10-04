@@ -32,6 +32,10 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
     def __init__(self):
         super(Main_window, self).__init__()
 
+        # 将主进程的控制台输出重定向到textBrowser中显示
+        sys.stdout = EmittingStr()
+        sys.stdout.textWritten.connect(self.outputWritten)
+
         self.setupUi(self)
         self.setWindowOpacity(0.98)                                     # 设置窗口透明度
         self.start_time = datetime.now()                                # 记录程序开始时间
@@ -40,26 +44,21 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.current_Kline = ''                                         # 当前显示的K线
         self.Quote_klines_dict = {}                                   # 自选合约字典,用来存放所有的自选合约klines
 
-        # 将主进程的控制台输出重定向到textBrowser中显示
-        sys.stdout = EmittingStr()
-        sys.stdout.textWritten.connect(self.outputWritten)
 
         self.ioModal = ReadWriteCsv()                                   # 实例化 csv 读写类
         self.KLineWidget = KLineWidget()                                # 实例化K线图widget部件
         self.RightBtbMenu = RightButtonMenu(self)                       # 右键菜单类
         self.verticalLayout_klines.addWidget(self.KLineWidget)          # 添加K线图部件到布局中
-        self.whether_the_folder_exists()                                # 判断文件夹是否存在，不存在则创建
+        self.whether_the_folder_and_files_exists()                      # 判断必需的文件夹和文件是否存在，不存在则创建
 
-        self.times = 0                                                  # 进程守护定时器计数
         self.Quantity = 0 - self.get_inactivated_process_quantity()
-
 
         self.cwd = os.getcwd()                                          # 获取当前路径
         self.Process_dict = {}                                          # 创建进程字典，用于存储子进程的pid
         self.Process_start_time_dict = {}                               # 各进程启动次数字典,用来记录各策略进程重启次数
         self.process_list_row = []                                      # 当前活着的进程名列表,用于刷新 process_listview
-        # self.process_listview_selected_row = None                      # process_list被选择的行,用于刷新后保持选择状态
-
+        self.TQ_services_pid = None                                     # 用来记录天勤数据服务进程的pid
+        self.current_dissplayed_Kline = None                            # 当前显示的k线品种
 
         # 清屏定时器
         self.textBrowser_clear = QTimer(self)
@@ -74,9 +73,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         # 面板参数刷新定时器
         self.parameters_refresh = QTimer(self)
         self.parameters_refresh.timeout.connect(self.add_paramer_to_container_by_timer)
-        # self.parameters_refresh.timeout.connect(self.chack_main_tq_account)
         self.parameters_refresh.start(1000)
-        self.times1 = 0                                             #用来辅助计时,程序启动20秒后才登录天勤
 
         self.Define_slot_functions()                                # 定义槽函数
         self.hide_items()                                           # 隐藏控件
@@ -90,7 +87,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.load_deal_detials_data()                               # 加载交易明细数据
         self.load_process_config()                                  # 加载进程配置数据
         self.draw_dount_chart()                                     # 绘制饼图
-        self.start_inactivated_process()                            # 启动未激活的进程
+        # self.start_inactivated_process()                            # 启动未激活的进程
 
 
     def mousePressEvent(self, e):  # 鼠标点击事件
@@ -110,16 +107,12 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
             self.move(e.globalPosition().toPoint() - self.m_DragPosition)
             e.accept()
 
-
-
-    def whether_the_folder_exists(self):    # 检查必要的文件及文件夹是否存在，不存在则创建
+    def whether_the_folder_and_files_exists(self):    # 检查必要的文件及文件夹是否存在，不存在则创建
         # 判断文件夹是否存在，不存在则创建
-        if not os.path.exists('./data'):
-            os.mkdir('./data')
-        if not os.path.exists('./log'):
-            os.mkdir('./log')
-        if not os.path.exists('./clients_photo'):
-            os.mkdir('./clients_photo')
+        self.ioModal.judge_dirs_exist(dirs='./data')
+        self.ioModal.judge_dirs_exist(dirs='./log')
+        self.ioModal.judge_dirs_exist(dirs='./clients_photo')
+        self.ioModal.judge_dirs_exist(dirs='./Klines_Data')
 
         # 判断配置文件是否存在，不存在则创建
         self.ioModal.judge_config_exist(path='./data/deal_detials.csv')
@@ -171,7 +164,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.process_listview.setFocusPolicy(Qt.NoFocus)
         self.self_selection_listview.setFocusPolicy(Qt.NoFocus)
 
-        self.Btn_homepage.setFocusPolicy(Qt.NoFocus)            # 隐藏所有按钮点击时的虚线框
+        self.Btn_homepage.setFocusPolicy(Qt.NoFocus)            # 隐藏各种按钮点击时的虚线框
         self.Btn_account_manage.setFocusPolicy(Qt.NoFocus)
         self.Btn_trading_log.setFocusPolicy(Qt.NoFocus)
         self.Btn_chart_details.setFocusPolicy(Qt.NoFocus)
@@ -227,7 +220,17 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.Btn_add_self_selection_contracts.clicked.connect(self.add_self_selection_list)
         self.Btn_draw_line_order.clicked.connect(self.KLineWidget.draw_line_by_mouse)
         self.Btn_draw_line_style.clicked.connect(self.KLineWidget.set_draw_line_style)
+        self.Btn_start_TQ_services.clicked.connect(self.start_TQ_services)
+        self.Btn_stop_TQ_services.clicked.connect(self.stop_TQ_services)
         self.treeview_log.clicked.connect(self.on_tree_licked)
+
+        self.Btn_klines_1min.clicked.connect(self.show_1min_kline)
+        self.Btn_klines_15min.clicked.connect(self.show_15min_kline)
+        self.Btn_klines_30min.clicked.connect(self.show_30min_kline)
+        self.Btn_klines_1hour.clicked.connect(self.show_1hour_kline)
+        self.Btn_klines_2hour.clicked.connect(self.show_2hour_kline)
+        self.Btn_klines_4hour.clicked.connect(self.show_4hour_kline)
+        self.Btn_klines_daily.clicked.connect(self.show_1day_kline)
 
         self.Btn_opne_in_excel1.clicked.connect(lambda: self.open_file_with_excel(path='./data/deal_detials.csv'))
         self.Btn_opne_in_excel2.clicked.connect(lambda: self.open_file_with_excel(path='./data/config.csv'))
@@ -310,21 +313,18 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.label_logo.setScaledContents(True)                         # 设置图片自适应
         self.label_client_photo_show.setScaledContents(True)
         self.stackedWidget.setCurrentIndex(0)                           # 设置第一页
-        print('欢迎使用进程交易者程序化交易系统\n\n\n\n\n\n\n')
-
+        print('\n\n欢迎使用\n\n进程交易者  程序化期货交易框架\n\n\n\n\n\n\n')
+        print('\n\n\n\n\n\n策略进程将在主程序启动一分钟后，按 config.csv 文件中的配置逐个启动\n\n\n')
 
 
     def show_setting_dialog(self):  # 显示设置窗口
-
         from Setting_Inheritance import SettingDialog
-
-        self.setting_dialog = SettingDialog()
+        self.setting_dialog = SettingDialog(self)
         self.setting_dialog.show()
 
 
     def show_exit_dialog(self):     # 退出程序
         from ExitDialog_Inheritance import Exit_Dialog
-
         self.exit_dialog = Exit_Dialog()
         self.exit_dialog.show()
         self.exit_dialog.Btn_determine_exit.clicked.connect(self.kill_all_process)
@@ -332,41 +332,35 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.exit_dialog.exec()
 
     def show_donation_window(self):             # 弹出捐赠窗口
-
         from Donation_Inheritance import Donation
         self.donation = Donation()
         self.donation.show()
 
     def show_create_new_process_window(self):   # 弹出新建策略进程窗口
-
         from CreateNewProcess_Inheritance import NewProcessWindow
         self.create_process_strategy = NewProcessWindow(self)
         self.create_process_strategy.show()
 
     def show_create_backtest_window(self):      # 弹出新建策略回测进程窗口
-
         from CreateBackTestProcess_Inheritance import BackTestWindow
         self.create_backtest_window = BackTestWindow(self)
         self.create_backtest_window.show()
 
     def chack_main_tq_account(self):            # 检查主账号是否存在
-        if self.main_tq_account == '' or self.main_tq_pwd == '':
-            data = self.ioModal.read_csv_file(path='./data/main_tq_account.csv')
+        path = './data/main_tq_account.csv'
+        if os.path.exists(path):
+            data = self.ioModal.read_csv_file(path=path)
             if data.empty:                                     # 判断self.data是否为空
                 print('\n\nmain_tq_account.csv文件里没有帐户，请先在设置里添加天勤主账号和密码')
+                self.show_setting_dialog()
             else:
                 self.main_tq_account = data.iloc[0, 0]
-                self.main_tq_pwd = data.iloc[0, 1]
-        else:
-            self.times1 += 1
-
-            if self.times1 == 10:       #主程序运行10秒后才登录天勤帐户,以防天勤帐户登录出问题时,主程序也打不开
-                self.sign_in_tq_account()
+                self.main_tq_psd = data.iloc[0, 1]
 
 
     def sign_in_tq_account(self):  # 登录天勤账户并订阅k线
         try:
-            self.api = TqApi(TqKq(),auth=TqAuth(self.main_tq_account, self.main_tq_pwd))
+            self.api = TqApi(TqKq(), auth=TqAuth(self.main_tq_account, self.main_tq_psd))
         except Exception as ex:
             print('登录天勤帐户时发生异常: %r' % ex)
 
@@ -387,6 +381,16 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         # self.GengXin_ShuJu.TQ_signal.connect(self.updateindicator) #信号绑定更新函数updateindicator
         # self.GengXin_ShuJu.TQ_signal.connect(self.Update_quotes) #信号绑定更新quote
 
+    def start_TQ_services(self):    # 开启天勤数据行情服务
+        self.chack_main_tq_account()
+        if self.main_tq_account and self.main_tq_psd:
+            self.label_TQ_services_info.setText('天勤数据行情服务正在运行中')
+
+    def stop_TQ_services(self):     # 关闭天勤数据行情服务
+        if self.TQ_services_pid:
+            self.kill_process(self.TQ_services_pid)
+            self.TQ_services_pid = None
+        self.label_TQ_services_info.setText('天勤数据行情服务已关闭')
 
     def ceate_TQ_klines_and_quote(self,symbol): # 根据合约创建对应的klines和quote
         try:
@@ -410,57 +414,52 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
 
     def start_inactivated_process(self):  # 根据 csv 文件启动未运行的策略
         living_pid_list = self.get_alive_process_pid_list()
-        if self.times > 0:
-            self.times += 1
-            path = './data/config.csv'
-            data = self.ioModal.read_csv_file(path)
 
-            if data.empty:
-                print('策略实例配置文件 config.csv 为空,请添加参数后再运行...')
-            else:
+        path = './data/config.csv'
+        data = self.ioModal.read_csv_file(path)
 
-                for index, item in data.iterrows():
-                    if item['whether_self_start']:
-
-                        if self.Process_dict[item['process_name']] in living_pid_list:
-                            pass
-                        else:
-                            # 根据一个字符串的名称,自动实例化模块下的类
-                            module = 'strategys' + '.' + item['strategy']
-                            strategy_class_name = item['strategy']
-
-                            m = importlib.import_module(module)  # 导入模块
-                            my_class = getattr(m, strategy_class_name)  # 获取类
-
-                            t = my_class(args=(index, data.iloc[index]))  # 实例化类
-                            t.name = item['process_name']  # 设置进程名称
-                            t.start()  # 启动进程
-                            self.Process_dict[item['process_name']] = t.pid
-
-                            if item['process_name'] in self.Process_start_time_dict:
-                                self.Process_start_time_dict[item['process_name']] += 1
-                                print('\n进程 ', item['process_name'], '  已自动重启!!!,  目前该策略实例重启次数:   ', self.Process_start_time_dict[item['process_name']])
-                                print('重启时间: ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n\n')
-                            else:
-                                self.Process_start_time_dict[item['process_name']] = 1
-                                print('\n进程实例  ', item['process_name'], '  已启动, 本次为框架运行以来第一次启动!')
-                                print('启动时间:  ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n\n')
-
-                            self.Quantity += 1
-                            if self.Quantity > 0:
-                                self.label_process_reboot_quantity.setText(str(self.Quantity))
-                            elif self.Quantity == 0:
-                                self.label_process_reboot_quantity.setText('进程已全部启动')
-                            else:
-                                self.label_process_reboot_quantity.setText('进程启动中\n还没启动完')
-
-                            self.add_paramer_to_container_by_timer()
-                    else:
-                        pass
+        if data.empty:
+            print('策略实例配置文件 config.csv 为空,请添加参数后再运行...')
         else:
-            print('\n\n\n策略将在主程序启动一分钟后，按 config.csv 文件中的配置逐个启动\n\n\n')
-            self.times += 1
 
+            for index, item in data.iterrows():
+                if item['whether_self_start']:
+
+                    if self.Process_dict[item['process_name']] in living_pid_list:
+                        pass
+                    else:
+                        # 根据一个字符串的名称,自动实例化模块下的类
+                        module = 'strategys' + '.' + item['strategy']
+                        strategy_class_name = item['strategy']
+
+                        m = importlib.import_module(module)  # 导入模块
+                        my_class = getattr(m, strategy_class_name)  # 获取类
+
+                        t = my_class(args=(index, data.iloc[index]))  # 实例化类
+                        t.name = item['process_name']  # 设置进程名称
+                        t.start()  # 启动进程
+                        self.Process_dict[item['process_name']] = t.pid
+
+                        if item['process_name'] in self.Process_start_time_dict:
+                            self.Process_start_time_dict[item['process_name']] += 1
+                            print('\n进程 ', item['process_name'], '  已自动重启!!!,  目前该策略实例重启次数:   ', self.Process_start_time_dict[item['process_name']])
+                            print('重启时间: ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n\n')
+                        else:
+                            self.Process_start_time_dict[item['process_name']] = 1
+                            print('\n进程实例  ', item['process_name'], '  已启动, 本次为框架运行以来第一次启动!')
+                            print('启动时间:  ', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()), '\n\n')
+
+                        self.Quantity += 1
+                        if self.Quantity > 0:
+                            self.label_process_reboot_quantity.setText(str(self.Quantity))
+                        elif self.Quantity == 0:
+                            self.label_process_reboot_quantity.setText('进程已全部启动')
+                        else:
+                            self.label_process_reboot_quantity.setText('进程启动中\n还没启动完')
+
+                        self.add_paramer_to_container_by_timer()
+                else:
+                    pass
 
 
     def start_single_process(self, index, tmp_dict):         # 启动单个策略实例进程

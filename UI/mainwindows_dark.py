@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindows_dark.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.3.1
+## Created by: Qt User Interface Compiler version 6.3.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -1191,7 +1191,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.qoute_list_page, u"\u7b56\u7565\u4e2d\u5f15\u7528\u7684\u884c\u60c5\u5217\u8868")
         self.process_list_page = QWidget()
         self.process_list_page.setObjectName(u"process_list_page")
-        self.process_list_page.setGeometry(QRect(0, 0, 83, 66))
+        self.process_list_page.setGeometry(QRect(0, 0, 238, 455))
         self.verticalLayout_14 = QVBoxLayout(self.process_list_page)
         self.verticalLayout_14.setSpacing(0)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
@@ -7123,13 +7123,26 @@ class Ui_MainWindow(object):
         self.label_eduition.setObjectName(u"label_eduition")
         sizePolicy3.setHeightForWidth(self.label_eduition.sizePolicy().hasHeightForWidth())
         self.label_eduition.setSizePolicy(sizePolicy3)
-        self.label_eduition.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 85, 0);\n"
+        self.label_eduition.setStyleSheet(u"color: rgb(255, 85, 0);\n"
 "font: 10pt \"\u7b49\u7ebf\";\n"
-"border-radius: 15px;\n"
 "border: none;")
 
         self.horizontalLayout_15.addWidget(self.label_eduition)
+
+        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_15.addItem(self.horizontalSpacer_13)
+
+        self.label_TQ_services_info = QLabel(self.buttonframe)
+        self.label_TQ_services_info.setObjectName(u"label_TQ_services_info")
+        sizePolicy3.setHeightForWidth(self.label_TQ_services_info.sizePolicy().hasHeightForWidth())
+        self.label_TQ_services_info.setSizePolicy(sizePolicy3)
+        self.label_TQ_services_info.setMinimumSize(QSize(100, 0))
+        self.label_TQ_services_info.setStyleSheet(u"color: rgb(255, 0, 0);\n"
+"font: 700 10pt \"\u7b49\u7ebf\";\n"
+"border: none;")
+
+        self.horizontalLayout_15.addWidget(self.label_TQ_services_info)
 
         self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -7175,7 +7188,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.Btn_min_window.clicked.connect(MainWindow.showMinimized)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
         self.Veiw_Box.setCurrentIndex(4)
         self.Veiw_Box.layout().setSpacing(6)
         self.tabWidget_account.setCurrentIndex(2)
@@ -7369,6 +7382,7 @@ class Ui_MainWindow(object):
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u56fe\u8868\u529f\u80fd\u8fd8\u6ca1\u505a\u51fa\u6765\uff0c\u540e\u7eed\u4f1a\u66f4\u65b0", None))
         self.tabWidget_chart.setTabText(self.tabWidget_chart.indexOf(self.widget), QCoreApplication.translate("MainWindow", u"\u6851\u57fa\u56fe", None))
         self.label_eduition.setText(QCoreApplication.translate("MainWindow", u"\u8fdb\u7a0b\u4ea4\u6613\u8005--\u57fa\u4e8e\u5929\u52e4\u7684\u7a0b\u5e8f\u5316\u4ea4\u6613\u6846\u67b62.0", None))
+        self.label_TQ_services_info.setText(QCoreApplication.translate("MainWindow", u"\u5929\u52e4\u884c\u60c5\u6570\u636e\u670d\u52a1\u672a\u5f00\u542f", None))
         self.label_current_time.setText(QCoreApplication.translate("MainWindow", u"\u5f53\u524d\u65f6\u95f4", None))
     # retranslateUi
 

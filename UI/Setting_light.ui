@@ -795,5 +795,37 @@ QPushButton:disabled{
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>Btn_clear_main_tq_account</sender>
+   <signal>clicked()</signal>
+   <receiver>main_tq_account</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>342</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>310</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_clear_main_tq_account</sender>
+   <signal>clicked()</signal>
+   <receiver>main_tq_psd</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>362</x>
+     <y>26</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>354</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
 </ui>

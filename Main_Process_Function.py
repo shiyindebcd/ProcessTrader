@@ -202,7 +202,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         for pid in self.get_alive_process_pid_list():
             self.kill_process(pid)
         # self.Process_dict.clear()
-        print('所有子进程都已关闭!\n')
+        print('\n所有子进程都已关闭!\n')
 
 
     def process_dict_update(self):  # 更新进程字典
@@ -684,11 +684,57 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             self.label_kline_info.setText('请输入正确的合约名再点添加')
 
 
-    def set_current_dissplayed_Kline(self, qModelIndex):  # 显示订阅的k线
+    def set_current_dissplayed_Kline(self, qModelIndex):  # 点击自选列表时,设置并显示当前k线
         row = qModelIndex.row()
         data = self.ioModal.read_csv_file(path='./data/self_selection.csv')
         self.current_dissplayed_Kline = str(data.loc[row]['quote'])
-        print('当前显示的合约为:', self.current_dissplayed_Kline)
+        self.show_kline(self.current_dissplayed_Kline,period='15min')
+
+    def show_1min_kline(self):
+        if self.current_dissplayed_Kline:
+            self.show_kline(self.current_dissplayed_Kline,period='1min')
+
+
+    def show_15min_kline(self):
+        if self.current_dissplayed_Kline:
+            self.show_kline(self.current_dissplayed_Kline, period='15min')
+
+
+    def show_30min_kline(self):
+        if self.current_dissplayed_Kline:
+            self.show_kline(self.current_dissplayed_Kline, period='30min')
+
+
+    def show_1hour_kline(self):
+        if self.current_dissplayed_Kline:
+            self.show_kline(self.current_dissplayed_Kline, period='1hour')
+
+
+    def show_2hour_kline(self):
+        if self.current_dissplayed_Kline:
+            self.show_kline(self.current_dissplayed_Kline, period='2hour')
+
+
+    def show_4hour_kline(self):
+        if self.current_dissplayed_Kline:
+            self.show_kline(self.current_dissplayed_Kline, period='4hour')
+
+
+    def show_1day_kline(self):
+        if self.current_dissplayed_Kline:
+            self.show_kline(self.current_dissplayed_Kline, period='1day')
+
+
+    def show_kline(self, Species, period):
+        file_path = './Klines_Data/' + Species + '_' + period + '.csv'
+        if os.path.exists(file_path):
+            kline_data = self.ioModal.read_csv_file(path=file_path)
+            self.KLineWidget.loadData(kline_data)
+            self.KLineWidget.refreshAll()
+            self.label_kline_info.setText(Species + '_' + period)
+        else:
+            self.label_kline_info.setText('没有数据,请检查合约名是否正确')
+
 
 
     def init_Klines_chart(self):

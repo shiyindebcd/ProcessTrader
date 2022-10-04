@@ -709,5 +709,54 @@ QPushButton:disabled{
  <resources>
   <include location="../resource.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>Btn_close_window</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>461</x>
+     <y>34</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>394</x>
+     <y>-15</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_clear_main_tq_account</sender>
+   <signal>clicked()</signal>
+   <receiver>main_tq_account</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>355</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Btn_clear_main_tq_account</sender>
+   <signal>clicked()</signal>
+   <receiver>main_tq_psd</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>391</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>364</x>
+     <y>281</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

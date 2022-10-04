@@ -25,14 +25,16 @@ class ReadWriteCsv(object): # csv文件读写类
         df = pd.DataFrame(df_tmp)
         df.to_csv(path, encoding=encoding)
 
-    def judge_config_exist(self, path):
-        dirs = './data/'
+    def judge_dirs_exist(self, dirs):   # 判断目录是否存在
+
         if not os.path.exists(dirs):
             os.makedirs(dirs)
             print('文件目录' + dirs + '不存在，已创建')
         else:
             pass
-        
+
+    def judge_config_exist(self, path):     # 判断文件是否存在
+
         if not os.path.exists(path):
             df_tmp = pd.DataFrame()
             self.write_datas_to_csv_file(df_tmp, path)
@@ -40,10 +42,12 @@ class ReadWriteCsv(object): # csv文件读写类
         else:
             pass
 
-    def delete_file(self, path):
-        os.remove(path)
-        
 
+    def delete_file(self, path):
+        if os.path.exists(path):
+            os.remove(path)
+        else:
+            pass
 
 class ReadWriteExcel(object):   # excel文件读写类
     

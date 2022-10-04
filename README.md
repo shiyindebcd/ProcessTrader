@@ -60,7 +60,7 @@ cd E:\进程交易者
 
 <br/>
 
-要想让软件开机自启支, 就对这个bat文件创建个快捷方式，放到
+要想让软件开机自启动, 就对这个bat文件创建个快捷方式，放到
 ~~~
 C:\Users\你的电脑用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup 
 ~~~

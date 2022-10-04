@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Setting_light.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.3.1
+## Created by: Qt User Interface Compiler version 6.3.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -431,6 +431,8 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
         self.Btn_close_window.clicked.connect(Dialog.close)
+        self.Btn_clear_main_tq_account.clicked.connect(self.main_tq_account.clear)
+        self.Btn_clear_main_tq_account.clicked.connect(self.main_tq_psd.clear)
 
         QMetaObject.connectSlotsByName(Dialog)
     # setupUi
