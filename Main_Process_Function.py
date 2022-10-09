@@ -109,7 +109,9 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         self.strategy_listview.setModel(strategy_model)
 
         self_selection_model = QStringListModel()
-        self.self_selection_list = self.get_self_selection_quote_list()
+        self.self_selection_list, self.quote_dict = self.get_self_selection_quote_list()
+        if len(self.self_selection_list) > 0:
+            self.current_dissplayed_Kline = self.self_selection_list[0]
         self_selection_model.setStringList(self.self_selection_list)
         self.self_selection_listview.setModel(self_selection_model)
 
@@ -254,7 +256,6 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             else:
                 pass
         return living_pid_list
-        # living_pid_list = [x.pid for x in p.children()]        return living_pid_list
 
 
     def get_process_list(self):  # 获取活着的进程名列表
@@ -286,26 +287,27 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
         return quote_list
 
-
-    def get_self_selection_quote_list(self):  # 获取自选行情列表
-        quote_list = []
+    def get_self_selection_quote_list(self):  # 获取自选行情列表和字典
         data = self.ioModal.read_csv_file(path='./data/self_selection.csv')
         if data.empty:
             quote_list = []
+            quote_dict = {}
         else:
-            for index, item in data.iterrows():
-                quote_list.append(str(item['quote']))
-        #         self.self_selection_dict[str(item['quote'] + '_1_min')] = str(item['quote'] + '_1_min')
-        #         self.self_selection_dict[str(item['quote'] + '_15_min')] = str(item['quote'] + '_15_min')
-        #         self.self_selection_dict[str(item['quote'] + '_30_min')] = str(item['quote'] + '_30_min')
-        #         self.self_selection_dict[str(item['quote'] + '_60_min')] = str(item['quote'] + '_60_min')
-        #         self.self_selection_dict[str(item['quote'] + '_120_min')] = str(item['quote'] + '_120_min')
-        #         self.self_selection_dict[str(item['quote'] + '_240_min')] = str(item['quote'] + '_240_min')
-        #         self.self_selection_dict[str(item['quote'] + '_1440_min')] = str(item['quote'] + '_1440_min')
+            quote_list = data['quote'].tolist()
+            quote_dict = data['quote'].to_dict()
 
-        # print(self.self_selection_dict)
-        return quote_list
+        return quote_list, quote_dict
 
+    def add_contracts_to_comboBox_symbol(self):
+        if self.comboBox_contract_type.currentText():
+            exchange = self.comboBox_add_quote_exchange.currentText().split()[-1]
+            type = self.comboBox_contract_type.currentText().split()[-1]
+            pth = './available_contracts/' + exchange + '_' + type + '.csv'
+            if os.path.exists(pth):
+                data = self.ioModal.read_csv_file(path=pth)
+                list = data['0'].tolist()
+                self.comboBox_symbol.clear()
+                self.comboBox_symbol.addItems(list)
 
     def get_strategy_list(self, path):  # 从策略文件中自动搜索并获取策略类名 列表
         class_name_list = []
@@ -667,23 +669,6 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             print('文件不存在，已创建空文件')
 
 
-    def add_self_selection_list(self):  # 将天勤自选行情引用数据添加到 csv 文件中
-        my_dict = {}
-        exchange = self.comboBox_add_quote_exchange.currentText().split()[-1]  # 获取列表框选择的字符串分割后的最后一部分
-        quote = exchange + '.' + self.add_quote_symbol.text()
-        if self.add_quote_symbol.text():
-            my_dict['quote'] = quote
-            df = pd.DataFrame(my_dict, index=[0])
-            # self.ceate_TQ_klines_and_quote(quote)
-            self.ioModal.add_dict_to_csv(df, path='./data/self_selection.csv')
-            text = '新的自选合约： ' + str(quote) + '  已添加'
-            self.label_kline_info.setText(text)
-            self.add_quote_symbol.clear()
-            self.add_paramer_to_container_by_hand()
-        else:
-            self.label_kline_info.setText('请输入正确的合约名再点添加')
-
-
     def set_current_dissplayed_Kline(self, qModelIndex):  # 点击自选列表时,设置并显示当前k线
         row = qModelIndex.row()
         data = self.ioModal.read_csv_file(path='./data/self_selection.csv')
@@ -735,27 +720,100 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         else:
             self.label_kline_info.setText('没有数据,请检查合约名是否正确')
 
-
-
-    def init_Klines_chart(self):
-        self_selection_quote_list = self.get_self_selection_quote_list()  # 获取自选合约列表
-        if self_selection_quote_list:  # 如果列表不为空
-            for kl in self_selection_quote_list:
-                if (kl + '_quote') not in self.Quote_klines_dict:
-                    self.current_dissplayed_Kline = kl
-                    break
+    def add_self_selection_list(self):  # 将天勤自选行情添加到 csv 文件中
+        path = './data/self_selection.csv'
+        self.ioModal.judge_file_exist(path)                     # 检查自选列表文件是否存在
+        my_dict = {}
+        if self.comboBox_contract_type.currentText():           # 检查合约类型栏是否有内容
+            if self.comboBox_symbol.currentText():              # 检查合约栏是否有内容
+                path_contract = ('./available_contracts/' + self.comboBox_add_quote_exchange.currentText().split()[-1] +
+                                 '_' + self.comboBox_contract_type.currentText().split()[-1] + '.csv')
+                if os.path.exists(path_contract):                            # 检查是否有合约表文件
+                    data = self.ioModal.read_csv_file(path=path_contract)
+                    list = data['0'].tolist()
+                    if self.comboBox_symbol.currentText() in list:      # 检查输入的合约在不在合约表文件里面
+                        quote = self.comboBox_symbol.currentText()
+                        list = self.ioModal.read_csv_file(path)['quote'].tolist()
+                        if quote in list:                               # 检查合约是否已经添加到自选里面了
+                            self.label_kline_info.setText('该合约已在自选列表中,无需添加')
+                        else:
+                            my_dict['quote'] = quote
+                            df = pd.DataFrame(my_dict, index=[0])
+                            self.ioModal.add_dict_to_csv(df, path)
+                            text = '新的自选合约： ' + str(quote) + '  已添加'
+                            self.label_kline_info.setText(text)
+                            self.add_paramer_to_container_by_hand()
+                    else:
+                        self.label_kline_info.setText('输入的合约名不在天勤的交易列表里,请仔细检查')
                 else:
-                    pass
-            klines = kl + '_15_min'
-            quote = kl + '_quote'
-            # datas=self.Quote_klines_dict['%s'%klines]
-            # quote=self.Quote_klines_dict['%s'%quote]
-            self.Set_Klines_Chart(datas=self.Quote_klines_dict['%s' % klines], quote=self.Quote_klines_dict['%s' % quote])
-            self.label_kline_info.setText(klines)
+                    self.label_kline_info.setText('没有可用的合约表,请先运行一次天勤行情服务,下载可用合约表')
+            else:
+                self.label_kline_info.setText('请先输入或选择合适的合约名再点添加')
+        else:
+            self.label_kline_info.setText('请先选择合约类型')
 
 
-    def Set_Klines_Chart(self, datas, quote):  # 设置K线图表
+    def check_TQ_Services_Status(self):
+        if self.TQ_services_pid:
+            pid_list = self.get_alive_process_pid_list()
+            if self.TQ_services_pid in pid_list:
+                self.label_TQ_services_info.setText('天勤数据行情服务正在运行中')
+                print('\n\n从天勤行情服务中获得的切片数据为:', self.quote_dict)
+                if len(self.quote_dict) > 0:
+                    self.add_quote_paramer_to_panel()
+            else:
+                self.label_TQ_services_info.setText('天勤数据行情服务已停止')
 
-        self.Update_quotes(quote)
 
-        # pg.setConfigOption
+    def add_quote_paramer_to_panel(self):
+        self.label_instrument_name.setText(str(self.quote_dict['instrument_name']))  # 合约中文名称
+        self.label_instrument_id.setText(str(self.quote_dict['instrument_id']))  # 合约代码
+        self.label_last_price.setText(str(self.quote_dict['last_price']))  # 最新价格
+        self.label_ask_price1.setText(str(self.quote_dict['ask_price1']))  # 卖一价格
+        self.label_bid_price1.setText(str(self.quote_dict['bid_price1']))  # 买一价格
+        self.label_ask_volume1.setText(str(self.quote_dict['ask_volume1']))  # 卖一数量
+        self.label_bid_volume1.setText(str(self.quote_dict['bid_volume1']))  # 买一数量
+        self.label_open.setText(str(self.quote_dict['open']))  # 开盘价
+        self.label_highest.setText(str(self.quote_dict['highest']))  # 最高价
+        self.label_lowest.setText(str(self.quote_dict['lowest']))  # 最低价
+        self.label_pre_close.setText(str(self.quote_dict['pre_close']))  # 昨收盘价
+        self.label_pre_settlement.setText(str(self.quote_dict['pre_settlement']))  # 昨结算价
+        self.label_upper_limit.setText(str(self.quote_dict['upper_limit']))  # 涨停价
+        self.label_lower_limit.setText(str(self.quote_dict['lower_limit']))  # 跌停价
+        self.label_volume.setText(str(self.quote_dict['volume']))  # 成交量
+        self.label_open_interest.setText(str(self.quote_dict['open_interest']))  # 持仓量
+        self.label_settlement.setText(str(self.quote_dict['settlement']))  # 结算价
+        self.label_expire_rest_days.setText(str(self.quote_dict['expire_rest_days']))  # 到期剩余天数
+        percent_increase = (self.quote_dict['last_price'] - self.quote_dict['pre_close']) / (self.quote_dict['pre_close'])  # 涨跌幅
+        if percent_increase >= 0:
+            self.label_percent_increase.setStyleSheet(u"color: rgb(255, 0, 0);\n""font: 700 14pt \"\u7b49\u7ebf\";")
+        else:
+            self.label_percent_increase.setStyleSheet(u"color: rgb(0, 255, 0);\n""font: 700 14pt \"\u7b49\u7ebf\";")
+        self.label_percent_increase.setText('{:.2%}'.format(percent_increase))  # 涨跌幅
+        self.label_daily_increase.setText(str((self.quote_dict['open_interest'] - self.quote_dict['pre_open_interest'])))  # 日增仓= 持仓量-昨持仓量
+
+
+    def clear_quote_paramer_panel(self):
+        self.label_instrument_name.setText('')
+        self.label_instrument_id.setText('')
+        self.label_last_price.setText('')
+        self.label_ask_price1.setText('')
+        self.label_bid_price1.setText('')
+        self.label_ask_volume1.setText('')
+        self.label_bid_volume1.setText('')
+        self.label_open.setText('')
+        self.label_highest.setText('')
+        self.label_lowest.setText('')
+        self.label_pre_close.setText('')
+        self.label_pre_settlement.setText('')
+        self.label_upper_limit.setText('')
+        self.label_lower_limit.setText('')
+        self.label_volume.setText('')
+        self.label_open_interest.setText('')
+        self.label_settlement.setText('')
+        self.label_expire_rest_days.setText('')
+        self.label_percent_increase.setText('')
+        self.label_daily_increase.setText('')
+
+
+

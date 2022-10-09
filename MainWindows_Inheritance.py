@@ -3,6 +3,7 @@ import sys
 import datetime
 import importlib
 import PySide6
+from multiprocessing import Process, Manager
 from PySide6.QtGui import QCursor
 from PySide6.QtWidgets import QApplication, QMainWindow
 from Main_Process_Function import *
@@ -12,20 +13,21 @@ from RightButtonMenu import RightButtonMenu
 from UI.mainwindows_light import Ui_MainWindow as light_windows
 from UI.mainwindows_dark import Ui_MainWindow as dark_windows
 from KChart.K_Chart_Widget import KLineWidget
+from TQ_Services import TQServices
 
 from main import THEME
 
 
 
-# if THEME == "dark":                                    # 创建主窗口类方式一，通过loadUiType()函数直接加载UI文件
-#     UI, _ = loadUiType('./UI/mainwindows_dark.ui')
-# else:
-#     UI, _ = loadUiType('./UI/mainwindows_light.ui')
-
-if THEME == "dark":                                  # 创建主窗口类方式二，通过继承Ui_MainWindow类
-    UI = dark_windows
+if THEME == "dark":                                    # 创建主窗口类方式一，通过loadUiType()函数直接加载UI文件
+    UI, _ = loadUiType('./UI/mainwindows_dark.ui')
 else:
-    UI = light_windows
+    UI, _ = loadUiType('./UI/mainwindows_light.ui')
+
+# if THEME == "dark":                                  # 创建主窗口类方式二，通过继承Ui_MainWindow类
+#     UI = dark_windows
+# else:
+#     UI = light_windows
 
 
 class Main_window(QMainWindow, UI, Main_Process_Function):
@@ -39,10 +41,9 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.setupUi(self)
         self.setWindowOpacity(0.98)                                     # 设置窗口透明度
         self.start_time = datetime.now()                                # 记录程序开始时间
-        self.main_tq_account = ''                                       # 主账户
-        self.main_tq__pwd = ''                                          # 主账户密码
-        self.current_Kline = ''                                         # 当前显示的K线
-        self.Quote_klines_dict = {}                                   # 自选合约字典,用来存放所有的自选合约klines
+        self.main_tq_account = None                                       # 主账户
+        self.main_tq__pwd = None                                          # 主账户密码
+        self.Quote_klines_dict = {}                                     # 自选合约字典,用来存放所有的自选合约klines
 
 
         self.ioModal = ReadWriteCsv()                                   # 实例化 csv 读写类
@@ -52,13 +53,16 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.whether_the_folder_and_files_exists()                      # 判断必需的文件夹和文件是否存在，不存在则创建
 
         self.Quantity = 0 - self.get_inactivated_process_quantity()
-
         self.cwd = os.getcwd()                                          # 获取当前路径
+
         self.Process_dict = {}                                          # 创建进程字典，用于存储子进程的pid
         self.Process_start_time_dict = {}                               # 各进程启动次数字典,用来记录各策略进程重启次数
         self.process_list_row = []                                      # 当前活着的进程名列表,用于刷新 process_listview
         self.TQ_services_pid = None                                     # 用来记录天勤数据服务进程的pid
         self.current_dissplayed_Kline = None                            # 当前显示的k线品种
+
+        self.quote_dict = {}                                            # 当前行情切片字典
+        self.self_selection = {}                                        # 自选合约字典
 
         # 清屏定时器
         self.textBrowser_clear = QTimer(self)
@@ -72,7 +76,8 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
 
         # 面板参数刷新定时器
         self.parameters_refresh = QTimer(self)
-        self.parameters_refresh.timeout.connect(self.add_paramer_to_container_by_timer)
+        self.parameters_refresh.timeout.connect(self.add_paramer_to_container_by_timer)  # 刷新面板各参数
+        self.parameters_refresh.timeout.connect(self.check_TQ_Services_Status)           # 检查天勤数据服务进程状态
         self.parameters_refresh.start(1000)
 
         self.Define_slot_functions()                                # 定义槽函数
@@ -113,14 +118,15 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.ioModal.judge_dirs_exist(dirs='./log')
         self.ioModal.judge_dirs_exist(dirs='./clients_photo')
         self.ioModal.judge_dirs_exist(dirs='./Klines_Data')
+        self.ioModal.judge_dirs_exist(dirs='./available_contracts')
 
         # 判断配置文件是否存在，不存在则创建
-        self.ioModal.judge_config_exist(path='./data/deal_detials.csv')
-        self.ioModal.judge_config_exist(path='./data/config.csv')
-        self.ioModal.judge_config_exist(path='./data/clients.csv')
-        self.ioModal.judge_config_exist(path='./data/tq_account.csv')
-        self.ioModal.judge_config_exist(path='./data/main_tq_account.csv')
-        self.ioModal.judge_config_exist(path='./data/self_selection.csv')
+        self.ioModal.judge_file_exist(path='./data/deal_detials.csv')
+        self.ioModal.judge_file_exist(path='./data/config.csv')
+        self.ioModal.judge_file_exist(path='./data/clients.csv')
+        self.ioModal.judge_file_exist(path='./data/tq_account.csv')
+        self.ioModal.judge_file_exist(path='./data/main_tq_account.csv')
+        self.ioModal.judge_file_exist(path='./data/self_selection.csv')
 
 
     def hide_items(self):  # 隐藏各种滚动条虚线框及标题栏
@@ -224,6 +230,9 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.Btn_stop_TQ_services.clicked.connect(self.stop_TQ_services)
         self.treeview_log.clicked.connect(self.on_tree_licked)
 
+        self.comboBox_add_quote_exchange.activated.connect(self.add_contracts_to_comboBox_symbol)  # comboBox 信号槽函数
+        self.comboBox_contract_type.activated.connect(self.add_contracts_to_comboBox_symbol)
+
         self.Btn_klines_1min.clicked.connect(self.show_1min_kline)
         self.Btn_klines_15min.clicked.connect(self.show_15min_kline)
         self.Btn_klines_30min.clicked.connect(self.show_30min_kline)
@@ -313,8 +322,8 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.label_logo.setScaledContents(True)                         # 设置图片自适应
         self.label_client_photo_show.setScaledContents(True)
         self.stackedWidget.setCurrentIndex(0)                           # 设置第一页
-        print('\n\n欢迎使用\n\n进程交易者  程序化期货交易框架\n\n\n\n\n\n\n')
-        print('\n\n\n\n\n\n策略进程将在主程序启动一分钟后，按 config.csv 文件中的配置逐个启动\n\n\n')
+        print('\n\n\n\n欢迎使用\n\n进程交易者  程序化期货交易框架\n\n\n\n\n\n\n')
+        print('\n\n\n\n\n\n策略实例进程将在主程序启动一分钟后，按 config.csv 文件中的配置逐个尝试启动\n\n\n')
 
 
     def show_setting_dialog(self):  # 显示设置窗口
@@ -352,10 +361,9 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
             data = self.ioModal.read_csv_file(path=path)
             if data.empty:                                     # 判断self.data是否为空
                 print('\n\nmain_tq_account.csv文件里没有帐户，请先在设置里添加天勤主账号和密码')
-                self.show_setting_dialog()
             else:
-                self.main_tq_account = data.iloc[0, 0]
-                self.main_tq_psd = data.iloc[0, 1]
+                self.main_tq_account = data.loc[0, 'tq_account']
+                self.main_tq_psd = data.loc[0, 'qt_psd']
 
 
     def sign_in_tq_account(self):  # 登录天勤账户并订阅k线
@@ -384,30 +392,37 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
     def start_TQ_services(self):    # 开启天勤数据行情服务
         self.chack_main_tq_account()
         if self.main_tq_account and self.main_tq_psd:
+            self.self_selection = Manager().dict()
+            self.quote_dict = Manager().dict()
+            self.current_Kline = Manager().dict()
+            self.current_Kline['Contracts'] = self.current_dissplayed_Kline
+            data = self.ioModal.read_csv_file(path='./data/self_selection.csv')
+            for index, row in data.iterrows():
+                self.self_selection[index] = row['quote']
+            t = TQServices(args=(self.self_selection, self.quote_dict, self.current_Kline, self.main_tq_account, self.main_tq_psd))
+            t.start()
+            self.TQ_services_pid = t.pid
             self.label_TQ_services_info.setText('天勤数据行情服务正在运行中')
 
     def stop_TQ_services(self):     # 关闭天勤数据行情服务
         if self.TQ_services_pid:
-            self.kill_process(self.TQ_services_pid)
+            # self.kill_process(self.TQ_services_pid)
+            try:
+                parent_proc = psutil.Process(self.TQ_services_pid)
+                for child_proc in parent_proc.children(recursive=True):
+                    child_proc.kill()
+                parent_proc.kill()
+
+                print('\npid为 ' + str(self.TQ_services_pid) + ' 的子进程 关闭成功 ！！！\n')
+            except Exception as e:
+                print('\npid为 ' + str(self.TQ_services_pid) + ' 的子进程 关闭失败 ！！！\n')
+                print(e, '\n')
+
             self.TQ_services_pid = None
         self.label_TQ_services_info.setText('天勤数据行情服务已关闭')
-
-    def ceate_TQ_klines_and_quote(self,symbol): # 根据合约创建对应的klines和quote
-        try:
-            self.Quote_klines_dict['%s_quote'%symbol]  = self.api.get_quote(symbol=symbol)   # 创建quote
-            self.Quote_klines_dict['%s_1_min'%symbol]  = self.api.get_kline_serial(symbol=symbol, duration_seconds=60, data_length=8000) # 订阅1分钟k线
-            self.Quote_klines_dict['%s_15_min'%symbol] = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*15, data_length=8000) # 订阅15分钟k线
-            self.Quote_klines_dict['%s_30_min'%symbol] = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*30, data_length=5000) # 订阅30分钟k线
-            self.Quote_klines_dict['%s_1_hour'%symbol] = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*60, data_length=2250) # 订阅1小时k线
-            self.Quote_klines_dict['%s_2_hour'%symbol] = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*60*2, data_length=1200) # 订阅2小时k线
-            self.Quote_klines_dict['%s_4_hour'%symbol] = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*60*4, data_length=600) # 订阅4小时k线
-            self.Quote_klines_dict['%s_1_day'%symbol]  = self.api.get_kline_serial(symbol=symbol, duration_seconds=60*60*24, data_length=300) # 订阅日k线
-
-            print('合约', symbol, '的K线订阅成功')
+        self.clear_quote_paramer_panel()
 
 
-        except Exception as ex:
-            print('订阅k线 ', symbol, ' 时发生错误: %r' % ex)
 
     #####################################################################
     #####################下面这个函数是进程自启的核心代码 #####################

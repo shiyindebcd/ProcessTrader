@@ -282,12 +282,30 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
         path = './data/self_selection.csv'
         try:
             data = self.parent.ioModal.read_csv_file(path)
+            contract = data.loc[index, 'quote']
             tmp = data.drop(index=index)
             tmp1 = tmp.reset_index(drop=True)      # 重建索引
             self.parent.ioModal.write_datas_to_csv_file(df_tmp=tmp1, path=path)
             self.parent.add_paramer_to_container_by_hand()
-        except:
-            pass
+
+            # 删除自选时删除对应的kline数据文件
+            path_1min = './Klines_Data/' + contract + '_1min.csv'
+            self.parent.ioModal.delete_file(path_1min)
+            path_15min = './Klines_Data/' + contract + '_15min.csv'
+            self.parent.ioModal.delete_file(path_15min)
+            path_30min = './Klines_Data/' + contract + '_30min.csv'
+            self.parent.ioModal.delete_file(path_30min)
+            path_1hour = './Klines_Data/' + contract + '_1hour.csv'
+            self.parent.ioModal.delete_file(path_1hour)
+            path_2hour = './Klines_Data/' + contract + '_2hour.csv'
+            self.parent.ioModal.delete_file(path_2hour)
+            path_4hour = './Klines_Data/' + contract + '_4hour.csv'
+            self.parent.ioModal.delete_file(path_4hour)
+            path_1day = './Klines_Data/' + contract + '_1day.csv'
+            self.parent.ioModal.delete_file(path_1day)
+
+        except Exception as ex:
+            print(ex)
 
     def stop_process_strategy_for_Temporary(self, index):       # 临时停止策略实例
         path = './data/config.csv'

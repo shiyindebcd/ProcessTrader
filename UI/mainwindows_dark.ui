@@ -1163,7 +1163,7 @@ color:black;
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>83</width>
+                            <width>87</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1355,7 +1355,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>83</width>
+                            <width>87</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1528,7 +1528,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>83</width>
+                            <width>87</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1718,7 +1718,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>83</width>
+                            <width>87</width>
                             <height>66</height>
                            </rect>
                           </property>
@@ -1907,8 +1907,8 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>238</width>
-                            <height>455</height>
+                            <width>87</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -4436,40 +4436,40 @@ QFrame:hover {
                                </property>
                                <layout class="QHBoxLayout" name="horizontalLayout_20">
                                 <property name="spacing">
-                                 <number>10</number>
+                                 <number>2</number>
                                 </property>
                                 <property name="leftMargin">
-                                 <number>5</number>
+                                 <number>2</number>
                                 </property>
                                 <property name="topMargin">
                                  <number>0</number>
                                 </property>
                                 <property name="rightMargin">
-                                 <number>5</number>
+                                 <number>2</number>
                                 </property>
                                 <property name="bottomMargin">
                                  <number>0</number>
                                 </property>
-                                <item alignment="Qt::AlignVCenter">
+                                <item>
                                  <widget class="QPushButton" name="Btn_draw_line_order">
                                   <property name="minimumSize">
                                    <size>
-                                    <width>60</width>
-                                    <height>30</height>
+                                    <width>50</width>
+                                    <height>25</height>
                                    </size>
                                   </property>
                                   <property name="maximumSize">
                                    <size>
-                                    <width>100</width>
-                                    <height>40</height>
+                                    <width>50</width>
+                                    <height>25</height>
                                    </size>
                                   </property>
                                   <property name="styleSheet">
                                    <string notr="true">QPushButton {
 	color: rgb(255, 0, 127);	
-	font: 700 16pt &quot;等线&quot;;
+	font: 700 12pt &quot;等线&quot;;
 	border: 2px solid rgb(65, 51, 156);
-	border-radius: 15px;
+	border-radius: 10px;
 	background-color: rgb(20, 9, 70);
 	text-align: center;
 }
@@ -4492,22 +4492,22 @@ QPushButton:pressed {
                                  <widget class="QPushButton" name="Btn_draw_line_style">
                                   <property name="minimumSize">
                                    <size>
-                                    <width>60</width>
-                                    <height>30</height>
+                                    <width>50</width>
+                                    <height>25</height>
                                    </size>
                                   </property>
                                   <property name="maximumSize">
                                    <size>
-                                    <width>60</width>
-                                    <height>30</height>
+                                    <width>50</width>
+                                    <height>25</height>
                                    </size>
                                   </property>
                                   <property name="styleSheet">
                                    <string notr="true">QPushButton {
 	color: rgb(255, 0, 127);	
-	font: 700 16pt &quot;等线&quot;;
+	font: 700 12pt &quot;等线&quot;;
 	border: 2px solid rgb(65, 51, 156);
-	border-radius: 15px;
+	border-radius: 10px;
 	background-color: rgb(20, 9, 70);
 	text-align: center;
 }
@@ -4570,78 +4570,49 @@ QPushButton:pressed {
                                  </spacer>
                                 </item>
                                 <item>
-                                 <widget class="QLabel" name="label_28">
-                                  <property name="minimumSize">
-                                   <size>
-                                    <width>0</width>
-                                    <height>40</height>
-                                   </size>
-                                  </property>
-                                  <property name="maximumSize">
-                                   <size>
-                                    <width>150</width>
-                                    <height>16777215</height>
-                                   </size>
-                                  </property>
-                                  <property name="font">
-                                   <font>
-                                    <family>等线</family>
-                                    <pointsize>14</pointsize>
-                                    <italic>false</italic>
-                                    <bold>true</bold>
-                                   </font>
-                                  </property>
-                                  <property name="styleSheet">
-                                   <string notr="true">QFrame {
-	background-color: rgba(30, 30, 40, 0);
-	border: none;
-	border-radius: 15px;
-	color: rgb(255, 0, 255);
-	font: 700 14pt &quot;等线&quot;;
-}
-</string>
-                                  </property>
-                                  <property name="text">
-                                   <string>添加自选合约:</string>
-                                  </property>
-                                  <property name="alignment">
-                                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                                  </property>
-                                 </widget>
-                                </item>
-                                <item alignment="Qt::AlignVCenter">
                                  <widget class="QComboBox" name="comboBox_add_quote_exchange">
                                   <property name="minimumSize">
                                    <size>
-                                    <width>160</width>
-                                    <height>30</height>
+                                    <width>120</width>
+                                    <height>25</height>
                                    </size>
                                   </property>
                                   <property name="maximumSize">
                                    <size>
-                                    <width>160</width>
-                                    <height>30</height>
+                                    <width>120</width>
+                                    <height>25</height>
                                    </size>
                                   </property>
                                   <property name="styleSheet">
                                    <string notr="true">/* 未下拉时，QComboBox的样式 */
 QComboBox {
     border: 2px solid gray;   /* 边框 */
-    border-radius: 15px;   /* 圆角 */
-    padding: 1px 18px 1px 3px;   /* 字体填衬 */
+    border-radius: 12px;   /* 圆角 */
+    padding: 1px 1px 1px 5px;   /* 字体填衬 */
     color: rgb(0, 0, 0);    
-	font: 700 12pt &quot;等线&quot;;    
+	font: 700 10pt &quot;等线&quot;;    
 	background-color: rgb(255, 255, 255);
 }
 
 /* 下拉后，整个下拉窗体样式 */
 QComboBox QAbstractItemView {
-    
-    border: 1px solid yellow;   /* 整个下拉窗体的边框 */
-    color: black;
-	border-radius: 3px;
-    background-color: rgb(225, 225, 225);   /* 整个下拉窗体的背景色 */
-    selection-background-color: lightgreen;   /* 整个下拉窗体被选中项的背景色 */
+    border: 1px solid rgb(65, 51, 156);   /* 整个下拉窗体的边框 */
+    color: rgb(200, 200, 200);
+	border-radius: 0px;
+    background-color: rgb(13, 9, 36);   /* 整个下拉窗体的背景色 */
+}
+QComboBox QAbstractItemView::item {
+	border:none;
+    height: 25px; 
+}
+QComboBox QAbstractItemView::item:hover{
+	border: none;	
+	color: rgb(255, 0, 0);
+	background-color: rgb(65, 49, 188);
+
+}
+QComboBox QAbstractItemView::item:selected{
+	border: none;
 }
 /* 下拉箭头样式 */
  QComboBox::down-arrow {
@@ -4666,11 +4637,62 @@ QComboBox::drop-down {
 QComboBox:hover {
 	border: 3px solid rgb(255, 85, 0);
 }
-QComboBox:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
+
+
+
+
+
+/*右边的滑动条*/
+ QScrollBar:vertical {
+	border: none;
+    background: transparent;
+    width: 8px;
+    margin: 17px 0 17px 0;
+	border-radius: 0px;
+ }
+ QScrollBar::handle:vertical {	
+	background:rgba(249, 83, 255, 170);
+    min-height: 30px;
+	border-radius: 0px
+ }
+/*
+滑块悬浮，按下*/
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+background:rgb(150, 0, 150);
+}
+ QScrollBar::add-line:vertical {
+     border: none;
+	background-color: transparent;
+     height: 15px;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: transparent;
+     height: 15px;
+	border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     background: transparent;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: transparent;
+ }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: transparent;
+}
+</string>
+                                  </property>
+                                  <property name="currentIndex">
+                                   <number>0</number>
                                   </property>
                                   <property name="frame">
                                    <bool>true</bool>
@@ -4705,64 +4727,311 @@ QComboBox:disabled{
                                   </item>
                                  </widget>
                                 </item>
-                                <item alignment="Qt::AlignVCenter">
-                                 <widget class="QLineEdit" name="add_quote_symbol">
+                                <item>
+                                 <widget class="QComboBox" name="comboBox_contract_type">
                                   <property name="minimumSize">
                                    <size>
                                     <width>140</width>
-                                    <height>32</height>
+                                    <height>25</height>
                                    </size>
                                   </property>
                                   <property name="maximumSize">
                                    <size>
                                     <width>140</width>
-                                    <height>32</height>
+                                    <height>25</height>
                                    </size>
                                   </property>
                                   <property name="styleSheet">
-                                   <string notr="true">QLineEdit {
-	border: 2px solid rgb(45, 45, 45);
-	border-radius: 15px;
-	padding: 5px;
-	background-color: rgb(255, 255, 255);	
-	color: rgb(0, 0, 0);
-	font: 700 14pt &quot;等线&quot;;
+                                   <string notr="true">/* 未下拉时，QComboBox的样式 */
+QComboBox {
+    border: 2px solid gray;   /* 边框 */
+    border-radius: 12px;   /* 圆角 */
+    padding: 1px 1px 1px 5px;   /* 字体填衬 */
+    color: rgb(0, 0, 0);    
+	font: 700 10pt &quot;等线&quot;;    
+	background-color: rgb(255, 255, 255);
 }
-QLineEdit:hover {
-	border: 3px solid rgb(255, 85, 0);
+
+/* 下拉后，整个下拉窗体样式 */
+QComboBox QAbstractItemView {
+    border: 1px solid rgb(65, 51, 156);   /* 整个下拉窗体的边框 */
+    color: rgb(200, 200, 200);
+	border-radius: 0px;
+    background-color: rgb(13, 9, 36);   /* 整个下拉窗体的背景色 */
 }
-QLineEdit:focus {
-	border: 3px solid rgb(255, 85, 0);
+QComboBox QAbstractItemView::item {
+	border:none;
+    height: 25px; 
+}
+QComboBox QAbstractItemView::item:hover{
+	border: none;	
 	color: rgb(255, 0, 0);
+	background-color: rgb(65, 49, 188);
+
 }
-QLineEdit:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
+QComboBox QAbstractItemView::item:selected{
+	border: none;
+}
+/* 下拉箭头样式 */
+ QComboBox::down-arrow {
+	image: url(:/icon/icons/双下拉箭头.svg);
+	width: 10px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
+	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
+	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
+ } 
+
+/* 下拉框样式 */
+QComboBox::drop-down {
+   /* subcontrol-origin: padding;   /* 子控件在父元素中的原点矩形。如果未指定此属性，则默认为padding。 */
+   /* subcontrol-position: top right;   /* 下拉框的位置（右上） */
+    width: 20px;   /* 下拉框的宽度 */
+
+    border-left-width: 3px;   /* 下拉框的左边界线宽度 */
+    border-left-color: darkgray;   /* 下拉框的左边界线颜色 */
+    border-left-style: solid;   /* 下拉框的左边界线为实线 */
+    border-top-right-radius: 10px;   /* 下拉框的右上边界线的圆角半径（应和整个QComboBox右上边界线的圆角半径一致） */
+    border-bottom-right-radius: 10px;   /* 同上 */
+}
+QComboBox:hover {
+	border: 3px solid rgb(255, 85, 0);
+}
+
+
+
+
+
+/*右边的滑动条*/
+ QScrollBar:vertical {
+	border: none;
+    background: transparent;
+    width: 8px;
+    margin: 17px 0 17px 0;
+	border-radius: 0px;
+ }
+ QScrollBar::handle:vertical {	
+	background:rgba(249, 83, 255, 170);
+    min-height: 30px;
+	border-radius: 0px
+ }
+/*
+滑块悬浮，按下*/
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+background:rgb(150, 0, 150);
+}
+ QScrollBar::add-line:vertical {
+     border: none;
+	background-color: transparent;
+     height: 15px;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: transparent;
+     height: 15px;
+	border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     background: transparent;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: transparent;
+ }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: transparent;
+}
+</string>
                                   </property>
+                                  <property name="editable">
+                                   <bool>false</bool>
+                                  </property>
+                                  <property name="currentIndex">
+                                   <number>-1</number>
+                                  </property>
+                                  <item>
+                                   <property name="text">
+                                    <string>主力合约 Main</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>所有合约 Future</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>主力连续 Cont</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>合约指数 Index</string>
+                                   </property>
+                                  </item>
+                                  <item>
+                                   <property name="text">
+                                    <string>期权合约 Option</string>
+                                   </property>
+                                  </item>
                                  </widget>
                                 </item>
-                                <item alignment="Qt::AlignVCenter">
-                                 <widget class="QPushButton" name="Btn_add_self_selection_contracts">
+                                <item>
+                                 <widget class="QComboBox" name="comboBox_symbol">
                                   <property name="minimumSize">
                                    <size>
-                                    <width>80</width>
-                                    <height>30</height>
+                                    <width>150</width>
+                                    <height>25</height>
                                    </size>
                                   </property>
                                   <property name="maximumSize">
                                    <size>
-                                    <width>80</width>
-                                    <height>30</height>
+                                    <width>16777215</width>
+                                    <height>25</height>
+                                   </size>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">/* 未下拉时，QComboBox的样式 */
+QComboBox {
+    border: 2px solid gray;   /* 边框 */
+    border-radius: 12px;   /* 圆角 */
+    padding: 1px 1px 1px 5px;   /* 字体填衬 */
+    color: rgb(0, 0, 0);    
+	font: 700 10pt &quot;等线&quot;;    
+	background-color: rgb(255, 255, 255);
+}
+
+/* 下拉后，整个下拉窗体样式 */
+QComboBox QAbstractItemView {
+    border: 1px solid rgb(65, 51, 156);   /* 整个下拉窗体的边框 */
+    color: rgb(200, 200, 200);
+	border-radius: 0px;
+    background-color: rgb(13, 9, 36);   /* 整个下拉窗体的背景色 */
+}
+QComboBox QAbstractItemView::item {
+	border:none;
+    height: 25px; 
+}
+QComboBox QAbstractItemView::item:hover{
+	border: none;	
+	color: rgb(255, 0, 0);
+	background-color: rgb(65, 49, 188);
+
+}
+QComboBox QAbstractItemView::item:selected{
+	border: none;
+}
+/* 下拉箭头样式 */
+ QComboBox::down-arrow {
+	image: url(:/icon/icons/双下拉箭头.svg);
+	width: 10px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
+	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
+	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
+ } 
+
+/* 下拉框样式 */
+QComboBox::drop-down {
+   /* subcontrol-origin: padding;   /* 子控件在父元素中的原点矩形。如果未指定此属性，则默认为padding。 */
+   /* subcontrol-position: top right;   /* 下拉框的位置（右上） */
+    width: 20px;   /* 下拉框的宽度 */
+
+    border-left-width: 3px;   /* 下拉框的左边界线宽度 */
+    border-left-color: darkgray;   /* 下拉框的左边界线颜色 */
+    border-left-style: solid;   /* 下拉框的左边界线为实线 */
+    border-top-right-radius: 10px;   /* 下拉框的右上边界线的圆角半径（应和整个QComboBox右上边界线的圆角半径一致） */
+    border-bottom-right-radius: 10px;   /* 同上 */
+}
+QComboBox:hover {
+	border: 3px solid rgb(255, 85, 0);
+}
+
+
+
+
+
+/*右边的滑动条*/
+ QScrollBar:vertical {
+	border: none;
+    background: transparent;
+    width: 8px;
+    margin: 17px 0 17px 0;
+	border-radius: 0px;
+ }
+ QScrollBar::handle:vertical {	
+	background:rgba(249, 83, 255, 170);
+    min-height: 30px;
+	border-radius: 0px
+ }
+/*
+滑块悬浮，按下*/
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+background:rgb(150, 0, 150);
+}
+ QScrollBar::add-line:vertical {
+     border: none;
+	background-color: transparent;
+     height: 15px;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: transparent;
+     height: 15px;
+	border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     background: transparent;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: transparent;
+ }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: transparent;
+}
+</string>
+                                  </property>
+                                  <property name="editable">
+                                   <bool>true</bool>
+                                  </property>
+                                  <property name="maxVisibleItems">
+                                   <number>30</number>
+                                  </property>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QPushButton" name="Btn_add_self_selection_contracts">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>60</width>
+                                    <height>25</height>
+                                   </size>
+                                  </property>
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>60</width>
+                                    <height>25</height>
                                    </size>
                                   </property>
                                   <property name="styleSheet">
                                    <string notr="true">QPushButton{
 	color: rgb(13, 9, 36);
 	background-color:rgb(255, 0, 127);
-	font: 700 16pt &quot;等线&quot;;
-	border-radius: 15px;
+	font: 700 14pt &quot;等线&quot;;
+	border-radius: 12px;
 }
 QPushButton:hover{
 	border: 2px solid rgb(255, 85, 0); 
@@ -5188,7 +5457,7 @@ K
                       <property name="styleSheet">
                        <string notr="true">QFrame {	
 	background-color: rgb(13, 9, 27);
-	border-radius: 10px;
+	border-radius: 15px;
 	border: none;
 }
 
@@ -5232,7 +5501,7 @@ K
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	border-radius: 10px;
+	border-radius: 15px;
 	border: 1px solid rgb(65, 51, 156);
 }
 
@@ -5340,7 +5609,6 @@ border: none;</string>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	border-radius: 10px;
 	border: 1px solid rgb(65, 51, 156);
 }
 
@@ -5357,13 +5625,13 @@ border: none;</string>
                            <number>0</number>
                           </property>
                           <property name="leftMargin">
-                           <number>0</number>
+                           <number>5</number>
                           </property>
                           <property name="topMargin">
                            <number>0</number>
                           </property>
                           <property name="rightMargin">
-                           <number>0</number>
+                           <number>3</number>
                           </property>
                           <property name="bottomMargin">
                            <number>0</number>
@@ -5406,7 +5674,6 @@ border: none;</string>
                                 <string notr="true">background-color: rgbA(0, 0, 0, 0);
 color: rgb(230, 230, 230);
 font: 12pt &quot;等线&quot;;
-border-radius: 5px;
 border: none;</string>
                                </property>
                                <property name="text">
@@ -5553,7 +5820,7 @@ border: none;</string>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	border-radius: 10px;
+	border-radius: 15px;
 	border: 1px solid rgb(65, 51, 156);
 }
 
@@ -6198,7 +6465,6 @@ border: none;</string>
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	border-radius: 10px;
 	border: 1px solid rgb(65, 51, 156);
 }
 
@@ -6452,7 +6718,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                          </property>
                          <property name="styleSheet">
                           <string notr="true">QFrame {	
-	border-radius: 10px;
+	border-radius: 15px;
 	border: 1px solid rgb(65, 51, 156);
 }
 

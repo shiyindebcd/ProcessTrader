@@ -7,25 +7,29 @@ import datetime
 
 import pandas as pd
 
-class ReadWriteCsv(object): # csv文件读写类
-    
+
+class ReadWriteCsv(object):  # csv文件读写类
+
     def add_dict_to_csv(self, my_df, path):
         data = self.read_csv_file(path)
         data = pd.concat([data, my_df], ignore_index=True)
-        
+
         self.write_datas_to_csv_file(data, path)
         print('数据已存入config文件')
 
+
     def read_csv_file(self, path):
         df = pd.read_csv(path, engine='python', index_col=0)
-               
+
         return df
+
 
     def write_datas_to_csv_file(self, df_tmp, path, encoding='utf_8_sig', index=False):
         df = pd.DataFrame(df_tmp)
         df.to_csv(path, encoding=encoding)
 
-    def judge_dirs_exist(self, dirs):   # 判断目录是否存在
+
+    def judge_dirs_exist(self, dirs):  # 判断目录是否存在
 
         if not os.path.exists(dirs):
             os.makedirs(dirs)
@@ -33,7 +37,8 @@ class ReadWriteCsv(object): # csv文件读写类
         else:
             pass
 
-    def judge_config_exist(self, path):     # 判断文件是否存在
+
+    def judge_file_exist(self, path):  # 判断文件是否存在
 
         if not os.path.exists(path):
             df_tmp = pd.DataFrame()
@@ -42,12 +47,8 @@ class ReadWriteCsv(object): # csv文件读写类
         else:
             pass
 
-
     def delete_file(self, path):
-        if os.path.exists(path):
-            os.remove(path)
-        else:
-            pass
+        os.remove(path)
 
 class ReadWriteExcel(object):   # excel文件读写类
     
