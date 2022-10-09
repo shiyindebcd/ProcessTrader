@@ -32,7 +32,7 @@ class SettingDialog(QDialog, UI):
         self.path = './data/main_tq_account.csv' 
         
         self.ioModal = self.parent.ioModal                            # 实例化读写csv文件的类
-        self.ioModal.judge_config_exist(path=self.path)          # 判断main_tq_account.csv是否存在,如果不存在，则创建
+        self.ioModal.judge_file_exist(path=self.path)          # 判断main_tq_account.csv是否存在,如果不存在，则创建
         self.data = self.ioModal.read_csv_file(path=self.path)   # 读取main_tq_account.csv文件
         
         if self.data.empty:                                     # 判断self.data是否为空
