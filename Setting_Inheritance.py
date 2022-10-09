@@ -73,7 +73,7 @@ class SettingDialog(QDialog, UI):
         if (self.main_tq_account.text() is not None) and (self.main_tq_account.text() is not None):   #如果帐户框和密码框都有都有输入
             
             self.ioModal.delete_file(path=self.path)         #删除原文件
-            self.ioModal.judge_config_exist(path=self.path)  # 判断main_tq_account.csv是否存在,如果不存在，则创建
+            self.ioModal.judge_file_exist(path=self.path)  # 判断main_tq_account.csv是否存在,如果不存在，则创建
             dict['tq_account'] = self.main_tq_account.text()
             dict['qt_psd'] = self.main_tq_psd.text()
             self.parent.main_tq_account = self.main_tq_account.text()
@@ -91,5 +91,5 @@ class SettingDialog(QDialog, UI):
 
     def clear_main_tq_account(self):
         self.ioModal.delete_file(self.path)
-        self.ioModal.judge_config_exist(path=self.path)
+        self.ioModal.judge_file_exist(path=self.path)
         self.label_Account.setText('天勤主账户已删除')

@@ -758,7 +758,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             pid_list = self.get_alive_process_pid_list()
             if self.TQ_services_pid in pid_list:
                 self.label_TQ_services_info.setText('天勤数据行情服务正在运行中')
-                print('\n\n从天勤行情服务中获得的切片数据为:', self.quote_dict)
+                # print('\n\n从天勤行情服务中获得的切片数据为:', self.quote_dict)
                 if len(self.quote_dict) > 0:
                     self.add_quote_paramer_to_panel()
             else:
