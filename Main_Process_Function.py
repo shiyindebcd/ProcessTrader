@@ -443,13 +443,15 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
                     clients_dict['clients_photo_address'] = photo_name
 
+
                 df = pd.DataFrame(clients_dict, index=[0])
                 path = './data/clients.csv'
-                self.ioModule.judge_config_exist(path)
+                self.ioModule.judge_file_exist(path)
                 self.ioModule.add_dict_to_csv(df, path)
                 self.clients_input_clear()
                 self.add_paramer_to_container_by_hand()
                 self.add_paramer_to_combobox()
+
             except Exception as e:
                 print(e)
         else:
@@ -478,7 +480,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
                 df = pd.DataFrame(tq_account_dict, index=[0])
                 path = './data/tq_account.csv'
-                self.ioModule.judge_config_exist(path)
+                self.ioModule.judge_file_exist(path)
                 self.ioModule.add_dict_to_csv(df, path)
                 self.tq_account_input_clear()
                 self.add_paramer_to_container_by_hand()
@@ -732,8 +734,12 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
                     list = data['0'].tolist()
                     if self.comboBox_symbol.currentText() in list:      # 检查输入的合约在不在合约表文件里面
                         quote = self.comboBox_symbol.currentText()
-                        list = self.ioModule.read_csv_file(path)['quote'].tolist()
-                        if quote in list:                               # 检查合约是否已经添加到自选里面了
+                        df_quote = self.ioModule.read_csv_file(path)
+                        if len(df_quote) > 0:
+                            lst = self.ioModule.read_csv_file(path)['quote'].tolist()
+                        else:
+                            lst = []
+                        if quote in lst:                               # 检查合约是否已经添加到自选里面了
                             self.label_kline_info.setText('该合约已在自选列表中,无需添加')
                         else:
                             my_dict['quote'] = quote
