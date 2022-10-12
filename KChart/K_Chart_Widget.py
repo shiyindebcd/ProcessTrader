@@ -246,6 +246,7 @@ class KLineWidget(KeyWraper):
         self.Curves_mv2.setZValue(15)
 
 
+
     def initplotMACD(self):
         """初始化MACD子图"""
         self.pwMACD = pg.PlotItem(name=('_'.join([self.windowId, 'PlotMACD'])), axisItems=None)

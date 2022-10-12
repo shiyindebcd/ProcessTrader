@@ -322,8 +322,8 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.label_logo.setScaledContents(True)                         # 设置图片自适应
         self.label_client_photo_show.setScaledContents(True)
         self.stackedWidget.setCurrentIndex(0)                           # 设置第一页
-        print('\n\n\n\n欢迎使用\n\n进程交易者  程序化期货交易框架\n\n\n\n\n\n\n')
-        print('\n\n\n\n\n\n策略实例进程将在主程序启动一分钟后，按 config.csv 文件中的配置逐个尝试启动\n\n\n')
+        print('\n\n\n\n欢迎使用\n\n进程交易者  程序化期货交易框架\n\n\n\n\n')
+        print('\n\n\n\n策略实例进程将在主程序启动一分钟后，按 config.csv 文件中的配置逐个尝试启动\n\n\n')
 
 
     def show_setting_dialog(self):  # 显示设置窗口
