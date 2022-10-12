@@ -152,7 +152,7 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
 
             else:
                 self.parent.process_listview_selected_row = rowIndex
-                data = self.parent.ioModal.read_csv_file('./data/config.csv')
+                data = self.parent.ioModule.read_csv_file('./data/config.csv')
                 true_index = None               # 这个是策略在config文件中真正的行号,因为文件中有不自启或当前挂掉未运行的策略实例,所以两个行号不一定相同
                 for index, item in data.iterrows():     # 通过遍历config.csv文件中,根据进程名,寻找到该进程在config中真正的行号
                     if name == item['process_name']:
@@ -236,7 +236,7 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
 
     def delete_clients(self, index):        # 删除用户
         path = './data/clients.csv'
-        data = self.parent.ioModal.read_csv_file(path)
+        data = self.parent.ioModule.read_csv_file(path)
         photo_path = data.loc[index]['clients_photo_address']
         try:
             if type(photo_path) == numpy.float64:            # 判断照片地址是否为nan,只需要判断他的类型是否为numpy.64
@@ -247,7 +247,7 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
             print(e)
         tmp = data.drop(index=index)
         tmp = tmp.reset_index(drop=True)      # 重建索引
-        self.parent.ioModal.write_datas_to_csv_file(df_tmp=tmp, path=path)
+        self.parent.ioModule.write_datas_to_csv_file(df_tmp=tmp, path=path)
         self.parent.label_client_photo_show.clear()
         self.parent.textBrowser_clients_details.clear()
         self.parent.add_paramer_to_container_by_hand()
@@ -255,10 +255,10 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
     def delete_TQ_account(self, index):     # 删除天勤账户
 
         path = './data/tq_account.csv'
-        data = self.parent.ioModal.read_csv_file(path)
+        data = self.parent.ioModule.read_csv_file(path)
         tmp = data.drop(index=index)
         tmp = tmp.reset_index(drop=True)      # 重建索引
-        self.parent.ioModal.write_datas_to_csv_file(df_tmp=tmp, path=path)
+        self.parent.ioModule.write_datas_to_csv_file(df_tmp=tmp, path=path)
         self.parent.textBrowser_tq_account_details.clear()
         self.parent.add_paramer_to_container_by_hand()
 
@@ -269,10 +269,10 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
     def delete_process_config(self, index):      # 删除策略参数
         path = './data/config.csv'
         try:
-            data = self.parent.ioModal.read_csv_file(path)
+            data = self.parent.ioModule.read_csv_file(path)
             tmp = data.drop(index=index)
             tmp1 = tmp.reset_index(drop=True)      # 重建索引
-            self.parent.ioModal.write_datas_to_csv_file(df_tmp=tmp1, path=path)
+            self.parent.ioModule.write_datas_to_csv_file(df_tmp=tmp1, path=path)
             self.parent.tableWidget_process.clear()
             self.parent.load_process_config()
         except Exception as e:
@@ -281,28 +281,28 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
     def delete_self_seletion(self, index):      # 删除自选
         path = './data/self_selection.csv'
         try:
-            data = self.parent.ioModal.read_csv_file(path)
+            data = self.parent.ioModule.read_csv_file(path)
             contract = data.loc[index, 'quote']
             tmp = data.drop(index=index)
             tmp1 = tmp.reset_index(drop=True)      # 重建索引
-            self.parent.ioModal.write_datas_to_csv_file(df_tmp=tmp1, path=path)
+            self.parent.ioModule.write_datas_to_csv_file(df_tmp=tmp1, path=path)
             self.parent.add_paramer_to_container_by_hand()
 
             # 删除自选时删除对应的kline数据文件
             path_1min = './Klines_Data/' + contract + '_1min.csv'
-            self.parent.ioModal.delete_file(path_1min)
+            self.parent.ioModule.delete_file(path_1min)
             path_15min = './Klines_Data/' + contract + '_15min.csv'
-            self.parent.ioModal.delete_file(path_15min)
+            self.parent.ioModule.delete_file(path_15min)
             path_30min = './Klines_Data/' + contract + '_30min.csv'
-            self.parent.ioModal.delete_file(path_30min)
+            self.parent.ioModule.delete_file(path_30min)
             path_1hour = './Klines_Data/' + contract + '_1hour.csv'
-            self.parent.ioModal.delete_file(path_1hour)
+            self.parent.ioModule.delete_file(path_1hour)
             path_2hour = './Klines_Data/' + contract + '_2hour.csv'
-            self.parent.ioModal.delete_file(path_2hour)
+            self.parent.ioModule.delete_file(path_2hour)
             path_4hour = './Klines_Data/' + contract + '_4hour.csv'
-            self.parent.ioModal.delete_file(path_4hour)
+            self.parent.ioModule.delete_file(path_4hour)
             path_1day = './Klines_Data/' + contract + '_1day.csv'
-            self.parent.ioModal.delete_file(path_1day)
+            self.parent.ioModule.delete_file(path_1day)
 
         except Exception as ex:
             print(ex)
@@ -311,7 +311,7 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
         path = './data/config.csv'
         dict = self.parent.Process_dict
         # print('进程pid字典:', dict)     # 输出为:进程pid字典: {'夺 夺-444444-pingTest-SHFE.rb2210-30min': 14872}
-        data = self.parent.ioModal.read_csv_file(path)
+        data = self.parent.ioModule.read_csv_file(path)
         process_name = data.loc[index]['process_name']
         if process_name in dict:
             pid = dict[process_name]
@@ -329,7 +329,7 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
     def stop_process_strategy_for_Permanent(self, index):       # 永久停止策略实例
         path = './data/config.csv'
         dict = self.parent.Process_dict
-        data = self.parent.ioModal.read_csv_file(path)
+        data = self.parent.ioModule.read_csv_file(path)
         process_name = data.loc[index, 'process_name']
         data.loc[index, 'whether_self_start'] = False           # 策略实例的 whether_self_start 设为False 就不会自动启动
         if process_name in dict:
@@ -345,7 +345,7 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
             self.parent.label_process_right_btn_info.setText('策略实例:  ' + str(process_name) + '  从未被启动过, 但已设置为不自动启动')
             print('策略实例:  ' + str(process_name) + '  从未被启动过, 但已设置为不自动启动')
 
-        self.parent.ioModal.write_datas_to_csv_file(data, path)
+        self.parent.ioModule.write_datas_to_csv_file(data, path)
         self.parent.load_process_config()
 
 
@@ -354,7 +354,7 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
     def reboot_process_strategy(self, index):       # 重启此策略
         path = './data/config.csv'
         process_dict = self.parent.Process_dict
-        data = self.parent.ioModal.read_csv_file(path)
+        data = self.parent.ioModule.read_csv_file(path)
         process_name = data.loc[index, 'process_name']
         row_dict = data.loc[index].to_dict()
         if row_dict['whether_self_start']:

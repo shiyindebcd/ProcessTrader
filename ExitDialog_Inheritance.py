@@ -101,8 +101,7 @@ class ModifyParameters(QDialog, Ui_Form):  # 修改策略参数窗口类
         self.setupUi(self)
 
         self.path = './data/config.csv'
-        self.ioModal = ReadWriteCsv()  # 实例化 csv 读写类
-        self.data = self.ioModal.read_csv_file(self.path)
+        self.data = self.parent.ioModule.read_csv_file(self.path)
         self.init_dict = self.data.loc[self.rowIndex]
         self.finally_dict = {}
 
@@ -153,6 +152,8 @@ class ModifyParameters(QDialog, Ui_Form):  # 修改策略参数窗口类
             self.stop_profit.setText(str(self.init_dict['stop_profit']))
             self.open_line_Coordinates.setText(str(self.init_dict['open_line_Coordinates']))
             self.close_line_Coordinates.setText(str(self.init_dict['close_line_Coordinates']))
+            self.long_add_times.setText(str(self.init_dict['long_add_times']))
+            self.short_add_times.setText(str(self.init_dict['short_add_times']))
 
             self.Customized_parameters1.setText(str(self.init_dict['CP1']))     # Customized_parameters 为了方便使用,缩写为CP
             self.Customized_parameters2.setText(str(self.init_dict['CP2']))
@@ -162,6 +163,7 @@ class ModifyParameters(QDialog, Ui_Form):  # 修改策略参数窗口类
             self.Customized_parameters6.setText(str(self.init_dict['CP6']))
             self.Customized_parameters7.setText(str(self.init_dict['CP7']))
             self.Customized_parameters8.setText(str(self.init_dict['CP8']))
+            self.Customized_parameters9.setText(str(self.init_dict['CP9']))
 
         except Exception as e:
             print(e)
@@ -201,11 +203,11 @@ class ModifyParameters(QDialog, Ui_Form):  # 修改策略参数窗口类
         self.finally_dict['whether_backtest'] = self.init_dict['whether_backtest']
         self.finally_dict['final_capital'] = self.init_dict['final_capital']
 
-        self.finally_dict['long_add_times'] = self.init_dict['long_add_times']
+        self.finally_dict['long_add_times'] = self.long_add_times.text()
         self.finally_dict['long_current_position'] = self.init_dict['long_current_position']
         self.finally_dict['first_long_price'] = self.init_dict['first_long_price']
         self.finally_dict['first_long_deal'] = self.init_dict['first_long_deal']
-        self.finally_dict['short_add_times'] = self.init_dict['short_add_times']
+        self.finally_dict['short_add_times'] = self.short_add_times.text()
         self.finally_dict['short_current_position'] = self.init_dict['short_current_position']
         self.finally_dict['first_short_price'] = self.init_dict['first_short_price']
         self.finally_dict['first_short_deal'] = self.init_dict['first_short_deal']
@@ -218,10 +220,11 @@ class ModifyParameters(QDialog, Ui_Form):  # 修改策略参数窗口类
         self.finally_dict['CP6'] = self.Customized_parameters6.text()  # 自定义参数6
         self.finally_dict['CP7'] = self.Customized_parameters7.text()  # 自定义参数7
         self.finally_dict['CP8'] = self.Customized_parameters8.text()  # 自定义参数8
+        self.finally_dict['CP9'] = self.Customized_parameters9.text()  # 自定义参数9
         # print('最后的字典', self.finally_dict)
 
         self.data.loc[self.rowIndex] = self.finally_dict
-        self.ioModal.write_datas_to_csv_file(self.data, self.path)
+        self.parent.ioModule.write_datas_to_csv_file(self.data, self.path)
         self.parent.load_process_config()
 
 

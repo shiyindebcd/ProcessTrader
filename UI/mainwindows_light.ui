@@ -4395,7 +4395,7 @@ QFrame:hover {
                                  <number>0</number>
                                 </property>
                                 <item>
-                                 <widget class="QPushButton" name="Btn_draw_line_order_2">
+                                 <widget class="QPushButton" name="Btn_draw_line_order">
                                   <property name="minimumSize">
                                    <size>
                                     <width>50</width>
@@ -4433,7 +4433,7 @@ QPushButton:pressed {
                                  </widget>
                                 </item>
                                 <item>
-                                 <widget class="QPushButton" name="Btn_draw_line_style_2">
+                                 <widget class="QPushButton" name="Btn_draw_line_style">
                                   <property name="minimumSize">
                                    <size>
                                     <width>50</width>
@@ -4484,7 +4484,7 @@ QPushButton:pressed {
                                  </spacer>
                                 </item>
                                 <item>
-                                 <widget class="QLabel" name="label_kline_info_2">
+                                 <widget class="QLabel" name="label_kline_info">
                                   <property name="styleSheet">
                                    <string notr="true">QFrame {
 	background-color: rgba(30, 30, 40, 0);
@@ -4514,7 +4514,7 @@ QPushButton:pressed {
                                  </spacer>
                                 </item>
                                 <item>
-                                 <widget class="QComboBox" name="comboBox_add_quote_exchange_2">
+                                 <widget class="QComboBox" name="comboBox_add_quote_exchange">
                                   <property name="minimumSize">
                                    <size>
                                     <width>120</width>
@@ -4556,6 +4556,7 @@ QComboBox QAbstractItemView::item:hover{
 
 }
 QComboBox QAbstractItemView::item:selected{
+	color: rgb(0, 0, 0);
 	border: none;
 }
 /* 下拉箭头样式 */
@@ -4672,7 +4673,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                                  </widget>
                                 </item>
                                 <item>
-                                 <widget class="QComboBox" name="comboBox_contract_type_2">
+                                 <widget class="QComboBox" name="comboBox_contract_type">
                                   <property name="minimumSize">
                                    <size>
                                     <width>140</width>
@@ -4714,6 +4715,7 @@ QComboBox QAbstractItemView::item:hover{
 
 }
 QComboBox QAbstractItemView::item:selected{
+	color: rgb(0, 0, 0);
 	border: none;
 }
 /* 下拉箭头样式 */
@@ -4827,7 +4829,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                                  </widget>
                                 </item>
                                 <item>
-                                 <widget class="QComboBox" name="comboBox_symbol_2">
+                                 <widget class="QComboBox" name="comboBox_symbol">
                                   <property name="minimumSize">
                                    <size>
                                     <width>150</width>
@@ -4869,6 +4871,7 @@ QComboBox QAbstractItemView::item:hover{
 
 }
 QComboBox QAbstractItemView::item:selected{
+	color: rgb(0, 0, 0);
 	border: none;
 }
 /* 下拉箭头样式 */
@@ -4957,7 +4960,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                                  </widget>
                                 </item>
                                 <item>
-                                 <widget class="QPushButton" name="Btn_add_self_selection_contracts_2">
+                                 <widget class="QPushButton" name="Btn_add_self_selection_contracts">
                                   <property name="minimumSize">
                                    <size>
                                     <width>60</width>

@@ -119,7 +119,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
     def show_clients_info(self, qModelIndex):  # 显示客户信息
         row = qModelIndex.row()
-        data = self.ioModal.read_csv_file(path='./data/clients.csv')
+        data = self.ioModule.read_csv_file(path='./data/clients.csv')
         self.textBrowser_clients_details.clear()
         self.textBrowser_clients_details.append('\n' + '客户姓名：   ' + str(data.iloc[row]['clients_name']))
         self.textBrowser_clients_details.append('\n' + '身份证号：   ' + str(data.iloc[row]['clients_id']))
@@ -136,7 +136,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
     def show_tq_account_info(self, qModelIndex):  # 显示天勤账户信息
         row = qModelIndex.row()
-        data = self.ioModal.read_csv_file(path='./data/tq_account.csv')
+        data = self.ioModule.read_csv_file(path='./data/tq_account.csv')
         self.textBrowser_tq_account_details.clear()
         self.textBrowser_tq_account_details.append('\n\n' + 22*' ' + '天勤帐户 :     ' + str(data.iloc[row]['tq_account']))
         self.textBrowser_tq_account_details.append('\n\n' + 11*' ' + '该帐户所属客户 :     ' + str(data.iloc[row]['clients_name']))
@@ -209,7 +209,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
     def process_dict_update(self):  # 更新进程字典
         path = './data/config.csv'
-        data = self.ioModal.read_csv_file(path)
+        data = self.ioModule.read_csv_file(path)
 
         for index, item in data.iterrows():
             if item['whether_self_start']:
@@ -222,7 +222,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
     def get_clients_list(self):  # 获取用户列表
         clients_list = []
-        data = self.ioModal.read_csv_file(path='./data/clients.csv')
+        data = self.ioModule.read_csv_file(path='./data/clients.csv')
         if data.empty:
             clients_list = []
         else:
@@ -234,7 +234,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
     def get_tq_account_list(self):  # 获取天勤账号列表
         tq_account_list = []
-        data = self.ioModal.read_csv_file(path='./data/tq_account.csv')
+        data = self.ioModule.read_csv_file(path='./data/tq_account.csv')
         if data.empty:
             pass
         else:
@@ -278,7 +278,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
     def get_quote_list(self):  # 获取行情引用列表
         quote_list = []
-        data = self.ioModal.read_csv_file(path='./data/config.csv')
+        data = self.ioModule.read_csv_file(path='./data/config.csv')
         if data.empty:
             quote_list = []
         else:
@@ -288,7 +288,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         return quote_list
 
     def get_self_selection_quote_list(self):  # 获取自选行情列表和字典
-        data = self.ioModal.read_csv_file(path='./data/self_selection.csv')
+        data = self.ioModule.read_csv_file(path='./data/self_selection.csv')
         if data.empty:
             quote_list = []
             quote_dict = {}
@@ -304,7 +304,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             type = self.comboBox_contract_type.currentText().split()[-1]
             pth = './available_contracts/' + exchange + '_' + type + '.csv'
             if os.path.exists(pth):
-                data = self.ioModal.read_csv_file(path=pth)
+                data = self.ioModule.read_csv_file(path=pth)
                 list = data['0'].tolist()
                 self.comboBox_symbol.clear()
                 self.comboBox_symbol.addItems(list)
@@ -445,8 +445,8 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
                 df = pd.DataFrame(clients_dict, index=[0])
                 path = './data/clients.csv'
-                self.ioModal.judge_config_exist(path)
-                self.ioModal.add_dict_to_csv(df, path)
+                self.ioModule.judge_config_exist(path)
+                self.ioModule.add_dict_to_csv(df, path)
                 self.clients_input_clear()
                 self.add_paramer_to_container_by_hand()
                 self.add_paramer_to_combobox()
@@ -478,8 +478,8 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
                 df = pd.DataFrame(tq_account_dict, index=[0])
                 path = './data/tq_account.csv'
-                self.ioModal.judge_config_exist(path)
-                self.ioModal.add_dict_to_csv(df, path)
+                self.ioModule.judge_config_exist(path)
+                self.ioModule.add_dict_to_csv(df, path)
                 self.tq_account_input_clear()
                 self.add_paramer_to_container_by_hand()
                 self.add_paramer_to_combobox()
@@ -512,7 +512,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
     def get_inactivated_process_quantity(self):  # 获取可自启动但还未启动的策略进程数量
         path = './data/config.csv'
-        data = self.ioModal.read_csv_file(path)
+        data = self.ioModule.read_csv_file(path)
         quantity = 0
         if data.empty:
             pass
@@ -525,7 +525,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
     def get_tq_account_quantity(self):  # 获取天勤账户数量
         path = './data/tq_account.csv'
-        data = self.ioModal.read_csv_file(path)
+        data = self.ioModule.read_csv_file(path)
         quantity = 0
         if data.empty:
             pass
@@ -538,7 +538,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
     def get_total_profit(self):  # 计算总盈亏
         path = './data/config.csv'
-        data = self.ioModal.read_csv_file(path)
+        data = self.ioModule.read_csv_file(path)
         total_profit = 0
         if data.empty:
             pass
@@ -557,7 +557,6 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
                                 total_profit += profit
                         else:
                             pass
-
                     else:
                         pass
                 except:
@@ -600,7 +599,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         if not os.path.exists(dirs):
             os.makedirs(dirs)
         if os.path.exists('./data/deal_detials.csv'):
-            df = pd.read_csv('./data/deal_detials.csv')
+            df = self.ioModule.read_csv_file('./data/deal_detials.csv')
             if df.empty:
                 self.tableWidget_deal_detials.setHorizontalHeaderLabels(deal_detials_header_list)
             else:
@@ -617,7 +616,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
                         item.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)  # 文字具中显示
         else:
             path = './data/deal_detials.csv'
-            self.ioModal.judge_config_exist(path)
+            self.ioModule.judge_config_exist(path)
             print('文件不存在，已创建空文件')
 
 
@@ -627,11 +626,11 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
                                '合约周期', '策略名称', '是否实盘', '是否回测', '是否开启web', 'web端口', '交易状态', '交易方向', '初始资金', '当前资金', '合约倍数',
                                '保证金率', '止损位%', '止盈位%', '多单加仓次数', '多单当前持仓', '多单首次成交价', '多单首次成交量', '空单加仓次数', '空单首次成交价',
                                '空单首次成交量', '空单当前持仓', '是否定义了开仓直线', '开仓直线坐标', '是否定义了平仓直线', '平仓直线坐标', '自定义参数1',
-                               '自定义参数2', '自定义参数3', '自定义参数4', '自定义参数5', '自定义参数6', '自定义参数7', '自定义参数8', ]
+                               '自定义参数2', '自定义参数3', '自定义参数4', '自定义参数5', '自定义参数6', '自定义参数7', '自定义参数8', '自定义参数9', ]
         if not os.path.exists(dirs):
             os.makedirs(dirs)
         if os.path.exists('./data/config.csv'):
-            df = pd.read_csv('./data/config.csv')
+            df = self.ioModule.read_csv_file('./data/config.csv')
             self.tableWidget_process.setVerticalHeaderLabels(process_header_list)
             self.tableWidget_process.setColumnCount(10)  # 设置列数量
             if df.empty:
@@ -665,13 +664,13 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
                     table.verticalHeader().setSectionResizeMode(1, QHeaderView.ResizeToContents)
         else:
             path = './data/config.csv'
-            self.ioModal.judge_config_exist(path)
+            self.ioModule.judge_config_exist(path)
             print('文件不存在，已创建空文件')
 
 
     def set_current_dissplayed_Kline(self, qModelIndex):  # 点击自选列表时,设置并显示当前k线
         row = qModelIndex.row()
-        data = self.ioModal.read_csv_file(path='./data/self_selection.csv')
+        data = self.ioModule.read_csv_file(path='./data/self_selection.csv')
         self.current_dissplayed_Kline = str(data.loc[row]['quote'])
         self.show_kline(self.current_dissplayed_Kline,period='15min')
 
@@ -713,7 +712,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
     def show_kline(self, Species, period):
         file_path = './Klines_Data/' + Species + '_' + period + '.csv'
         if os.path.exists(file_path):
-            kline_data = self.ioModal.read_csv_file(path=file_path)
+            kline_data = self.ioModule.read_csv_file(path=file_path)
             self.KLineWidget.loadData(kline_data)
             self.KLineWidget.refreshAll()
             self.label_kline_info.setText(Species + '_' + period)
@@ -722,24 +721,24 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
     def add_self_selection_list(self):  # 将天勤自选行情添加到 csv 文件中
         path = './data/self_selection.csv'
-        self.ioModal.judge_file_exist(path)                     # 检查自选列表文件是否存在
+        self.ioModule.judge_file_exist(path)                     # 检查自选列表文件是否存在
         my_dict = {}
         if self.comboBox_contract_type.currentText():           # 检查合约类型栏是否有内容
             if self.comboBox_symbol.currentText():              # 检查合约栏是否有内容
                 path_contract = ('./available_contracts/' + self.comboBox_add_quote_exchange.currentText().split()[-1] +
                                  '_' + self.comboBox_contract_type.currentText().split()[-1] + '.csv')
                 if os.path.exists(path_contract):                            # 检查是否有合约表文件
-                    data = self.ioModal.read_csv_file(path=path_contract)
+                    data = self.ioModule.read_csv_file(path=path_contract)
                     list = data['0'].tolist()
                     if self.comboBox_symbol.currentText() in list:      # 检查输入的合约在不在合约表文件里面
                         quote = self.comboBox_symbol.currentText()
-                        list = self.ioModal.read_csv_file(path)['quote'].tolist()
+                        list = self.ioModule.read_csv_file(path)['quote'].tolist()
                         if quote in list:                               # 检查合约是否已经添加到自选里面了
                             self.label_kline_info.setText('该合约已在自选列表中,无需添加')
                         else:
                             my_dict['quote'] = quote
                             df = pd.DataFrame(my_dict, index=[0])
-                            self.ioModal.add_dict_to_csv(df, path)
+                            self.ioModule.add_dict_to_csv(df, path)
                             text = '新的自选合约： ' + str(quote) + '  已添加'
                             self.label_kline_info.setText(text)
                             self.add_paramer_to_container_by_hand()
@@ -766,32 +765,34 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
 
     def add_quote_paramer_to_panel(self):
-        self.label_instrument_name.setText(str(self.quote_dict['instrument_name']))  # 合约中文名称
-        self.label_instrument_id.setText(str(self.quote_dict['instrument_id']))  # 合约代码
-        self.label_last_price.setText(str(self.quote_dict['last_price']))  # 最新价格
-        self.label_ask_price1.setText(str(self.quote_dict['ask_price1']))  # 卖一价格
-        self.label_bid_price1.setText(str(self.quote_dict['bid_price1']))  # 买一价格
-        self.label_ask_volume1.setText(str(self.quote_dict['ask_volume1']))  # 卖一数量
-        self.label_bid_volume1.setText(str(self.quote_dict['bid_volume1']))  # 买一数量
-        self.label_open.setText(str(self.quote_dict['open']))  # 开盘价
-        self.label_highest.setText(str(self.quote_dict['highest']))  # 最高价
-        self.label_lowest.setText(str(self.quote_dict['lowest']))  # 最低价
-        self.label_pre_close.setText(str(self.quote_dict['pre_close']))  # 昨收盘价
-        self.label_pre_settlement.setText(str(self.quote_dict['pre_settlement']))  # 昨结算价
-        self.label_upper_limit.setText(str(self.quote_dict['upper_limit']))  # 涨停价
-        self.label_lower_limit.setText(str(self.quote_dict['lower_limit']))  # 跌停价
-        self.label_volume.setText(str(self.quote_dict['volume']))  # 成交量
-        self.label_open_interest.setText(str(self.quote_dict['open_interest']))  # 持仓量
-        self.label_settlement.setText(str(self.quote_dict['settlement']))  # 结算价
-        self.label_expire_rest_days.setText(str(self.quote_dict['expire_rest_days']))  # 到期剩余天数
-        percent_increase = (self.quote_dict['last_price'] - self.quote_dict['pre_close']) / (self.quote_dict['pre_close'])  # 涨跌幅
-        if percent_increase >= 0:
-            self.label_percent_increase.setStyleSheet(u"color: rgb(255, 0, 0);\n""font: 700 14pt \"\u7b49\u7ebf\";")
+        if len(self.quote_dict) > 5:
+            self.label_instrument_name.setText(str(self.quote_dict['instrument_name']))  # 合约中文名称
+            self.label_instrument_id.setText(str(self.quote_dict['instrument_id']))  # 合约代码
+            self.label_last_price.setText(str(self.quote_dict['last_price']))  # 最新价格
+            self.label_ask_price1.setText(str(self.quote_dict['ask_price1']))  # 卖一价格
+            self.label_bid_price1.setText(str(self.quote_dict['bid_price1']))  # 买一价格
+            self.label_ask_volume1.setText(str(self.quote_dict['ask_volume1']))  # 卖一数量
+            self.label_bid_volume1.setText(str(self.quote_dict['bid_volume1']))  # 买一数量
+            self.label_open.setText(str(self.quote_dict['open']))  # 开盘价
+            self.label_highest.setText(str(self.quote_dict['highest']))  # 最高价
+            self.label_lowest.setText(str(self.quote_dict['lowest']))  # 最低价
+            self.label_pre_close.setText(str(self.quote_dict['pre_close']))  # 昨收盘价
+            self.label_pre_settlement.setText(str(self.quote_dict['pre_settlement']))  # 昨结算价
+            self.label_upper_limit.setText(str(self.quote_dict['upper_limit']))  # 涨停价
+            self.label_lower_limit.setText(str(self.quote_dict['lower_limit']))  # 跌停价
+            self.label_volume.setText(str(self.quote_dict['volume']))  # 成交量
+            self.label_open_interest.setText(str(self.quote_dict['open_interest']))  # 持仓量
+            self.label_settlement.setText(str(self.quote_dict['settlement']))  # 结算价
+            self.label_expire_rest_days.setText(str(self.quote_dict['expire_rest_days']))  # 到期剩余天数
+            percent_increase = (self.quote_dict['last_price'] - self.quote_dict['pre_close']) / (self.quote_dict['pre_close'])  # 涨跌幅
+            if percent_increase >= 0:
+                self.label_percent_increase.setStyleSheet(u"color: rgb(255, 0, 0);\n""font: 700 14pt \"\u7b49\u7ebf\";")
+            else:
+                self.label_percent_increase.setStyleSheet(u"color: rgb(0, 255, 0);\n""font: 700 14pt \"\u7b49\u7ebf\";")
+            self.label_percent_increase.setText('{:.2%}'.format(percent_increase))  # 涨跌幅
+            self.label_daily_increase.setText(str((self.quote_dict['open_interest'] - self.quote_dict['pre_open_interest'])))  # 日增仓= 持仓量-昨持仓量
         else:
-            self.label_percent_increase.setStyleSheet(u"color: rgb(0, 255, 0);\n""font: 700 14pt \"\u7b49\u7ebf\";")
-        self.label_percent_increase.setText('{:.2%}'.format(percent_increase))  # 涨跌幅
-        self.label_daily_increase.setText(str((self.quote_dict['open_interest'] - self.quote_dict['pre_open_interest'])))  # 日增仓= 持仓量-昨持仓量
-
+            self.clear_quote_paramer_panel()
 
     def clear_quote_paramer_panel(self):
         self.label_instrument_name.setText('')

@@ -31,9 +31,9 @@ class SettingDialog(QDialog, UI):
         self.setWindowOpacity(0.95)  
         self.path = './data/main_tq_account.csv' 
         
-        self.ioModal = self.parent.ioModal                            # 实例化读写csv文件的类
-        self.ioModal.judge_file_exist(path=self.path)          # 判断main_tq_account.csv是否存在,如果不存在，则创建
-        self.data = self.ioModal.read_csv_file(path=self.path)   # 读取main_tq_account.csv文件
+        self.ioModule = self.parent.ioModule                            # 实例化读写csv文件的类
+        self.ioModule.judge_file_exist(path=self.path)          # 判断main_tq_account.csv是否存在,如果不存在，则创建
+        self.data = self.ioModule.read_csv_file(path=self.path)   # 读取main_tq_account.csv文件
         
         if self.data.empty:                                     # 判断self.data是否为空
             print('当前未配置主程序天勤帐号')
@@ -72,14 +72,14 @@ class SettingDialog(QDialog, UI):
         # 如果main_tq_account不为空，则读取main_tq_account的值
         if (self.main_tq_account.text() is not None) and (self.main_tq_account.text() is not None):   #如果帐户框和密码框都有都有输入
             
-            self.ioModal.delete_file(path=self.path)         #删除原文件
-            self.ioModal.judge_file_exist(path=self.path)  # 判断main_tq_account.csv是否存在,如果不存在，则创建
+            self.ioModule.delete_file(path=self.path)         #删除原文件
+            self.ioModule.judge_file_exist(path=self.path)  # 判断main_tq_account.csv是否存在,如果不存在，则创建
             dict['tq_account'] = self.main_tq_account.text()
             dict['qt_psd'] = self.main_tq_psd.text()
             self.parent.main_tq_account = self.main_tq_account.text()
             self.parent.main_tq__pwd = self.main_tq_psd.text()
             df = pd.DataFrame(dict, index=[0])
-            self.ioModal.add_dict_to_csv(df, path=self.path)
+            self.ioModule.add_dict_to_csv(df, path=self.path)
             # print(df)
             self.label_Account.setText('已配置主程序天勤帐号：   ' + self.main_tq_account.text())
         else:
@@ -90,6 +90,6 @@ class SettingDialog(QDialog, UI):
         self.main_tq_psd.clear()
 
     def clear_main_tq_account(self):
-        self.ioModal.delete_file(self.path)
-        self.ioModal.judge_file_exist(path=self.path)
+        self.ioModule.delete_file(self.path)
+        self.ioModule.judge_file_exist(path=self.path)
         self.label_Account.setText('天勤主账户已删除')

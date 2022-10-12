@@ -806,6 +806,47 @@ QLabel:disabled{
                     </property>
                    </widget>
                   </item>
+                  <item>
+                   <widget class="QLabel" name="label_contract_multiples">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+	font: 700 18pt &quot;等线&quot;;
+	background-color: rgb(255, 0, 255);
+	border-radius: 15px;
+}
+
+QLabel:hover{
+	border: 3px solid rgb(0, 255, 0);
+}
+QLabel:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>合约倍数</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                    <property name="buddy">
+                     <cstring>contract_multiples</cstring>
+                    </property>
+                   </widget>
+                  </item>
                  </layout>
                 </widget>
                </item>
@@ -1225,6 +1266,47 @@ QLineEdit:disabled{
                     </property>
                    </widget>
                   </item>
+                  <item>
+                   <widget class="QLineEdit" name="contract_multiples">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
+	border-radius: 15px;
+	padding: 5px;
+	background-color: rgb(255, 255, 255);	
+	color: rgb(0, 0, 0);
+	font: 700 18pt &quot;等线&quot;;
+}
+QLineEdit:hover {
+	border: 3px solid rgb(255, 85, 0);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(255, 85, 0);
+	color: rgb(255, 0, 0);
+}
+QLineEdit:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
                  </layout>
                 </widget>
                </item>
@@ -1409,47 +1491,6 @@ QFrame:hover {
                   <property name="bottomMargin">
                    <number>0</number>
                   </property>
-                  <item>
-                   <widget class="QLabel" name="label_contract_multiples">
-                    <property name="minimumSize">
-                     <size>
-                      <width>200</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>200</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-	font: 700 18pt &quot;等线&quot;;
-	background-color: rgb(255, 0, 255);
-	border-radius: 15px;
-}
-
-QLabel:hover{
-	border: 3px solid rgb(0, 255, 0);
-}
-QLabel:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>合约倍数</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                    <property name="buddy">
-                     <cstring>contract_multiples</cstring>
-                    </property>
-                   </widget>
-                  </item>
                   <item>
                    <widget class="QLabel" name="label_margin_rate">
                     <property name="minimumSize">
@@ -1731,6 +1772,82 @@ QLabel:disabled{
                     </property>
                    </widget>
                   </item>
+                  <item>
+                   <widget class="QLabel" name="label_long_add_times">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+	font: 700 18pt &quot;等线&quot;;
+	background-color: rgb(255, 0, 255);
+	border-radius: 15px;
+}
+
+QLabel:hover{
+	border: 3px solid rgb(0, 255, 0);
+}
+QLabel:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>多单加仓次数</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_short_add_times">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+	font: 700 18pt &quot;等线&quot;;
+	background-color: rgb(255, 0, 255);
+	border-radius: 15px;
+}
+
+QLabel:hover{
+	border: 3px solid rgb(0, 255, 0);
+}
+QLabel:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>空单加仓次数</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
                  </layout>
                 </widget>
                </item>
@@ -1779,47 +1896,6 @@ QLabel:disabled{
                   <property name="bottomMargin">
                    <number>0</number>
                   </property>
-                  <item>
-                   <widget class="QLineEdit" name="contract_multiples">
-                    <property name="minimumSize">
-                     <size>
-                      <width>200</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>200</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLineEdit {
-	border: 2px solid rgb(45, 45, 45);
-	border-radius: 15px;
-	padding: 5px;
-	background-color: rgb(255, 255, 255);	
-	color: rgb(0, 0, 0);
-	font: 700 18pt &quot;等线&quot;;
-}
-QLineEdit:hover {
-	border: 3px solid rgb(255, 85, 0);
-}
-QLineEdit:focus {
-	border: 3px solid rgb(255, 85, 0);
-	color: rgb(255, 0, 0);
-}
-QLineEdit:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
                   <item>
                    <widget class="QLineEdit" name="margin_rate">
                     <property name="minimumSize">
@@ -2088,6 +2164,82 @@ QCheckBox:disabled{
                     <property name="enabled">
                      <bool>false</bool>
                     </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
+	border-radius: 15px;
+	padding: 5px;
+	background-color: rgb(255, 255, 255);	
+	color: rgb(0, 0, 0);
+	font: 700 18pt &quot;等线&quot;;
+}
+QLineEdit:hover {
+	border: 3px solid rgb(255, 85, 0);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(255, 85, 0);
+	color: rgb(255, 0, 0);
+}
+QLineEdit:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="long_add_times">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
+	border-radius: 15px;
+	padding: 5px;
+	background-color: rgb(255, 255, 255);	
+	color: rgb(0, 0, 0);
+	font: 700 18pt &quot;等线&quot;;
+}
+QLineEdit:hover {
+	border: 3px solid rgb(255, 85, 0);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(255, 85, 0);
+	color: rgb(255, 0, 0);
+}
+QLineEdit:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="short_add_times">
                     <property name="minimumSize">
                      <size>
                       <width>200</width>
@@ -2615,7 +2767,7 @@ QLabel:disabled{
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="label_Customized_parameters">
+                   <widget class="QLabel" name="label_Customized_parameters8">
                     <property name="minimumSize">
                      <size>
                       <width>200</width>
@@ -2652,6 +2804,44 @@ QLabel:disabled{
                     </property>
                     <property name="buddy">
                      <cstring>Customized_parameters8</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_Customized_parameters9">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+	font: 700 18pt &quot;等线&quot;;
+	background-color: rgb(255, 0, 255);
+	border-radius: 15px;
+}
+
+QLabel:hover{
+	border: 3px solid rgb(0, 255, 0);
+}
+QLabel:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>自定义参数9</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
                     </property>
                    </widget>
                   </item>
@@ -3013,6 +3203,44 @@ QLineEdit:disabled{
                     </property>
                    </widget>
                   </item>
+                  <item>
+                   <widget class="QLineEdit" name="Customized_parameters9">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
+	border-radius: 15px;
+	padding: 5px;
+	background-color: rgb(255, 255, 255);	
+	color: rgb(0, 0, 0);
+	font: 700 18pt &quot;等线&quot;;
+}
+QLineEdit:hover {
+	border: 3px solid rgb(255, 85, 0);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(255, 85, 0);
+	color: rgb(255, 0, 0);
+}
+QLineEdit:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                   </widget>
+                  </item>
                  </layout>
                 </widget>
                </item>
@@ -3256,7 +3484,6 @@ QPushButton:disabled{
   <tabstop>symbol_period</tabstop>
   <tabstop>initial_capital</tabstop>
   <tabstop>orientation</tabstop>
-  <tabstop>contract_multiples</tabstop>
   <tabstop>margin_rate</tabstop>
   <tabstop>stop_loss</tabstop>
   <tabstop>stop_profit</tabstop>

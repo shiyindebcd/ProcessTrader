@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1400</width>
-    <height>798</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -115,7 +115,7 @@ color: rgb(255, 0, 0);
 border: none;</string>
            </property>
            <property name="text">
-            <string>创建新的策略进程</string>
+            <string>创建新的策略实例进程</string>
            </property>
           </widget>
          </item>
@@ -300,7 +300,7 @@ QPushButton:pressed {
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
-          <number>0</number>
+          <number>5</number>
          </property>
          <property name="leftMargin">
           <number>0</number>
@@ -393,12 +393,12 @@ QFrame:hover {
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">font: 700 16pt &quot;等线&quot;;
+                  <string notr="true">font: 700 14pt &quot;等线&quot;;
 color: rgb(0, 255, 0);
 border: none;</string>
                  </property>
                  <property name="text">
-                  <string>请输入策略进程运行所需要的参数</string>
+                  <string>请输入一个新策略实例所需要的参数并仔细核对</string>
                  </property>
                 </widget>
                </item>
@@ -827,6 +827,44 @@ QLabel:disabled{
                     </property>
                    </widget>
                   </item>
+                  <item>
+                   <widget class="QLabel" name="label_5">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+	font: 700 18pt &quot;等线&quot;;
+	background-color: rgb(255, 0, 255);
+	border-radius: 15px;
+}
+
+QLabel:hover{
+	border: 3px solid rgb(0, 255, 0);
+}
+QLabel:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>合约类型</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
                  </layout>
                 </widget>
                </item>
@@ -894,7 +932,7 @@ QLabel:disabled{
 QComboBox {
     border: 2px solid gray;   /* 边框 */
     border-radius: 15px;   /* 圆角 */
-    padding: 1px 18px 1px 3px;   /* 字体填衬 */
+    padding: 1px 1px 1px 5px;   /* 字体填衬 */
     color: rgb(0, 0, 0);    
 	font: 700 14pt &quot;等线&quot;;    
 	background-color: rgb(255, 255, 255);
@@ -902,17 +940,28 @@ QComboBox {
 
 /* 下拉后，整个下拉窗体样式 */
 QComboBox QAbstractItemView {
-    
-    border: 1px solid yellow;   /* 整个下拉窗体的边框 */
-    color: black;
-	border-radius: 3px;
-    background-color: rgb(225, 225, 225);   /* 整个下拉窗体的背景色 */
-    selection-background-color: lightgreen;   /* 整个下拉窗体被选中项的背景色 */
+    border: 1px solid rgb(65, 51, 156);   /* 整个下拉窗体的边框 */
+    color: rgb(200, 200, 200);
+	border-radius: 0px;
+    background-color: rgb(13, 9, 36);   /* 整个下拉窗体的背景色 */
+}
+QComboBox QAbstractItemView::item {
+	border:none;
+    height: 25px; 
+}
+QComboBox QAbstractItemView::item:hover{
+	border: none;	
+	color: rgb(255, 0, 0);
+	background-color: rgb(65, 49, 188);
+
+}
+QComboBox QAbstractItemView::item:selected{
+	border: none;
 }
 /* 下拉箭头样式 */
  QComboBox::down-arrow {
 	image: url(:/icon/icons/双下拉箭头.svg);
-	width: 30px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
+	width: 20px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
 	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
 	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
  } 
@@ -932,11 +981,59 @@ QComboBox::drop-down {
 QComboBox:hover {
 	border: 3px solid rgb(255, 85, 0);
 }
-QComboBox:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
+
+
+
+
+
+/*右边的滑动条*/
+ QScrollBar:vertical {
+	border: none;
+    background: transparent;
+    width: 8px;
+    margin: 17px 0 17px 0;
+	border-radius: 0px;
+ }
+ QScrollBar::handle:vertical {	
+	background:rgba(249, 83, 255, 170);
+    min-height: 30px;
+	border-radius: 0px
+ }
+/*
+滑块悬浮，按下*/
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+background:rgb(150, 0, 150);
+}
+ QScrollBar::add-line:vertical {
+     border: none;
+	background-color: transparent;
+     height: 15px;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: transparent;
+     height: 15px;
+	border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     background: transparent;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: transparent;
+ }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: transparent;
+}
+</string>
                     </property>
                    </widget>
                   </item>
@@ -959,7 +1056,7 @@ QComboBox:disabled{
 QComboBox {
     border: 2px solid gray;   /* 边框 */
     border-radius: 15px;   /* 圆角 */
-    padding: 1px 18px 1px 3px;   /* 字体填衬 */
+    padding: 1px 1px 1px 5px;   /* 字体填衬 */
     color: rgb(0, 0, 0);    
 	font: 700 14pt &quot;等线&quot;;    
 	background-color: rgb(255, 255, 255);
@@ -967,17 +1064,28 @@ QComboBox {
 
 /* 下拉后，整个下拉窗体样式 */
 QComboBox QAbstractItemView {
-    
-    border: 1px solid yellow;   /* 整个下拉窗体的边框 */
-    color: black;
-	border-radius: 3px;
-    background-color: rgb(225, 225, 225);   /* 整个下拉窗体的背景色 */
-    selection-background-color: lightgreen;   /* 整个下拉窗体被选中项的背景色 */
+    border: 1px solid rgb(65, 51, 156);   /* 整个下拉窗体的边框 */
+    color: rgb(200, 200, 200);
+	border-radius: 0px;
+    background-color: rgb(13, 9, 36);   /* 整个下拉窗体的背景色 */
+}
+QComboBox QAbstractItemView::item {
+	border:none;
+    height: 25px; 
+}
+QComboBox QAbstractItemView::item:hover{
+	border: none;	
+	color: rgb(255, 0, 0);
+	background-color: rgb(65, 49, 188);
+
+}
+QComboBox QAbstractItemView::item:selected{
+	border: none;
 }
 /* 下拉箭头样式 */
  QComboBox::down-arrow {
 	image: url(:/icon/icons/双下拉箭头.svg);
-	width: 30px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
+	width: 20px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
 	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
 	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
  } 
@@ -997,11 +1105,59 @@ QComboBox::drop-down {
 QComboBox:hover {
 	border: 3px solid rgb(255, 85, 0);
 }
-QComboBox:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
+
+
+
+
+
+/*右边的滑动条*/
+ QScrollBar:vertical {
+	border: none;
+    background: transparent;
+    width: 8px;
+    margin: 17px 0 17px 0;
+	border-radius: 0px;
+ }
+ QScrollBar::handle:vertical {	
+	background:rgba(249, 83, 255, 170);
+    min-height: 30px;
+	border-radius: 0px
+ }
+/*
+滑块悬浮，按下*/
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+background:rgb(150, 0, 150);
+}
+ QScrollBar::add-line:vertical {
+     border: none;
+	background-color: transparent;
+     height: 15px;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: transparent;
+     height: 15px;
+	border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     background: transparent;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: transparent;
+ }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: transparent;
+}
+</string>
                     </property>
                    </widget>
                   </item>
@@ -1024,7 +1180,7 @@ QComboBox:disabled{
 QComboBox {
     border: 2px solid gray;   /* 边框 */
     border-radius: 15px;   /* 圆角 */
-    padding: 1px 18px 1px 3px;   /* 字体填衬 */
+    padding: 1px 1px 1px 5px;   /* 字体填衬 */
     color: rgb(0, 0, 0);    
 	font: 700 14pt &quot;等线&quot;;    
 	background-color: rgb(255, 255, 255);
@@ -1032,17 +1188,28 @@ QComboBox {
 
 /* 下拉后，整个下拉窗体样式 */
 QComboBox QAbstractItemView {
-    
-    border: 1px solid yellow;   /* 整个下拉窗体的边框 */
-    color: black;
-	border-radius: 3px;
-    background-color: rgb(225, 225, 225);   /* 整个下拉窗体的背景色 */
-    selection-background-color: lightgreen;   /* 整个下拉窗体被选中项的背景色 */
+    border: 1px solid rgb(65, 51, 156);   /* 整个下拉窗体的边框 */
+    color: rgb(200, 200, 200);
+	border-radius: 0px;
+    background-color: rgb(13, 9, 36);   /* 整个下拉窗体的背景色 */
+}
+QComboBox QAbstractItemView::item {
+	border:none;
+    height: 25px; 
+}
+QComboBox QAbstractItemView::item:hover{
+	border: none;	
+	color: rgb(255, 0, 0);
+	background-color: rgb(65, 49, 188);
+
+}
+QComboBox QAbstractItemView::item:selected{
+	border: none;
 }
 /* 下拉箭头样式 */
  QComboBox::down-arrow {
 	image: url(:/icon/icons/双下拉箭头.svg);
-	width: 30px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
+	width: 20px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
 	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
 	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
  } 
@@ -1062,11 +1229,59 @@ QComboBox::drop-down {
 QComboBox:hover {
 	border: 3px solid rgb(255, 85, 0);
 }
-QComboBox:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
+
+
+
+
+
+/*右边的滑动条*/
+ QScrollBar:vertical {
+	border: none;
+    background: transparent;
+    width: 8px;
+    margin: 17px 0 17px 0;
+	border-radius: 0px;
+ }
+ QScrollBar::handle:vertical {	
+	background:rgba(249, 83, 255, 170);
+    min-height: 30px;
+	border-radius: 0px
+ }
+/*
+滑块悬浮，按下*/
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+background:rgb(150, 0, 150);
+}
+ QScrollBar::add-line:vertical {
+     border: none;
+	background-color: transparent;
+     height: 15px;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: transparent;
+     height: 15px;
+	border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     background: transparent;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: transparent;
+ }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: transparent;
+}
+</string>
                     </property>
                    </widget>
                   </item>
@@ -1289,7 +1504,7 @@ QLineEdit:disabled{
 QComboBox {
     border: 2px solid gray;   /* 边框 */
     border-radius: 15px;   /* 圆角 */
-    padding: 1px 18px 1px 3px;   /* 字体填衬 */
+    padding: 1px 1px 1px 5px;   /* 字体填衬 */
     color: rgb(0, 0, 0);    
 	font: 700 14pt &quot;等线&quot;;    
 	background-color: rgb(255, 255, 255);
@@ -1297,17 +1512,28 @@ QComboBox {
 
 /* 下拉后，整个下拉窗体样式 */
 QComboBox QAbstractItemView {
-    
-    border: 1px solid yellow;   /* 整个下拉窗体的边框 */
-    color: black;
-	border-radius: 3px;
-    background-color: rgb(225, 225, 225);   /* 整个下拉窗体的背景色 */
-    selection-background-color: lightgreen;   /* 整个下拉窗体被选中项的背景色 */
+    border: 1px solid rgb(65, 51, 156);   /* 整个下拉窗体的边框 */
+    color: rgb(200, 200, 200);
+	border-radius: 0px;
+    background-color: rgb(13, 9, 36);   /* 整个下拉窗体的背景色 */
+}
+QComboBox QAbstractItemView::item {
+	border:none;
+    height: 35px; 
+}
+QComboBox QAbstractItemView::item:hover{
+	border: none;	
+	color: rgb(255, 0, 0);
+	background-color: rgb(65, 49, 188);
+
+}
+QComboBox QAbstractItemView::item:selected{
+	border: none;
 }
 /* 下拉箭头样式 */
  QComboBox::down-arrow {
 	image: url(:/icon/icons/双下拉箭头.svg);
-	width: 30px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
+	width: 20px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
 	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
 	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
  } 
@@ -1327,11 +1553,59 @@ QComboBox::drop-down {
 QComboBox:hover {
 	border: 3px solid rgb(255, 85, 0);
 }
-QComboBox:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
+
+
+
+
+
+/*右边的滑动条*/
+ QScrollBar:vertical {
+	border: none;
+    background: transparent;
+    width: 8px;
+    margin: 17px 0 17px 0;
+	border-radius: 0px;
+ }
+ QScrollBar::handle:vertical {	
+	background:rgba(249, 83, 255, 170);
+    min-height: 30px;
+	border-radius: 0px
+ }
+/*
+滑块悬浮，按下*/
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+background:rgb(150, 0, 150);
+}
+ QScrollBar::add-line:vertical {
+     border: none;
+	background-color: transparent;
+     height: 15px;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: transparent;
+     height: 15px;
+	border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     background: transparent;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: transparent;
+ }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: transparent;
+}
+</string>
                     </property>
                     <property name="frame">
                      <bool>true</bool>
@@ -1362,6 +1636,158 @@ QComboBox:disabled{
                     <item>
                      <property name="text">
                       <string>中金所 CFFEX</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBox_contract_type">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">/* 未下拉时，QComboBox的样式 */
+QComboBox {
+    border: 2px solid gray;   /* 边框 */
+    border-radius: 15px;   /* 圆角 */
+    padding: 1px 1px 1px 5px;   /* 字体填衬 */
+    color: rgb(0, 0, 0);    
+	font: 700 14pt &quot;等线&quot;;    
+	background-color: rgb(255, 255, 255);
+}
+
+/* 下拉后，整个下拉窗体样式 */
+QComboBox QAbstractItemView {
+    border: 1px solid rgb(65, 51, 156);   /* 整个下拉窗体的边框 */
+    color: rgb(200, 200, 200);
+	border-radius: 0px;
+    background-color: rgb(13, 9, 36);   /* 整个下拉窗体的背景色 */
+}
+QComboBox QAbstractItemView::item {
+	border:none;
+    height: 35px; 
+}
+QComboBox QAbstractItemView::item:hover{
+	border: none;	
+	color: rgb(255, 0, 0);
+	background-color: rgb(65, 49, 188);
+
+}
+QComboBox QAbstractItemView::item:selected{
+	border: none;
+}
+/* 下拉箭头样式 */
+ QComboBox::down-arrow {
+	image: url(:/icon/icons/双下拉箭头.svg);
+	width: 20px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
+	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
+	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
+ } 
+
+/* 下拉框样式 */
+QComboBox::drop-down {
+   /* subcontrol-origin: padding;   /* 子控件在父元素中的原点矩形。如果未指定此属性，则默认为padding。 */
+   /* subcontrol-position: top right;   /* 下拉框的位置（右上） */
+    width: 30px;   /* 下拉框的宽度 */
+
+    border-left-width: 3px;   /* 下拉框的左边界线宽度 */
+    border-left-color: darkgray;   /* 下拉框的左边界线颜色 */
+    border-left-style: solid;   /* 下拉框的左边界线为实线 */
+    border-top-right-radius: 10px;   /* 下拉框的右上边界线的圆角半径（应和整个QComboBox右上边界线的圆角半径一致） */
+    border-bottom-right-radius: 10px;   /* 同上 */
+}
+QComboBox:hover {
+	border: 3px solid rgb(255, 85, 0);
+}
+
+
+
+
+
+/*右边的滑动条*/
+ QScrollBar:vertical {
+	border: none;
+    background: transparent;
+    width: 8px;
+    margin: 17px 0 17px 0;
+	border-radius: 0px;
+ }
+ QScrollBar::handle:vertical {	
+	background:rgba(249, 83, 255, 170);
+    min-height: 30px;
+	border-radius: 0px
+ }
+/*
+滑块悬浮，按下*/
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+background:rgb(150, 0, 150);
+}
+ QScrollBar::add-line:vertical {
+     border: none;
+	background-color: transparent;
+     height: 15px;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: transparent;
+     height: 15px;
+	border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     background: transparent;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: transparent;
+ }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: transparent;
+}
+</string>
+                    </property>
+                    <property name="currentIndex">
+                     <number>-1</number>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>主力合约 Main</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>所有合约 Future</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>主力连续 Cont</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>合约指数 Index</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>期权合约 Option</string>
                      </property>
                     </item>
                    </widget>
@@ -1593,9 +2019,6 @@ QLabel:disabled{
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
                     </property>
-                    <property name="buddy">
-                     <cstring>symbol</cstring>
-                    </property>
                    </widget>
                   </item>
                   <item>
@@ -1718,6 +2141,44 @@ QLabel:disabled{
                     </property>
                     <property name="buddy">
                      <cstring>orientation</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_trading_status">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+	font: 700 18pt &quot;等线&quot;;
+	background-color: rgb(255, 0, 255);
+	border-radius: 15px;
+}
+
+QLabel:hover{
+	border: 3px solid rgb(0, 255, 0);
+}
+QLabel:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>交易状态</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
                     </property>
                    </widget>
                   </item>
@@ -1934,7 +2395,7 @@ QLabel:disabled{
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QLineEdit" name="symbol">
+                   <widget class="QComboBox" name="comboBox_symbol">
                     <property name="minimumSize">
                      <size>
                       <width>200</width>
@@ -1948,26 +2409,121 @@ QLabel:disabled{
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">QLineEdit {
-	border: 2px solid rgb(45, 45, 45);
-	border-radius: 15px;
-	padding: 5px;
-	background-color: rgb(255, 255, 255);	
-	color: rgb(0, 0, 0);
-	font: 700 18pt &quot;等线&quot;;
+                     <string notr="true">/* 未下拉时，QComboBox的样式 */
+QComboBox {
+    border: 2px solid gray;   /* 边框 */
+    border-radius: 15px;   /* 圆角 */
+    padding: 1px 1px 1px 5px;   /* 字体填衬 */
+    color: rgb(0, 0, 0);    
+	font: 700 14pt &quot;等线&quot;;    
+	background-color: rgb(255, 255, 255);
 }
-QLineEdit:hover {
-	border: 3px solid rgb(255, 85, 0);
+
+/* 下拉后，整个下拉窗体样式 */
+QComboBox QAbstractItemView {
+    border: 1px solid rgb(65, 51, 156);   /* 整个下拉窗体的边框 */
+    color: rgb(200, 200, 200);
+	border-radius: 0px;
+    background-color: rgb(13, 9, 36);   /* 整个下拉窗体的背景色 */
 }
-QLineEdit:focus {
-	border: 3px solid rgb(255, 85, 0);
+QComboBox QAbstractItemView::item {
+	border:none;
+    height: 35px; 
+}
+QComboBox QAbstractItemView::item:hover{
+	border: none;	
 	color: rgb(255, 0, 0);
+	background-color: rgb(65, 49, 188);
+
 }
-QLineEdit:disabled{
-	color: rgb(0, 0, 0);
-	border-color: rgb(166, 166, 166);
-    background-color: rgb(186, 186, 186);
-}</string>
+QComboBox QAbstractItemView::item:selected{
+	border: none;
+}
+/* 下拉箭头样式 */
+ QComboBox::down-arrow {
+	image: url(:/icon/icons/双下拉箭头.svg);
+	width: 20px; /* 下拉箭头的宽度（建议与下拉框drop-down的宽度一致） */ 
+	background: rgb(255, 255, 255); /* 下拉箭头的的背景色 */ 
+	padding: 0px 0px 0px 0px; /* 上内边距、右内边距、下内边距、左内边距 */
+ } 
+
+/* 下拉框样式 */
+QComboBox::drop-down {
+   /* subcontrol-origin: padding;   /* 子控件在父元素中的原点矩形。如果未指定此属性，则默认为padding。 */
+   /* subcontrol-position: top right;   /* 下拉框的位置（右上） */
+    width: 30px;   /* 下拉框的宽度 */
+
+    border-left-width: 3px;   /* 下拉框的左边界线宽度 */
+    border-left-color: darkgray;   /* 下拉框的左边界线颜色 */
+    border-left-style: solid;   /* 下拉框的左边界线为实线 */
+    border-top-right-radius: 10px;   /* 下拉框的右上边界线的圆角半径（应和整个QComboBox右上边界线的圆角半径一致） */
+    border-bottom-right-radius: 10px;   /* 同上 */
+}
+QComboBox:hover {
+	border: 3px solid rgb(255, 85, 0);
+}
+
+
+
+
+
+/*右边的滑动条*/
+ QScrollBar:vertical {
+	border: none;
+    background: transparent;
+    width: 8px;
+    margin: 17px 0 17px 0;
+	border-radius: 0px;
+ }
+ QScrollBar::handle:vertical {	
+	background:rgba(249, 83, 255, 170);
+    min-height: 30px;
+	border-radius: 0px
+ }
+/*
+滑块悬浮，按下*/
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+background:rgb(150, 0, 150);
+}
+ QScrollBar::add-line:vertical {
+     border: none;
+	background-color: transparent;
+     height: 15px;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+     subcontrol-position: bottom;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: transparent;
+     height: 15px;
+	border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+     subcontrol-position: top;
+     subcontrol-origin: margin;
+ }
+ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+     background: transparent;
+ }
+
+ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+     background: transparent;
+ }
+QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
+{	
+	background-color: transparent;
+}
+</string>
+                    </property>
+                    <property name="editable">
+                     <bool>true</bool>
+                    </property>
+                    <property name="currentIndex">
+                     <number>-1</number>
+                    </property>
+                    <property name="maxVisibleItems">
+                     <number>20</number>
                     </property>
                    </widget>
                   </item>
@@ -2082,6 +2638,60 @@ QLineEdit:disabled{
 	border-color: rgb(166, 166, 166);
     background-color: rgb(186, 186, 186);
 }</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="checkBox_trading_status">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QCheckBox{	
+	color: rgb(255, 0, 127);
+	background-color: rgb(255, 255, 255);
+	font: 700 14pt &quot;等线&quot;;
+	border-radius: 15px;
+	padding:3px 3px 3px 7px;
+}
+QCheckBox:hover {
+	border: 3px solid rgb(255, 85, 0);
+}
+QCheckBox::indicator {
+    width: 45px;
+    height: 25px;
+    border-radius:10px;
+}
+ 
+QCheckBox::indicator:checked {
+    background-color:rgb(0, 200, 0);
+    border: 3px solid rgb(255, 0, 0);
+	image: url(:/icon/icons/勾选.svg);
+ }
+QCheckBox::indicator:unchecked {
+    background-color:rgb(136, 136, 136);
+    border:2px solid rgb(80, 80, 80);
+}
+QCheckBox:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>勾选正常交易</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
                     </property>
                    </widget>
                   </item>
@@ -2487,9 +3097,6 @@ QLabel:disabled{
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
                     </property>
-                    <property name="buddy">
-                     <cstring>symbol</cstring>
-                    </property>
                    </widget>
                   </item>
                   <item>
@@ -2776,6 +3383,44 @@ QLabel:disabled{
                     </property>
                     <property name="buddy">
                      <cstring>stop_profit</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_Customized_parameters9">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+	font: 700 18pt &quot;等线&quot;;
+	background-color: rgb(255, 0, 255);
+	border-radius: 15px;
+}
+
+QLabel:hover{
+	border: 3px solid rgb(0, 255, 0);
+}
+QLabel:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>自定义参数9</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
                     </property>
                    </widget>
                   </item>
@@ -3137,6 +3782,44 @@ QLineEdit:disabled{
                     </property>
                    </widget>
                   </item>
+                  <item>
+                   <widget class="QLineEdit" name="Customized_parameters9">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLineEdit {
+	border: 2px solid rgb(45, 45, 45);
+	border-radius: 15px;
+	padding: 5px;
+	background-color: rgb(255, 255, 255);	
+	color: rgb(0, 0, 0);
+	font: 700 18pt &quot;等线&quot;;
+}
+QLineEdit:hover {
+	border: 3px solid rgb(255, 85, 0);
+}
+QLineEdit:focus {
+	border: 3px solid rgb(255, 85, 0);
+	color: rgb(255, 0, 0);
+}
+QLineEdit:disabled{
+	color: rgb(0, 0, 0);
+	border-color: rgb(166, 166, 166);
+    background-color: rgb(186, 186, 186);
+}</string>
+                    </property>
+                   </widget>
+                  </item>
                  </layout>
                 </widget>
                </item>
@@ -3392,7 +4075,6 @@ QPushButton:disabled{
   <tabstop>checkBox_whether_open_web_services</tabstop>
   <tabstop>web_port</tabstop>
   <tabstop>comboBox_exchange</tabstop>
-  <tabstop>symbol</tabstop>
   <tabstop>symbol_period</tabstop>
   <tabstop>initial_capital</tabstop>
   <tabstop>orientation</tabstop>

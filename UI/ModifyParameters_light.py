@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'ModifyParameters_light.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.3.1
+## Created by: Qt User Interface Compiler version 6.3.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,7 +24,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(1400, 800)
+        Form.resize(1402, 802)
         self.horizontalLayout_3 = QHBoxLayout(Form)
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -411,6 +411,28 @@ class Ui_Form(object):
 
         self.verticalLayout_32.addWidget(self.label_orientation)
 
+        self.label_contract_multiples = QLabel(self.upper_left_3)
+        self.label_contract_multiples.setObjectName(u"label_contract_multiples")
+        self.label_contract_multiples.setMinimumSize(QSize(200, 40))
+        self.label_contract_multiples.setMaximumSize(QSize(200, 40))
+        self.label_contract_multiples.setStyleSheet(u"QLabel {\n"
+"	font: 700 18pt \"\u7b49\u7ebf\";\n"
+"	background-color: rgb(255, 0, 255);\n"
+"	border-radius: 15px;\n"
+"}\n"
+"\n"
+"QLabel:hover{\n"
+"	border: 3px solid rgb(0, 255, 0);\n"
+"}\n"
+"QLabel:disabled{\n"
+"	color: rgb(0, 0, 0);\n"
+"	border-color: rgb(166, 166, 166);\n"
+"    background-color: rgb(186, 186, 186);\n"
+"}")
+        self.label_contract_multiples.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_32.addWidget(self.label_contract_multiples)
+
 
         self.horizontalLayout_26.addWidget(self.upper_left_3, 0, Qt.AlignHCenter)
 
@@ -690,6 +712,33 @@ class Ui_Form(object):
 
         self.verticalLayout_33.addWidget(self.orientation)
 
+        self.contract_multiples = QLineEdit(self.upper_right_3)
+        self.contract_multiples.setObjectName(u"contract_multiples")
+        self.contract_multiples.setMinimumSize(QSize(200, 40))
+        self.contract_multiples.setMaximumSize(QSize(200, 40))
+        self.contract_multiples.setStyleSheet(u"QLineEdit {\n"
+"	border: 2px solid rgb(45, 45, 45);\n"
+"	border-radius: 15px;\n"
+"	padding: 5px;\n"
+"	background-color: rgb(255, 255, 255);	\n"
+"	color: rgb(0, 0, 0);\n"
+"	font: 700 18pt \"\u7b49\u7ebf\";\n"
+"}\n"
+"QLineEdit:hover {\n"
+"	border: 3px solid rgb(255, 85, 0);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"	border: 3px solid rgb(255, 85, 0);\n"
+"	color: rgb(255, 0, 0);\n"
+"}\n"
+"QLineEdit:disabled{\n"
+"	color: rgb(0, 0, 0);\n"
+"	border-color: rgb(166, 166, 166);\n"
+"    background-color: rgb(186, 186, 186);\n"
+"}")
+
+        self.verticalLayout_33.addWidget(self.contract_multiples)
+
 
         self.horizontalLayout_26.addWidget(self.upper_right_3, 0, Qt.AlignHCenter)
 
@@ -767,28 +816,6 @@ class Ui_Form(object):
         self.verticalLayout_52.setSpacing(0)
         self.verticalLayout_52.setObjectName(u"verticalLayout_52")
         self.verticalLayout_52.setContentsMargins(0, 0, 0, 0)
-        self.label_contract_multiples = QLabel(self.upper_left_5)
-        self.label_contract_multiples.setObjectName(u"label_contract_multiples")
-        self.label_contract_multiples.setMinimumSize(QSize(200, 40))
-        self.label_contract_multiples.setMaximumSize(QSize(200, 40))
-        self.label_contract_multiples.setStyleSheet(u"QLabel {\n"
-"	font: 700 18pt \"\u7b49\u7ebf\";\n"
-"	background-color: rgb(255, 0, 255);\n"
-"	border-radius: 15px;\n"
-"}\n"
-"\n"
-"QLabel:hover{\n"
-"	border: 3px solid rgb(0, 255, 0);\n"
-"}\n"
-"QLabel:disabled{\n"
-"	color: rgb(0, 0, 0);\n"
-"	border-color: rgb(166, 166, 166);\n"
-"    background-color: rgb(186, 186, 186);\n"
-"}")
-        self.label_contract_multiples.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_52.addWidget(self.label_contract_multiples)
-
         self.label_margin_rate = QLabel(self.upper_left_5)
         self.label_margin_rate.setObjectName(u"label_margin_rate")
         self.label_margin_rate.setMinimumSize(QSize(200, 40))
@@ -943,6 +970,50 @@ class Ui_Form(object):
 
         self.verticalLayout_52.addWidget(self.label_close_line_Coordinates)
 
+        self.label_long_add_times = QLabel(self.upper_left_5)
+        self.label_long_add_times.setObjectName(u"label_long_add_times")
+        self.label_long_add_times.setMinimumSize(QSize(200, 40))
+        self.label_long_add_times.setMaximumSize(QSize(200, 40))
+        self.label_long_add_times.setStyleSheet(u"QLabel {\n"
+"	font: 700 18pt \"\u7b49\u7ebf\";\n"
+"	background-color: rgb(255, 0, 255);\n"
+"	border-radius: 15px;\n"
+"}\n"
+"\n"
+"QLabel:hover{\n"
+"	border: 3px solid rgb(0, 255, 0);\n"
+"}\n"
+"QLabel:disabled{\n"
+"	color: rgb(0, 0, 0);\n"
+"	border-color: rgb(166, 166, 166);\n"
+"    background-color: rgb(186, 186, 186);\n"
+"}")
+        self.label_long_add_times.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_52.addWidget(self.label_long_add_times)
+
+        self.label_short_add_times = QLabel(self.upper_left_5)
+        self.label_short_add_times.setObjectName(u"label_short_add_times")
+        self.label_short_add_times.setMinimumSize(QSize(200, 40))
+        self.label_short_add_times.setMaximumSize(QSize(200, 40))
+        self.label_short_add_times.setStyleSheet(u"QLabel {\n"
+"	font: 700 18pt \"\u7b49\u7ebf\";\n"
+"	background-color: rgb(255, 0, 255);\n"
+"	border-radius: 15px;\n"
+"}\n"
+"\n"
+"QLabel:hover{\n"
+"	border: 3px solid rgb(0, 255, 0);\n"
+"}\n"
+"QLabel:disabled{\n"
+"	color: rgb(0, 0, 0);\n"
+"	border-color: rgb(166, 166, 166);\n"
+"    background-color: rgb(186, 186, 186);\n"
+"}")
+        self.label_short_add_times.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_52.addWidget(self.label_short_add_times)
+
 
         self.horizontalLayout_5.addWidget(self.upper_left_5)
 
@@ -959,33 +1030,6 @@ class Ui_Form(object):
         self.verticalLayout_41.setSpacing(0)
         self.verticalLayout_41.setObjectName(u"verticalLayout_41")
         self.verticalLayout_41.setContentsMargins(0, 0, 0, 0)
-        self.contract_multiples = QLineEdit(self.upper_right_5)
-        self.contract_multiples.setObjectName(u"contract_multiples")
-        self.contract_multiples.setMinimumSize(QSize(200, 40))
-        self.contract_multiples.setMaximumSize(QSize(200, 40))
-        self.contract_multiples.setStyleSheet(u"QLineEdit {\n"
-"	border: 2px solid rgb(45, 45, 45);\n"
-"	border-radius: 15px;\n"
-"	padding: 5px;\n"
-"	background-color: rgb(255, 255, 255);	\n"
-"	color: rgb(0, 0, 0);\n"
-"	font: 700 18pt \"\u7b49\u7ebf\";\n"
-"}\n"
-"QLineEdit:hover {\n"
-"	border: 3px solid rgb(255, 85, 0);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"	border: 3px solid rgb(255, 85, 0);\n"
-"	color: rgb(255, 0, 0);\n"
-"}\n"
-"QLineEdit:disabled{\n"
-"	color: rgb(0, 0, 0);\n"
-"	border-color: rgb(166, 166, 166);\n"
-"    background-color: rgb(186, 186, 186);\n"
-"}")
-
-        self.verticalLayout_41.addWidget(self.contract_multiples)
-
         self.margin_rate = QLineEdit(self.upper_right_5)
         self.margin_rate.setObjectName(u"margin_rate")
         self.margin_rate.setMinimumSize(QSize(200, 40))
@@ -1198,6 +1242,60 @@ class Ui_Form(object):
 "}")
 
         self.verticalLayout_41.addWidget(self.close_line_Coordinates)
+
+        self.long_add_times = QLineEdit(self.upper_right_5)
+        self.long_add_times.setObjectName(u"long_add_times")
+        self.long_add_times.setMinimumSize(QSize(200, 40))
+        self.long_add_times.setMaximumSize(QSize(200, 40))
+        self.long_add_times.setStyleSheet(u"QLineEdit {\n"
+"	border: 2px solid rgb(45, 45, 45);\n"
+"	border-radius: 15px;\n"
+"	padding: 5px;\n"
+"	background-color: rgb(255, 255, 255);	\n"
+"	color: rgb(0, 0, 0);\n"
+"	font: 700 18pt \"\u7b49\u7ebf\";\n"
+"}\n"
+"QLineEdit:hover {\n"
+"	border: 3px solid rgb(255, 85, 0);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"	border: 3px solid rgb(255, 85, 0);\n"
+"	color: rgb(255, 0, 0);\n"
+"}\n"
+"QLineEdit:disabled{\n"
+"	color: rgb(0, 0, 0);\n"
+"	border-color: rgb(166, 166, 166);\n"
+"    background-color: rgb(186, 186, 186);\n"
+"}")
+
+        self.verticalLayout_41.addWidget(self.long_add_times)
+
+        self.short_add_times = QLineEdit(self.upper_right_5)
+        self.short_add_times.setObjectName(u"short_add_times")
+        self.short_add_times.setMinimumSize(QSize(200, 40))
+        self.short_add_times.setMaximumSize(QSize(200, 40))
+        self.short_add_times.setStyleSheet(u"QLineEdit {\n"
+"	border: 2px solid rgb(45, 45, 45);\n"
+"	border-radius: 15px;\n"
+"	padding: 5px;\n"
+"	background-color: rgb(255, 255, 255);	\n"
+"	color: rgb(0, 0, 0);\n"
+"	font: 700 18pt \"\u7b49\u7ebf\";\n"
+"}\n"
+"QLineEdit:hover {\n"
+"	border: 3px solid rgb(255, 85, 0);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"	border: 3px solid rgb(255, 85, 0);\n"
+"	color: rgb(255, 0, 0);\n"
+"}\n"
+"QLineEdit:disabled{\n"
+"	color: rgb(0, 0, 0);\n"
+"	border-color: rgb(166, 166, 166);\n"
+"    background-color: rgb(186, 186, 186);\n"
+"}")
+
+        self.verticalLayout_41.addWidget(self.short_add_times)
 
 
         self.horizontalLayout_5.addWidget(self.upper_right_5)
@@ -1458,6 +1556,28 @@ class Ui_Form(object):
 
         self.verticalLayout_53.addWidget(self.label_Customized_parameters)
 
+        self.label_Customized_parameters9 = QLabel(self.upper_left_6)
+        self.label_Customized_parameters9.setObjectName(u"label_Customized_parameters9")
+        self.label_Customized_parameters9.setMinimumSize(QSize(200, 40))
+        self.label_Customized_parameters9.setMaximumSize(QSize(200, 40))
+        self.label_Customized_parameters9.setStyleSheet(u"QLabel {\n"
+"	font: 700 18pt \"\u7b49\u7ebf\";\n"
+"	background-color: rgb(255, 0, 255);\n"
+"	border-radius: 15px;\n"
+"}\n"
+"\n"
+"QLabel:hover{\n"
+"	border: 3px solid rgb(0, 255, 0);\n"
+"}\n"
+"QLabel:disabled{\n"
+"	color: rgb(0, 0, 0);\n"
+"	border-color: rgb(166, 166, 166);\n"
+"    background-color: rgb(186, 186, 186);\n"
+"}")
+        self.label_Customized_parameters9.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_53.addWidget(self.label_Customized_parameters9)
+
 
         self.horizontalLayout_6.addWidget(self.upper_left_6)
 
@@ -1690,6 +1810,33 @@ class Ui_Form(object):
 
         self.verticalLayout_42.addWidget(self.Customized_parameters8)
 
+        self.Customized_parameters9 = QLineEdit(self.upper_right_6)
+        self.Customized_parameters9.setObjectName(u"Customized_parameters9")
+        self.Customized_parameters9.setMinimumSize(QSize(200, 40))
+        self.Customized_parameters9.setMaximumSize(QSize(200, 40))
+        self.Customized_parameters9.setStyleSheet(u"QLineEdit {\n"
+"	border: 2px solid rgb(45, 45, 45);\n"
+"	border-radius: 15px;\n"
+"	padding: 5px;\n"
+"	background-color: rgb(255, 255, 255);	\n"
+"	color: rgb(0, 0, 0);\n"
+"	font: 700 18pt \"\u7b49\u7ebf\";\n"
+"}\n"
+"QLineEdit:hover {\n"
+"	border: 3px solid rgb(255, 85, 0);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"	border: 3px solid rgb(255, 85, 0);\n"
+"	color: rgb(255, 0, 0);\n"
+"}\n"
+"QLineEdit:disabled{\n"
+"	color: rgb(0, 0, 0);\n"
+"	border-color: rgb(166, 166, 166);\n"
+"    background-color: rgb(186, 186, 186);\n"
+"}")
+
+        self.verticalLayout_42.addWidget(self.Customized_parameters9)
+
 
         self.horizontalLayout_6.addWidget(self.upper_right_6)
 
@@ -1885,11 +2032,12 @@ class Ui_Form(object):
         self.label_symbol_period.setText(QCoreApplication.translate("Form", u"\u5408\u7ea6\u5468\u671f(\u5206\u949f)", None))
         self.label_initial_capital.setText(QCoreApplication.translate("Form", u"\u7b56\u7565\u521d\u59cb\u8d44\u91d1", None))
         self.label_orientation.setText(QCoreApplication.translate("Form", u"\u4ea4\u6613\u65b9\u5411", None))
+        self.label_contract_multiples.setText(QCoreApplication.translate("Form", u"\u5408\u7ea6\u500d\u6570", None))
         self.checkBox_whether_self_start.setText(QCoreApplication.translate("Form", u"\u52fe\u9009\u4e3a\u81ea\u542f", None))
         self.checkBox_whether_live_futures_trading.setText(QCoreApplication.translate("Form", u"\u52fe\u9009\u4e3a\u5b9e\u76d8", None))
         self.checkBox_trading_status.setText(QCoreApplication.translate("Form", u"\u52fe\u9009\u4e3a\u6b63\u5e38\u4ea4\u6613", None))
         self.checkBox_whether_open_web_services.setText(QCoreApplication.translate("Form", u"\u52fe\u9009\u5f00\u542fweb", None))
-        self.label_contract_multiples.setText(QCoreApplication.translate("Form", u"\u5408\u7ea6\u500d\u6570", None))
+        self.contract_multiples.setText("")
         self.label_margin_rate.setText(QCoreApplication.translate("Form", u"\u4fdd\u8bc1\u91d1\u7387\uff08%\uff09", None))
         self.label_stop_loss.setText(QCoreApplication.translate("Form", u"\u6b62\u635f\u4f4d\uff08%\uff09", None))
         self.label_stop_profit.setText(QCoreApplication.translate("Form", u"\u6b62\u76c8\u4f4d\uff08%\uff09", None))
@@ -1897,7 +2045,8 @@ class Ui_Form(object):
         self.label_open_line_Coordinates.setText(QCoreApplication.translate("Form", u"\u5f00\u4ed3\u7ebf\u5750\u6807", None))
         self.label_whether_close_line.setText(QCoreApplication.translate("Form", u"\u5b9a\u4e49\u5e73\u4ed3\u76f4\u7ebf", None))
         self.label_close_line_Coordinates.setText(QCoreApplication.translate("Form", u"\u5e73\u4ed3\u7ebf\u5750\u6807", None))
-        self.contract_multiples.setText("")
+        self.label_long_add_times.setText(QCoreApplication.translate("Form", u"\u591a\u5355\u52a0\u4ed3\u6b21\u6570", None))
+        self.label_short_add_times.setText(QCoreApplication.translate("Form", u"\u7a7a\u5355\u52a0\u4ed3\u6b21\u6570", None))
         self.margin_rate.setText("")
         self.checkBox_whether_open_line.setText(QCoreApplication.translate("Form", u"\u52fe\u9009\u4e3a\u5df2\u6709\u76f4\u7ebf", None))
         self.checkBox_whether_close_line.setText(QCoreApplication.translate("Form", u"\u52fe\u9009\u4e3a\u5df2\u6709\u76f4\u7ebf", None))
@@ -1909,6 +2058,7 @@ class Ui_Form(object):
         self.label_Customized_parameters6.setText(QCoreApplication.translate("Form", u"\u81ea\u5b9a\u4e49\u53c2\u65706", None))
         self.label_Customized_parameters7.setText(QCoreApplication.translate("Form", u"\u81ea\u5b9a\u4e49\u53c2\u65707", None))
         self.label_Customized_parameters.setText(QCoreApplication.translate("Form", u"\u81ea\u5b9a\u4e49\u53c2\u65708", None))
+        self.label_Customized_parameters9.setText(QCoreApplication.translate("Form", u"\u81ea\u5b9a\u4e49\u53c2\u65709", None))
         self.Customized_parameters5.setText("")
         self.Customized_parameters6.setText("")
         self.Btn_submit_changes.setText(QCoreApplication.translate("Form", u"\u63d0\u4ea4\u4fee\u6539", None))

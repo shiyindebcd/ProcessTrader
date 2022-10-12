@@ -46,7 +46,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.Quote_klines_dict = {}                                     # 自选合约字典,用来存放所有的自选合约klines
 
 
-        self.ioModal = ReadWriteCsv()                                   # 实例化 csv 读写类
+        self.ioModule = ReadWriteCsv()                                   # 实例化 csv 读写类
         self.KLineWidget = KLineWidget()                                # 实例化K线图widget部件
         self.RightBtbMenu = RightButtonMenu(self)                       # 右键菜单类
         self.verticalLayout_klines.addWidget(self.KLineWidget)          # 添加K线图部件到布局中
@@ -114,19 +114,19 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
 
     def whether_the_folder_and_files_exists(self):    # 检查必要的文件及文件夹是否存在，不存在则创建
         # 判断文件夹是否存在，不存在则创建
-        self.ioModal.judge_dirs_exist(dirs='./data')
-        self.ioModal.judge_dirs_exist(dirs='./log')
-        self.ioModal.judge_dirs_exist(dirs='./clients_photo')
-        self.ioModal.judge_dirs_exist(dirs='./Klines_Data')
-        self.ioModal.judge_dirs_exist(dirs='./available_contracts')
+        self.ioModule.judge_dirs_exist(dirs='./data')
+        self.ioModule.judge_dirs_exist(dirs='./log')
+        self.ioModule.judge_dirs_exist(dirs='./clients_photo')
+        self.ioModule.judge_dirs_exist(dirs='./Klines_Data')
+        self.ioModule.judge_dirs_exist(dirs='./available_contracts')
 
         # 判断配置文件是否存在，不存在则创建
-        self.ioModal.judge_file_exist(path='./data/deal_detials.csv')
-        self.ioModal.judge_file_exist(path='./data/config.csv')
-        self.ioModal.judge_file_exist(path='./data/clients.csv')
-        self.ioModal.judge_file_exist(path='./data/tq_account.csv')
-        self.ioModal.judge_file_exist(path='./data/main_tq_account.csv')
-        self.ioModal.judge_file_exist(path='./data/self_selection.csv')
+        self.ioModule.judge_file_exist(path='./data/deal_detials.csv')
+        self.ioModule.judge_file_exist(path='./data/config.csv')
+        self.ioModule.judge_file_exist(path='./data/clients.csv')
+        self.ioModule.judge_file_exist(path='./data/tq_account.csv')
+        self.ioModule.judge_file_exist(path='./data/main_tq_account.csv')
+        self.ioModule.judge_file_exist(path='./data/self_selection.csv')
 
 
     def hide_items(self):  # 隐藏各种滚动条虚线框及标题栏
@@ -260,7 +260,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         # 设置列表默认行列数量
         self.tableWidget_deal_detials.setRowCount(50)
         self.tableWidget_deal_detials.setColumnCount(8)
-        self.tableWidget_process.setRowCount(44)
+        self.tableWidget_process.setRowCount(45)
         self.tableWidget_process.setColumnCount(10)
 
         # 第二行随内容自动调整行高
@@ -355,10 +355,10 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.create_backtest_window = BackTestWindow(self)
         self.create_backtest_window.show()
 
-    def chack_main_tq_account(self):            # 检查主账号是否存在
+    def chack_main_tq_account(self):            # 检查天勤主账号是否存在
         path = './data/main_tq_account.csv'
         if os.path.exists(path):
-            data = self.ioModal.read_csv_file(path=path)
+            data = self.ioModule.read_csv_file(path=path)
             if data.empty:                                     # 判断self.data是否为空
                 print('\n\nmain_tq_account.csv文件里没有帐户，请先在设置里添加天勤主账号和密码')
             else:
@@ -366,43 +366,21 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
                 self.main_tq_psd = data.loc[0, 'qt_psd']
 
 
-    def sign_in_tq_account(self):  # 登录天勤账户并订阅k线
-        try:
-            self.api = TqApi(TqKq(), auth=TqAuth(self.main_tq_account, self.main_tq_psd))
-        except Exception as ex:
-            print('登录天勤帐户时发生异常: %r' % ex)
-
-        self_selection_quote_list = self.get_self_selection_quote_list()
-        if self_selection_quote_list:
-            for kl in self_selection_quote_list:
-                if (kl + '_quote') not in self.Quote_klines_dict:           # 判断字典中有无该合约的订阅
-                    self.ceate_TQ_klines_and_quote(kl)
-                else:
-                    print('合约: ', kl,' 已订阅')
-
-            # print('\n\n\n当前字典为:',self.Quote_klines_dict, '\n\n\n\n\n')
-
-        self.GengXin_ShuJu=UpdateTqsdkDate(self.api) #信号线程，发送数据更新
-        self.GengXin_ShuJu.start()
-        self.init_Klines_chart()
-        # self.GengXin_ShuJu.TQ_signal.connect(self.widget.update_bar) #信号绑定更新函数update_bar
-        # self.GengXin_ShuJu.TQ_signal.connect(self.updateindicator) #信号绑定更新函数updateindicator
-        # self.GengXin_ShuJu.TQ_signal.connect(self.Update_quotes) #信号绑定更新quote
-
     def start_TQ_services(self):    # 开启天勤数据行情服务
         self.chack_main_tq_account()
         if self.main_tq_account and self.main_tq_psd:
-            self.self_selection = Manager().dict()
-            self.quote_dict = Manager().dict()
-            self.current_Kline = Manager().dict()
-            self.current_Kline['Contracts'] = self.current_dissplayed_Kline
-            data = self.ioModal.read_csv_file(path='./data/self_selection.csv')
+            self.self_selection = Manager().list()          #  自选合约列表,该列表将和天勤数据服务进程共享
+            self.quote_dict = Manager().dict()              #  当前显示的合约品种行情切片,主进程通过与天勤数据服务进程共享此字典获取数据
+            self.current_Kline = Manager().list()           #  当前显示的合约列表,该列表只有一项,该列表将和天勤数据服务进程共享
+            self.current_Kline.append(self.current_dissplayed_Kline)
+            data = self.ioModule.read_csv_file(path='./data/self_selection.csv')
             for index, row in data.iterrows():
-                self.self_selection[index] = row['quote']
+                self.self_selection.append(row['quote'])
             t = TQServices(args=(self.self_selection, self.quote_dict, self.current_Kline, self.main_tq_account, self.main_tq_psd))
             t.start()
             self.TQ_services_pid = t.pid
             self.label_TQ_services_info.setText('天勤数据行情服务正在运行中')
+
 
     def stop_TQ_services(self):     # 关闭天勤数据行情服务
         if self.TQ_services_pid:
@@ -431,7 +409,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         living_pid_list = self.get_alive_process_pid_list()
 
         path = './data/config.csv'
-        data = self.ioModal.read_csv_file(path)
+        data = self.ioModule.read_csv_file(path)
 
         if data.empty:
             print('策略实例配置文件 config.csv 为空,请添加参数后再运行...')

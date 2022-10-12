@@ -2482,11 +2482,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_47.setSpacing(2)
         self.horizontalLayout_47.setObjectName(u"horizontalLayout_47")
         self.horizontalLayout_47.setContentsMargins(2, 0, 2, 0)
-        self.Btn_draw_line_order_2 = QPushButton(self.frame_39)
-        self.Btn_draw_line_order_2.setObjectName(u"Btn_draw_line_order_2")
-        self.Btn_draw_line_order_2.setMinimumSize(QSize(50, 25))
-        self.Btn_draw_line_order_2.setMaximumSize(QSize(50, 25))
-        self.Btn_draw_line_order_2.setStyleSheet(u"QPushButton {\n"
+        self.Btn_draw_line_order = QPushButton(self.frame_39)
+        self.Btn_draw_line_order.setObjectName(u"Btn_draw_line_order")
+        self.Btn_draw_line_order.setMinimumSize(QSize(50, 25))
+        self.Btn_draw_line_order.setMaximumSize(QSize(50, 25))
+        self.Btn_draw_line_order.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 0, 127);	\n"
 "	font: 700 12pt \"\u7b49\u7ebf\";\n"
 "	border: 2px solid rgb(128, 128, 128);\n"
@@ -2504,13 +2504,13 @@ class Ui_MainWindow(object):
 "	color: rgb(255, 0, 0);\n"
 "}")
 
-        self.horizontalLayout_47.addWidget(self.Btn_draw_line_order_2)
+        self.horizontalLayout_47.addWidget(self.Btn_draw_line_order)
 
-        self.Btn_draw_line_style_2 = QPushButton(self.frame_39)
-        self.Btn_draw_line_style_2.setObjectName(u"Btn_draw_line_style_2")
-        self.Btn_draw_line_style_2.setMinimumSize(QSize(50, 25))
-        self.Btn_draw_line_style_2.setMaximumSize(QSize(50, 25))
-        self.Btn_draw_line_style_2.setStyleSheet(u"QPushButton {\n"
+        self.Btn_draw_line_style = QPushButton(self.frame_39)
+        self.Btn_draw_line_style.setObjectName(u"Btn_draw_line_style")
+        self.Btn_draw_line_style.setMinimumSize(QSize(50, 25))
+        self.Btn_draw_line_style.setMaximumSize(QSize(50, 25))
+        self.Btn_draw_line_style.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 0, 127);	\n"
 "	font: 700 12pt \"\u7b49\u7ebf\";\n"
 "	border: 2px solid rgb(128, 128, 128);\n"
@@ -2528,15 +2528,15 @@ class Ui_MainWindow(object):
 "	color: rgb(255, 0, 0);\n"
 "}")
 
-        self.horizontalLayout_47.addWidget(self.Btn_draw_line_style_2)
+        self.horizontalLayout_47.addWidget(self.Btn_draw_line_style)
 
         self.horizontalSpacer_14 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_47.addItem(self.horizontalSpacer_14)
 
-        self.label_kline_info_2 = QLabel(self.frame_39)
-        self.label_kline_info_2.setObjectName(u"label_kline_info_2")
-        self.label_kline_info_2.setStyleSheet(u"QFrame {\n"
+        self.label_kline_info = QLabel(self.frame_39)
+        self.label_kline_info.setObjectName(u"label_kline_info")
+        self.label_kline_info.setStyleSheet(u"QFrame {\n"
 "	background-color: rgba(30, 30, 40, 0);\n"
 "	border: none;\n"
 "	border-radius: 15px;\n"
@@ -2545,22 +2545,22 @@ class Ui_MainWindow(object):
 "}\n"
 "")
 
-        self.horizontalLayout_47.addWidget(self.label_kline_info_2)
+        self.horizontalLayout_47.addWidget(self.label_kline_info)
 
         self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_47.addItem(self.horizontalSpacer_15)
 
-        self.comboBox_add_quote_exchange_2 = QComboBox(self.frame_39)
-        self.comboBox_add_quote_exchange_2.addItem("")
-        self.comboBox_add_quote_exchange_2.addItem("")
-        self.comboBox_add_quote_exchange_2.addItem("")
-        self.comboBox_add_quote_exchange_2.addItem("")
-        self.comboBox_add_quote_exchange_2.addItem("")
-        self.comboBox_add_quote_exchange_2.setObjectName(u"comboBox_add_quote_exchange_2")
-        self.comboBox_add_quote_exchange_2.setMinimumSize(QSize(120, 25))
-        self.comboBox_add_quote_exchange_2.setMaximumSize(QSize(120, 25))
-        self.comboBox_add_quote_exchange_2.setStyleSheet(u"/* \u672a\u4e0b\u62c9\u65f6\uff0cQComboBox\u7684\u6837\u5f0f */\n"
+        self.comboBox_add_quote_exchange = QComboBox(self.frame_39)
+        self.comboBox_add_quote_exchange.addItem("")
+        self.comboBox_add_quote_exchange.addItem("")
+        self.comboBox_add_quote_exchange.addItem("")
+        self.comboBox_add_quote_exchange.addItem("")
+        self.comboBox_add_quote_exchange.addItem("")
+        self.comboBox_add_quote_exchange.setObjectName(u"comboBox_add_quote_exchange")
+        self.comboBox_add_quote_exchange.setMinimumSize(QSize(120, 25))
+        self.comboBox_add_quote_exchange.setMaximumSize(QSize(120, 25))
+        self.comboBox_add_quote_exchange.setStyleSheet(u"/* \u672a\u4e0b\u62c9\u65f6\uff0cQComboBox\u7684\u6837\u5f0f */\n"
 "QComboBox {\n"
 "    border: 2px solid gray;   /* \u8fb9\u6846 */\n"
 "    border-radius: 12px;   /* \u5706\u89d2 */\n"
@@ -2589,6 +2589,7 @@ class Ui_MainWindow(object):
 "}\n"
 "QComboBox Q"
                         "AbstractItemView::item:selected{\n"
+"	color: rgb(0, 0, 0);\n"
 "	border: none;\n"
 "}\n"
 "/* \u4e0b\u62c9\u7bad\u5934\u6837\u5f0f */\n"
@@ -2602,9 +2603,9 @@ class Ui_MainWindow(object):
 "/* \u4e0b\u62c9\u6846\u6837\u5f0f */\n"
 "QComboBox::drop-down {\n"
 "   /* subcontrol-origin: padding;   /* \u5b50\u63a7\u4ef6\u5728\u7236\u5143\u7d20\u4e2d\u7684\u539f\u70b9\u77e9\u5f62\u3002\u5982\u679c\u672a\u6307\u5b9a\u6b64\u5c5e\u6027\uff0c\u5219\u9ed8\u8ba4\u4e3apadding\u3002 */\n"
-"   /* subcontrol-position: top right;   /* \u4e0b\u62c9\u6846\u7684\u4f4d\u7f6e\uff08\u53f3\u4e0a\uff09 */\n"
-" "
-                        "   width: 20px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
+"   /* subcontrol-position: top right;   /* \u4e0b\u62c9\u6846\u7684\u4f4d\u7f6e\uff08\u53f3"
+                        "\u4e0a\uff09 */\n"
+"    width: 20px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
 "\n"
 "    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6 */\n"
 "    border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
@@ -2628,8 +2629,8 @@ class Ui_MainWindow(object):
 "    margin: 17px 0 17px 0;\n"
 "	border-radius: 0px;\n"
 " }\n"
-" QScrollBar::handle:v"
-                        "ertical {	\n"
+""
+                        " QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
 "	border-radius: 0px\n"
@@ -2661,30 +2662,30 @@ class Ui_MainWindow(object):
 "     background: transparent;\n"
 " }\n"
 "\n"
-" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"     background"
-                        ": transparent;\n"
+" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical "
+                        "{\n"
+"     background: transparent;\n"
 " }\n"
 "QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
 "{	\n"
 "	background-color: transparent;\n"
 "}\n"
 "")
-        self.comboBox_add_quote_exchange_2.setFrame(True)
-        self.comboBox_add_quote_exchange_2.setModelColumn(0)
+        self.comboBox_add_quote_exchange.setFrame(True)
+        self.comboBox_add_quote_exchange.setModelColumn(0)
 
-        self.horizontalLayout_47.addWidget(self.comboBox_add_quote_exchange_2)
+        self.horizontalLayout_47.addWidget(self.comboBox_add_quote_exchange)
 
-        self.comboBox_contract_type_2 = QComboBox(self.frame_39)
-        self.comboBox_contract_type_2.addItem("")
-        self.comboBox_contract_type_2.addItem("")
-        self.comboBox_contract_type_2.addItem("")
-        self.comboBox_contract_type_2.addItem("")
-        self.comboBox_contract_type_2.addItem("")
-        self.comboBox_contract_type_2.setObjectName(u"comboBox_contract_type_2")
-        self.comboBox_contract_type_2.setMinimumSize(QSize(140, 25))
-        self.comboBox_contract_type_2.setMaximumSize(QSize(140, 25))
-        self.comboBox_contract_type_2.setStyleSheet(u"/* \u672a\u4e0b\u62c9\u65f6\uff0cQComboBox\u7684\u6837\u5f0f */\n"
+        self.comboBox_contract_type = QComboBox(self.frame_39)
+        self.comboBox_contract_type.addItem("")
+        self.comboBox_contract_type.addItem("")
+        self.comboBox_contract_type.addItem("")
+        self.comboBox_contract_type.addItem("")
+        self.comboBox_contract_type.addItem("")
+        self.comboBox_contract_type.setObjectName(u"comboBox_contract_type")
+        self.comboBox_contract_type.setMinimumSize(QSize(140, 25))
+        self.comboBox_contract_type.setMaximumSize(QSize(140, 25))
+        self.comboBox_contract_type.setStyleSheet(u"/* \u672a\u4e0b\u62c9\u65f6\uff0cQComboBox\u7684\u6837\u5f0f */\n"
 "QComboBox {\n"
 "    border: 2px solid gray;   /* \u8fb9\u6846 */\n"
 "    border-radius: 12px;   /* \u5706\u89d2 */\n"
@@ -2713,6 +2714,7 @@ class Ui_MainWindow(object):
 "}\n"
 "QComboBox Q"
                         "AbstractItemView::item:selected{\n"
+"	color: rgb(0, 0, 0);\n"
 "	border: none;\n"
 "}\n"
 "/* \u4e0b\u62c9\u7bad\u5934\u6837\u5f0f */\n"
@@ -2726,9 +2728,9 @@ class Ui_MainWindow(object):
 "/* \u4e0b\u62c9\u6846\u6837\u5f0f */\n"
 "QComboBox::drop-down {\n"
 "   /* subcontrol-origin: padding;   /* \u5b50\u63a7\u4ef6\u5728\u7236\u5143\u7d20\u4e2d\u7684\u539f\u70b9\u77e9\u5f62\u3002\u5982\u679c\u672a\u6307\u5b9a\u6b64\u5c5e\u6027\uff0c\u5219\u9ed8\u8ba4\u4e3apadding\u3002 */\n"
-"   /* subcontrol-position: top right;   /* \u4e0b\u62c9\u6846\u7684\u4f4d\u7f6e\uff08\u53f3\u4e0a\uff09 */\n"
-" "
-                        "   width: 20px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
+"   /* subcontrol-position: top right;   /* \u4e0b\u62c9\u6846\u7684\u4f4d\u7f6e\uff08\u53f3"
+                        "\u4e0a\uff09 */\n"
+"    width: 20px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
 "\n"
 "    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6 */\n"
 "    border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
@@ -2752,8 +2754,8 @@ class Ui_MainWindow(object):
 "    margin: 17px 0 17px 0;\n"
 "	border-radius: 0px;\n"
 " }\n"
-" QScrollBar::handle:v"
-                        "ertical {	\n"
+""
+                        " QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
 "	border-radius: 0px\n"
@@ -2785,24 +2787,24 @@ class Ui_MainWindow(object):
 "     background: transparent;\n"
 " }\n"
 "\n"
-" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"     background"
-                        ": transparent;\n"
+" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical "
+                        "{\n"
+"     background: transparent;\n"
 " }\n"
 "QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
 "{	\n"
 "	background-color: transparent;\n"
 "}\n"
 "")
-        self.comboBox_contract_type_2.setEditable(False)
+        self.comboBox_contract_type.setEditable(False)
 
-        self.horizontalLayout_47.addWidget(self.comboBox_contract_type_2)
+        self.horizontalLayout_47.addWidget(self.comboBox_contract_type)
 
-        self.comboBox_symbol_2 = QComboBox(self.frame_39)
-        self.comboBox_symbol_2.setObjectName(u"comboBox_symbol_2")
-        self.comboBox_symbol_2.setMinimumSize(QSize(150, 25))
-        self.comboBox_symbol_2.setMaximumSize(QSize(16777215, 25))
-        self.comboBox_symbol_2.setStyleSheet(u"/* \u672a\u4e0b\u62c9\u65f6\uff0cQComboBox\u7684\u6837\u5f0f */\n"
+        self.comboBox_symbol = QComboBox(self.frame_39)
+        self.comboBox_symbol.setObjectName(u"comboBox_symbol")
+        self.comboBox_symbol.setMinimumSize(QSize(150, 25))
+        self.comboBox_symbol.setMaximumSize(QSize(16777215, 25))
+        self.comboBox_symbol.setStyleSheet(u"/* \u672a\u4e0b\u62c9\u65f6\uff0cQComboBox\u7684\u6837\u5f0f */\n"
 "QComboBox {\n"
 "    border: 2px solid gray;   /* \u8fb9\u6846 */\n"
 "    border-radius: 12px;   /* \u5706\u89d2 */\n"
@@ -2831,6 +2833,7 @@ class Ui_MainWindow(object):
 "}\n"
 "QComboBox Q"
                         "AbstractItemView::item:selected{\n"
+"	color: rgb(0, 0, 0);\n"
 "	border: none;\n"
 "}\n"
 "/* \u4e0b\u62c9\u7bad\u5934\u6837\u5f0f */\n"
@@ -2844,9 +2847,9 @@ class Ui_MainWindow(object):
 "/* \u4e0b\u62c9\u6846\u6837\u5f0f */\n"
 "QComboBox::drop-down {\n"
 "   /* subcontrol-origin: padding;   /* \u5b50\u63a7\u4ef6\u5728\u7236\u5143\u7d20\u4e2d\u7684\u539f\u70b9\u77e9\u5f62\u3002\u5982\u679c\u672a\u6307\u5b9a\u6b64\u5c5e\u6027\uff0c\u5219\u9ed8\u8ba4\u4e3apadding\u3002 */\n"
-"   /* subcontrol-position: top right;   /* \u4e0b\u62c9\u6846\u7684\u4f4d\u7f6e\uff08\u53f3\u4e0a\uff09 */\n"
-" "
-                        "   width: 20px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
+"   /* subcontrol-position: top right;   /* \u4e0b\u62c9\u6846\u7684\u4f4d\u7f6e\uff08\u53f3"
+                        "\u4e0a\uff09 */\n"
+"    width: 20px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
 "\n"
 "    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6 */\n"
 "    border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
@@ -2870,8 +2873,8 @@ class Ui_MainWindow(object):
 "    margin: 17px 0 17px 0;\n"
 "	border-radius: 0px;\n"
 " }\n"
-" QScrollBar::handle:v"
-                        "ertical {	\n"
+""
+                        " QScrollBar::handle:vertical {	\n"
 "	background:rgba(249, 83, 255, 170);\n"
 "    min-height: 30px;\n"
 "	border-radius: 0px\n"
@@ -2903,25 +2906,25 @@ class Ui_MainWindow(object):
 "     background: transparent;\n"
 " }\n"
 "\n"
-" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"     background"
-                        ": transparent;\n"
+" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical "
+                        "{\n"
+"     background: transparent;\n"
 " }\n"
 "QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
 "{	\n"
 "	background-color: transparent;\n"
 "}\n"
 "")
-        self.comboBox_symbol_2.setEditable(True)
-        self.comboBox_symbol_2.setMaxVisibleItems(30)
+        self.comboBox_symbol.setEditable(True)
+        self.comboBox_symbol.setMaxVisibleItems(30)
 
-        self.horizontalLayout_47.addWidget(self.comboBox_symbol_2)
+        self.horizontalLayout_47.addWidget(self.comboBox_symbol)
 
-        self.Btn_add_self_selection_contracts_2 = QPushButton(self.frame_39)
-        self.Btn_add_self_selection_contracts_2.setObjectName(u"Btn_add_self_selection_contracts_2")
-        self.Btn_add_self_selection_contracts_2.setMinimumSize(QSize(60, 25))
-        self.Btn_add_self_selection_contracts_2.setMaximumSize(QSize(60, 25))
-        self.Btn_add_self_selection_contracts_2.setStyleSheet(u"QPushButton{\n"
+        self.Btn_add_self_selection_contracts = QPushButton(self.frame_39)
+        self.Btn_add_self_selection_contracts.setObjectName(u"Btn_add_self_selection_contracts")
+        self.Btn_add_self_selection_contracts.setMinimumSize(QSize(60, 25))
+        self.Btn_add_self_selection_contracts.setMaximumSize(QSize(60, 25))
+        self.Btn_add_self_selection_contracts.setStyleSheet(u"QPushButton{\n"
 "	color: rgb(13, 9, 36);\n"
 "	background-color:rgb(255, 0, 127);\n"
 "	font: 700 14pt \"\u7b49\u7ebf\";\n"
@@ -2937,7 +2940,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
 
-        self.horizontalLayout_47.addWidget(self.Btn_add_self_selection_contracts_2)
+        self.horizontalLayout_47.addWidget(self.Btn_add_self_selection_contracts)
 
 
         self.verticalLayout_32.addWidget(self.frame_39)
@@ -7352,8 +7355,8 @@ class Ui_MainWindow(object):
         self.stackedWidget.setCurrentIndex(1)
         self.Veiw_Box.setCurrentIndex(4)
         self.Veiw_Box.layout().setSpacing(6)
-        self.comboBox_add_quote_exchange_2.setCurrentIndex(0)
-        self.comboBox_contract_type_2.setCurrentIndex(-1)
+        self.comboBox_add_quote_exchange.setCurrentIndex(0)
+        self.comboBox_contract_type.setCurrentIndex(-1)
         self.tabWidget_account.setCurrentIndex(2)
         self.tabWidget_chart.setCurrentIndex(3)
 
@@ -7424,22 +7427,22 @@ class Ui_MainWindow(object):
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"\u7ec8\u7aef\u8f93\u51fa\u4fe1\u606f:", None))
         self.Btn_cleartext.setText(QCoreApplication.translate("MainWindow", u" \u6e05\u7a7a\u663e\u793a\u5185\u5bb9", None))
         self.label_24.setText(QCoreApplication.translate("MainWindow", u"\u5168\u5e10\u6237\u7edf\u8ba1\u56fe\uff1a", None))
-        self.Btn_draw_line_order_2.setText(QCoreApplication.translate("MainWindow", u"\u753b\u7ebf", None))
-        self.Btn_draw_line_style_2.setText(QCoreApplication.translate("MainWindow", u"\u6837\u5f0f", None))
-        self.label_kline_info_2.setText("")
-        self.comboBox_add_quote_exchange_2.setItemText(0, QCoreApplication.translate("MainWindow", u"\u5927\u5546\u6240 DCE", None))
-        self.comboBox_add_quote_exchange_2.setItemText(1, QCoreApplication.translate("MainWindow", u"\u4e0a\u671f\u6240 SHFE", None))
-        self.comboBox_add_quote_exchange_2.setItemText(2, QCoreApplication.translate("MainWindow", u"\u90d1\u5546\u6240 CZCE", None))
-        self.comboBox_add_quote_exchange_2.setItemText(3, QCoreApplication.translate("MainWindow", u"\u80fd\u6e90\u4ea4\u6613\u6240 INE", None))
-        self.comboBox_add_quote_exchange_2.setItemText(4, QCoreApplication.translate("MainWindow", u"\u4e2d\u91d1\u6240 CFFEX", None))
+        self.Btn_draw_line_order.setText(QCoreApplication.translate("MainWindow", u"\u753b\u7ebf", None))
+        self.Btn_draw_line_style.setText(QCoreApplication.translate("MainWindow", u"\u6837\u5f0f", None))
+        self.label_kline_info.setText("")
+        self.comboBox_add_quote_exchange.setItemText(0, QCoreApplication.translate("MainWindow", u"\u5927\u5546\u6240 DCE", None))
+        self.comboBox_add_quote_exchange.setItemText(1, QCoreApplication.translate("MainWindow", u"\u4e0a\u671f\u6240 SHFE", None))
+        self.comboBox_add_quote_exchange.setItemText(2, QCoreApplication.translate("MainWindow", u"\u90d1\u5546\u6240 CZCE", None))
+        self.comboBox_add_quote_exchange.setItemText(3, QCoreApplication.translate("MainWindow", u"\u80fd\u6e90\u4ea4\u6613\u6240 INE", None))
+        self.comboBox_add_quote_exchange.setItemText(4, QCoreApplication.translate("MainWindow", u"\u4e2d\u91d1\u6240 CFFEX", None))
 
-        self.comboBox_contract_type_2.setItemText(0, QCoreApplication.translate("MainWindow", u"\u4e3b\u529b\u5408\u7ea6 Main", None))
-        self.comboBox_contract_type_2.setItemText(1, QCoreApplication.translate("MainWindow", u"\u6240\u6709\u5408\u7ea6 Future", None))
-        self.comboBox_contract_type_2.setItemText(2, QCoreApplication.translate("MainWindow", u"\u4e3b\u529b\u8fde\u7eed Cont", None))
-        self.comboBox_contract_type_2.setItemText(3, QCoreApplication.translate("MainWindow", u"\u5408\u7ea6\u6307\u6570 Index", None))
-        self.comboBox_contract_type_2.setItemText(4, QCoreApplication.translate("MainWindow", u"\u671f\u6743\u5408\u7ea6 Option", None))
+        self.comboBox_contract_type.setItemText(0, QCoreApplication.translate("MainWindow", u"\u4e3b\u529b\u5408\u7ea6 Main", None))
+        self.comboBox_contract_type.setItemText(1, QCoreApplication.translate("MainWindow", u"\u6240\u6709\u5408\u7ea6 Future", None))
+        self.comboBox_contract_type.setItemText(2, QCoreApplication.translate("MainWindow", u"\u4e3b\u529b\u8fde\u7eed Cont", None))
+        self.comboBox_contract_type.setItemText(3, QCoreApplication.translate("MainWindow", u"\u5408\u7ea6\u6307\u6570 Index", None))
+        self.comboBox_contract_type.setItemText(4, QCoreApplication.translate("MainWindow", u"\u671f\u6743\u5408\u7ea6 Option", None))
 
-        self.Btn_add_self_selection_contracts_2.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0", None))
+        self.Btn_add_self_selection_contracts.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0", None))
         self.Btn_klines_1min.setText(QCoreApplication.translate("MainWindow", u"1\n"
 "\u5206\n"
 "\u949f", None))

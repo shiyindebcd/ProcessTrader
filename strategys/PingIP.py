@@ -68,6 +68,7 @@ class PingIP(multiprocessing.Process):
         self.dict['CP6'] = args[1]['CP6']  # 自定义参数6
         self.dict['CP7'] = args[1]['CP7']  # 自定义参数7
         self.dict['CP8'] = args[1]['CP8']  # 自定义参数8
+        self.dict['CP9'] = args[1]['CP9']  # 自定义参数9
 
         # print('进程    ', self.dict['process_name'], '    传入的字典为:\n', self.dict, '\n\n')
 
@@ -155,7 +156,8 @@ if __name__ == '__main__':
             'CP5'  : '55',  # 自定义参数5
             'CP6'  : '66',  # 自定义参数6
             'CP7'  : '77',  # 自定义参数7
-            'CP8'  : '88'  # 自定义参数8
+            'CP8'  : '88',  # 自定义参数8
+            'CP9'  : '99',  # 自定义参数9
 
     }
 

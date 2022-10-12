@@ -69,6 +69,7 @@ class demo(multiprocessing.Process):
         self.dict['CP6'] = args[1]['CP6']   # 自定义参数6
         self.dict['CP7'] = args[1]['CP7']   # 自定义参数7
         self.dict['CP8'] = args[1]['CP8']   # 自定义参数8
+        self.dict['CP9'] = args[1]['CP9']   # 自定义参数9
 
         if len(args) > 2:   # 判断传入的元组是否有第三第四项参数，回测时才有第三第四项，不回测的情况下只有第一第二项
             self.backtest_start_date = args[2]                      # 回测开始日期,传入的是一个 '2022-03-03' 格式的字符串
@@ -223,7 +224,8 @@ my_dict = {
         'CP5': '55',                                        # 自定义参数5
         'CP6': '66',                                        # 自定义参数6
         'CP7': '77',                                        # 自定义参数7
-        'CP8': '88'                                         # 自定义参数8
+        'CP8': '88',                                         # 自定义参数8
+        'CP9': '99',                                         # 自定义参数9
 
 }
 if __name__ == '__main__':
