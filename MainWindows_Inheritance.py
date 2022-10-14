@@ -2,6 +2,8 @@
 import sys
 import datetime
 import importlib
+
+import pandas as pd
 import PySide6
 from multiprocessing import Process, Manager
 from PySide6.QtGui import QCursor
@@ -60,7 +62,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.process_list_row = []                                      # 当前活着的进程名列表,用于刷新 process_listview
         self.TQ_services_pid = None                                     # 用来记录天勤数据服务进程的pid
         self.current_dissplayed_Kline = None                            # 当前显示的k线品种
-
+        self.current_Kline = []                                         # 和天勤服务进程共享的当前k线列表,该列表只有一个元素
         self.quote_dict = {}                                            # 当前行情切片字典
         self.self_selection = {}                                        # 自选合约字典
 
@@ -196,6 +198,16 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.treeview_log.setFocusPolicy(Qt.NoFocus)
         self.Btn_add_new_process.setFocusPolicy(Qt.NoFocus)
         self.Btn_add_backtest_process.setFocusPolicy(Qt.NoFocus)
+
+        self.comboBox_add_quote_exchange.setFocusPolicy(Qt.NoFocus)
+        self.comboBox_contract_type.setFocusPolicy(Qt.NoFocus)
+        self.comboBox_symbol.setFocusPolicy(Qt.NoFocus)
+        self.Btn_add_self_selection_contracts.setFocusPolicy(Qt.NoFocus)
+        self.Btn_start_TQ_services.setFocusPolicy(Qt.NoFocus)
+        self.Btn_stop_TQ_services.setFocusPolicy(Qt.NoFocus)
+        self.Btn_draw_line_order.setFocusPolicy(Qt.NoFocus)
+        self.Btn_draw_line_style.setFocusPolicy(Qt.NoFocus)
+        self.Btn_draw_line_order.setFocusPolicy(Qt.NoFocus)
 
 
     def Define_slot_functions(self):  # 定义各种槽函数
@@ -355,12 +367,14 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.create_backtest_window = BackTestWindow(self)
         self.create_backtest_window.show()
 
+
+
     def chack_main_tq_account(self):            # 检查天勤主账号是否存在
         path = './data/main_tq_account.csv'
         if os.path.exists(path):
-            data = self.ioModule.read_csv_file(path=path)
-            if data.empty:                                     # 判断self.data是否为空
-                print('\n\nmain_tq_account.csv文件里没有帐户，请先在设置里添加天勤主账号和密码')
+            data = self.ioModule.read_csv_file(path, converters={'tq_account': str, 'qt_psd': str})     # 加了converters,读取时强制按指定类型读取
+            if data.empty:                                                                              # 判断self.data是否为空
+                print('\n\nmain_tq_account.csv文件里没有帐户，请先在设置里添加天勤主账号和密码\n\n')
             else:
                 self.main_tq_account = data.loc[0, 'tq_account']
                 self.main_tq_psd = data.loc[0, 'qt_psd']
@@ -369,17 +383,42 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
     def start_TQ_services(self):    # 开启天勤数据行情服务
         self.chack_main_tq_account()
         if self.main_tq_account and self.main_tq_psd:
-            self.self_selection = Manager().list()          #  自选合约列表,该列表将和天勤数据服务进程共享
-            self.quote_dict = Manager().dict()              #  当前显示的合约品种行情切片,主进程通过与天勤数据服务进程共享此字典获取数据
-            self.current_Kline = Manager().list()           #  当前显示的合约列表,该列表只有一项,该列表将和天勤数据服务进程共享
-            self.current_Kline.append(self.current_dissplayed_Kline)
-            data = self.ioModule.read_csv_file(path='./data/self_selection.csv')
-            for index, row in data.iterrows():
-                self.self_selection.append(row['quote'])
-            t = TQServices(args=(self.self_selection, self.quote_dict, self.current_Kline, self.main_tq_account, self.main_tq_psd))
-            t.start()
-            self.TQ_services_pid = t.pid
-            self.label_TQ_services_info.setText('天勤数据行情服务正在运行中')
+            pid_list = self.get_alive_process_pid_list()
+            if self.TQ_services_pid:
+                if self.TQ_services_pid in pid_list:
+                    self.label_TQ_services_info.setText('只能开启一个天勤数据行情服务')
+                else:
+                    self.self_selection = Manager().list()  # 自选合约列表,该列表将和天勤数据服务进程共享
+                    self.quote_dict = Manager().dict()  # 当前显示的合约品种行情切片,主进程通过与天勤数据服务进程共享此字典获取数据
+                    self.current_Kline = Manager().list()  # 当前显示的合约列表,该列表只有一项,该列表将和天勤数据服务进程共享
+                    self.current_Kline.append(self.current_dissplayed_Kline)
+                    data = self.ioModule.read_csv_file(path='./data/self_selection.csv')
+                    for index, row in data.iterrows():
+                        self.self_selection.append(row['quote'])
+
+                    t = TQServices(args=(self.self_selection, self.quote_dict, self.current_Kline,
+                                         self.main_tq_account, self.main_tq_psd))
+                    t.start()
+                    self.TQ_services_pid = t.pid
+                    self.label_TQ_services_info.setText('天勤数据行情服务已开启')
+            else:
+                self.self_selection = Manager().list()  # 自选合约列表,该列表将和天勤数据服务进程共享
+                self.quote_dict = Manager().dict()  # 当前显示的合约品种行情切片,主进程通过与天勤数据服务进程共享此字典获取数据
+                self.current_Kline = Manager().list()  # 当前显示的合约列表,该列表只有一项,该列表将和天勤数据服务进程共享
+                self.current_Kline.append(self.current_dissplayed_Kline)
+                data = self.ioModule.read_csv_file(path='./data/self_selection.csv')
+                for index, row in data.iterrows():
+                    self.self_selection.append(row['quote'])
+
+                t = TQServices(args=(self.self_selection, self.quote_dict, self.current_Kline,
+                                     self.main_tq_account, self.main_tq_psd))
+                t.start()
+                self.TQ_services_pid = t.pid
+
+                self.label_TQ_services_info.setText('天勤数据行情服务已开启')
+        else:
+            self.label_TQ_services_info.setText('天勤主帐户和密码还未配置')
+            self.show_setting_dialog()
 
 
     def stop_TQ_services(self):     # 关闭天勤数据行情服务

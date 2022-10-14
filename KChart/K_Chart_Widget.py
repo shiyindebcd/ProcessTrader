@@ -177,8 +177,8 @@ class KLineWidget(KeyWraper):
         self.pwKL.setRange(xRange=(0, 1), yRange=(0, 1))  # 设置x、y轴范围
         self.pwKL.getAxis('right').setWidth(40)  # 设置右边坐标轴宽度
         self.pwKL.showGrid(True, True, alpha=0.3)  # 显示网格,alpha为网格的不透明度,范围0-1.0
-        self.pwKL.setMaximumHeight(2000)  # 图项最大高度
-        self.pwKL.setMinimumHeight(400)  # 图项最小高度
+        # self.pwKL.setMaximumHeight(2000)  # 图项最大高度
+        self.pwKL.setMinimumHeight(500)  # 图项最小高度
         self.pwKL.hideButtons()  # 隐藏刻度按钮
         self.pwKL.setZValue(0)
         self.pwKL.getAxis('right').setStyle(tickFont=QFont("Arial", 8, QFont.Bold), autoExpandTextSpace=True)  # 设置右边坐标轴刻度字体
@@ -224,8 +224,8 @@ class KLineWidget(KeyWraper):
         self.pwVol.setRange(xRange=(0, 1), yRange=(0, 1))  # 设置x、y轴范围
         self.pwVol.getAxis('right').setWidth(40)  # 设置右边坐标轴宽度
         self.pwVol.showGrid(True, True, alpha=0.3)  # 显示网格,alpha为网格的不透明度,范围0-1.0
-        self.pwVol.setMinimumHeight(50)  # 图项最小高度
-        self.pwVol.setMaximumHeight(120)  # 图项最大高度
+        # self.pwVol.setMinimumHeight(50)  # 图项最小高度
+        self.pwVol.setMaximumHeight(130)  # 图项最大高度
         self.pwVol.hideButtons()  # 隐藏刻度按钮
         self.pwVol.setZValue(0)
         self.pwVol.getAxis('right').setStyle(tickFont=QFont("Arial", 8, QFont.Bold), autoExpandTextSpace=True)  # 设置右边坐标轴刻度字体
@@ -262,8 +262,8 @@ class KLineWidget(KeyWraper):
         self.pwMACD.setRange(xRange=(0, 1), yRange=(0, 1))  # 设置x、y轴范围
         self.pwMACD.getAxis('right').setWidth(40)  # 设置右边坐标轴宽度
         self.pwMACD.showGrid(True, True, alpha=0.3)  # 显示网格,alpha为网格的不透明度,范围0-1.0
-        self.pwMACD.setMinimumHeight(50)  # 图项最小高度
-        self.pwMACD.setMaximumHeight(120)  # 图项最大高度
+        # self.pwMACD.setMinimumHeight(50)  # 图项最小高度
+        self.pwMACD.setMaximumHeight(130)  # 图项最大高度
         self.pwMACD.hideButtons()  # 隐藏刻度按钮
         self.pwMACD.setZValue(0)
         self.pwMACD.getAxis('right').setStyle(tickFont=QFont("Arial", 8, QFont.Bold), autoExpandTextSpace=True)  # 设置右边坐标轴刻度字体

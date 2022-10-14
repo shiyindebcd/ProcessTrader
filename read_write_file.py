@@ -18,13 +18,13 @@ class ReadWriteCsv(object):  # csv文件读写类
         print('数据已存入config文件')
 
 
-    def read_csv_file(self, path):
-        df = pd.read_csv(path, engine='python', index_col=0)
+    def read_csv_file(self, path, converters=None):     # 加了converters,读取时强制按指定类型读取
 
+        df = pd.read_csv(path, engine='python', index_col=0, converters=converters)
         return df
 
 
-    def write_datas_to_csv_file(self, df_tmp, path, encoding='utf_8_sig', index=False):
+    def write_datas_to_csv_file(self, df_tmp, path, encoding='utf_8_sig'):
         df = pd.DataFrame(df_tmp)
         df.to_csv(path, encoding=encoding)
 

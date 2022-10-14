@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1352, 802)
+        MainWindow.resize(1352, 803)
         MainWindow.setMinimumSize(QSize(0, 0))
         MainWindow.setMaximumSize(QSize(16777215, 16777215))
         MainWindow.setStyleSheet(u"background-color:rgb(0, 0, 0);\n"
@@ -587,7 +587,7 @@ class Ui_MainWindow(object):
 "")
         self.clients_list_page = QWidget()
         self.clients_list_page.setObjectName(u"clients_list_page")
-        self.clients_list_page.setGeometry(QRect(0, 0, 238, 437))
+        self.clients_list_page.setGeometry(QRect(0, 0, 238, 438))
         self.verticalLayout_13 = QVBoxLayout(self.clients_list_page)
         self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
@@ -744,7 +744,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.clients_list_page, u"\u7528\u6237\u5217\u8868")
         self.tq_account_list_page = QWidget()
         self.tq_account_list_page.setObjectName(u"tq_account_list_page")
-        self.tq_account_list_page.setGeometry(QRect(0, 0, 238, 437))
+        self.tq_account_list_page.setGeometry(QRect(0, 0, 238, 438))
         self.verticalLayout_37 = QVBoxLayout(self.tq_account_list_page)
         self.verticalLayout_37.setSpacing(0)
         self.verticalLayout_37.setObjectName(u"verticalLayout_37")
@@ -889,7 +889,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.tq_account_list_page, u"\u5929\u52e4\u5e10\u6237\u5217\u8868")
         self.strategy_list_page = QWidget()
         self.strategy_list_page.setObjectName(u"strategy_list_page")
-        self.strategy_list_page.setGeometry(QRect(0, 0, 238, 437))
+        self.strategy_list_page.setGeometry(QRect(0, 0, 238, 438))
         self.verticalLayout_16 = QVBoxLayout(self.strategy_list_page)
         self.verticalLayout_16.setSpacing(0)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
@@ -1038,7 +1038,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.strategy_list_page, u"\u6211\u7684\u53ef\u7528\u7b56\u7565\u5217\u8868")
         self.qoute_list_page = QWidget()
         self.qoute_list_page.setObjectName(u"qoute_list_page")
-        self.qoute_list_page.setGeometry(QRect(0, 0, 238, 437))
+        self.qoute_list_page.setGeometry(QRect(0, 0, 238, 438))
         self.verticalLayout_15 = QVBoxLayout(self.qoute_list_page)
         self.verticalLayout_15.setSpacing(0)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
@@ -1191,7 +1191,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.qoute_list_page, u"\u7b56\u7565\u4e2d\u5f15\u7528\u7684\u884c\u60c5\u5217\u8868")
         self.process_list_page = QWidget()
         self.process_list_page.setObjectName(u"process_list_page")
-        self.process_list_page.setGeometry(QRect(0, 0, 238, 437))
+        self.process_list_page.setGeometry(QRect(0, 0, 238, 438))
         self.verticalLayout_14 = QVBoxLayout(self.process_list_page)
         self.verticalLayout_14.setSpacing(0)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
@@ -5689,7 +5689,7 @@ class Ui_MainWindow(object):
 "QComboBox {\n"
 "    border: 2px solid gray;   /* \u8fb9\u6846 */\n"
 "    border-radius: 15px;   /* \u5706\u89d2 */\n"
-"    padding: 1px 18px 1px 3px;   /* \u5b57\u4f53\u586b\u886c */\n"
+"    padding: 1px 1px 1px 5px;   /* \u5b57\u4f53\u586b\u886c */\n"
 "    color: rgb(0, 0, 0);    \n"
 "	font: 700 14pt \"\u7b49\u7ebf\";    \n"
 "	background-color: rgb(255, 255, 255);\n"
@@ -5697,18 +5697,29 @@ class Ui_MainWindow(object):
 "\n"
 "/* \u4e0b\u62c9\u540e\uff0c\u6574\u4e2a\u4e0b\u62c9\u7a97\u4f53\u6837\u5f0f */\n"
 "QComboBox QAbstractItemView {\n"
-"    \n"
-"    border: 1px solid yellow;   /* \u6574\u4e2a\u4e0b\u62c9\u7a97\u4f53\u7684\u8fb9\u6846 */\n"
-"    color: black;\n"
-"	border-radius: 3px;\n"
-"    background-color: rgb(225, 225, 225);   /* \u6574\u4e2a\u4e0b\u62c9\u7a97\u4f53\u7684\u80cc\u666f\u8272 */\n"
-"    selection-background-color: lightgreen;   /* \u6574\u4e2a\u4e0b\u62c9\u7a97\u4f53\u88ab\u9009\u4e2d\u9879\u7684\u80cc\u666f\u8272 */\n"
+"    border: 1px solid rgb(65, 51, 156);   /* \u6574\u4e2a\u4e0b\u62c9\u7a97\u4f53\u7684\u8fb9\u6846 */\n"
+"    color: rgb(200, 200, 200);\n"
+"	border-radius: 0px;\n"
+"    background-color: rgb(13, 9, 36);   /* \u6574\u4e2a\u4e0b\u62c9\u7a97\u4f53\u7684\u80cc\u666f\u8272 */\n"
+"}\n"
+"QComboBox QAbstractItemView::item {\n"
+"	border:none;\n"
+"    height: 35px; \n"
+"}\n"
+"QComboBox QAbstractItemView::item:hover{\n"
+"	border: none;	\n"
+"	color: rgb(255, 0, 0);\n"
+"	background-color: rgb(65, 49, 188);\n"
+"\n"
+"}\n"
+"QComboBox"
+                        " QAbstractItemView::item:selected{\n"
+"	border: none;\n"
 "}\n"
 "/* \u4e0b\u62c9\u7bad\u5934\u6837\u5f0f */\n"
 " QComboBox::down-arrow {\n"
-"	image: url(:/icon/icons/\u53cc\u4e0b"
-                        "\u62c9\u7bad\u5934.svg);\n"
-"	width: 30px; /* \u4e0b\u62c9\u7bad\u5934\u7684\u5bbd\u5ea6\uff08\u5efa\u8bae\u4e0e\u4e0b\u62c9\u6846drop-down\u7684\u5bbd\u5ea6\u4e00\u81f4\uff09 */ \n"
+"	image: url(:/icon/icons/\u53cc\u4e0b\u62c9\u7bad\u5934.svg);\n"
+"	width: 20px; /* \u4e0b\u62c9\u7bad\u5934\u7684\u5bbd\u5ea6\uff08\u5efa\u8bae\u4e0e\u4e0b\u62c9\u6846drop-down\u7684\u5bbd\u5ea6\u4e00\u81f4\uff09 */ \n"
 "	background: rgb(255, 255, 255); /* \u4e0b\u62c9\u7bad\u5934\u7684\u7684\u80cc\u666f\u8272 */ \n"
 "	padding: 0px 0px 0px 0px; /* \u4e0a\u5185\u8fb9\u8ddd\u3001\u53f3\u5185\u8fb9\u8ddd\u3001\u4e0b\u5185\u8fb9\u8ddd\u3001\u5de6\u5185\u8fb9\u8ddd */\n"
 " } \n"
@@ -5717,11 +5728,11 @@ class Ui_MainWindow(object):
 "QComboBox::drop-down {\n"
 "   /* subcontrol-origin: padding;   /* \u5b50\u63a7\u4ef6\u5728\u7236\u5143\u7d20\u4e2d\u7684\u539f\u70b9\u77e9\u5f62\u3002\u5982\u679c\u672a\u6307\u5b9a\u6b64\u5c5e\u6027\uff0c\u5219\u9ed8\u8ba4\u4e3apadding\u3002 */\n"
 "   /* subcontrol-position: top right;   /* \u4e0b\u62c9\u6846\u7684\u4f4d\u7f6e\uff08\u53f3\u4e0a\uff09 */\n"
-"    width: 30px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
+""
+                        "    width: 30px;   /* \u4e0b\u62c9\u6846\u7684\u5bbd\u5ea6 */\n"
 "\n"
 "    border-left-width: 3px;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u5bbd\u5ea6 */\n"
-"    "
-                        "border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
+"    border-left-color: darkgray;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u989c\u8272 */\n"
 "    border-left-style: solid;   /* \u4e0b\u62c9\u6846\u7684\u5de6\u8fb9\u754c\u7ebf\u4e3a\u5b9e\u7ebf */\n"
 "    border-top-right-radius: 10px;   /* \u4e0b\u62c9\u6846\u7684\u53f3\u4e0a\u8fb9\u754c\u7ebf\u7684\u5706\u89d2\u534a\u5f84\uff08\u5e94\u548c\u6574\u4e2aQComboBox\u53f3\u4e0a\u8fb9\u754c\u7ebf\u7684\u5706\u89d2\u534a\u5f84\u4e00\u81f4\uff09 */\n"
 "    border-bottom-right-radius: 10px;   /* \u540c\u4e0a */\n"
@@ -5729,11 +5740,61 @@ class Ui_MainWindow(object):
 "QComboBox:hover {\n"
 "	border: 3px solid rgb(255, 85, 0);\n"
 "}\n"
-"QComboBox:disabled{\n"
-"	color: rgb(0, 0, 0);\n"
-"	border-color: rgb(166, 166, 166);\n"
-"    background-color: rgb(186, 186, 186);\n"
-"}")
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"/*\u53f3\u8fb9\u7684\u6ed1\u52a8\u6761*/\n"
+" QScrollBar:vertical {\n"
+"	border: none;\n"
+"    background: transparent;\n"
+"    width: 8px;\n"
+"    margin: 17px 0 17px 0;\n"
+"	border-radius: 0px;\n"
+" }\n"
+" QScrollBar::handle:"
+                        "vertical {	\n"
+"	background:rgba(249, 83, 255, 170);\n"
+"    min-height: 30px;\n"
+"	border-radius: 0px\n"
+" }\n"
+"/*\n"
+"\u6ed1\u5757\u60ac\u6d6e\uff0c\u6309\u4e0b*/\n"
+"QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{\n"
+"background:rgb(150, 0, 150);\n"
+"}\n"
+" QScrollBar::add-line:vertical {\n"
+"     border: none;\n"
+"	background-color: transparent;\n"
+"     height: 15px;\n"
+"	border-bottom-left-radius: 0px;\n"
+"    border-bottom-right-radius: 0px;\n"
+"     subcontrol-position: bottom;\n"
+"     subcontrol-origin: margin;\n"
+" }\n"
+" QScrollBar::sub-line:vertical {\n"
+"	border: none;\n"
+"	background-color: transparent;\n"
+"     height: 15px;\n"
+"	border-top-left-radius: 0px;\n"
+"    border-top-right-radius: 0px;\n"
+"     subcontrol-position: top;\n"
+"     subcontrol-origin: margin;\n"
+" }\n"
+" QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"     background: transparent;\n"
+" }\n"
+"\n"
+" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"     backgroun"
+                        "d: transparent;\n"
+" }\n"
+"QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed\n"
+"{	\n"
+"	background-color: transparent;\n"
+"}\n"
+"")
 
         self.verticalLayout_34.addWidget(self.comboBox_select_clients_name)
 

@@ -669,11 +669,13 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             self.ioModule.judge_config_exist(path)
             print('文件不存在，已创建空文件')
 
-
     def set_current_dissplayed_Kline(self, qModelIndex):  # 点击自选列表时,设置并显示当前k线
         row = qModelIndex.row()
         data = self.ioModule.read_csv_file(path='./data/self_selection.csv')
         self.current_dissplayed_Kline = str(data.loc[row]['quote'])
+        if self.current_Kline:
+            self.current_Kline[0] = self.current_dissplayed_Kline
+            # print('当前合约已换为: ', self.current_Kline[0])
         self.show_kline(self.current_dissplayed_Kline,period='15min')
 
     def show_1min_kline(self):

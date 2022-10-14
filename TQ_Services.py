@@ -35,23 +35,23 @@ class TQServices(Process):
         while True:
             self.check_download_klines_and_save_to_csv()
             self.check_create_quote_list_dict()
-
-            if len(self.current_Contracts) > 0:
-                if len(self.current_tmp) > 0:
+            # print('天勤服务进程读到的当前合约为: ', self.current_Contracts[0])
+            if self.current_Contracts:
+                if self.current_tmp:
                     if self.current_Contracts[0] == self.current_tmp[0]:
                         pass
                     else:
                         self.current_tmp[0] = self.current_Contracts[0]
                         self.current_quote = self.quote_assembly_dict[self.current_Contracts[0]]
-                        print('\n当前合约已改变')
+
+                        if self.current_quote:
+                            self.quote_dict_Assignment(self.current_quote)  # 给和程序共享的quote_dict赋值
+                        else:
+                            print('该合约没有行情切片')
                 else:
                     self.current_tmp.append(self.current_Contracts[0])
 
-            if self.current_quote:                                      # 检查是否有当前行情引用
-                if self.api.is_changing(self.current_quote, "last_price"):
-                    self.quote_dict_Assignment(self.current_quote)      # 给和程序共享的quote_dict赋值
-
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(1)
             # print('状态监控运行中:间隔1s')
 
     def run(self):
@@ -65,9 +65,9 @@ class TQServices(Process):
         self.api.create_task(self.Statua_Monitoring())                  # 创建协程任务,用来每隔一秒检查和主程序共享的数据是否发生改变
         while True:
             self.api.wait_update()
-            # if self.current_quote:                                      # 检查是否有当前行情引用
-            #     if self.api.is_changing(self.current_quote, "last_price"):
-            #         self.quote_dict_Assignment(self.current_quote)      # 给和程序共享的quote_dict赋值
+            if self.current_quote:                                      # 检查是否有当前行情引用
+                if self.api.is_changing(self.current_quote, "last_price"):
+                    self.quote_dict_Assignment(self.current_quote)      # 给和程序共享的quote_dict赋值
                     # print('当前行情引用为:', self.current_quote['instrument_name'])
 
 
@@ -340,7 +340,7 @@ if __name__ == '__main__':
     current_Kline = Manager().list()
     current_Kline.append('INE.sc2211')
     main_tq_account = 'a哆啦a梦'
-    main_tq_pwd = 'c168168'
+    main_tq_pwd = 'c168899'
     ioModule = ReadWriteCsv()
     data = ioModule.read_csv_file(path='./data/self_selection.csv')
     for index,row in data.iterrows():
