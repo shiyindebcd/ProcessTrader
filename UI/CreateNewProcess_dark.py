@@ -24,7 +24,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(1400, 800)
+        Form.resize(1402, 802)
         Form.setStyleSheet(u"")
         self.horizontalLayout_3 = QHBoxLayout(Form)
         self.horizontalLayout_3.setSpacing(0)
@@ -479,7 +479,7 @@ class Ui_Form(object):
 "}\n"
 "QComboBox QAbstractItemView::item {\n"
 "	border:none;\n"
-"    height: 25px; \n"
+"    height: 35px; \n"
 "}\n"
 "QComboBox QAbstractItemView::item:hover{\n"
 "	border: none;	\n"
@@ -596,7 +596,7 @@ class Ui_Form(object):
 "}\n"
 "QComboBox QAbstractItemView::item {\n"
 "	border:none;\n"
-"    height: 25px; \n"
+"    height: 35px; \n"
 "}\n"
 "QComboBox QAbstractItemView::item:hover{\n"
 "	border: none;	\n"
@@ -713,7 +713,7 @@ class Ui_Form(object):
 "}\n"
 "QComboBox QAbstractItemView::item {\n"
 "	border:none;\n"
-"    height: 25px; \n"
+"    height: 35px; \n"
 "}\n"
 "QComboBox QAbstractItemView::item:hover{\n"
 "	border: none;	\n"

@@ -21,15 +21,15 @@ from main import THEME
 
 
 
-if THEME == "dark":                                    # 创建主窗口类方式一，通过loadUiType()函数直接加载UI文件
-    UI, _ = loadUiType('./UI/mainwindows_dark.ui')
-else:
-    UI, _ = loadUiType('./UI/mainwindows_light.ui')
-
-# if THEME == "dark":                                  # 创建主窗口类方式二，通过继承Ui_MainWindow类
-#     UI = dark_windows
+# if THEME == "dark":                                    # 创建主窗口类方式一，通过loadUiType()函数直接加载UI文件
+#     UI, _ = loadUiType('./UI/mainwindows_dark.ui')
 # else:
-#     UI = light_windows
+#     UI, _ = loadUiType('./UI/mainwindows_light.ui')
+
+if THEME == "dark":                                  # 创建主窗口类方式二，通过继承Ui_MainWindow类
+    UI = dark_windows
+else:
+    UI = light_windows
 
 
 class Main_window(QMainWindow, UI, Main_Process_Function):

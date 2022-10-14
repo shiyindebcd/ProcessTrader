@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1400</width>
-    <height>800</height>
+    <width>1402</width>
+    <height>802</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -947,7 +947,7 @@ QComboBox QAbstractItemView {
 }
 QComboBox QAbstractItemView::item {
 	border:none;
-    height: 25px; 
+    height: 35px; 
 }
 QComboBox QAbstractItemView::item:hover{
 	border: none;	
@@ -1071,7 +1071,7 @@ QComboBox QAbstractItemView {
 }
 QComboBox QAbstractItemView::item {
 	border:none;
-    height: 25px; 
+    height: 35px; 
 }
 QComboBox QAbstractItemView::item:hover{
 	border: none;	
@@ -1195,7 +1195,7 @@ QComboBox QAbstractItemView {
 }
 QComboBox QAbstractItemView::item {
 	border:none;
-    height: 25px; 
+    height: 35px; 
 }
 QComboBox QAbstractItemView::item:hover{
 	border: none;	
