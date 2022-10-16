@@ -2,6 +2,7 @@
 
 import numpy as np
 import pyqtgraph as pg
+import PySide6
 from PySide6 import QtCore, QtGui
 from PySide6.QtGui import *
 
@@ -18,7 +19,7 @@ class CandlestickItem(pg.GraphicsObject):
         # 只重画部分图形，大大提高界面更新速度
         self.rect = None
         self.picture = None
-        self.setFlag(self.ItemUsesExtendedStyleOption)
+        self.setFlag(PySide6.QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemUsesExtendedStyleOption)
 
         self.offset = 0
         self.low = 0
@@ -121,7 +122,7 @@ class VolumeItem(pg.GraphicsObject):
         pg.GraphicsObject.__init__(self)
         self.rect = None
         self.picture = None
-        self.setFlag(self.ItemUsesExtendedStyleOption)  # 只重画部分图形，大大提高界面更新速度
+        self.setFlag(PySide6.QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemUsesExtendedStyleOption)  # 只重画部分图形，大大提高界面更新速度
 
         self.offset = 0
         self.low = 0
@@ -217,7 +218,7 @@ class MACDItem(pg.GraphicsObject):
         pg.GraphicsObject.__init__(self)
         self.rect = None
         self.picture = None
-        self.setFlag(self.ItemUsesExtendedStyleOption)  # 只重画部分图形，大大提高界面更新速度
+        self.setFlag(PySide6.QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemUsesExtendedStyleOption)  # 只重画部分图形，大大提高界面更新速度
 
         self.offset = 0
         self.low = 0
