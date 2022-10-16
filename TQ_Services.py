@@ -35,6 +35,7 @@ class TQServices(Process):
         while True:
             self.check_download_klines_and_save_to_csv()
             self.check_create_quote_list_dict()
+            print('自选列表为:', self.self_selection_list)
             # print('天勤服务进程读到的当前合约为: ', self.current_Contracts[0])
             if self.current_Contracts:
                 if self.current_tmp:

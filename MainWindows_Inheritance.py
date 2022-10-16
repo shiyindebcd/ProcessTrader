@@ -64,7 +64,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.current_dissplayed_Kline = None                            # 当前显示的k线品种
         self.current_Kline = []                                         # 和天勤服务进程共享的当前k线列表,该列表只有一个元素
         self.quote_dict = {}                                            # 当前行情切片字典
-        self.self_selection = {}                                        # 自选合约字典
+        self.self_selection = []                                        # 自选合约字典
 
         # 清屏定时器
         self.textBrowser_clear = QTimer(self)
@@ -173,6 +173,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.self_selection_listview.setFocusPolicy(Qt.NoFocus)
 
         self.Btn_homepage.setFocusPolicy(Qt.NoFocus)            # 隐藏各种按钮点击时的虚线框
+        self.Btn_KliensChart.setFocusPolicy(Qt.NoFocus)
         self.Btn_account_manage.setFocusPolicy(Qt.NoFocus)
         self.Btn_trading_log.setFocusPolicy(Qt.NoFocus)
         self.Btn_chart_details.setFocusPolicy(Qt.NoFocus)

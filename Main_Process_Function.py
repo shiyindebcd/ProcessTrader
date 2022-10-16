@@ -110,8 +110,8 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
 
         self_selection_model = QStringListModel()
         self.self_selection_list, self.quote_dict = self.get_self_selection_quote_list()
-        if len(self.self_selection_list) > 0:
-            self.current_dissplayed_Kline = self.self_selection_list[0]
+        # if len(self.self_selection_list) > 0:
+        #     self.current_dissplayed_Kline = self.self_selection_list[0]
         self_selection_model.setStringList(self.self_selection_list)
         self.self_selection_listview.setModel(self_selection_model)
 
@@ -340,7 +340,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
     def switch_left_panel(self, enable):  # 左侧面板大小切换
         if enable:
             width = self.left_panel.width()
-            max_with = 250
+            max_with = 230
             min_with = 0
             if width > 100:
                 widthExtended = min_with
@@ -360,7 +360,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             self.showNormal()
         else:
             self.showMaximized()
-            self.left_panel.setMaximumWidth(280)
+            self.left_panel.setMaximumWidth(230)
 
 
     def previous_page(self):  # 向前翻页
@@ -723,7 +723,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
         else:
             self.label_kline_info.setText('没有数据,请检查合约名是否正确')
 
-    def add_self_selection_list(self):  # 将天勤自选行情添加到 csv 文件中
+    def add_self_selection_list(self):  # 将选择的合约添加到自选列表中
         path = './data/self_selection.csv'
         self.ioModule.judge_file_exist(path)                     # 检查自选列表文件是否存在
         my_dict = {}
@@ -747,6 +747,7 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
                             my_dict['quote'] = quote
                             df = pd.DataFrame(my_dict, index=[0])
                             self.ioModule.add_dict_to_csv(df, path)
+                            self.self_selection.append(quote)
                             text = '新的自选合约： ' + str(quote) + '  已添加'
                             self.label_kline_info.setText(text)
                             self.add_paramer_to_container_by_hand()

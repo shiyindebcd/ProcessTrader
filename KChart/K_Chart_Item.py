@@ -72,11 +72,15 @@ class CandlestickItem(pg.GraphicsObject):
                     p.drawLine(QtCore.QPointF(i - w, open_i), QtCore.QPointF(i + w, open_i))  # 画单根K线的下边线
 
                 else:  # 平盘情况
-                    p.setPen(pg.mkPen(QtGui.QColor(0, 0, 255), width=2))  # 十字线时设为蓝色
-                    p.setBrush(pg.mkBrush(QtGui.QColor(0, 0, 255)))
-
-                    p.drawLine(QtCore.QPointF(i, high_i), QtCore.QPointF(i, low_i))  # 画上下影线
-                    p.drawLine(QtCore.QPointF(i - w, close_i), QtCore.QPointF(i + w, close_i))  # 画一条横线
+                    if high_i == low_i:
+                        p.setPen(pg.mkPen(QtGui.QColor(255, 255, 255), width=3))  # 一字线时设为白色
+                        p.setBrush(pg.mkBrush(QtGui.QColor(255, 255, 255)))
+                        p.drawLine(QtCore.QPointF(i - w, close_i), QtCore.QPointF(i + w, close_i))  # 光画一条横线即可
+                    else:
+                        p.setPen(pg.mkPen(QtGui.QColor(0, 0, 255), width=3))  # 十字线时设为蓝色
+                        p.setBrush(pg.mkBrush(QtGui.QColor(0, 0, 255)))
+                        p.drawLine(QtCore.QPointF(i, high_i), QtCore.QPointF(i, low_i))  # 画上下影线
+                        p.drawLine(QtCore.QPointF(i - w, close_i), QtCore.QPointF(i + w, close_i))  # 画一条横线
 
                 p.end()
                 self.pictures.append(picture)

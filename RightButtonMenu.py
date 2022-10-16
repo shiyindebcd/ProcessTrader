@@ -284,6 +284,8 @@ class RightButtonMenu:      # 主界面用到的各种右键菜单
             data = self.parent.ioModule.read_csv_file(path)
             contract = data.loc[index, 'quote']
             tmp = data.drop(index=index)
+            if contract in self.parent.self_selection:
+                self.parent.self_selection.remove(contract)
             tmp1 = tmp.reset_index(drop=True)      # 重建索引
             self.parent.ioModule.write_datas_to_csv_file(df_tmp=tmp1, path=path)
             self.parent.add_paramer_to_container_by_hand()
