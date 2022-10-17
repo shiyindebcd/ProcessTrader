@@ -621,6 +621,9 @@ class Main_Process_Function:  # 主进程函数类，该类由主进程窗口类
             self.ioModule.judge_config_exist(path)
             print('文件不存在，已创建空文件')
 
+    def reload_process_config(self):
+        self.load_process_config()
+        self.label_process_right_btn_info.setText('已重新加载进程参数配置表')
 
     def load_process_config(self):  # 加载策略进程配置表
         dirs = './data/'

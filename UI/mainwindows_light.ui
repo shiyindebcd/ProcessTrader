@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1351</width>
-    <height>802</height>
+    <height>803</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -239,13 +239,13 @@ QPushButton:pressed {
               <widget class="QLabel" name="label_logo">
                <property name="minimumSize">
                 <size>
-                 <width>120</width>
+                 <width>100</width>
                  <height>40</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>120</width>
+                 <width>100</width>
                  <height>40</height>
                 </size>
                </property>
@@ -279,7 +279,7 @@ QPushButton:pressed {
           <item>
            <widget class="QLabel" name="label_tital">
             <property name="styleSheet">
-             <string notr="true">font: 700 20pt &quot;等线&quot;;
+             <string notr="true">font: 700 18pt &quot;等线&quot;;
 color: rgb(0, 0, 0);
 border: none;</string>
             </property>
@@ -667,22 +667,6 @@ QPushButton:pressed {
              <property name="rightMargin">
               <number>0</number>
              </property>
-             <item>
-              <spacer name="verticalSpacer_5">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Fixed</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>5</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
              <item alignment="Qt::AlignHCenter">
               <widget class="QPushButton" name="Btn_homepage">
                <property name="minimumSize">
@@ -1015,7 +999,7 @@ QPushButton:pressed{
                 <string notr="true"/>
                </property>
                <property name="currentIndex">
-                <number>2</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="MainPage">
                 <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -1129,13 +1113,13 @@ QToolBox{
 	border: none;
 }
 QToolBox&gt;QAbstractButton{/*标题栏*/
-	min-height:30px;
+	min-height:25px;
 }
 QToolBox::tab{
-	font: 700 14pt &quot;等线&quot;;	
+	font: 700 12pt &quot;等线&quot;;	
 	color: rgb(0, 0, 0);	
 	background-color: rgb(235, 255, 255);
-	border-radius: 15px;
+	border-radius: 10px;
 	border: 1px solid rgb(150,150,150);
 	padding:1px 3px 1px 10px;
 }
@@ -1164,8 +1148,8 @@ QToolBox::tab:selected:hover{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>218</width>
-                            <height>422</height>
+                            <width>89</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1348,8 +1332,8 @@ QScrollBar::sub-line:vertical:pressed{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>218</width>
-                            <height>422</height>
+                            <width>89</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1513,8 +1497,8 @@ QScrollBar::sub-line:vertical:pressed{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>218</width>
-                            <height>422</height>
+                            <width>89</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1695,8 +1679,8 @@ QScrollBar::sub-line:vertical:pressed{
                            <rect>
                             <x>0</x>
                             <y>0</y>
-                            <width>218</width>
-                            <height>422</height>
+                            <width>89</width>
+                            <height>66</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -1878,7 +1862,7 @@ QScrollBar::sub-line:vertical:pressed{
                             <x>0</x>
                             <y>0</y>
                             <width>218</width>
-                            <height>422</height>
+                            <height>448</height>
                            </rect>
                           </property>
                           <attribute name="label">
@@ -2123,7 +2107,7 @@ QScrollBar::sub-line:vertical:pressed{
                          <property name="font">
                           <font>
                            <family>等线</family>
-                           <pointsize>16</pointsize>
+                           <pointsize>14</pointsize>
                            <italic>false</italic>
                            <bold>true</bold>
                           </font>
@@ -2132,7 +2116,7 @@ QScrollBar::sub-line:vertical:pressed{
                           <string notr="true">QPushButton{
 	color: rgb(13, 9, 36);
 	background-color: rgb(220, 220, 255);
-	font: 700 16pt &quot;等线&quot;;
+	font: 700 14pt &quot;等线&quot;;
 	border-radius: 17px;
 }
 QPushButton:hover{
@@ -2168,7 +2152,7 @@ QPushButton:pressed{
                           <string notr="true">QPushButton{
 	color: rgb(13, 9, 36);
 	background-color: rgb(255, 240, 255);
-	font: 700 16pt &quot;等线&quot;;
+	font: 700 14pt &quot;等线&quot;;
 	border-radius: 17px;
 }
 QPushButton:hover{
@@ -2345,7 +2329,7 @@ QPushButton:pressed{
                             </property>
                             <layout class="QVBoxLayout" name="verticalLayout_6">
                              <property name="spacing">
-                              <number>8</number>
+                              <number>5</number>
                              </property>
                              <property name="leftMargin">
                               <number>0</number>
@@ -3702,7 +3686,7 @@ border: none;</string>
                          </property>
                          <layout class="QVBoxLayout" name="verticalLayout_17">
                           <property name="spacing">
-                           <number>8</number>
+                           <number>5</number>
                           </property>
                           <property name="leftMargin">
                            <number>0</number>
@@ -4048,7 +4032,7 @@ QScrollBar::sub-line:vertical:pressed{
                          </property>
                          <layout class="QVBoxLayout" name="verticalLayout_5">
                           <property name="spacing">
-                           <number>8</number>
+                           <number>5</number>
                           </property>
                           <property name="leftMargin">
                            <number>5</number>
@@ -5019,7 +5003,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
                                    <string notr="true">QPushButton{
 	color: rgb(13, 9, 36);
 	background-color:rgb(255, 0, 127);
-	font: 700 14pt &quot;等线&quot;;
+	font: 700 12pt &quot;等线&quot;;
 	border-radius: 12px;
 }
 QPushButton:hover{
@@ -5076,7 +5060,7 @@ QPushButton:pressed{
                                  <widget class="QFrame" name="frame_118">
                                   <property name="styleSheet">
                                    <string notr="true">QFrame {		
-	background-color: rgb(245, 255, 255);
+	background-color: rgb(178, 178, 178);
 	border: none;
 }
 
@@ -6822,7 +6806,7 @@ QFrame:hover {
                                 <string notr="true">QPushButton{
 	color: rgb(13, 9, 36);
 	background-color:rgb(255, 0, 127);
-	font: 700 14pt &quot;等线&quot;;
+	font: 700 12pt &quot;等线&quot;;
 	border-radius: 15px;
 }
 QPushButton:hover{
@@ -6892,7 +6876,7 @@ QPushButton:pressed{
                                 <string notr="true">QPushButton{
 	color: rgb(13, 9, 36);
 	background-color:rgb(0, 255, 0);
-	font: 700 14pt &quot;等线&quot;;
+	font: 700 12pt &quot;等线&quot;;
 	border-radius: 15px;
 }
 QPushButton:hover{
@@ -10255,7 +10239,7 @@ QPushButton:disabled{
                     </attribute>
                     <layout class="QVBoxLayout" name="verticalLayout_27">
                      <property name="spacing">
-                      <number>7</number>
+                      <number>3</number>
                      </property>
                      <property name="leftMargin">
                       <number>0</number>
@@ -10796,7 +10780,7 @@ QScrollBar::sub-line:vertical:pressed{
                        <property name="maximumSize">
                         <size>
                          <width>16777215</width>
-                         <height>40</height>
+                         <height>60</height>
                         </size>
                        </property>
                        <property name="styleSheet">
@@ -10833,6 +10817,12 @@ QFrame:hover {
                         </property>
                         <item>
                          <widget class="QFrame" name="frame_107">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>40</height>
+                           </size>
+                          </property>
                           <property name="styleSheet">
                            <string notr="true">QFrame {
 	border: none;
@@ -10913,13 +10903,13 @@ QFrame:hover {
                                 <property name="minimumSize">
                                  <size>
                                   <width>250</width>
-                                  <height>30</height>
+                                  <height>35</height>
                                  </size>
                                 </property>
                                 <property name="maximumSize">
                                  <size>
                                   <width>250</width>
-                                  <height>30</height>
+                                  <height>35</height>
                                  </size>
                                 </property>
                                 <property name="styleSheet">
@@ -11011,13 +11001,13 @@ QPushButton:disabled{
                                 <property name="minimumSize">
                                  <size>
                                   <width>250</width>
-                                  <height>30</height>
+                                  <height>35</height>
                                  </size>
                                 </property>
                                 <property name="maximumSize">
                                  <size>
                                   <width>250</width>
-                                  <height>30</height>
+                                  <height>35</height>
                                  </size>
                                 </property>
                                 <property name="styleSheet">
@@ -11061,6 +11051,18 @@ QPushButton:disabled{
                            </item>
                            <item>
                             <widget class="QFrame" name="frame_17">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>35</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>400</width>
+                               <height>35</height>
+                              </size>
+                             </property>
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -11084,22 +11086,22 @@ QPushButton:disabled{
                                <number>0</number>
                               </property>
                               <item>
-                               <widget class="QLabel" name="label_reload_process_config">
+                               <widget class="QPushButton" name="Btn_reload_process_config">
                                 <property name="minimumSize">
                                  <size>
                                   <width>0</width>
-                                  <height>30</height>
+                                  <height>35</height>
                                  </size>
                                 </property>
                                 <property name="maximumSize">
                                  <size>
-                                  <width>16777215</width>
-                                  <height>30</height>
+                                  <width>250</width>
+                                  <height>35</height>
                                  </size>
                                 </property>
                                 <property name="styleSheet">
                                  <string notr="true">QPushButton{	
-	font: 700 18pt &quot;等线&quot;;
+	font: 700 16pt &quot;等线&quot;;
 	background-color: rgb(255, 0, 127);
 	border-radius: 15px;
 }
@@ -11120,10 +11122,7 @@ QPushButton:disabled{
 </string>
                                 </property>
                                 <property name="text">
-                                 <string>重新加载进程参数配置表</string>
-                                </property>
-                                <property name="alignment">
-                                 <set>Qt::AlignCenter</set>
+                                 <string>刷新进程参数配置表</string>
                                 </property>
                                </widget>
                               </item>

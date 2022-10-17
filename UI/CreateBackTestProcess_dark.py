@@ -25,9 +25,9 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(1400, 800)
-        Form.setMinimumSize(QSize(1400, 800))
-        Form.setMaximumSize(QSize(1400, 800))
+        Form.resize(1350, 800)
+        Form.setMinimumSize(QSize(0, 0))
+        Form.setMaximumSize(QSize(1350, 800))
         Form.setStyleSheet(u"")
         self.horizontalLayout_3 = QHBoxLayout(Form)
         self.horizontalLayout_3.setSpacing(0)
@@ -35,6 +35,8 @@ class Ui_Form(object):
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.frame_3 = QFrame(Form)
         self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setMinimumSize(QSize(1350, 800))
+        self.frame_3.setMaximumSize(QSize(1350, 800))
         self.frame_3.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
 "	border: 1px solid rgb(170, 0, 255);	\n"
@@ -65,9 +67,9 @@ class Ui_Form(object):
         self.horizontalLayout_2.setContentsMargins(-1, 5, -1, 5)
         self.label_tital_6 = QLabel(self.frame_2)
         self.label_tital_6.setObjectName(u"label_tital_6")
-        self.label_tital_6.setMinimumSize(QSize(0, 50))
-        self.label_tital_6.setMaximumSize(QSize(16777215, 50))
-        self.label_tital_6.setStyleSheet(u"font: 700 20pt \"\u7b49\u7ebf\";\n"
+        self.label_tital_6.setMinimumSize(QSize(0, 40))
+        self.label_tital_6.setMaximumSize(QSize(16777215, 40))
+        self.label_tital_6.setStyleSheet(u"font: 700 18pt \"\u7b49\u7ebf\";\n"
 "color: rgb(255, 0, 0);\n"
 "border: none;")
 
@@ -203,7 +205,7 @@ class Ui_Form(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.frame_93 = QFrame(self.frame)
         self.frame_93.setObjectName(u"frame_93")
-        self.frame_93.setMinimumSize(QSize(450, 400))
+        self.frame_93.setMinimumSize(QSize(430, 400))
         self.frame_93.setMaximumSize(QSize(450, 16333512))
         self.frame_93.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
@@ -239,8 +241,8 @@ class Ui_Form(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.upper_left_4.sizePolicy().hasHeightForWidth())
         self.upper_left_4.setSizePolicy(sizePolicy)
-        self.upper_left_4.setMinimumSize(QSize(205, 0))
-        self.upper_left_4.setMaximumSize(QSize(205, 1000))
+        self.upper_left_4.setMinimumSize(QSize(185, 0))
+        self.upper_left_4.setMaximumSize(QSize(185, 1000))
         self.upper_left_4.setStyleSheet(u"border:none")
         self.upper_left_4.setFrameShape(QFrame.StyledPanel)
         self.upper_left_4.setFrameShadow(QFrame.Raised)
@@ -251,8 +253,8 @@ class Ui_Form(object):
         self.label_select_tq_account = QLabel(self.upper_left_4)
         self.label_select_tq_account.setObjectName(u"label_select_tq_account")
         self.label_select_tq_account.setEnabled(True)
-        self.label_select_tq_account.setMinimumSize(QSize(200, 40))
-        self.label_select_tq_account.setMaximumSize(QSize(200, 40))
+        self.label_select_tq_account.setMinimumSize(QSize(180, 40))
+        self.label_select_tq_account.setMaximumSize(QSize(180, 40))
         self.label_select_tq_account.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -274,8 +276,8 @@ class Ui_Form(object):
         self.label_select_strategy = QLabel(self.upper_left_4)
         self.label_select_strategy.setObjectName(u"label_select_strategy")
         self.label_select_strategy.setEnabled(True)
-        self.label_select_strategy.setMinimumSize(QSize(200, 40))
-        self.label_select_strategy.setMaximumSize(QSize(200, 40))
+        self.label_select_strategy.setMinimumSize(QSize(180, 40))
+        self.label_select_strategy.setMaximumSize(QSize(180, 40))
         self.label_select_strategy.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -296,8 +298,8 @@ class Ui_Form(object):
 
         self.label_exchange = QLabel(self.upper_left_4)
         self.label_exchange.setObjectName(u"label_exchange")
-        self.label_exchange.setMinimumSize(QSize(200, 40))
-        self.label_exchange.setMaximumSize(QSize(200, 40))
+        self.label_exchange.setMinimumSize(QSize(180, 40))
+        self.label_exchange.setMaximumSize(QSize(180, 40))
         self.label_exchange.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -318,8 +320,8 @@ class Ui_Form(object):
 
         self.label_5 = QLabel(self.upper_left_4)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setMinimumSize(QSize(200, 40))
-        self.label_5.setMaximumSize(QSize(200, 40))
+        self.label_5.setMinimumSize(QSize(180, 40))
+        self.label_5.setMaximumSize(QSize(180, 40))
         self.label_5.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -340,8 +342,8 @@ class Ui_Form(object):
 
         self.label_symbol = QLabel(self.upper_left_4)
         self.label_symbol.setObjectName(u"label_symbol")
-        self.label_symbol.setMinimumSize(QSize(200, 40))
-        self.label_symbol.setMaximumSize(QSize(200, 40))
+        self.label_symbol.setMinimumSize(QSize(180, 40))
+        self.label_symbol.setMaximumSize(QSize(180, 40))
         self.label_symbol.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -362,8 +364,8 @@ class Ui_Form(object):
 
         self.label_symbol_period = QLabel(self.upper_left_4)
         self.label_symbol_period.setObjectName(u"label_symbol_period")
-        self.label_symbol_period.setMinimumSize(QSize(200, 40))
-        self.label_symbol_period.setMaximumSize(QSize(200, 40))
+        self.label_symbol_period.setMinimumSize(QSize(180, 40))
+        self.label_symbol_period.setMaximumSize(QSize(180, 40))
         self.label_symbol_period.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -384,8 +386,8 @@ class Ui_Form(object):
 
         self.label_initial_capital = QLabel(self.upper_left_4)
         self.label_initial_capital.setObjectName(u"label_initial_capital")
-        self.label_initial_capital.setMinimumSize(QSize(200, 40))
-        self.label_initial_capital.setMaximumSize(QSize(200, 40))
+        self.label_initial_capital.setMinimumSize(QSize(180, 40))
+        self.label_initial_capital.setMaximumSize(QSize(180, 40))
         self.label_initial_capital.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -406,8 +408,8 @@ class Ui_Form(object):
 
         self.label_web_port = QLabel(self.upper_left_4)
         self.label_web_port.setObjectName(u"label_web_port")
-        self.label_web_port.setMinimumSize(QSize(200, 40))
-        self.label_web_port.setMaximumSize(QSize(200, 40))
+        self.label_web_port.setMinimumSize(QSize(180, 40))
+        self.label_web_port.setMaximumSize(QSize(180, 40))
         self.label_web_port.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -428,8 +430,8 @@ class Ui_Form(object):
 
         self.label_orientation = QLabel(self.upper_left_4)
         self.label_orientation.setObjectName(u"label_orientation")
-        self.label_orientation.setMinimumSize(QSize(200, 40))
-        self.label_orientation.setMaximumSize(QSize(200, 40))
+        self.label_orientation.setMinimumSize(QSize(180, 40))
+        self.label_orientation.setMaximumSize(QSize(180, 40))
         self.label_orientation.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -450,8 +452,8 @@ class Ui_Form(object):
 
         self.label_contract_multiples = QLabel(self.upper_left_4)
         self.label_contract_multiples.setObjectName(u"label_contract_multiples")
-        self.label_contract_multiples.setMinimumSize(QSize(200, 40))
-        self.label_contract_multiples.setMaximumSize(QSize(200, 40))
+        self.label_contract_multiples.setMinimumSize(QSize(180, 40))
+        self.label_contract_multiples.setMaximumSize(QSize(180, 40))
         self.label_contract_multiples.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -472,8 +474,8 @@ class Ui_Form(object):
 
         self.label_margin_rate = QLabel(self.upper_left_4)
         self.label_margin_rate.setObjectName(u"label_margin_rate")
-        self.label_margin_rate.setMinimumSize(QSize(200, 40))
-        self.label_margin_rate.setMaximumSize(QSize(200, 40))
+        self.label_margin_rate.setMinimumSize(QSize(180, 40))
+        self.label_margin_rate.setMaximumSize(QSize(180, 40))
         self.label_margin_rate.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -1284,8 +1286,8 @@ class Ui_Form(object):
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.Btn_stop_backtest = QPushButton(self.frame_9)
         self.Btn_stop_backtest.setObjectName(u"Btn_stop_backtest")
-        self.Btn_stop_backtest.setMinimumSize(QSize(200, 40))
-        self.Btn_stop_backtest.setMaximumSize(QSize(200, 40))
+        self.Btn_stop_backtest.setMinimumSize(QSize(180, 40))
+        self.Btn_stop_backtest.setMaximumSize(QSize(180, 40))
         self.Btn_stop_backtest.setStyleSheet(u"QPushButton{	\n"
 "	background-color: rgb( 0, 250, 0);\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
@@ -1308,8 +1310,8 @@ class Ui_Form(object):
 
         self.Btn_clear_backtest_parameters = QPushButton(self.frame_9)
         self.Btn_clear_backtest_parameters.setObjectName(u"Btn_clear_backtest_parameters")
-        self.Btn_clear_backtest_parameters.setMinimumSize(QSize(200, 40))
-        self.Btn_clear_backtest_parameters.setMaximumSize(QSize(200, 40))
+        self.Btn_clear_backtest_parameters.setMinimumSize(QSize(180, 40))
+        self.Btn_clear_backtest_parameters.setMaximumSize(QSize(180, 40))
         self.Btn_clear_backtest_parameters.setStyleSheet(u"QPushButton{	\n"
 "	background-color: rgb(255, 85, 0);\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
@@ -1338,6 +1340,7 @@ class Ui_Form(object):
 
         self.frame_25 = QFrame(self.frame)
         self.frame_25.setObjectName(u"frame_25")
+        self.frame_25.setMinimumSize(QSize(430, 0))
         self.frame_25.setMaximumSize(QSize(450, 16777215))
         self.frame_25.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
@@ -1370,8 +1373,8 @@ class Ui_Form(object):
         self.upper_left_6.setObjectName(u"upper_left_6")
         sizePolicy.setHeightForWidth(self.upper_left_6.sizePolicy().hasHeightForWidth())
         self.upper_left_6.setSizePolicy(sizePolicy)
-        self.upper_left_6.setMinimumSize(QSize(205, 0))
-        self.upper_left_6.setMaximumSize(QSize(205, 1000))
+        self.upper_left_6.setMinimumSize(QSize(185, 0))
+        self.upper_left_6.setMaximumSize(QSize(185, 1000))
         self.upper_left_6.setStyleSheet(u"border:none")
         self.upper_left_6.setFrameShape(QFrame.StyledPanel)
         self.upper_left_6.setFrameShadow(QFrame.Raised)
@@ -1381,8 +1384,8 @@ class Ui_Form(object):
         self.verticalLayout_53.setContentsMargins(0, 0, 0, 0)
         self.label_stop_loss = QLabel(self.upper_left_6)
         self.label_stop_loss.setObjectName(u"label_stop_loss")
-        self.label_stop_loss.setMinimumSize(QSize(200, 40))
-        self.label_stop_loss.setMaximumSize(QSize(200, 40))
+        self.label_stop_loss.setMinimumSize(QSize(180, 40))
+        self.label_stop_loss.setMaximumSize(QSize(180, 40))
         self.label_stop_loss.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -1403,8 +1406,8 @@ class Ui_Form(object):
 
         self.label_stop_profit = QLabel(self.upper_left_6)
         self.label_stop_profit.setObjectName(u"label_stop_profit")
-        self.label_stop_profit.setMinimumSize(QSize(200, 40))
-        self.label_stop_profit.setMaximumSize(QSize(200, 40))
+        self.label_stop_profit.setMinimumSize(QSize(180, 40))
+        self.label_stop_profit.setMaximumSize(QSize(180, 40))
         self.label_stop_profit.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -1425,8 +1428,8 @@ class Ui_Form(object):
 
         self.label_Customized_parameters1 = QLabel(self.upper_left_6)
         self.label_Customized_parameters1.setObjectName(u"label_Customized_parameters1")
-        self.label_Customized_parameters1.setMinimumSize(QSize(200, 40))
-        self.label_Customized_parameters1.setMaximumSize(QSize(200, 40))
+        self.label_Customized_parameters1.setMinimumSize(QSize(180, 40))
+        self.label_Customized_parameters1.setMaximumSize(QSize(180, 40))
         self.label_Customized_parameters1.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -1447,8 +1450,8 @@ class Ui_Form(object):
 
         self.label_Customized_parameters2 = QLabel(self.upper_left_6)
         self.label_Customized_parameters2.setObjectName(u"label_Customized_parameters2")
-        self.label_Customized_parameters2.setMinimumSize(QSize(200, 40))
-        self.label_Customized_parameters2.setMaximumSize(QSize(200, 40))
+        self.label_Customized_parameters2.setMinimumSize(QSize(180, 40))
+        self.label_Customized_parameters2.setMaximumSize(QSize(180, 40))
         self.label_Customized_parameters2.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -1469,8 +1472,8 @@ class Ui_Form(object):
 
         self.label_Customized_parameters3 = QLabel(self.upper_left_6)
         self.label_Customized_parameters3.setObjectName(u"label_Customized_parameters3")
-        self.label_Customized_parameters3.setMinimumSize(QSize(200, 40))
-        self.label_Customized_parameters3.setMaximumSize(QSize(200, 40))
+        self.label_Customized_parameters3.setMinimumSize(QSize(180, 40))
+        self.label_Customized_parameters3.setMaximumSize(QSize(180, 40))
         self.label_Customized_parameters3.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -1491,8 +1494,8 @@ class Ui_Form(object):
 
         self.label_Customized_parameters4 = QLabel(self.upper_left_6)
         self.label_Customized_parameters4.setObjectName(u"label_Customized_parameters4")
-        self.label_Customized_parameters4.setMinimumSize(QSize(200, 40))
-        self.label_Customized_parameters4.setMaximumSize(QSize(200, 40))
+        self.label_Customized_parameters4.setMinimumSize(QSize(180, 40))
+        self.label_Customized_parameters4.setMaximumSize(QSize(180, 40))
         self.label_Customized_parameters4.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -1513,8 +1516,8 @@ class Ui_Form(object):
 
         self.label_Customized_parameters5 = QLabel(self.upper_left_6)
         self.label_Customized_parameters5.setObjectName(u"label_Customized_parameters5")
-        self.label_Customized_parameters5.setMinimumSize(QSize(200, 40))
-        self.label_Customized_parameters5.setMaximumSize(QSize(200, 40))
+        self.label_Customized_parameters5.setMinimumSize(QSize(180, 40))
+        self.label_Customized_parameters5.setMaximumSize(QSize(180, 40))
         self.label_Customized_parameters5.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -1535,8 +1538,8 @@ class Ui_Form(object):
 
         self.label_Customized_parameters6 = QLabel(self.upper_left_6)
         self.label_Customized_parameters6.setObjectName(u"label_Customized_parameters6")
-        self.label_Customized_parameters6.setMinimumSize(QSize(200, 40))
-        self.label_Customized_parameters6.setMaximumSize(QSize(200, 40))
+        self.label_Customized_parameters6.setMinimumSize(QSize(180, 40))
+        self.label_Customized_parameters6.setMaximumSize(QSize(180, 40))
         self.label_Customized_parameters6.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -1557,8 +1560,8 @@ class Ui_Form(object):
 
         self.label_Customized_parameters7 = QLabel(self.upper_left_6)
         self.label_Customized_parameters7.setObjectName(u"label_Customized_parameters7")
-        self.label_Customized_parameters7.setMinimumSize(QSize(200, 40))
-        self.label_Customized_parameters7.setMaximumSize(QSize(200, 40))
+        self.label_Customized_parameters7.setMinimumSize(QSize(180, 40))
+        self.label_Customized_parameters7.setMaximumSize(QSize(180, 40))
         self.label_Customized_parameters7.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -1579,8 +1582,8 @@ class Ui_Form(object):
 
         self.label_Customized_parameters8 = QLabel(self.upper_left_6)
         self.label_Customized_parameters8.setObjectName(u"label_Customized_parameters8")
-        self.label_Customized_parameters8.setMinimumSize(QSize(200, 40))
-        self.label_Customized_parameters8.setMaximumSize(QSize(200, 40))
+        self.label_Customized_parameters8.setMinimumSize(QSize(180, 40))
+        self.label_Customized_parameters8.setMaximumSize(QSize(180, 40))
         self.label_Customized_parameters8.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -1601,8 +1604,8 @@ class Ui_Form(object):
 
         self.label_Customized_parameters9 = QLabel(self.upper_left_6)
         self.label_Customized_parameters9.setObjectName(u"label_Customized_parameters9")
-        self.label_Customized_parameters9.setMinimumSize(QSize(200, 40))
-        self.label_Customized_parameters9.setMaximumSize(QSize(200, 40))
+        self.label_Customized_parameters9.setMinimumSize(QSize(180, 40))
+        self.label_Customized_parameters9.setMaximumSize(QSize(180, 40))
         self.label_Customized_parameters9.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -1979,7 +1982,7 @@ class Ui_Form(object):
 
         self.frame_97 = QFrame(self.frame)
         self.frame_97.setObjectName(u"frame_97")
-        self.frame_97.setMinimumSize(QSize(200, 0))
+        self.frame_97.setMinimumSize(QSize(450, 0))
         self.frame_97.setMaximumSize(QSize(450, 16777215))
         self.frame_97.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
@@ -1992,7 +1995,7 @@ class Ui_Form(object):
         self.frame_97.setFrameShape(QFrame.StyledPanel)
         self.frame_97.setFrameShadow(QFrame.Raised)
         self.verticalLayout_58 = QVBoxLayout(self.frame_97)
-        self.verticalLayout_58.setSpacing(20)
+        self.verticalLayout_58.setSpacing(10)
         self.verticalLayout_58.setObjectName(u"verticalLayout_58")
         self.verticalLayout_58.setContentsMargins(0, 0, 0, 0)
         self.frame_77 = QFrame(self.frame_97)
@@ -2018,6 +2021,8 @@ class Ui_Form(object):
         self.horizontalLayout_44.setContentsMargins(0, 0, 0, 0)
         self.frame_4 = QFrame(self.frame_77)
         self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMinimumSize(QSize(185, 0))
+        self.frame_4.setMaximumSize(QSize(185, 16777215))
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
         self.verticalLayout_4 = QVBoxLayout(self.frame_4)
@@ -2026,8 +2031,8 @@ class Ui_Form(object):
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.lable_whether_open_line = QLabel(self.frame_4)
         self.lable_whether_open_line.setObjectName(u"lable_whether_open_line")
-        self.lable_whether_open_line.setMinimumSize(QSize(200, 40))
-        self.lable_whether_open_line.setMaximumSize(QSize(200, 40))
+        self.lable_whether_open_line.setMinimumSize(QSize(180, 40))
+        self.lable_whether_open_line.setMaximumSize(QSize(180, 40))
         self.lable_whether_open_line.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -2048,8 +2053,8 @@ class Ui_Form(object):
 
         self.label_open_line_Coordinates = QLabel(self.frame_4)
         self.label_open_line_Coordinates.setObjectName(u"label_open_line_Coordinates")
-        self.label_open_line_Coordinates.setMinimumSize(QSize(200, 40))
-        self.label_open_line_Coordinates.setMaximumSize(QSize(200, 40))
+        self.label_open_line_Coordinates.setMinimumSize(QSize(180, 40))
+        self.label_open_line_Coordinates.setMaximumSize(QSize(180, 40))
         self.label_open_line_Coordinates.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -2070,8 +2075,8 @@ class Ui_Form(object):
 
         self.label_whether_close_line = QLabel(self.frame_4)
         self.label_whether_close_line.setObjectName(u"label_whether_close_line")
-        self.label_whether_close_line.setMinimumSize(QSize(200, 40))
-        self.label_whether_close_line.setMaximumSize(QSize(200, 40))
+        self.label_whether_close_line.setMinimumSize(QSize(180, 40))
+        self.label_whether_close_line.setMaximumSize(QSize(180, 40))
         self.label_whether_close_line.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -2092,8 +2097,8 @@ class Ui_Form(object):
 
         self.label_close_line_Coordinates = QLabel(self.frame_4)
         self.label_close_line_Coordinates.setObjectName(u"label_close_line_Coordinates")
-        self.label_close_line_Coordinates.setMinimumSize(QSize(200, 40))
-        self.label_close_line_Coordinates.setMaximumSize(QSize(200, 40))
+        self.label_close_line_Coordinates.setMinimumSize(QSize(180, 40))
+        self.label_close_line_Coordinates.setMaximumSize(QSize(180, 40))
         self.label_close_line_Coordinates.setStyleSheet(u"QLabel {\n"
 "	font: 700 18pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 255);\n"
@@ -2260,7 +2265,7 @@ class Ui_Form(object):
 
         self.verticalLayout_58.addWidget(self.frame_77, 0, Qt.AlignHCenter)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 1, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_58.addItem(self.verticalSpacer)
 
@@ -2271,25 +2276,23 @@ class Ui_Form(object):
         self.frame_98.setMinimumSize(QSize(0, 350))
         self.frame_98.setStyleSheet(u"QFrame {	\n"
 "	background-color: transparent;\n"
-"	border-radius: 15px;\n"
-"	border: none;\n"
-"}\n"
-"QFrame:hover {\n"
-"	border:none;\n"
+"	border: 1px solid rgb(65, 51, 156);\n"
 "}")
         self.frame_98.setFrameShape(QFrame.StyledPanel)
         self.frame_98.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_55 = QHBoxLayout(self.frame_98)
         self.horizontalLayout_55.setSpacing(10)
         self.horizontalLayout_55.setObjectName(u"horizontalLayout_55")
-        self.horizontalLayout_55.setContentsMargins(10, 0, 10, 10)
+        self.horizontalLayout_55.setContentsMargins(10, 10, 10, 10)
         self.frame_94 = QFrame(self.frame_98)
         self.frame_94.setObjectName(u"frame_94")
         self.frame_94.setMinimumSize(QSize(0, 0))
-        self.frame_94.setMaximumSize(QSize(240, 500))
+        self.frame_94.setMaximumSize(QSize(240, 600))
+        self.frame_94.setStyleSheet(u"border: none;")
         self.frame_94.setFrameShape(QFrame.StyledPanel)
         self.frame_94.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.frame_94)
+        self.verticalLayout_2.setSpacing(10)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.label_2 = QLabel(self.frame_94)
@@ -2318,8 +2321,8 @@ class Ui_Form(object):
 
         self.calendar_backtest_startdate = QCalendarWidget(self.frame_94)
         self.calendar_backtest_startdate.setObjectName(u"calendar_backtest_startdate")
-        self.calendar_backtest_startdate.setMinimumSize(QSize(210, 240))
-        self.calendar_backtest_startdate.setMaximumSize(QSize(210, 240))
+        self.calendar_backtest_startdate.setMinimumSize(QSize(200, 250))
+        self.calendar_backtest_startdate.setMaximumSize(QSize(200, 250))
         self.calendar_backtest_startdate.setStyleSheet(u"#qt_calendar_calendarview {\n"
 "     background: rgb(174, 182, 255);\n"
 "}\n"
@@ -2420,10 +2423,12 @@ class Ui_Form(object):
         self.frame_95 = QFrame(self.frame_98)
         self.frame_95.setObjectName(u"frame_95")
         self.frame_95.setMinimumSize(QSize(0, 0))
-        self.frame_95.setMaximumSize(QSize(240, 500))
+        self.frame_95.setMaximumSize(QSize(240, 600))
+        self.frame_95.setStyleSheet(u"border: none;")
         self.frame_95.setFrameShape(QFrame.StyledPanel)
         self.frame_95.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.frame_95)
+        self.verticalLayout_3.setSpacing(10)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.label_3 = QLabel(self.frame_95)
@@ -2452,8 +2457,8 @@ class Ui_Form(object):
 
         self.calendar_backtest_enddate = QCalendarWidget(self.frame_95)
         self.calendar_backtest_enddate.setObjectName(u"calendar_backtest_enddate")
-        self.calendar_backtest_enddate.setMinimumSize(QSize(210, 240))
-        self.calendar_backtest_enddate.setMaximumSize(QSize(210, 240))
+        self.calendar_backtest_enddate.setMinimumSize(QSize(200, 250))
+        self.calendar_backtest_enddate.setMaximumSize(QSize(200, 250))
         self.calendar_backtest_enddate.setStyleSheet(u"#qt_calendar_calendarview {\n"
 "     background: rgb(174, 182, 255);\n"
 "}\n"

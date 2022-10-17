@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'LineStyle_light.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.3.1
+## Created by: Qt User Interface Compiler version 6.3.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,7 +24,9 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(322, 262)
+        Form.resize(350, 250)
+        Form.setMinimumSize(QSize(350, 250))
+        Form.setMaximumSize(QSize(350, 250))
         self.horizontalLayout = QHBoxLayout(Form)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -197,8 +199,8 @@ class Ui_Form(object):
         self.spinBox_linewidth.setStyleSheet(u"QSpinBox {\n"
 "    padding-top: 2px;\n"
 "    padding-bottom: 2px;\n"
-"	padding-left: 15px;\n"
-"    padding-right: 10px;\n"
+"	padding-left: 10px;\n"
+"    padding-right: 15px;\n"
 "    border: 1px solid rgb(64,64,64);\n"
 "    border-radius: 15px;\n"
 "	color: rgb(0,0,0);\n"
@@ -225,7 +227,7 @@ class Ui_Form(object):
 "\n"
 "QSpinBox::up-arrow { /* \u5411\u4e0a\u7bad\u5934 */\n"
 "	width: 20px;\n"
-"	image: url(:/\u56fe\u6807/icons/\u4e0a.svg);\n"
+"	image: url(:/icon/icons/\u4e0a.svg);\n"
 "}\n"
 "\n"
 "QSpinBox::up-arrow:hover {\n"
@@ -234,9 +236,9 @@ class Ui_Form(object):
 "QSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off {\n"
 "	\n"
 "}\n"
-""
-                        "\n"
-"QSpinBox::down-button { /* \u5411\u4e0b\u6309\u94ae */\n"
+"\n"
+"QSp"
+                        "inBox::down-button { /* \u5411\u4e0b\u6309\u94ae */\n"
 "	subcontrol-origin: border;\n"
 "	subcontrol-position: bottom right;\n"
 "	border: none;\n"
@@ -249,7 +251,7 @@ class Ui_Form(object):
 "\n"
 "QSpinBox::down-arrow { /* \u5411\u4e0b\u7bad\u5934 */\n"
 "	width: 20px;\n"
-"	image: url(:/\u56fe\u6807/icons/\u4e0b.svg);\n"
+"	image: url(:/icon/icons/\u4e0b.svg);\n"
 "}\n"
 "\n"
 "QSpinBox::down-arrow:hover {\n"

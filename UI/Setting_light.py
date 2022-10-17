@@ -24,7 +24,9 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(506, 402)
+        Dialog.resize(500, 400)
+        Dialog.setMinimumSize(QSize(500, 400))
+        Dialog.setMaximumSize(QSize(500, 400))
         self.horizontalLayout = QHBoxLayout(Dialog)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")

@@ -236,6 +236,7 @@ class Main_window(QMainWindow, UI, Main_Process_Function):
         self.Btn_update_treeview.clicked.connect(self.show_file_in_treeview)
         self.Btn_add_new_process.clicked.connect(self.show_create_new_process_window)
         self.Btn_add_backtest_process.clicked.connect(self.show_create_backtest_window)
+        self.Btn_reload_process_config.clicked.connect(self.reload_process_config)
         self.Btn_add_self_selection_contracts.clicked.connect(self.add_self_selection_list)
         self.Btn_draw_line_order.clicked.connect(self.KLineWidget.draw_line_by_mouse)
         self.Btn_draw_line_style.clicked.connect(self.KLineWidget.set_draw_line_style)

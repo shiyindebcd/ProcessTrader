@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Delete_Warning_dark.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.3.1
+## Created by: Qt User Interface Compiler version 6.3.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -23,7 +23,9 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(502, 252)
+        Dialog.resize(500, 250)
+        Dialog.setMinimumSize(QSize(500, 250))
+        Dialog.setMaximumSize(QSize(500, 250))
         self.frame = QFrame(Dialog)
         self.frame.setObjectName(u"frame")
         self.frame.setGeometry(QRect(0, 0, 500, 250))

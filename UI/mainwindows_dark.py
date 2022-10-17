@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1352, 803)
+        MainWindow.resize(1352, 802)
         MainWindow.setMinimumSize(QSize(0, 0))
         MainWindow.setMaximumSize(QSize(16777215, 16777215))
         MainWindow.setStyleSheet(u"background-color:rgb(0, 0, 0);\n"
@@ -116,8 +116,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_39.setContentsMargins(0, 0, 0, 0)
         self.label_logo = QLabel(self.frame_68)
         self.label_logo.setObjectName(u"label_logo")
-        self.label_logo.setMinimumSize(QSize(120, 40))
-        self.label_logo.setMaximumSize(QSize(120, 40))
+        self.label_logo.setMinimumSize(QSize(100, 40))
+        self.label_logo.setMaximumSize(QSize(100, 40))
         self.label_logo.setScaledContents(True)
 
         self.horizontalLayout_39.addWidget(self.label_logo)
@@ -131,7 +131,7 @@ class Ui_MainWindow(object):
 
         self.label_tital = QLabel(self.Headerframe)
         self.label_tital.setObjectName(u"label_tital")
-        self.label_tital.setStyleSheet(u"font: 700 20pt \"\u7b49\u7ebf\";\n"
+        self.label_tital.setStyleSheet(u"font: 700 18pt \"\u7b49\u7ebf\";\n"
 "color: rgb(255, 0, 0);\n"
 "border: none;")
 
@@ -329,10 +329,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_40.setSpacing(5)
         self.verticalLayout_40.setObjectName(u"verticalLayout_40")
         self.verticalLayout_40.setContentsMargins(0, 0, 0, -1)
-        self.verticalSpacer_5 = QSpacerItem(20, 5, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.verticalLayout_40.addItem(self.verticalSpacer_5)
-
         self.Btn_homepage = QPushButton(self.frame_38)
         self.Btn_homepage.setObjectName(u"Btn_homepage")
         self.Btn_homepage.setMinimumSize(QSize(25, 90))
@@ -556,19 +552,18 @@ class Ui_MainWindow(object):
         self.verticalLayout_12.setContentsMargins(5, 5, 5, 5)
         self.Veiw_Box = QToolBox(self.frame_18)
         self.Veiw_Box.setObjectName(u"Veiw_Box")
-        self.Veiw_Box.setStyleSheet(u"\n"
-"QToolBox{\n"
+        self.Veiw_Box.setStyleSheet(u"QToolBox{\n"
 "background-color: rgb(13, 9, 27);/*\u80cc\u666f\u8272-\u7a7a\u9699\u989c\u8272*/\n"
 "border: none;\n"
 "}\n"
 "QToolBox>QAbstractButton{/*\u6807\u9898\u680f*/\n"
-"	min-height:30px;\n"
+"	min-height:25px;\n"
 "}\n"
 "QToolBox::tab{\n"
-"	font: 14pt \"\u7b49\u7ebf\";	\n"
+"	font: 12pt \"\u7b49\u7ebf\";	\n"
 "	color: rgb(200, 200, 200);	\n"
 "	background-color: rgb(85, 0, 255);\n"
-"	border-radius: 15px;\n"
+"	border-radius: 10px;\n"
 "	border: none;\n"
 "	padding:3px 3px 3px 10px;\n"
 "}\n"
@@ -577,7 +572,7 @@ class Ui_MainWindow(object):
 "background-color: rgb(255, 170, 0);\n"
 "}\n"
 "QToolBox::tab:selected{\n"
-"font: 700 16pt \"\u7b49\u7ebf\";\n"
+"font: 700 12pt \"\u7b49\u7ebf\";\n"
 "color:rgb(255, 0, 127);\n"
 "border: 2px solid rgb(255, 85, 0);\n"
 "}\n"
@@ -1191,7 +1186,7 @@ class Ui_MainWindow(object):
         self.Veiw_Box.addItem(self.qoute_list_page, u"\u7b56\u7565\u4e2d\u5f15\u7528\u7684\u884c\u60c5\u5217\u8868")
         self.process_list_page = QWidget()
         self.process_list_page.setObjectName(u"process_list_page")
-        self.process_list_page.setGeometry(QRect(0, 0, 89, 66))
+        self.process_list_page.setGeometry(QRect(0, 0, 218, 462))
         self.verticalLayout_14 = QVBoxLayout(self.process_list_page)
         self.verticalLayout_14.setSpacing(0)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
@@ -1360,15 +1355,15 @@ class Ui_MainWindow(object):
         self.Btn_start_all_stoped_strategy.setMaximumSize(QSize(200, 35))
         font4 = QFont()
         font4.setFamilies([u"\u7b49\u7ebf"])
-        font4.setPointSize(16)
+        font4.setPointSize(14)
         font4.setBold(True)
         font4.setItalic(False)
         self.Btn_start_all_stoped_strategy.setFont(font4)
         self.Btn_start_all_stoped_strategy.setStyleSheet(u"QPushButton{\n"
 "	color: rgb(13, 9, 36);\n"
 "	background-color:rgb(0, 255, 0);\n"
-"	font: 700 16pt \"\u7b49\u7ebf\";\n"
-"	border-radius: 17px;\n"
+"	font: 700 14pt \"\u7b49\u7ebf\";\n"
+"	border-radius: 15px;\n"
 "}\n"
 "QPushButton:hover{\n"
 "	border: 2px solid rgb(255, 85, 0); \n"
@@ -1389,8 +1384,8 @@ class Ui_MainWindow(object):
         self.Btn_kill_all_process.setStyleSheet(u"QPushButton{\n"
 "	color: rgb(13, 9, 36);\n"
 "	background-color:rgb(255, 0, 127);\n"
-"	font: 700 16pt \"\u7b49\u7ebf\";\n"
-"	border-radius: 17px;\n"
+"	font: 700 14pt \"\u7b49\u7ebf\";\n"
+"	border-radius: 15px;\n"
 "}\n"
 "QPushButton:hover{\n"
 "	border: 2px solid rgb(255, 85, 0); \n"
@@ -1462,7 +1457,7 @@ class Ui_MainWindow(object):
         self.frame_10.setFrameShape(QFrame.StyledPanel)
         self.frame_10.setFrameShadow(QFrame.Raised)
         self.verticalLayout_6 = QVBoxLayout(self.frame_10)
-        self.verticalLayout_6.setSpacing(8)
+        self.verticalLayout_6.setSpacing(5)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 4)
         self.frame_15 = QFrame(self.frame_10)
@@ -1486,12 +1481,7 @@ class Ui_MainWindow(object):
         self.label_22.setObjectName(u"label_22")
         self.label_22.setMinimumSize(QSize(0, 30))
         self.label_22.setMaximumSize(QSize(16777215, 30))
-        font5 = QFont()
-        font5.setFamilies([u"\u7b49\u7ebf"])
-        font5.setPointSize(14)
-        font5.setBold(True)
-        font5.setItalic(False)
-        self.label_22.setFont(font5)
+        self.label_22.setFont(font4)
         self.label_22.setStyleSheet(u"QFrame {\n"
 "	background-color: rgba(30, 30, 40, 0);\n"
 "	border: none;\n"
@@ -1508,12 +1498,12 @@ class Ui_MainWindow(object):
         self.Btn_opne_in_excel1.setObjectName(u"Btn_opne_in_excel1")
         self.Btn_opne_in_excel1.setMinimumSize(QSize(180, 30))
         self.Btn_opne_in_excel1.setMaximumSize(QSize(180, 30))
-        font6 = QFont()
-        font6.setFamilies([u"\u7b49\u7ebf"])
-        font6.setPointSize(14)
-        font6.setBold(False)
-        font6.setItalic(False)
-        self.Btn_opne_in_excel1.setFont(font6)
+        font5 = QFont()
+        font5.setFamilies([u"\u7b49\u7ebf"])
+        font5.setPointSize(14)
+        font5.setBold(False)
+        font5.setItalic(False)
+        self.Btn_opne_in_excel1.setFont(font5)
         self.Btn_opne_in_excel1.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
 "	background-color: rgba(40, 40, 70, 0);\n"
@@ -2151,7 +2141,7 @@ class Ui_MainWindow(object):
         self.frame_19.setFrameShape(QFrame.StyledPanel)
         self.frame_19.setFrameShadow(QFrame.Raised)
         self.verticalLayout_17 = QVBoxLayout(self.frame_19)
-        self.verticalLayout_17.setSpacing(8)
+        self.verticalLayout_17.setSpacing(5)
         self.verticalLayout_17.setObjectName(u"verticalLayout_17")
         self.verticalLayout_17.setContentsMargins(0, 0, 5, 0)
         self.frame_21 = QFrame(self.frame_19)
@@ -2176,7 +2166,7 @@ class Ui_MainWindow(object):
         self.label_23.setObjectName(u"label_23")
         self.label_23.setMinimumSize(QSize(0, 30))
         self.label_23.setMaximumSize(QSize(200, 30))
-        self.label_23.setFont(font5)
+        self.label_23.setFont(font4)
         self.label_23.setStyleSheet(u"QFrame {\n"
 "	background-color: rgba(30, 30, 40, 0);\n"
 "	border: none;\n"
@@ -2193,7 +2183,7 @@ class Ui_MainWindow(object):
         self.Btn_cleartext.setObjectName(u"Btn_cleartext")
         self.Btn_cleartext.setMinimumSize(QSize(180, 30))
         self.Btn_cleartext.setMaximumSize(QSize(180, 30))
-        self.Btn_cleartext.setFont(font6)
+        self.Btn_cleartext.setFont(font5)
         self.Btn_cleartext.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
 "	background-color: rgba(40, 40, 70, 0);\n"
@@ -2370,7 +2360,7 @@ class Ui_MainWindow(object):
         self.frame_20.setFrameShape(QFrame.StyledPanel)
         self.frame_20.setFrameShadow(QFrame.Raised)
         self.verticalLayout_5 = QVBoxLayout(self.frame_20)
-        self.verticalLayout_5.setSpacing(8)
+        self.verticalLayout_5.setSpacing(5)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(5, 0, 7, 0)
         self.frame_11 = QFrame(self.frame_20)
@@ -2395,7 +2385,7 @@ class Ui_MainWindow(object):
         self.label_24.setObjectName(u"label_24")
         self.label_24.setMinimumSize(QSize(0, 30))
         self.label_24.setMaximumSize(QSize(150, 30))
-        self.label_24.setFont(font5)
+        self.label_24.setFont(font4)
         self.label_24.setStyleSheet(u"QFrame {\n"
 "	background-color: rgba(30, 30, 40, 0);\n"
 "	border: none;\n"
@@ -3813,7 +3803,7 @@ class Ui_MainWindow(object):
         self.label_37.setObjectName(u"label_37")
         self.label_37.setMinimumSize(QSize(0, 25))
         self.label_37.setMaximumSize(QSize(150, 16777215))
-        self.label_37.setFont(font5)
+        self.label_37.setFont(font4)
         self.label_37.setStyleSheet(u"QFrame {\n"
 "	background-color: rgba(30, 30, 40, 0);\n"
 "	border: none;\n"
@@ -4013,7 +4003,7 @@ class Ui_MainWindow(object):
         self.Btn_start_TQ_services.setStyleSheet(u"QPushButton{\n"
 "	color: rgb(13, 9, 36);\n"
 "	background-color:rgb(255, 0, 127);\n"
-"	font: 700 14pt \"\u7b49\u7ebf\";\n"
+"	font: 700 12pt \"\u7b49\u7ebf\";\n"
 "	border-radius: 15px;\n"
 "}\n"
 "QPushButton:hover{\n"
@@ -4052,7 +4042,7 @@ class Ui_MainWindow(object):
         self.Btn_stop_TQ_services.setStyleSheet(u"QPushButton{\n"
 "	color: rgb(13, 9, 36);\n"
 "	background-color:rgb(0, 255, 0);\n"
-"	font: 700 14pt \"\u7b49\u7ebf\";\n"
+"	font: 700 12pt \"\u7b49\u7ebf\";\n"
 "	border-radius: 15px;\n"
 "}\n"
 "QPushButton:hover{\n"
@@ -6081,7 +6071,7 @@ class Ui_MainWindow(object):
         self.tab_start_stop_strategy.setObjectName(u"tab_start_stop_strategy")
         self.tab_start_stop_strategy.setStyleSheet(u"")
         self.verticalLayout_27 = QVBoxLayout(self.tab_start_stop_strategy)
-        self.verticalLayout_27.setSpacing(7)
+        self.verticalLayout_27.setSpacing(3)
         self.verticalLayout_27.setObjectName(u"verticalLayout_27")
         self.verticalLayout_27.setContentsMargins(0, 0, 0, 0)
         self.frame_69 = QFrame(self.tab_start_stop_strategy)
@@ -6413,7 +6403,7 @@ class Ui_MainWindow(object):
         self.frame_107 = QFrame(self.frame_60)
         self.frame_107.setObjectName(u"frame_107")
         self.frame_107.setMinimumSize(QSize(0, 40))
-        self.frame_107.setMaximumSize(QSize(16777215, 40))
+        self.frame_107.setMaximumSize(QSize(16777215, 60))
         self.frame_107.setStyleSheet(u"QFrame {\n"
 "	background-color: rgb(13, 9, 36);\n"
 "	border: none;\n"
@@ -6441,8 +6431,8 @@ class Ui_MainWindow(object):
         self.Btn_add_new_process.setEnabled(True)
         sizePolicy7.setHeightForWidth(self.Btn_add_new_process.sizePolicy().hasHeightForWidth())
         self.Btn_add_new_process.setSizePolicy(sizePolicy7)
-        self.Btn_add_new_process.setMinimumSize(QSize(250, 30))
-        self.Btn_add_new_process.setMaximumSize(QSize(250, 30))
+        self.Btn_add_new_process.setMinimumSize(QSize(250, 35))
+        self.Btn_add_new_process.setMaximumSize(QSize(250, 35))
         self.Btn_add_new_process.setStyleSheet(u"QPushButton{	\n"
 "	background-color: rgb(255, 0, 0);\n"
 "	font: 700 16pt \"\u7b49\u7ebf\";\n"
@@ -6484,8 +6474,8 @@ class Ui_MainWindow(object):
         self.Btn_add_backtest_process.setEnabled(True)
         sizePolicy7.setHeightForWidth(self.Btn_add_backtest_process.sizePolicy().hasHeightForWidth())
         self.Btn_add_backtest_process.setSizePolicy(sizePolicy7)
-        self.Btn_add_backtest_process.setMinimumSize(QSize(250, 30))
-        self.Btn_add_backtest_process.setMaximumSize(QSize(250, 30))
+        self.Btn_add_backtest_process.setMinimumSize(QSize(250, 35))
+        self.Btn_add_backtest_process.setMaximumSize(QSize(250, 35))
         self.Btn_add_backtest_process.setStyleSheet(u"QPushButton{	\n"
 "	background-color: rgb(0, 255, 0);\n"
 "	font: 700 16pt \"\u7b49\u7ebf\";\n"
@@ -6514,19 +6504,19 @@ class Ui_MainWindow(object):
 
         self.frame_28 = QFrame(self.frame_107)
         self.frame_28.setObjectName(u"frame_28")
+        self.frame_28.setMaximumSize(QSize(400, 60))
         self.frame_28.setFrameShape(QFrame.StyledPanel)
         self.frame_28.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.frame_28)
         self.horizontalLayout_6.setSpacing(0)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.label_reload_process_config = QLabel(self.frame_28)
-        self.label_reload_process_config.setObjectName(u"label_reload_process_config")
-        self.label_reload_process_config.setMaximumSize(QSize(250, 30))
-        self.label_reload_process_config.setStyleSheet(u"QPushButton{\n"
-"	\n"
-"	color: rgb(255, 255, 255);\n"
-"	font: 700 18pt \"\u7b49\u7ebf\";\n"
+        self.Btn_reload_process_config = QPushButton(self.frame_28)
+        self.Btn_reload_process_config.setObjectName(u"Btn_reload_process_config")
+        self.Btn_reload_process_config.setMinimumSize(QSize(0, 35))
+        self.Btn_reload_process_config.setMaximumSize(QSize(250, 35))
+        self.Btn_reload_process_config.setStyleSheet(u"QPushButton{	\n"
+"	font: 700 16pt \"\u7b49\u7ebf\";\n"
 "	background-color: rgb(255, 0, 127);\n"
 "	border-radius: 15px;\n"
 "}\n"
@@ -6545,9 +6535,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.label_reload_process_config.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_6.addWidget(self.label_reload_process_config)
+        self.horizontalLayout_6.addWidget(self.Btn_reload_process_config)
 
 
         self.horizontalLayout_62.addWidget(self.frame_28)
@@ -7548,13 +7537,13 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.Btn_min_window.clicked.connect(MainWindow.showMinimized)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         self.Veiw_Box.setCurrentIndex(4)
         self.Veiw_Box.layout().setSpacing(6)
         self.comboBox_add_quote_exchange.setCurrentIndex(0)
         self.comboBox_contract_type.setCurrentIndex(-1)
         self.tabWidget_account.setCurrentIndex(2)
-        self.tabWidget_chart.setCurrentIndex(3)
+        self.tabWidget_chart.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -7729,7 +7718,7 @@ class Ui_MainWindow(object):
         self.Btn_opne_in_excel2.setText(QCoreApplication.translate("MainWindow", u"  \u5728Excel\u4e2d\u6253\u5f00", None))
         self.Btn_add_new_process.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0\u65b0\u7684\u7b56\u7565\u8fdb\u7a0b", None))
         self.Btn_add_backtest_process.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0\u7b56\u7565\u56de\u6d4b\u8fdb\u7a0b", None))
-        self.label_reload_process_config.setText(QCoreApplication.translate("MainWindow", u"\u5237\u65b0\u8fdb\u7a0b\u53c2\u6570\u914d\u7f6e\u8868", None))
+        self.Btn_reload_process_config.setText(QCoreApplication.translate("MainWindow", u"\u5237\u65b0\u8fdb\u7a0b\u53c2\u6570\u914d\u7f6e\u8868", None))
         self.tabWidget_account.setTabText(self.tabWidget_account.indexOf(self.tab_start_stop_strategy), QCoreApplication.translate("MainWindow", u"\u7b56\u7565\u603b\u89c8", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u65e5\u5fd7\u6587\u4ef6\u5217\u8868\uff1a", None))
         self.Btn_update_treeview.setText(QCoreApplication.translate("MainWindow", u"\u5237\u65b0\u6587\u4ef6\u5217\u8868", None))

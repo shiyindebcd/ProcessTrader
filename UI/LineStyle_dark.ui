@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>326</width>
-    <height>266</height>
+    <width>350</width>
+    <height>250</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>350</width>
+    <height>250</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>350</width>
+    <height>250</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -358,8 +370,8 @@ border: none;</string>
                <string notr="true">QSpinBox {
     padding-top: 2px;
     padding-bottom: 2px;
-	padding-left: 15px;
-    padding-right: 10px;
+	padding-left: 10px;
+    padding-right: 15px;
     border: 1px solid rgb(64,64,64);
     border-radius: 15px;
 	color: rgb(0,0,0);
@@ -386,7 +398,7 @@ QSpinBox::up-button:hover {
 
 QSpinBox::up-arrow { /* 向上箭头 */
 	width: 20px;
-	image: url(:/图标/icons/上.svg);
+	image: url(:/icon/icons/上.svg);
 }
 
 QSpinBox::up-arrow:hover {
@@ -409,7 +421,7 @@ QSpinBox::down-button:hover {
 
 QSpinBox::down-arrow { /* 向下箭头 */
 	width: 20px;
-	image: url(:/图标/icons/下.svg);
+	image: url(:/icon/icons/下.svg);
 }
 
 QSpinBox::down-arrow:hover {

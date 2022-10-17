@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1404</width>
-    <height>802</height>
+    <width>1350</width>
+    <height>800</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1350</width>
+    <height>800</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -34,6 +46,18 @@
    </property>
    <item>
     <widget class="QFrame" name="frame_3">
+     <property name="minimumSize">
+      <size>
+       <width>1350</width>
+       <height>800</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>1350</width>
+       <height>800</height>
+      </size>
+     </property>
      <property name="styleSheet">
       <string notr="true">QFrame {
 	background-color: rgb(255, 255, 255);
@@ -99,7 +123,7 @@
            <property name="minimumSize">
             <size>
              <width>0</width>
-             <height>50</height>
+             <height>40</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -114,7 +138,7 @@ color: rgb(255, 0, 0);
 border: none;</string>
            </property>
            <property name="text">
-            <string>创建新的策略进程</string>
+            <string>创建新的策略实例进程</string>
            </property>
           </widget>
          </item>
@@ -296,16 +320,16 @@ QPushButton:pressed {
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
-          <number>0</number>
+          <number>10</number>
          </property>
          <property name="leftMargin">
-          <number>0</number>
+          <number>10</number>
          </property>
          <property name="topMargin">
           <number>0</number>
          </property>
          <property name="rightMargin">
-          <number>0</number>
+          <number>10</number>
          </property>
          <property name="bottomMargin">
           <number>10</number>
@@ -314,7 +338,7 @@ QPushButton:pressed {
           <widget class="QFrame" name="frame_56">
            <property name="minimumSize">
             <size>
-             <width>450</width>
+             <width>430</width>
              <height>0</height>
             </size>
            </property>
@@ -394,7 +418,7 @@ color: rgb(0, 170, 0);
 border: none;</string>
                  </property>
                  <property name="text">
-                  <string>请输入策略进程运行所需要的参数</string>
+                  <string>请输入策略实例进程运行所需要的参数</string>
                  </property>
                 </widget>
                </item>
@@ -451,13 +475,13 @@ QFrame:hover {
                  </property>
                  <property name="minimumSize">
                   <size>
-                   <width>205</width>
+                   <width>185</width>
                    <height>0</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>205</width>
+                   <width>185</width>
                    <height>1000</height>
                   </size>
                  </property>
@@ -490,13 +514,13 @@ QFrame:hover {
                    <widget class="QLabel" name="label_select_clients_name1">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -534,13 +558,13 @@ QLabel:disabled{
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>20</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -578,13 +602,13 @@ QLabel:disabled{
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -619,13 +643,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_whether_self_start">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -663,13 +687,13 @@ QLabel:disabled{
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -704,13 +728,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_whether_open_web_services">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -745,13 +769,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_web_port">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -786,13 +810,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_exchange">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -827,13 +851,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_5">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -1844,7 +1868,7 @@ QScrollBar::add-line:vertical:pressed, QScrollBar::sub-line:vertical:pressed
            </property>
            <property name="minimumSize">
             <size>
-             <width>450</width>
+             <width>430</width>
              <height>0</height>
             </size>
            </property>
@@ -1951,13 +1975,13 @@ QFrame:hover {
                  </property>
                  <property name="minimumSize">
                   <size>
-                   <width>205</width>
+                   <width>185</width>
                    <height>0</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>205</width>
+                   <width>185</width>
                    <height>1000</height>
                   </size>
                  </property>
@@ -1990,13 +2014,13 @@ QFrame:hover {
                    <widget class="QLabel" name="label_symbol">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2028,13 +2052,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_symbol_period">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2069,13 +2093,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_initial_capital">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2110,13 +2134,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_orientation">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2151,13 +2175,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_trading_status">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2189,13 +2213,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_contract_multiples">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2230,13 +2254,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_margin_rate">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2271,13 +2295,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_stop_loss">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2312,13 +2336,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_stop_profit">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -2923,7 +2947,7 @@ QLineEdit:disabled{
            </property>
            <property name="minimumSize">
             <size>
-             <width>450</width>
+             <width>430</width>
              <height>0</height>
             </size>
            </property>
@@ -3030,13 +3054,13 @@ QFrame:hover {
                  </property>
                  <property name="minimumSize">
                   <size>
-                   <width>205</width>
+                   <width>185</width>
                    <height>0</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>205</width>
+                   <width>185</width>
                    <height>1000</height>
                   </size>
                  </property>
@@ -3069,13 +3093,13 @@ QFrame:hover {
                    <widget class="QLabel" name="label_Customized_parameters1">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -3107,13 +3131,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_Customized_parameters2">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -3148,13 +3172,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_Customized_parameters3">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -3189,13 +3213,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_Customized_parameters4">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -3230,13 +3254,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_Customized_parameters5">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -3271,13 +3295,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_Customized_parameters6">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -3312,13 +3336,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_Customized_parameters7">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -3353,13 +3377,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_Customized_parameters">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
@@ -3394,13 +3418,13 @@ QLabel:disabled{
                    <widget class="QLabel" name="label_Customized_parameters9">
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>200</width>
+                      <width>180</width>
                       <height>40</height>
                      </size>
                     </property>
